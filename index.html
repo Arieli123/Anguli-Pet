@@ -13,20 +13,67 @@
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.7.0/tabler-icons.min.css">
 <style>
-/* ... (Seu CSS permanece o mesmo, mantive tudo igual) ... */
+/* ═══════════════════════════════════════════
+   ANGULI PET PRO v2 — Design System
+   Azul Marinho principal, Ouro destaque,
+   Pastéis (verde menta, azul claro, bege)
+═══════════════════════════════════════════ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--azul:#0D2E6E;--azul-m:#1A4BAA;--azul-l:#3B6FD4;--azul-xl:#D6E4FF;--azul-bg:#EEF4FF;--ouro:#F5B800;--ouro-l:#FFF8DC;--ouro-d:#8A6500;--menta:#D1FAE5;--menta-d:#065F46;--areia:#FEF3C7;--areia-d:#92400E;--pastel-b:#DBEAFE;--pastel-bd:#1E3A8A;--branco:#FFFFFF;--bg:#F0F4FB;--card:#FFFFFF;--border:#DDE3F0;--border2:#C4CCDF;--tx:#1E2D4F;--tx2:#4A5878;--tx3:#8896B3;--verde:#16A34A;--verde-l:#DCFCE7;--verde-d:#14532D;--verm:#DC2626;--verm-l:#FEE2E2;--lj:#EA580C;--lj-l:#FFEDD5;--roxo:#7C3AED;--roxo-l:#EDE9FE;--r:14px; --r-sm:8px; --r-lg:20px; --r-xl:28px; --sh:0 2px 12px rgba(13,46,110,.08); --sh-lg:0 8px 32px rgba(13,46,110,.14); --nav-h:68px; --hdr-h:56px; --f:'Nunito',sans-serif;}
+:root{
+  --azul:      #0D2E6E;
+  --azul-m:    #1A4BAA;
+  --azul-l:    #3B6FD4;
+  --azul-xl:   #D6E4FF;
+  --azul-bg:   #EEF4FF;
+  --ouro:      #F5B800;
+  --ouro-l:    #FFF8DC;
+  --ouro-d:    #8A6500;
+  --menta:     #D1FAE5;
+  --menta-d:   #065F46;
+  --areia:     #FEF3C7;
+  --areia-d:   #92400E;
+  --pastel-b:  #DBEAFE;
+  --pastel-bd: #1E3A8A;
+  --branco:    #FFFFFF;
+  --bg:        #F0F4FB;
+  --card:      #FFFFFF;
+  --border:    #DDE3F0;
+  --border2:   #C4CCDF;
+  --tx:        #1E2D4F;
+  --tx2:       #4A5878;
+  --tx3:       #8896B3;
+  --verde:     #16A34A;
+  --verde-l:   #DCFCE7;
+  --verde-d:   #14532D;
+  --verm:      #DC2626;
+  --verm-l:    #FEE2E2;
+  --lj:        #EA580C;
+  --lj-l:      #FFEDD5;
+  --roxo:      #7C3AED;
+  --roxo-l:    #EDE9FE;
+  --r:14px; --r-sm:8px; --r-lg:20px; --r-xl:28px;
+  --sh:0 2px 12px rgba(13,46,110,.08);
+  --sh-lg:0 8px 32px rgba(13,46,110,.14);
+  --nav-h:68px; --hdr-h:56px;
+  --f:'Nunito',sans-serif;
+}
 body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+/* ══ SPLASH ══ */
 #splash{position:fixed;inset:0;background:var(--azul);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;transition:opacity .5s .1s}
 #splash.out{opacity:0;pointer-events:none}
-.sp-verse{font-size:13px;font-weight:800;color:rgba(255,255,255,.9);letter-spacing:.5px;text-align:center;margin-bottom:18px;padding:8px 20px;border:1px solid rgba(255,255,255,.25);border-radius:20px;background:rgba(255,255,255,.08)}
+.sp-verse{font-size:11px;font-weight:700;color:rgba(255,255,255,.45);letter-spacing:.8px;text-align:center;margin-top:28px;padding:0}
 .sp-logo{width:88px;height:88px;border-radius:26px;background:var(--ouro);display:flex;align-items:center;justify-content:center;font-size:44px;margin-bottom:18px;box-shadow:0 8px 32px rgba(245,184,0,.4)}
 .sp-t{font-size:26px;font-weight:900;color:#fff;letter-spacing:-1px}
 .sp-s{font-size:13px;color:rgba(255,255,255,.55);margin-top:5px}
 .sp-bar{width:160px;height:4px;background:rgba(255,255,255,.15);border-radius:4px;margin-top:28px;overflow:hidden}
 .sp-fill{height:100%;background:var(--ouro);border-radius:4px;animation:spfill 1.9s ease forwards}
 @keyframes spfill{from{width:0}to{width:100%}}
+
+/* ══ APP SHELL ══ */
 #app{display:flex;flex-direction:column;min-height:100dvh;max-width:480px;margin:0 auto}
+
+/* ══ HEADER ══ */
 #hdr{position:sticky;top:0;z-index:100;height:var(--hdr-h);background:var(--azul);display:flex;align-items:center;justify-content:space-between;padding:0 16px;box-shadow:0 2px 16px rgba(13,46,110,.3)}
 .hbrand{display:flex;align-items:center;gap:10px}
 .hlogo{width:34px;height:34px;border-radius:10px;background:var(--ouro);display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0}
@@ -38,7 +85,11 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
 .hsync:hover{color:#fff;background:rgba(255,255,255,.12)}
 .hsync.spin{animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
+
+/* ══ MAIN ══ */
 #main{flex:1;padding-bottom:calc(var(--nav-h) + 8px);overflow-x:hidden}
+
+/* ══ NAV ══ */
 #nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;height:var(--nav-h);background:var(--card);border-top:1px solid var(--border);display:none;z-index:100;padding-bottom:env(safe-area-inset-bottom);box-shadow:0 -4px 20px rgba(13,46,110,.09)}
 .nb{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;background:none;border:none;cursor:pointer;color:var(--tx3);transition:all .15s;font-family:var(--f);padding:4px 2px;min-width:0}
 .nb.on{color:var(--azul-m)}
@@ -46,12 +97,18 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
 .nb.on .nb-ic{background:var(--azul-xl)}
 .nb-lbl{font-size:8.5px;font-weight:900;letter-spacing:.05px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:46px;text-align:center}
 .nb-dot{position:absolute;top:4px;right:calc(50% - 26px);width:8px;height:8px;background:var(--verm);border-radius:50%;border:2px solid #fff}
+
+/* ══ PAGES ══ */
 .pg{display:none;animation:pgIn .22s ease}
 .pg.on{display:block}
 @keyframes pgIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* ══ SECTION HEAD ══ */
 .sh{padding:16px 16px 8px;display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
 .sh-t{font-size:21px;font-weight:900;color:var(--azul);letter-spacing:-.5px}
 .sh-s{font-size:12px;color:var(--tx3);margin-top:2px;font-weight:600}
+
+/* ══ KPI GRID ══ */
 .kgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 16px}
 .kcard{border-radius:var(--r);padding:14px 14px 12px;display:flex;flex-direction:column;gap:2px;cursor:default}
 .kcard i{font-size:22px;margin-bottom:4px}
@@ -65,10 +122,14 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
 .kp{background:#FFE4E6;color:#881337}
 .ka{background:var(--verm-l);color:#7F1D1D}
 .kdw{background:#F0FDF4;color:#065F46}
+
+/* ══ FAT FILTROS ══ */
 .fat-filtros{display:flex;gap:6px;padding:8px 16px 4px;overflow-x:auto;scrollbar-width:none}
 .fat-filtros::-webkit-scrollbar{display:none}
 .fat-btn{padding:6px 14px;border-radius:20px;font-size:11px;font-weight:800;border:1.5px solid var(--border);background:var(--card);color:var(--tx2);cursor:pointer;font-family:var(--f);white-space:nowrap;transition:all .15s;flex-shrink:0}
 .fat-btn.on{background:var(--azul);color:#fff;border-color:var(--azul)}
+
+/* ══ GRÁFICO PIZZA ══ */
 .chart-wrap{margin:0 16px 10px;background:var(--card);border-radius:var(--r);border:1px solid var(--border);padding:14px;box-shadow:var(--sh)}
 .chart-titulo{font-size:13px;font-weight:800;color:var(--tx2);margin-bottom:12px;display:flex;align-items:center;gap:6px}
 .chart-container{display:flex;align-items:center;gap:14px}
@@ -82,11 +143,13 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
 .leg-lbl{color:var(--tx2);font-weight:700;flex:1}
 .leg-val{font-weight:900;color:var(--tx)}
 .leg-pct{font-size:10px;color:var(--tx3)}
+
+/* ══ ALERTS DESTAQUE ══ */
 .alert-card{margin:0 16px 8px;border-radius:var(--r);padding:12px 14px;display:flex;align-items:flex-start;gap:10px;border-left:4px solid transparent}
 .alert-card.vac-venc{background:#FFF5F5;border-left-color:var(--verm);border:1px solid #FECACA;border-left:4px solid var(--verm)}
 .alert-card.vac-prox{background:#FFFBEB;border-left-color:var(--ouro);border:1px solid #FDE68A;border-left:4px solid var(--ouro)}
 .alert-card.aniv{background:#F0FDF4;border-left-color:var(--verde);border:1px solid #BBF7D0;border-left:4px solid var(--verde)}
-.alert-card.retorno{background:var(--azul-bg);border-left-color:var(--azul-l);border:1px solid #azul-xl);border-left:4px solid var(--azul-l)}
+.alert-card.retorno{background:var(--azul-bg);border-left-color:var(--azul-l);border:1px solid var(--azul-xl);border-left:4px solid var(--azul-l)}
 .alert-ico{font-size:22px;flex-shrink:0;margin-top:1px}
 .alert-t{font-weight:800;font-size:13px;color:var(--tx)}
 .alert-s{font-size:11px;color:var(--tx2);margin-top:2px}
@@ -96,6 +159,8 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
 .alert-wa-btn:active{transform:scale(.97)}
 .alert-edit-btn{display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border-radius:20px;font-size:12px;font-weight:800;cursor:pointer;border:1.5px solid var(--border2);background:var(--bg);color:var(--tx2);font-family:var(--f);transition:all .15s;white-space:nowrap}
 .alert-edit-btn:hover{border-color:var(--azul-l);background:var(--azul-bg);color:var(--azul)}
+
+/* ══ SEMANA ══ */
 .semhdr{display:flex;align-items:center;justify-content:space-between;padding:12px 16px 4px}
 .sem-nav-btn{display:flex;align-items:center;gap:6px;padding:7px 12px;background:var(--card);border:1.5px solid var(--border);border-radius:var(--r-sm);cursor:pointer;font-size:12px;font-weight:800;color:var(--tx2);font-family:var(--f);transition:all .15s;white-space:nowrap}
 .sem-nav-btn:hover{border-color:var(--azul-l);color:var(--azul);background:var(--azul-bg)}
@@ -115,10 +180,14 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
 .dpc{background:var(--menta);color:var(--menta-d)}
 .dph{background:var(--pastel-b);color:var(--pastel-bd)}
 .dpb{background:var(--areia);color:var(--areia-d)}
+
+/* ══ TOTAIS ══ */
 .totbar{display:flex;gap:6px;padding:8px 16px;background:linear-gradient(135deg,var(--azul-bg),#E8F0FF);border-top:1px solid var(--azul-xl);border-bottom:1px solid var(--azul-xl)}
 .tot-it{flex:1;text-align:center}
 .tot-v{font-size:19px;font-weight:900;color:var(--azul)}
 .tot-l{font-size:9px;font-weight:800;color:var(--azul-m);opacity:.7;text-transform:uppercase;letter-spacing:.4px;margin-top:1px}
+
+/* ══ DETALHE DIA ══ */
 .det{margin:0 16px 12px;background:var(--card);border-radius:var(--r);border:1px solid var(--border);box-shadow:var(--sh);overflow:hidden}
 .det-hdr{padding:11px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
 .det-t{font-size:14px;font-weight:900;color:var(--azul)}
@@ -130,11 +199,15 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
 .stab.on{border-bottom-color:var(--azul);color:var(--azul)}
 .stab i{font-size:14px}
 .stc{padding:12px 14px}
+
+/* ══ MÉTRICAS ══ */
 .mets{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;padding:9px 12px;border-top:1px solid var(--border)}
 .met{background:var(--bg);border-radius:var(--r-sm);padding:7px 4px 5px;text-align:center}
 .met i{font-size:14px;display:block;margin-bottom:2px;color:var(--azul-m)}
 .met-v{font-size:17px;font-weight:900;color:var(--azul)}
 .met-l{font-size:9px;color:var(--tx3);font-weight:800;text-transform:uppercase;letter-spacing:.3px;margin-top:1px}
+
+/* ══ ITEM ROW ══ */
 .ir{display:flex;align-items:center;gap:8px;padding:9px 10px;border-radius:var(--r-sm);background:var(--bg);margin-bottom:6px;cursor:pointer;transition:background .1s}
 .ir:hover{background:var(--azul-bg)}
 .ir:last-child{margin-bottom:0}
@@ -157,6 +230,8 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
 .btn-edit:hover{color:var(--azul-m);background:var(--azul-bg)}
 .btn-del{background:none;border:none;cursor:pointer;color:var(--tx3);padding:2px 4px;border-radius:4px;font-size:15px;transition:all .12s;flex-shrink:0}
 .btn-del:hover{color:var(--verm);background:var(--verm-l)}
+
+/* ══ ADD SECTION ══ */
 .add-sec{margin-top:10px;padding-top:10px;border-top:1px solid var(--border)}
 .add-t{font-size:10px;font-weight:900;color:var(--tx3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:7px}
 .afields{display:flex;flex-wrap:wrap;gap:6px;align-items:flex-end}
@@ -168,6 +243,8 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
 .btn-add{padding:7px 13px;background:var(--azul);color:#fff;border:none;border-radius:var(--r-sm);font-size:11px;font-weight:900;cursor:pointer;font-family:var(--f);white-space:nowrap;display:flex;align-items:center;gap:4px;box-shadow:0 2px 8px rgba(13,46,110,.22);transition:all .15s}
 .btn-add:hover{background:var(--azul-m)}
 .btn-add:active{transform:scale(.97)}
+
+/* ══ FORMS ══ */
 .fm{padding:14px}
 .frow{display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap}
 .fg{display:flex;flex-direction:column;gap:3px;flex:1;min-width:110px}
@@ -177,6 +254,8 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
 .fta{resize:vertical;min-height:60px}
 .frow-sep{font-size:10px;font-weight:900;color:var(--tx3);text-transform:uppercase;letter-spacing:.5px;padding:10px 0 4px;display:flex;align-items:center;gap:8px}
 .frow-sep::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* ══ BOTÕES ══ */
 .btn-pr{padding:10px 18px;background:var(--azul);color:#fff;border:none;border-radius:var(--r-sm);font-size:13px;font-weight:800;cursor:pointer;font-family:var(--f);box-shadow:0 3px 10px rgba(13,46,110,.25);transition:all .15s;display:inline-flex;align-items:center;gap:6px}
 .btn-pr:hover{background:var(--azul-m)}
 .btn-pr:active{transform:scale(.97)}
@@ -186,6 +265,8 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
 .btn-ghost:hover{border-color:var(--border)}
 .btn-danger{padding:9px 14px;background:transparent;color:var(--verm);border:1.5px solid var(--verm-l);border-radius:var(--r-sm);font-size:12px;font-weight:700;cursor:pointer;font-family:var(--f)}
 .fabs{display:flex;gap:8px;justify-content:flex-end;padding:4px 0 0}
+
+/* ══ MODAL ══ */
 .mov{position:fixed;inset:0;background:rgba(13,46,110,.45);z-index:200;display:flex;align-items:flex-end;justify-content:center;backdrop-filter:blur(2px);animation:mo .15s ease}
 .mov.hid{display:none}
 @keyframes mo{from{opacity:0}to{opacity:1}}
@@ -196,15 +277,21 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
 .macts{display:flex;gap:8px;margin-top:14px}
 .macts .btn-ghost{flex:1;text-align:center}
 .macts .btn-pr{flex:2;text-align:center;justify-content:center}
+
+/* ══ PGTO METODOS ══ */
 .pgto-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:4px}
 .pgto-opt{padding:8px 10px;border:2px solid var(--border);border-radius:var(--r-sm);cursor:pointer;text-align:center;font-size:12px;font-weight:800;color:var(--tx2);transition:all .15s;background:var(--bg)}
 .pgto-opt:hover{border-color:var(--azul-l);background:var(--azul-bg)}
 .pgto-opt.on{border-color:var(--azul);background:var(--azul-xl);color:var(--azul)}
 .pgto-opt .pgto-ic{font-size:20px;display:block;margin-bottom:3px}
+
+/* ══ STATUS PGTO ══ */
 .status-bar{display:flex;gap:6px;margin-top:8px}
 .status-opt{flex:1;padding:8px;border:2px solid var(--border);border-radius:var(--r-sm);cursor:pointer;text-align:center;font-size:12px;font-weight:800;color:var(--tx2);transition:all .15s;background:var(--bg)}
 .status-opt.on-pend{border-color:var(--ouro);background:var(--areia);color:var(--areia-d)}
 .status-opt.on-pago{border-color:var(--verde);background:var(--verde-l);color:var(--verde-d)}
+
+/* ══ CALENDÁRIO COMPLETO ══ */
 .cal-wrap{padding:4px 0}
 .cal-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
 .cal-mn{font-size:15px;font-weight:900;color:var(--azul);cursor:pointer}
@@ -220,12 +307,16 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
 .cal-d.outro-mes{color:var(--tx3)}
 .cal-d.tem-dados{position:relative}
 .cal-d.tem-dados::after{content:'';position:absolute;bottom:2px;left:50%;transform:translateX(-50%);width:4px;height:4px;border-radius:50%;background:var(--azul-l)}
+
+/* ══ PETS PAGE ══ */
 .pet-row{display:flex;align-items:center;gap:10px;padding:11px 14px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .1s}
 .pet-row:last-child{border-bottom:none}
 .pet-row:hover{background:var(--bg)}
 .pet-av{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:900;flex-shrink:0}
 .pet-nome{font-weight:800;color:var(--tx);font-size:13px}
 .pet-inf{font-size:11px;color:var(--tx3);margin-top:1px}
+
+/* ══ CONFIG ══ */
 .cfg-list{background:var(--card);border-radius:var(--r);border:1px solid var(--border);overflow:hidden;margin:0 16px 10px}
 .cfg-it{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .1s}
 .cfg-it:last-child{border-bottom:none}
@@ -233,251 +324,2511 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
 .cfg-ico{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
 .cfg-txt{font-size:13px;font-weight:800;color:var(--tx)}
 .cfg-sub{font-size:11px;color:var(--tx3);margin-top:1px}
+
+/* ══ SEÇÃO DIVIDER ══ */
 .sdiv{font-size:10px;font-weight:900;color:var(--tx3);text-transform:uppercase;letter-spacing:.7px;padding:14px 16px 5px;display:flex;align-items:center;gap:8px}
 .sdiv::after{content:'';flex:1;height:1px;background:var(--border)}
 .sdiv i{font-size:13px}
+
+/* ══ CARD BÁSICO ══ */
 .card{background:var(--card);border-radius:var(--r);border:1px solid var(--border);box-shadow:var(--sh);overflow:hidden}
+
+/* ══ PLANO CARD ══ */
 .plcard{border-radius:var(--r);padding:13px;margin-bottom:8px}
 .plcard-t{font-size:13px;font-weight:900;margin-bottom:9px;display:flex;align-items:center;gap:6px}
 .plrow{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(0,0,0,.07);font-size:12px;gap:8px}
 .plrow:last-child{border-bottom:none}
+
+/* ══ LOGIN ══ */
 #pg-login{display:none;flex-direction:column;align-items:center;justify-content:center;min-height:calc(100dvh - var(--hdr-h));padding:20px;gap:16px}
 #pg-login.on{display:flex}
 .lcard{background:#fff;border-radius:var(--r-xl);border:1px solid var(--border);padding:26px 22px;width:100%;max-width:380px;box-shadow:var(--sh-lg)}
 .llogo{width:70px;height:70px;border-radius:20px;background:var(--azul);display:flex;align-items:center;justify-content:center;font-size:34px;margin:0 auto 14px}
 .lt{font-size:21px;font-weight:900;color:var(--azul);text-align:center;letter-spacing:-.5px}
 .ls{font-size:12px;color:var(--tx3);text-align:center;margin-bottom:16px}
+
+/* ══ SYNC BANNER ══ */
 .sync-ok{display:none;padding:7px 16px;background:var(--menta);border-bottom:1px solid #A7F3D0;font-size:11px;font-weight:800;color:var(--menta-d);text-align:center}
 .sync-ok.show{display:block}
+
+/* ══ VAZIO ══ */
 .vz{text-align:center;padding:22px 16px;color:var(--tx3);font-size:12px;font-weight:700}
 .vz i{font-size:28px;display:block;margin-bottom:6px;opacity:.35;color:var(--tx3)}
 .empty{text-align:center;padding:38px 20px}
 .empty-e{font-size:46px;display:block;margin-bottom:10px}
 .empty-t{font-size:15px;font-weight:900;color:var(--tx);margin-bottom:4px}
 .empty-s{font-size:12px;color:var(--tx3)}
+
+/* ══ FAB ══ */
 .fab{position:fixed;bottom:calc(var(--nav-h)+14px);right:16px;width:52px;height:52px;border-radius:50%;background:var(--azul);color:#fff;border:none;font-size:24px;cursor:pointer;box-shadow:0 4px 20px rgba(13,46,110,.4);display:flex;align-items:center;justify-content:center;z-index:90;transition:all .15s}
 .fab:hover{background:var(--azul-m);transform:scale(1.05)}
 .fab:active{transform:scale(.95)}
+
+/* ══ TOAST ══ */
 #toast{position:fixed;bottom:calc(var(--nav-h)+14px);left:50%;transform:translateX(-50%);background:var(--azul);color:#fff;padding:10px 18px;border-radius:24px;font-size:13px;font-weight:800;z-index:300;pointer-events:none;opacity:0;transition:opacity .2s;white-space:nowrap;box-shadow:0 4px 20px rgba(13,46,110,.4);max-width:90vw;text-align:center}
+
+/* ══ INSTALL ══ */
 .inst{margin:0 16px 12px;background:var(--azul);border-radius:var(--r);padding:13px 15px;display:flex;align-items:center;gap:11px;cursor:pointer;box-shadow:var(--sh)}
 .inst-t{font-size:13px;font-weight:900;color:#fff}
 .inst-s{font-size:11px;color:rgba(255,255,255,.6);margin-top:1px}
 .inst-b{padding:6px 13px;background:var(--ouro);color:var(--ouro-d);border-radius:var(--r-sm);font-size:11px;font-weight:900;white-space:nowrap;flex-shrink:0}
+
+/* ══ PREVIEW VALOR ══ */
 .val-prev{background:var(--azul-bg);border-radius:var(--r-sm);padding:9px 12px;margin-bottom:8px;font-size:13px;font-weight:800;color:var(--azul);display:none;border:1px solid var(--azul-xl)}
+
+/* ══ DESTAQUE PGTO ══ */
 .pgto-confirm{background:var(--menta);border-radius:var(--r-sm);padding:10px 12px;margin-top:8px;font-size:13px;font-weight:800;color:var(--menta-d);display:none;border:1px solid #A7F3D0;text-align:center}
+
+
+/* ══ ALERTA SNOOZE ══ */
 .alert-snooze-row{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
 .btn-snooze-keep{padding:5px 11px;border-radius:20px;font-size:11px;font-weight:800;cursor:pointer;border:1.5px solid #FCA5A5;background:#FEE2E2;color:#7F1D1D;font-family:var(--f);transition:all .15s}
 .btn-snooze-rm{padding:5px 11px;border-radius:20px;font-size:11px;font-weight:800;cursor:pointer;border:1.5px solid #A7F3D0;background:#DCFCE7;color:#14532D;font-family:var(--f);transition:all .15s}
+
+/* ══ ADESTRAMENTO ══ */
 .adest-badge{padding:3px 9px;border-radius:20px;font-size:10px;font-weight:800;background:#EDE9FE;color:#5B21B6}
+
+/* ══ PET FOTO ══ */
 .pet-foto{width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid var(--border);flex-shrink:0}
 .foto-upload-wrap{display:flex;flex-direction:column;align-items:center;gap:8px;padding:10px 0}
 .foto-preview{width:80px;height:80px;border-radius:50%;object-fit:cover;border:3px solid var(--azul-xl)}
 .foto-placeholder{width:80px;height:80px;border-radius:50%;background:var(--azul-xl);display:flex;align-items:center;justify-content:center;font-size:32px;border:3px dashed var(--azul-l);cursor:pointer}
 .foto-input-lbl{font-size:12px;font-weight:800;color:var(--azul-m);cursor:pointer;padding:5px 14px;border-radius:20px;background:var(--azul-bg);border:1.5px solid var(--azul-xl)}
+
+/* ══ ANIV DESTAQUE ══ */
 .aniv-banner{margin:0 16px 8px;background:linear-gradient(135deg,#FFF7ED,#FEF3C7,#DCFCE7);border-radius:var(--r);padding:14px 16px;border:2px solid #FDE68A;box-shadow:0 4px 20px rgba(245,184,0,.25);animation:anivPulse 2s ease-in-out infinite}
 @keyframes anivPulse{0%,100%{box-shadow:0 4px 20px rgba(245,184,0,.25)}50%{box-shadow:0 4px 28px rgba(245,184,0,.55)}}
 .aniv-title{font-size:16px;font-weight:900;color:#854D0E;display:flex;align-items:center;gap:8px}
 .aniv-sub{font-size:12px;color:#92400E;margin-top:3px;font-weight:700}
+
+/* ══ WA BTN ITEM ══ */
 .ir-wa{width:28px;height:28px;border-radius:50%;background:#DCFCE7;border:1.5px solid #86EFAC;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:14px;flex-shrink:0;transition:all .15s}
 .ir-wa:hover{background:#BBF7D0;transform:scale(1.1)}
+
+/* ══ FAT TOTAL GERAL ══ */
 .fat-geral-card{margin:0 16px 10px;background:linear-gradient(135deg,var(--azul),var(--azul-m));border-radius:var(--r);padding:16px;box-shadow:0 4px 20px rgba(13,46,110,.3);color:#fff}
 .fat-geral-t{font-size:11px;font-weight:800;opacity:.7;text-transform:uppercase;letter-spacing:.5px}
 .fat-geral-v{font-size:34px;font-weight:900;letter-spacing:-1px;margin-top:4px}
 .fat-geral-s{font-size:11px;opacity:.6;margin-top:2px}
-@media(min-width:640px){body{background:#C7D9F5}#hdr,#nav{left:50%;transform:translateX(-50%);width:100%;max-width:480px}}
+
+/* ══ DESKTOP ══ */
+@media(min-width:640px){
+  body{background:#C7D9F5}
+  #hdr,#nav{left:50%;transform:translateX(-50%);width:100%;max-width:480px}
+}
 </style>
- <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
- <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
- <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  <!-- Firebase SDK via CDN (módulos compat para HTML puro sem bundler) -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 </head>
 <body>
+
+<!-- SPLASH -->
 <div id="splash">
- <div class="sp-verse">✝️ Jesus Cristo é o Senhor</div>
- <div class="sp-logo">🐾</div>
- <div class="sp-t">Anguli Pet</div>
- <div class="sp-s">Hotel • Creche • Pet Shop • Dog Walker</div>
- <div class="sp-bar"><div class="sp-fill"></div></div>
+  <div class="sp-logo">🐾</div>
+  <div class="sp-t">Anguli Pet</div>
+  <div class="sp-s">Hotel • Creche • Pet Shop • Dog Walker</div>
+  <div class="sp-bar"><div class="sp-fill"></div></div>
+  <div class="sp-verse">✝️ Jesus Cristo é o Senhor</div>
 </div>
 
 <div id="app">
- <header id="hdr">
-   <div class="hbrand">
-     <div class="hlogo">🐾</div>
-     <div>
-       <div class="htitle" id="hnome">Anguli Pet</div>
-       <div class="hsub">Hotel • Creche • Pet Shop</div>
-     </div>
-   </div>
-   <div class="hright">
-     <div class="hdate" id="hdata" onclick="abrirCalFull()"></div>
-     <div class="hsync" id="syncbtn" onclick="sincronizar()" title="Sincronizar dados"><i class="ti ti-refresh"></i></div>
-   </div>
- </header>
- <div class="sync-ok" id="sync-banner">☁️ Dados sincronizados com Firebase!</div>
-
- <main id="main">
-   <div id="pg-login" class="pg">
-     <div class="lcard">
-       <div class="llogo">🐾</div>
-       <div class="lt">Anguli Pet PRO</div>
-       <div class="ls">Hotel • Creche • Pet Shop</div>
-       <div class="frow"><div class="fg"><label class="fl">E-mail</label><input class="fi" id="li-email" type="email" placeholder="email@exemplo.com"></div></div>
-       <div class="frow"><div class="fg"><label class="fl">Senha</label><input class="fi" id="li-senha" type="password" placeholder="••••••••" onkeydown="if(event.key==='Enter')login()"></div></div>
-       <div style="display:flex;gap:8px;margin-top:4px">
-         <button class="btn-pr" style="flex:2;justify-content:center" onclick="login()"><i class="ti ti-login"></i> Entrar</button>
-         <button class="btn-ghost" style="flex:1" onclick="entrarDemo()">Demo</button>
-       </div>
-       <div style="text-align:center;margin-top:10px;font-size:12px;color:var(--tx3)">
-           Sem conta? <span style="font-weight:900;color:var(--azul);cursor:pointer" onclick="criarConta()">Criar conta grátis</span><br>
-           <span style="font-weight:900;color:var(--verm);cursor:pointer" onclick="esqueciSenha()">Esqueci minha senha</span>
-       </div>
-       <div style="text-align:center;margin-top:20px;font-size:14px;font-weight:800;color:var(--azul);border-top:1px solid #eee;padding-top:10px">Jesus Cristo é o Senhor</div>
-     </div>
-   </div>
-
-   <div id="pg-dash" class="pg">
-     <div class="sh">
-       <div>
-         <div class="sh-t" id="dash-saudacao">Bom dia! 👋</div>
-         <div class="sh-s" id="dash-sub">Hoje</div>
-       </div>
-       <button class="btn-or" onclick="compartilhar()"><i class="ti ti-share"></i> Compartilhar</button>
-     </div>
-     <div class="kgrid" id="kgrid">
-       <div class="kcard kc" onclick="irAgendaSetor('creche')" style="cursor:pointer"><i class="ti ti-building"></i><div class="kval" id="kd-c">0</div><div class="klbl">Creche hoje</div><div class="ksub">toque p/ ver ▶</div></div>
-       <div class="kcard kh" onclick="irAgendaSetor('hotel')" style="cursor:pointer"><i class="ti ti-bed"></i><div class="kval" id="kd-h">0</div><div class="klbl">Hotel</div><div class="ksub">toque p/ ver ▶</div></div>
-       <div class="kcard kb" onclick="irAgendaSetor('banho')" style="cursor:pointer"><i class="ti ti-scissors"></i><div class="kval" id="kd-b">0</div><div class="klbl">Banho/Tosa</div><div class="ksub">toque p/ ver ▶</div></div>
-       <div class="kcard kdw" onclick="irAgendaSetor('dw')" style="cursor:pointer"><i class="ti ti-walk"></i><div class="kval" id="kd-dw">0</div><div class="klbl">Dog Walker</div><div class="ksub">toque p/ ver ▶</div></div>
-       <div class="kcard kf" style="grid-column:span 2"><i class="ti ti-currency-dollar"></i><div class="kval" id="kd-fat" style="font-size:32px">R$0</div><div class="klbl">Faturamento hoje</div><div class="ksub">todos os serviços pagos</div></div>
-       <div class="kcard kp"><i class="ti ti-paw"></i><div class="kval" id="kd-p">0</div><div class="klbl">Pets cad.</div><div class="ksub">total</div></div>
-       <div class="kcard ka"><i class="ti ti-clock"></i><div class="kval" id="kd-a">0</div><div class="klbl">Pendentes</div><div class="ksub">não pagos hoje</div></div>
-     </div>
-     <div class="sdiv"><i class="ti ti-currency-dollar"></i> Faturamento</div>
-     <div class="fat-filtros">
-       <button class="fat-btn on" onclick="setFatFiltro('dia',this)">Hoje</button>
-       <button class="fat-btn" onclick="setFatFiltro('semana',this)">Semana</button>
-       <button class="fat-btn" onclick="setFatFiltro('mes',this)">Mês</button>
-     </div>
-     <div class="chart-wrap" id="chart-fat">
-       <div class="chart-titulo"><i class="ti ti-chart-pie" style="font-size:15px"></i> Faturamento por serviço</div>
-       <div class="chart-container">
-         <div class="donut-wrap">
-           <svg width="110" height="110" viewBox="0 0 110 110" id="donut-svg"></svg>
-           <div class="donut-center"><div class="donut-v" id="donut-total">R$0</div><div class="donut-l">total</div></div>
-         </div>
-         <div class="legend" id="fat-legend"></div>
-       </div>
-     </div>
-     <div class="sdiv"><i class="ti ti-bell"></i> Alertas</div>
-     <div id="alertas-box"></div>
-     <div class="fat-geral-card">
-       <div class="fat-geral-t">💰 Faturamento Total Acumulado</div>
-       <div class="fat-geral-v" id="fat-geral-v">R$0</div>
-       <div class="fat-geral-s">Soma de todos os pagamentos confirmados (histórico completo)</div>
-     </div>
-     <div class="inst" id="inst-banner" style="display:none" onclick="instalar()">
-       <div style="font-size:26px">📲</div>
-       <div style="flex:1"><div class="inst-t">Instalar no celular</div><div class="inst-s">App funciona offline!</div></div>
-       <div class="inst-b">Instalar</div>
-     </div>
-   </div>
-   <div id="pg-agenda" class="pg">
-     <div class="semhdr">
-       <button class="sem-nav-btn" onclick="navSem(-1)"><i class="ti ti-chevron-left"></i> Voltar</button>
-       <div class="sem-titulo" onclick="abrirCalFull()">
-         <div class="sem-t" id="sem-t">Semana atual</div>
-         <div class="sem-s" id="sem-s">Toque para ir a uma data</div>
-       </div>
-       <button class="sem-nav-btn" onclick="navSem(1)">Avançar <i class="ti ti-chevron-right"></i></button>
-     </div>
-     <div class="dgrid" id="dgrid"></div>
-     <div class="totbar" id="totbar">
-       <div class="tot-it"><div class="tot-v" id="tt-c">0</div><div class="tot-l">Creche</div></div>
-       <div class="tot-it"><div class="tot-v" id="tt-h">0</div><div class="tot-l">Hotel</div></div>
-       <div class="tot-it"><div class="tot-v" id="tt-b">0</div><div class="tot-l">Banho</div></div>
-       <div class="tot-it"><div class="tot-v" id="tt-f">R$0</div><div class="tot-l">Faturado</div></div>
-     </div>
-     <div class="det" id="det">
-       <div class="det-hdr">
-         <span class="det-t" id="det-t">Selecione um dia</span>
-         <span class="det-d" id="det-d"></span>
-       </div>
-       <div id="det-empty" class="vz"><i class="ti ti-calendar-event"></i>Toque em um dia para lançar.</div>
-       <div id="det-body" style="display:none">
-         <div class="stabs">
-           <button class="stab on" onclick="setTab('creche')"><i class="ti ti-building"></i> Creche</button>
-           <button class="stab" onclick="setTab('hotel')"><i class="ti ti-bed"></i> Hotel</button>
-           <button class="stab" onclick="setTab('banho')"><i class="ti ti-scissors"></i> Banho</button>
-           <button class="stab" onclick="setTab('dw')"><i class="ti ti-walk"></i> DogWalk</button>
-           <button class="stab" onclick="setTab('fat')"><i class="ti ti-currency-dollar"></i> Faturamento</button>
-         </div>
-         <div class="stc" id="tc-creche"></div>
-         <div class="stc" id="tc-hotel" style="display:none"></div>
-         <div class="stc" id="tc-banho" style="display:none"></div>
-         <div class="stc" id="tc-dw" style="display:none"></div>
-         <div class="stc" id="tc-fat" style="display:none"></div>
-       </div>
-       <div class="mets" id="det-mets" style="display:none">
-         <div class="met"><i class="ti ti-building"></i><div class="met-v" id="mm-c">0</div><div class="met-l">Creche</div></div>
-         <div class="met"><i class="ti ti-bed"></i><div class="met-v" id="mm-h">0</div><div class="met-l">Hotel</div></div>
-         <div class="met"><i class="ti ti-scissors"></i><div class="met-v" id="mm-b">0</div><div class="met-l">Banho</div></div>
-         <div class="met"><i class="ti ti-currency-dollar"></i><div class="met-v" id="mm-f">R$0</div><div class="met-l">Faturado</div></div>
-       </div>
-     </div>
-   </div>
-   <div id="pg-pets" class="pg">
-     <div class="sh">
-       <div><div class="sh-t">Pets</div><div class="sh-s" id="pets-sub">0 cadastrados</div></div>
-       <button class="btn-pr" onclick="abrirModalPet()"><i class="ti ti-plus"></i> Novo</button>
-     </div>
-     <div style="padding:0 16px 10px">
-       <input class="fi" id="busca-pet" placeholder="🔍 Buscar pet ou tutor..." oninput="renderPets()" style="width:100%">
-     </div>
-     <div id="lista-pets"></div>
-   </div>
-   <div id="pg-fat" class="pg">
+  <!-- HEADER -->
+  <header id="hdr">
+    <div class="hbrand">
+      <div class="hlogo">🐾</div>
+      <div>
+        <div class="htitle" id="hnome">Anguli Pet</div>
+        <div class="hsub">Hotel • Creche • Pet Shop</div>
       </div>
-   <div id="pg-adest" class="pg"></div>
-   <div id="pg-saidas" class="pg"></div>
-   <div id="pg-config" class="pg"></div>
- </main>
- <nav id="nav" style="display:none">
-    <button class="nb on" id="nb-dash" onclick="ir('dash')"><div class="nb-ic">📊</div><span class="nb-lbl">Início</span></button>
-    <button class="nb" id="nb-agenda" onclick="ir('agenda')"><div class="nb-ic">📅</div><span class="nb-lbl">Agenda</span></button>
-    <button class="nb" id="nb-pets" onclick="ir('pets')"><div class="nb-ic">🐶</div><span class="nb-lbl">Pets</span></button>
-    <button class="nb" id="nb-adest" onclick="ir('adest')"><div class="nb-ic">🎓</div><span class="nb-lbl">Adest.</span></button>
-    <button class="nb" id="nb-fat" onclick="ir('fat')"><div class="nb-ic">💰</div><span class="nb-lbl">Entradas</span></button>
-    <button class="nb" id="nb-saidas" onclick="ir('saidas')"><div class="nb-ic">💸</div><span class="nb-lbl">Saídas</span></button>
-    <button class="nb" id="nb-config" onclick="ir('config')"><div class="nb-ic">⚙️</div><span class="nb-lbl">Config</span></button>
- </nav>
+    </div>
+    <div class="hright">
+      <div class="hdate" id="hdata" onclick="abrirCalFull()"></div>
+      <div class="hsync" id="syncbtn" onclick="sincronizar()" title="Sincronizar dados"><i class="ti ti-refresh"></i></div>
+    </div>
+  </header>
+  <div class="sync-ok" id="sync-banner">☁️ Dados sincronizados com Firebase!</div>
+
+  <main id="main">
+
+    <!-- ═══ LOGIN ═══ -->
+    <div id="pg-login" class="pg">
+      <div class="lcard">
+        <div class="llogo">🐾</div>
+        <div class="lt">Anguli Pet PRO</div>
+        <div class="ls">Hotel • Creche • Pet Shop</div>
+        <div class="frow"><div class="fg"><label class="fl">E-mail</label><input class="fi" id="li-email" type="email" placeholder="email@exemplo.com"></div></div>
+        <div class="frow"><div class="fg"><label class="fl">Senha</label><input class="fi" id="li-senha" type="password" placeholder="••••••••" onkeydown="if(event.key==='Enter')login()"></div></div>
+        <div style="display:flex;gap:8px;margin-top:4px">
+          <button class="btn-pr" style="flex:2;justify-content:center" onclick="login()"><i class="ti ti-login"></i> Entrar</button>
+          <button class="btn-ghost" style="flex:1" onclick="entrarDemo()">Demo</button>
+        </div>
+        <div style="text-align:center;margin-top:10px;font-size:12px;color:var(--tx3)">Sem conta? <span style="font-weight:900;color:var(--azul);cursor:pointer" onclick="criarConta()">Criar conta grátis</span></div>
+        <div style="text-align:center;margin-top:8px">
+          <span style="font-size:12px;color:var(--tx3);cursor:pointer;text-decoration:underline;text-underline-offset:3px" onclick="recuperarSenha()">🔑 Esqueci minha senha</span>
+        </div>
+      </div>
+      <div style="background:var(--azul-bg);border:1px solid var(--azul-xl);border-radius:var(--r);padding:12px 14px;font-size:11px;color:var(--azul);font-weight:700;line-height:1.6;max-width:380px;width:100%">
+        <strong>☁️ Nuvem ativa:</strong> Os dados salvam automaticamente no Firebase e ficam disponíveis em qualquer dispositivo.<br>
+        <span style="opacity:.75">Modo Demo: funciona com localStorage (apenas neste dispositivo).</span>
+      </div>
+      <div style="text-align:center;margin-top:8px;padding:10px 20px;max-width:380px;width:100%">
+        <div style="font-size:13px;font-weight:800;color:var(--azul);letter-spacing:.3px;opacity:.7">✝️ Jesus Cristo é o Senhor</div>
+      </div>
+    </div>
+
+    <!-- ═══ DASHBOARD ═══ -->
+    <div id="pg-dash" class="pg">
+      <div class="sh">
+        <div>
+          <div class="sh-t" id="dash-saudacao">Bom dia! 👋</div>
+          <div class="sh-s" id="dash-sub">Hoje</div>
+        </div>
+        <button class="btn-or" onclick="compartilhar()"><i class="ti ti-share"></i> Compartilhar</button>
+      </div>
+
+      <!-- KPIs -->
+      <div class="kgrid" id="kgrid">
+        <div class="kcard kc" onclick="irAgendaSetor('creche')" style="cursor:pointer"><i class="ti ti-building"></i><div class="kval" id="kd-c">0</div><div class="klbl">Creche hoje</div><div class="ksub">toque p/ ver ▶</div></div>
+        <div class="kcard kh" onclick="irAgendaSetor('hotel')" style="cursor:pointer"><i class="ti ti-bed"></i><div class="kval" id="kd-h">0</div><div class="klbl">Hotel</div><div class="ksub">toque p/ ver ▶</div></div>
+        <div class="kcard kb" onclick="irAgendaSetor('banho')" style="cursor:pointer"><i class="ti ti-scissors"></i><div class="kval" id="kd-b">0</div><div class="klbl">Banho/Tosa</div><div class="ksub">toque p/ ver ▶</div></div>
+        <div class="kcard kdw" onclick="irAgendaSetor('dw')" style="cursor:pointer"><i class="ti ti-walk"></i><div class="kval" id="kd-dw">0</div><div class="klbl">Dog Walker</div><div class="ksub">toque p/ ver ▶</div></div>
+        <div class="kcard kf" style="grid-column:span 2"><i class="ti ti-currency-dollar"></i><div class="kval" id="kd-fat" style="font-size:32px">R$0</div><div class="klbl">Faturamento hoje</div><div class="ksub">todos os serviços pagos</div></div>
+        <div class="kcard kp"><i class="ti ti-paw"></i><div class="kval" id="kd-p">0</div><div class="klbl">Pets cad.</div><div class="ksub">total</div></div>
+        <div class="kcard ka"><i class="ti ti-clock"></i><div class="kval" id="kd-a">0</div><div class="klbl">Pendentes</div><div class="ksub">não pagos hoje</div></div>
+      </div>
+
+      <!-- Faturamento filtros -->
+      <div class="sdiv"><i class="ti ti-currency-dollar"></i> Faturamento</div>
+      <div class="fat-filtros">
+        <button class="fat-btn on" onclick="setFatFiltro('dia',this)">Hoje</button>
+        <button class="fat-btn" onclick="setFatFiltro('semana',this)">Semana</button>
+        <button class="fat-btn" onclick="setFatFiltro('mes',this)">Mês</button>
+      </div>
+
+      <!-- Gráfico donut -->
+      <div class="chart-wrap" id="chart-fat">
+        <div class="chart-titulo"><i class="ti ti-chart-pie" style="font-size:15px"></i> Faturamento por serviço</div>
+        <div class="chart-container">
+          <div class="donut-wrap">
+            <svg width="110" height="110" viewBox="0 0 110 110" id="donut-svg"></svg>
+            <div class="donut-center"><div class="donut-v" id="donut-total">R$0</div><div class="donut-l">total</div></div>
+          </div>
+          <div class="legend" id="fat-legend"></div>
+        </div>
+      </div>
+
+      <!-- Alertas -->
+      <div class="sdiv"><i class="ti ti-bell"></i> Alertas</div>
+      <div id="alertas-box"></div>
+
+
+      <!-- Faturamento Total Geral -->
+      <div class="fat-geral-card">
+        <div class="fat-geral-t">💰 Faturamento Total Acumulado</div>
+        <div class="fat-geral-v" id="fat-geral-v">R$0</div>
+        <div class="fat-geral-s">Soma de todos os pagamentos confirmados (histórico completo)</div>
+      </div>
+
+      <!-- Install -->
+      <div class="inst" id="inst-banner" style="display:none" onclick="instalar()">
+        <div style="font-size:26px">📲</div>
+        <div style="flex:1"><div class="inst-t">Instalar no celular</div><div class="inst-s">App funciona offline!</div></div>
+        <div class="inst-b">Instalar</div>
+      </div>
+    </div>
+
+    <!-- ═══ AGENDA ═══ -->
+    <div id="pg-agenda" class="pg">
+      <div class="semhdr">
+        <button class="sem-nav-btn" onclick="navSem(-1)"><i class="ti ti-chevron-left"></i> Voltar</button>
+        <div class="sem-titulo" onclick="abrirCalFull()">
+          <div class="sem-t" id="sem-t">Semana atual</div>
+          <div class="sem-s" id="sem-s">Toque para ir a uma data</div>
+        </div>
+        <button class="sem-nav-btn" onclick="navSem(1)">Avançar <i class="ti ti-chevron-right"></i></button>
+      </div>
+
+      <div class="dgrid" id="dgrid"></div>
+
+      <div class="totbar" id="totbar">
+        <div class="tot-it"><div class="tot-v" id="tt-c">0</div><div class="tot-l">Creche</div></div>
+        <div class="tot-it"><div class="tot-v" id="tt-h">0</div><div class="tot-l">Hotel</div></div>
+        <div class="tot-it"><div class="tot-v" id="tt-b">0</div><div class="tot-l">Banho</div></div>
+        <div class="tot-it"><div class="tot-v" id="tt-f">R$0</div><div class="tot-l">Faturado</div></div>
+      </div>
+
+      <div class="det" id="det">
+        <div class="det-hdr">
+          <span class="det-t" id="det-t">Selecione um dia</span>
+          <span class="det-d" id="det-d"></span>
+        </div>
+        <div id="det-empty" class="vz"><i class="ti ti-calendar-event"></i>Toque em um dia para lançar.</div>
+        <div id="det-body" style="display:none">
+          <div class="stabs">
+            <button class="stab on" onclick="setTab('creche')"><i class="ti ti-building"></i> Creche</button>
+            <button class="stab" onclick="setTab('hotel')"><i class="ti ti-bed"></i> Hotel</button>
+            <button class="stab" onclick="setTab('banho')"><i class="ti ti-scissors"></i> Banho</button>
+            <button class="stab" onclick="setTab('dw')"><i class="ti ti-walk"></i> DogWalk</button>
+            <button class="stab" onclick="setTab('fat')"><i class="ti ti-currency-dollar"></i> Faturamento</button>
+          </div>
+          <div class="stc" id="tc-creche"></div>
+          <div class="stc" id="tc-hotel" style="display:none"></div>
+          <div class="stc" id="tc-banho" style="display:none"></div>
+          <div class="stc" id="tc-dw" style="display:none"></div>
+          <div class="stc" id="tc-fat" style="display:none"></div>
+        </div>
+        <div class="mets" id="det-mets" style="display:none">
+          <div class="met"><i class="ti ti-building"></i><div class="met-v" id="mm-c">0</div><div class="met-l">Creche</div></div>
+          <div class="met"><i class="ti ti-bed"></i><div class="met-v" id="mm-h">0</div><div class="met-l">Hotel</div></div>
+          <div class="met"><i class="ti ti-scissors"></i><div class="met-v" id="mm-b">0</div><div class="met-l">Banho</div></div>
+          <div class="met"><i class="ti ti-currency-dollar"></i><div class="met-v" id="mm-f">R$0</div><div class="met-l">Faturado</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ PETS ═══ -->
+    <div id="pg-pets" class="pg">
+      <div class="sh">
+        <div><div class="sh-t">Pets</div><div class="sh-s" id="pets-sub">0 cadastrados</div></div>
+        <button class="btn-pr" onclick="abrirModalPet()"><i class="ti ti-plus"></i> Novo</button>
+      </div>
+      <div style="padding:0 16px 10px">
+        <input class="fi" id="busca-pet" placeholder="🔍 Buscar pet ou tutor..." oninput="renderPets()" style="width:100%">
+      </div>
+      <div id="lista-pets"></div>
+    </div>
+
+    <!-- ═══ FATURAMENTO ═══ -->
+    <div id="pg-fat" class="pg">
+      <div class="sh">
+        <div><div class="sh-t">Faturamento 💰</div><div class="sh-s" id="fat-sub">Entradas por serviço</div></div>
+      </div>
+
+      <!-- Filtros período -->
+      <div class="fat-filtros">
+        <button class="fat-btn on" id="ff-dia"    onclick="setFatPgFiltro('dia',this)">Hoje</button>
+        <button class="fat-btn"    id="ff-semana" onclick="setFatPgFiltro('semana',this)">Semana</button>
+        <button class="fat-btn"    id="ff-mes"    onclick="setFatPgFiltro('mes',this)">Mês</button>
+      </div>
+
+      <!-- KPIs faturamento -->
+      <div class="kgrid" style="margin-bottom:10px">
+        <div class="kcard kf" style="grid-column:span 2">
+          <i class="ti ti-currency-dollar" style="font-size:20px;margin-bottom:4px"></i>
+          <div class="kval" id="fp-total" style="font-size:30px">R$0</div>
+          <div class="klbl">Total faturado</div>
+          <div class="ksub" id="fp-periodo">hoje</div>
+        </div>
+        <div class="kcard kc"><div style="font-size:18px;margin-bottom:4px">🏫</div><div class="kval" id="fp-c" style="font-size:22px">R$0</div><div class="klbl">Creche</div></div>
+        <div class="kcard kh"><div style="font-size:18px;margin-bottom:4px">🏨</div><div class="kval" id="fp-h" style="font-size:22px">R$0</div><div class="klbl">Hotel</div></div>
+        <div class="kcard kb"><div style="font-size:18px;margin-bottom:4px">✂️</div><div class="kval" id="fp-b" style="font-size:22px">R$0</div><div class="klbl">Banho/Tosa</div></div>
+        <div class="kcard kdw"><div style="font-size:18px;margin-bottom:4px">🐕</div><div class="kval" id="fp-dw" style="font-size:22px">R$0</div><div class="klbl">Dog Walker</div></div>
+      </div>
+
+      <!-- Gráfico donut faturamento -->
+      <div class="chart-wrap" id="chart-fat-pg">
+        <div class="chart-titulo"><i class="ti ti-chart-pie" style="font-size:15px"></i> Distribuição por serviço</div>
+        <div class="chart-container">
+          <div class="donut-wrap">
+            <svg width="110" height="110" viewBox="0 0 110 110" id="donut-svg-pg"></svg>
+            <div class="donut-center"><div class="donut-v" id="donut-total-pg">R$0</div><div class="donut-l">total</div></div>
+          </div>
+          <div class="legend" id="fat-legend-pg"></div>
+        </div>
+      </div>
+
+      <!-- Histórico de lançamentos pagos -->
+      <div class="sdiv"><i class="ti ti-list"></i> Lançamentos confirmados</div>
+      <div id="fat-historico"></div>
+    </div>
+
+    <!-- ═══ ADESTRAMENTO ═══ -->
+    <div id="pg-adest" class="pg">
+      <div class="sh">
+        <div><div class="sh-t">Adestramento 🎓</div><div class="sh-s" id="adest-sub">Sessões agendadas</div></div>
+        <button class="btn-pr" onclick="abrirModalAdest()"><i class="ti ti-plus"></i> Agendar</button>
+      </div>
+      <div class="fat-filtros">
+        <button class="fat-btn on" id="af-dia"    onclick="setAdestFiltro('dia',this)">Hoje</button>
+        <button class="fat-btn"    id="af-semana" onclick="setAdestFiltro('semana',this)">Semana</button>
+        <button class="fat-btn"    id="af-mes"    onclick="setAdestFiltro('mes',this)">Mês</button>
+        <button class="fat-btn"    id="af-todos"  onclick="setAdestFiltro('todos',this)">Todos</button>
+      </div>
+      <div id="lista-adest"></div>
+    </div>
+
+    <!-- ═══ SAÍDAS ═══ -->
+    <div id="pg-saidas" class="pg">
+      <div class="sh">
+        <div><div class="sh-t">Saídas 💸</div><div class="sh-s" id="saidas-sub">Controle de gastos</div></div>
+        <button class="btn-pr" onclick="abrirModalSaida()"><i class="ti ti-plus"></i> Nova saída</button>
+      </div>
+
+      <!-- Filtros período -->
+      <div class="fat-filtros">
+        <button class="fat-btn on" id="sf-dia"    onclick="setSaidaFiltro('dia',this)">Hoje</button>
+        <button class="fat-btn"    id="sf-semana" onclick="setSaidaFiltro('semana',this)">Semana</button>
+        <button class="fat-btn"    id="sf-mes"    onclick="setSaidaFiltro('mes',this)">Mês</button>
+        <button class="fat-btn"    id="sf-todos"  onclick="setSaidaFiltro('todos',this)">Tudo</button>
+      </div>
+
+      <!-- Cards resumo -->
+      <div class="kgrid" style="margin-bottom:10px">
+        <div class="kcard" style="background:#FFF1F2;color:#881337;grid-column:span 1">
+          <i class="ti ti-trending-down" style="font-size:20px;margin-bottom:4px"></i>
+          <div class="kval" id="s-total" style="font-size:24px">R$0</div>
+          <div class="klbl">Total saídas</div>
+          <div class="ksub" id="s-periodo-lbl">hoje</div>
+        </div>
+        <div class="kcard" style="background:#F0FDF4;color:#14532D;grid-column:span 1">
+          <i class="ti ti-scale" style="font-size:20px;margin-bottom:4px"></i>
+          <div class="kval" id="s-saldo" style="font-size:24px">R$0</div>
+          <div class="klbl">Saldo líquido</div>
+          <div class="ksub">entradas − saídas</div>
+        </div>
+      </div>
+
+      <!-- Lista de saídas -->
+      <div id="lista-saidas"></div>
+    </div>
+
+    <!-- ═══ CONFIG ═══ -->
+    <div id="pg-config" class="pg">
+      <div class="sh"><div class="sh-t">Configurações</div></div>
+
+      <div class="sdiv">Empresa</div>
+      <div style="margin:0 16px 10px" class="card">
+        <div class="fm">
+          <div class="frow">
+            <div class="fg"><label class="fl">Nome da empresa</label><input class="fi" id="cfg-nome" value="Anguli Pet"></div>
+          </div>
+          <div class="frow">
+            <div class="fg"><label class="fl">Seu nome (saudação)</label><input class="fi" id="cfg-usuario" placeholder="Ex: Ana, Maria..."></div>
+          </div>
+          <div class="frow">
+            <div class="fg"><label class="fl">WhatsApp</label><input class="fi" id="cfg-wa" placeholder="47 98857-4522"></div>
+            <div class="fg"><label class="fl">Instagram</label><input class="fi" id="cfg-ig" placeholder="@angulipet"></div>
+          </div>
+          <div class="fabs"><button class="btn-pr" onclick="salvarCfg()"><i class="ti ti-check"></i> Salvar</button></div>
+        </div>
+      </div>
+
+      <div class="sdiv">Preços</div>
+      <div style="margin:0 16px 10px">
+        <div class="plcard" style="background:var(--menta)">
+          <div class="plcard-t" style="color:var(--menta-d)">🏫 Creche — Planos mensais</div>
+          <div class="plrow"><span>Diária avulsa</span><div style="display:flex;align-items:center;gap:4px"><span style="font-size:11px;color:var(--tx3)">R$</span><input class="fi" id="pc-av" type="number" value="40" style="width:70px"></div></div>
+          <div class="plrow"><span>3x por semana</span><div style="display:flex;align-items:center;gap:4px"><span style="font-size:11px;color:var(--tx3)">R$</span><input class="fi" id="pc-3x" type="number" value="380" style="width:70px"></div></div>
+          <div class="plrow"><span>5x por semana</span><div style="display:flex;align-items:center;gap:4px"><span style="font-size:11px;color:var(--tx3)">R$</span><input class="fi" id="pc-5x" type="number" value="500" style="width:70px"></div></div>
+        </div>
+        <div class="plcard" style="background:var(--pastel-b)">
+          <div class="plcard-t" style="color:var(--pastel-bd)">🏨 Hotel — Diária 2026</div>
+          <div class="plrow"><span>Cachorro Pequeno</span><input class="fi" id="ph-p" type="number" value="50" style="width:70px"></div>
+          <div class="plrow"><span>Cachorro Médio</span><input class="fi" id="ph-m" type="number" value="80" style="width:70px"></div>
+          <div class="plrow"><span>Cachorro Grande</span><input class="fi" id="ph-g" type="number" value="100" style="width:70px"></div>
+          <div class="plrow"><span>Gato Pequeno</span><input class="fi" id="ph-gp" type="number" value="50" style="width:70px"></div>
+          <div class="plrow"><span>Gato Médio</span><input class="fi" id="ph-gm" type="number" value="65" style="width:70px"></div>
+          <div class="plrow"><span>Gato Grande</span><input class="fi" id="ph-gg" type="number" value="80" style="width:70px"></div>
+          <div class="plrow"><span>Ave/Pássaro</span><input class="fi" id="ph-av" type="number" value="35" style="width:70px"></div>
+          <div class="plrow"><span>Roedor</span><input class="fi" id="ph-ro" type="number" value="35" style="width:70px"></div>
+        </div>
+        <div class="plcard" style="background:var(--areia)">
+          <div class="plcard-t" style="color:var(--areia-d)">✂️ Banho & Tosa</div>
+          <div class="plrow"><span>Banho Pequeno</span><input class="fi" id="pb-p" type="number" value="40" style="width:70px"></div>
+          <div class="plrow"><span>Banho Médio</span><input class="fi" id="pb-m" type="number" value="55" style="width:70px"></div>
+          <div class="plrow"><span>Banho Grande</span><input class="fi" id="pb-g" type="number" value="70" style="width:70px"></div>
+          <div class="plrow"><span>Banho+Tosa Pequeno</span><input class="fi" id="pbt-p" type="number" value="60" style="width:70px"></div>
+          <div class="plrow"><span>Banho+Tosa Médio</span><input class="fi" id="pbt-m" type="number" value="75" style="width:70px"></div>
+          <div class="plrow"><span>Banho+Tosa Grande</span><input class="fi" id="pbt-g" type="number" value="90" style="width:70px"></div>
+        </div>
+        <div class="plcard" style="background:#F0FDF4">
+          <div class="plcard-t" style="color:#065F46">🐕 Dog Walker (45 min)</div>
+          <div class="plrow"><span>Avulso</span><input class="fi" id="pdw-av" type="number" value="75" style="width:70px"></div>
+          <div class="plrow"><span>3x/semana</span><input class="fi" id="pdw-3x" type="number" value="60" style="width:70px"></div>
+          <div class="plrow"><span>5x/semana</span><input class="fi" id="pdw-5x" type="number" value="50" style="width:70px"></div>
+        </div>
+        <div class="fabs"><button class="btn-pr" onclick="salvarPrecos()"><i class="ti ti-check"></i> Salvar preços</button></div>
+      </div>
+
+      <div class="sdiv">Firebase — Nuvem</div>
+      <div style="margin:0 16px 10px;background:linear-gradient(135deg,var(--azul-bg),#E0EAFF);border:1.5px solid var(--azul-xl);border-radius:var(--r);padding:14px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+          <div style="font-size:28px">🔥</div>
+          <div>
+            <div style="font-size:13px;font-weight:900;color:var(--azul)">Firebase Ativo — Anguli Pet</div>
+            <div style="font-size:11px;color:var(--azul-m);margin-top:2px">Projeto: anguli-pet---agendamento</div>
+          </div>
+        </div>
+        <div id="fb-status-box" style="background:#fff;border-radius:var(--r-sm);padding:10px 12px;font-size:12px;font-weight:700;color:var(--tx2)">
+          <span id="fb-status-txt">🔄 Verificando conexão...</span>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
+          <button class="btn-pr" style="flex:1;justify-content:center" onclick="sincronizar()"><i class="ti ti-refresh"></i> Sincronizar agora</button>
+          <button class="btn-ghost" style="flex:1" onclick="verificarStatusFirebase()">🔍 Ver status</button>
+        </div>
+      </div>
+
+      <div class="sdiv">Dados</div>
+      <div class="cfg-list">
+        <div class="cfg-it" onclick="exportar()">
+          <div style="display:flex;align-items:center;gap:10px">
+            <div class="cfg-ico" style="background:var(--menta)">📤</div>
+            <div><div class="cfg-txt">Exportar backup</div><div class="cfg-sub">Salvar JSON localmente</div></div>
+          </div><i class="ti ti-chevron-right" style="color:var(--tx3)"></i>
+        </div>
+        <div class="cfg-it" onclick="importar()">
+          <div style="display:flex;align-items:center;gap:10px">
+            <div class="cfg-ico" style="background:var(--azul-bg)">📥</div>
+            <div><div class="cfg-txt">Importar backup</div><div class="cfg-sub">Restaurar dados salvos</div></div>
+          </div><i class="ti ti-chevron-right" style="color:var(--tx3)"></i>
+        </div>
+        <div class="cfg-it" onclick="sair()">
+          <div style="display:flex;align-items:center;gap:10px">
+            <div class="cfg-ico" style="background:var(--verm-l)">🚪</div>
+            <div><div class="cfg-txt" style="color:var(--verm)">Sair da conta</div><div class="cfg-sub">Voltar para login</div></div>
+          </div><i class="ti ti-chevron-right" style="color:var(--tx3)"></i>
+        </div>
+      </div>
+      <div style="text-align:center;padding:16px;color:var(--tx3);font-size:11px;font-weight:700">
+        Anguli Pet PRO • 1º Hotel de Itapoá 🐾
+      </div>
+    </div>
+
+  </main>
+
+  <!-- NAV -->
+  <nav id="nav" style="display:none">
+    <button class="nb on" id="nb-dash"   onclick="ir('dash')"><div class="nb-ic">📊</div><span class="nb-lbl">Início</span></button>
+    <button class="nb"    id="nb-agenda" onclick="ir('agenda')"><div class="nb-ic">📅</div><span class="nb-lbl">Agenda</span></button>
+    <button class="nb"    id="nb-pets"   onclick="ir('pets')"><div class="nb-ic">🐶</div><span class="nb-lbl">Pets</span></button>
+    <button class="nb"    id="nb-adest"  onclick="ir('adest')"><div class="nb-ic">🎓</div><span class="nb-lbl">Adest.</span></button>
+    <button class="nb"    id="nb-fat"    onclick="ir('fat')"><div class="nb-ic">💰</div><span class="nb-lbl">Entradas</span></button>
+    <button class="nb"    id="nb-saidas" onclick="ir('saidas')"><div class="nb-ic">💸</div><span class="nb-lbl">Saídas</span></button>
+    <button class="nb"    id="nb-config" onclick="ir('config')"><div class="nb-ic">⚙️</div><span class="nb-lbl">Config</span></button>
+  </nav>
 </div>
 
+<!-- ═══════════ MODAIS ═══════════ -->
+
+<!-- MODAL PET COMPLETO -->
+<div class="mov hid" id="modal-pet">
+  <div class="modal">
+    <div class="mhandle"></div>
+    <div class="mtitle" id="mpt">Novo Pet</div>
+    <div class="foto-upload-wrap">
+      <div id="foto-preview-wrap">
+        <div class="foto-placeholder" id="foto-placeholder" onclick="document.getElementById('mp-foto-file').click()">🐾</div>
+        <img class="foto-preview" id="foto-preview-img" style="display:none" src="" alt="foto">
+      </div>
+      <label class="foto-input-lbl" for="mp-foto-file">📷 Adicionar foto</label>
+      <input type="file" id="mp-foto-file" accept="image/*" style="display:none" onchange="previewFoto(event)">
+      <input type="hidden" id="mp-foto-data">
+    </div>
+    <div class="frow-sep">Identificação</div>
+    <div class="frow">
+      <div class="fg"><label class="fl">Nome do pet *</label><input class="fi" id="mp-nome" placeholder="Ex: Thor"></div>
+      <div class="fg"><label class="fl">Tutor *</label><input class="fi" id="mp-tutor" placeholder="Nome do tutor"></div>
+    </div>
+    <div class="frow">
+      <div class="fg"><label class="fl">Espécie</label><select class="fs" id="mp-esp"><option>Cachorro</option><option>Gato</option><option>Ave/Pássaro</option><option>Roedor</option><option>Outro</option></select></div>
+      <div class="fg"><label class="fl">Porte</label><select class="fs" id="mp-porte"><option value="P">Pequeno</option><option value="M" selected>Médio</option><option value="G">Grande</option></select></div>
+    </div>
+    <div class="frow">
+      <div class="fg"><label class="fl">Raça</label><input class="fi" id="mp-raca" placeholder="Ex: Shih Tzu, SRD..."></div>
+      <div class="fg"><label class="fl">Data de Nascimento</label><input class="fi" id="mp-nasc" type="date"></div>
+    </div>
+    <div class="frow">
+      <div class="fg"><label class="fl">Peso (kg)</label><input class="fi" id="mp-peso" type="number" step="0.1" placeholder="Ex: 5.2"></div>
+      <div class="fg"><label class="fl">Castrado?</label><select class="fs" id="mp-cast"><option>Não</option><option>Sim</option></select></div>
+    </div>
+    <div class="frow-sep">Contato e saúde</div>
+    <div class="frow">
+      <div class="fg"><label class="fl">Tel. tutor</label><input class="fi" id="mp-tel" placeholder="(47) 99999-9999"></div>
+      <div class="fg"><label class="fl">Tel. emergência</label><input class="fi" id="mp-tel2" placeholder="(47) 88888-8888"></div>
+    </div>
+    <div class="frow">
+      <div class="fg"><label class="fl">Veterinário</label><input class="fi" id="mp-vet" placeholder="Nome do veterinário"></div>
+      <div class="fg"><label class="fl">Próx. Vacina</label><input class="fi" id="mp-vacina" type="date"></div>
+    </div>
+    <div class="frow">
+      <div class="fg"><label class="fl">Tipo de Alimentação</label><select class="fs" id="mp-alim"><option>Ração seca</option><option>Ração úmida</option><option>Natural/caseiro</option><option>Misto</option></select></div>
+      <div class="fg"><label class="fl">Temperamento</label><select class="fs" id="mp-temp"><option>Dócil</option><option>Agitado</option><option>Medroso</option><option>Agressivo</option><option>Calmo</option></select></div>
+    </div>
+    <div class="frow">
+      <div class="fg"><label class="fl">Sociabilidade c/ animais</label><select class="fs" id="mp-soc"><option>Sim</option><option>Não</option><option>Com ressalvas</option></select></div>
+    </div>
+    <div class="frow">
+      <div class="fg" style="min-width:100%"><label class="fl">Medicação (nome, posologia, horário)</label><textarea class="fta" id="mp-med" placeholder="Ex: Apoquel 16mg 1x ao dia pela manhã"></textarea></div>
+    </div>
+    <div class="frow">
+      <div class="fg" style="min-width:100%"><label class="fl">Observações gerais (alergias, comportamento...)</label><textarea class="fta" id="mp-obs" placeholder="Ex: Alergia a frango, não gosta de banho..."></textarea></div>
+    </div>
+    <div class="macts">
+      <button class="btn-ghost" onclick="fecharModal('modal-pet')">Cancelar</button>
+      <button class="btn-pr" onclick="salvarPet()"><i class="ti ti-check"></i> Salvar Pet</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL EDITAR REGISTRO (qualquer serviço) -->
+<div class="mov hid" id="modal-edit">
+  <div class="modal">
+    <div class="mhandle"></div>
+    <div class="mtitle" id="medit-t">Editar Registro</div>
+    <div id="medit-body"></div>
+    <div class="frow-sep">Pagamento</div>
+    <div class="fl" style="margin-bottom:6px">Status do pagamento</div>
+    <div class="status-bar">
+      <div class="status-opt" id="sp-pend" onclick="setStatus('Pendente')">⏳ Pendente</div>
+      <div class="status-opt" id="sp-pago" onclick="setStatus('Pago')">✅ Pago</div>
+    </div>
+    <div class="fl" style="margin:10px 0 6px">Forma de pagamento</div>
+    <div class="pgto-grid">
+      <div class="pgto-opt" id="pg-dinheiro" onclick="setPgto('Dinheiro')"><span class="pgto-ic">💵</span>Dinheiro</div>
+      <div class="pgto-opt" id="pg-pix" onclick="setPgto('PIX')"><span class="pgto-ic">📱</span>PIX</div>
+      <div class="pgto-opt" id="pg-cred" onclick="setPgto('Crédito')"><span class="pgto-ic">💳</span>Cartão Crédito</div>
+      <div class="pgto-opt" id="pg-deb" onclick="setPgto('Débito')"><span class="pgto-ic">🏧</span>Cartão Débito</div>
+    </div>
+    <div class="pgto-confirm" id="pgto-conf"></div>
+    <div class="val-prev" id="edit-val-prev"></div>
+    <div class="macts">
+      <button class="btn-ghost" onclick="fecharModal('modal-edit')">Cancelar</button>
+      <button class="btn-pr" onclick="confirmarEdit()"><i class="ti ti-check"></i> Salvar alterações</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL CALENDÁRIO COMPLETO -->
+<div class="mov hid" id="modal-cal">
+  <div class="modal">
+    <div class="mhandle"></div>
+    <div class="mtitle">📅 Ir para uma data</div>
+    <div class="cal-wrap" id="cal-wrap"></div>
+    <div style="font-size:11px;color:var(--tx3);text-align:center;margin-top:8px">Ponto laranja = dia com registros</div>
+    <div class="macts">
+      <button class="btn-ghost" onclick="fecharModal('modal-cal')">Fechar</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL ADESTRAMENTO -->
+<div class="mov hid" id="modal-adest">
+  <div class="modal">
+    <div class="mhandle"></div>
+    <div class="mtitle" id="mad-t">Agendar Adestramento</div>
+    <div class="frow">
+      <div class="fg"><label class="fl">Tipo de cliente</label>
+        <select class="fs" id="mad-tipo" onchange="toggleAdestTipo()">
+          <option value="cadastrado">🐶 Cão Cadastrado</option>
+          <option value="avulso">👤 Cliente Avulso</option>
+        </select>
+      </div>
+    </div>
+    <div id="mad-cad-wrap" class="frow">
+      <div class="fg"><label class="fl">Selecionar pet</label>
+        <select class="fs" id="mad-pet"></select>
+      </div>
+    </div>
+    <div id="mad-avulso-wrap" style="display:none">
+      <div class="frow">
+        <div class="fg"><label class="fl">Nome do cão *</label><input class="fi" id="mad-nome" placeholder="Nome do cão"></div>
+        <div class="fg"><label class="fl">Tutor *</label><input class="fi" id="mad-tutor" placeholder="Nome do tutor"></div>
+      </div>
+      <div class="frow">
+        <div class="fg"><label class="fl">Telefone</label><input class="fi" id="mad-tel" placeholder="(47) 99999-9999"></div>
+      </div>
+    </div>
+    <div class="frow">
+      <div class="fg"><label class="fl">Modalidade</label>
+        <select class="fs" id="mad-modal">
+          <option>Individual</option>
+          <option>Grupo</option>
+          <option>Domiciliar</option>
+          <option>Online</option>
+        </select>
+      </div>
+      <div class="fg"><label class="fl">Data *</label><input class="fi" id="mad-data" type="date"></div>
+      <div class="fg"><label class="fl">Horário *</label><input class="fi" id="mad-hora" type="time" value="10:00"></div>
+    </div>
+    <div class="frow">
+      <div class="fg"><label class="fl">Valor (R$)</label><input class="fi" id="mad-val" type="number" step="0.01" placeholder="0,00"></div>
+      <div class="fg"><label class="fl">Status</label>
+        <select class="fs" id="mad-status">
+          <option>Agendado</option><option>Confirmado</option><option>Realizado</option><option>Cancelado</option>
+        </select>
+      </div>
+      <div class="fg"><label class="fl">Pagou?</label>
+        <select class="fs" id="mad-pagou"><option>Não</option><option>Sim</option></select>
+      </div>
+    </div>
+    <div class="frow">
+      <div class="fg" style="min-width:100%"><label class="fl">Observações / Evolução do animal</label>
+        <textarea class="fta" id="mad-obs" placeholder="Ex: Progresso no comando sentar, ainda agitado com outros cães..."></textarea>
+      </div>
+    </div>
+    <div class="macts">
+      <button class="btn-ghost" onclick="fecharModal('modal-adest')">Cancelar</button>
+      <button class="btn-pr" onclick="salvarAdest()"><i class="ti ti-check"></i> Salvar sessão</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL SAÍDA -->
+<div class="mov hid" id="modal-saida">
+  <div class="modal">
+    <div class="mhandle"></div>
+    <div class="mtitle" id="mst">Nova Saída</div>
+    <div class="frow">
+      <div class="fg"><label class="fl">Descrição *</label><input class="fi" id="ms-desc" placeholder="Ex: Ração, produto de banho..."></div>
+    </div>
+    <div class="frow">
+      <div class="fg"><label class="fl">Valor (R$) *</label><input class="fi" id="ms-val" type="number" step="0.01" placeholder="0,00"></div>
+      <div class="fg"><label class="fl">Data</label><input class="fi" id="ms-data" type="date"></div>
+    </div>
+    <div class="frow">
+      <div class="fg"><label class="fl">Categoria</label>
+        <select class="fs" id="ms-cat">
+          <option value="alimentacao">🍖 Alimentação / Ração</option>
+          <option value="higiene">🧴 Produtos de Higiene</option>
+          <option value="vet">💉 Veterinário / Saúde</option>
+          <option value="funcionario">👤 Funcionário / Salário</option>
+          <option value="aluguel">🏠 Aluguel / Condomínio</option>
+          <option value="energia">💡 Energia / Água</option>
+          <option value="equipamento">🔧 Equipamento</option>
+          <option value="marketing">📱 Marketing / Publicidade</option>
+          <option value="dizimo">⛪ Dízimo</option>
+          <option value="outros">📦 Outros</option>
+        </select>
+      </div>
+      <div class="fg"><label class="fl">Forma de Pgto</label>
+        <select class="fs" id="ms-pgto">
+          <option>PIX</option>
+          <option>Dinheiro</option>
+          <option>Cartão Débito</option>
+          <option>Cartão Crédito</option>
+          <option>Boleto</option>
+        </select>
+      </div>
+    </div>
+    <div class="frow">
+      <div class="fg" style="min-width:100%"><label class="fl">Observações</label><input class="fi" id="ms-obs" placeholder="Detalhe adicional..."></div>
+    </div>
+    <div class="macts">
+      <button class="btn-ghost" onclick="fecharModal('modal-saida')">Cancelar</button>
+      <button class="btn-pr" style="background:#DC2626;box-shadow:0 3px 10px rgba(220,38,38,.25)" onclick="salvarSaida()"><i class="ti ti-check"></i> Registrar saída</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+<input type="file" id="file-import" accept=".json" style="display:none" onchange="lerImport(event)">
+
 <script>
-// Firebase config e outras funções... (O mesmo script de antes)
-// Adicione estas funções ao final do seu <script>:
+// ══════════════════════════════════════════════════════════════
+//  🔥 FIREBASE — Credenciais Reais da Anguli Pet
+// ══════════════════════════════════════════════════════════════
+// Firebase config — NÃO ALTERE ESTES VALORES
+const firebaseConfig = {
+  apiKey:            "AIzaSyDKORIiXmJEn0-F1t5Hec3IE_arLaOxFpw",
+  authDomain:        "anguli-pet---agendamento.firebaseapp.com",
+  projectId:         "anguli-pet---agendamento",
+  storageBucket:     "anguli-pet---agendamento.firebasestorage.app",
+  messagingSenderId: "147992135517",
+  appId:             "1:147992135517:web:9e1964d09b959eed9e0ab4",
+  measurementId:     "G-F1193KREFW"
+};
+const FIREBASE_CONFIG = firebaseConfig; // alias para compatibilidade
 
-function esqueciSenha() {
-    const email = prompt("Digite seu e-mail para receber o link de redefinição:");
-    if (email) {
-        firebase.auth().sendPasswordResetEmail(email)
-            .then(() => alert("E-mail de redefinição enviado!"))
-            .catch(e => alert("Erro: " + e.message));
+// Variáveis globais Firebase
+let fbApp  = null;
+let fbDb   = null;
+let fbAuth = null;
+let fbUser = null;
+let fbUID  = null;
+
+// Inicializa Firebase
+function initFirebase() {
+  try {
+    if (!firebase || !firebase.app) return;
+    if (!firebase.apps.length) {
+      fbApp = firebase.initializeApp(firebaseConfig);
+    } else {
+      fbApp = firebase.app();
     }
+    fbAuth = firebase.auth();
+    fbDb   = firebase.firestore();
+    // Persistência offline automática
+    fbDb.enablePersistence({ synchronizeTabs: true }).catch(() => {});
+
+    // Ouve mudanças de autenticação
+    fbAuth.onAuthStateChanged(user => {
+      if (user) {
+        fbUser = user;
+        fbUID  = user.uid;
+        atualizarStatusSync(true);
+        // Carrega dados do Firestore se tiver usuário
+        if (logado) carregarDoFirestore();
+      } else {
+        fbUser = null;
+        fbUID  = null;
+        atualizarStatusSync(false);
+      }
+    });
+    console.log('🔥 Firebase inicializado!');
+  } catch(e) {
+    console.warn('Firebase não disponível, usando localStorage:', e.message);
+  }
 }
 
-function remItem(setor, pi, idx) {
-    if (!confirm('Remover registro?')) return;
-    const d = getDia(idx);
-    d[setor].splice(pi, 1);
-    dados[chave(getDias()[idx])] = d;
-    save(); // O save() já chama fbSync() e atualiza a nuvem
-    setTab(setor);
-    renderMets(idx);
+// ─── STATUS VISUAL DE SYNC ───────────────────────────────────
+function atualizarStatusSync(online) {
+  const banner = document.getElementById('sync-banner');
+  if (!banner) return;
+  if (online) {
+    banner.textContent = '☁️ Firebase conectado — dados sincronizados!';
+    banner.style.background = 'var(--menta)';
+    banner.style.color = 'var(--menta-d)';
+    banner.classList.add('show');
+    setTimeout(() => banner.classList.remove('show'), 3000);
+  }
+}
+
+// ─── SAVE COM SYNC ──────────────────────────────────────────
+function fbSync() {
+  if (!fbDb || !fbUID) return;
+  try {
+    const ref = fbDb.collection('usuarios').doc(fbUID);
+    const payload = {
+      dados:  JSON.stringify(dados),
+      pets:   JSON.stringify(pets),
+      saidas: JSON.stringify(saidas),
+      adests: JSON.stringify(adests),
+      config: JSON.stringify(config),
+      updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+    };
+    ref.set(payload, { merge: true })
+       .then(() => atualizarStatusSync(true))
+       .catch(e => console.warn('Sync erro:', e.message));
+  } catch(e) {
+    console.warn('fbSync erro:', e.message);
+  }
+}
+
+// ─── CARREGAR DO FIRESTORE ───────────────────────────────────
+async function carregarDoFirestore() {
+  if (!fbDb || !fbUID) return;
+  try {
+    const snap = await fbDb.collection('usuarios').doc(fbUID).get();
+    if (!snap.exists) { fbSync(); return; } // primeira vez: envia local
+    const d = snap.data();
+    let atualizado = false;
+    // Só sobrescreve se o Firestore tiver dados mais novos
+    if (d.dados)  { dados  = JSON.parse(d.dados);  S.set('dados', dados);   atualizado=true; }
+    if (d.pets)   { pets   = JSON.parse(d.pets);   S.set('pets', pets);     atualizado=true; }
+    if (d.saidas) { saidas = JSON.parse(d.saidas); S.set('saidas', saidas); atualizado=true; }
+    if (d.adests) { adests = JSON.parse(d.adests); S.set('adests', adests); atualizado=true; }
+    if (d.config) { config = JSON.parse(d.config); S.set('config', config); atualizado=true; }
+    if (atualizado) {
+      // Atualiza tela com dados da nuvem
+      const pg = document.querySelector('.pg.on');
+      if (pg) {
+        const id = pg.id.replace('pg-','');
+        if (id === 'dash')   renderDash();
+        if (id === 'agenda') renderSemana();
+        if (id === 'pets')   renderPets();
+        if (id === 'fat')    renderFaturamento();
+        if (id === 'saidas') renderSaidas();
+        if (id === 'adest')  renderAdest();
+      }
+      atualizarStatusSync(true);
+      toast('☁️ Dados atualizados da nuvem!');
+    }
+  } catch(e) {
+    console.warn('Erro ao carregar Firestore:', e.message);
+  }
+}
+
+// ─── LOGIN / CADASTRO COM FIREBASE AUTH ─────────────────────
+async function fazerLoginFirebase(email, senha, novaConta) {
+  if (!fbAuth) {
+    // Firebase não carregou ainda — tenta local
+    toast('⚠️ Firebase ainda carregando, aguarde...');
+    setTimeout(() => fazerLoginFirebase(email, senha, novaConta), 1500);
+    return;
+  }
+  const btn = document.querySelector('#pg-login .btn-pr');
+  if (btn) { btn.textContent = '🔄 Aguarde...'; btn.disabled = true; }
+  try {
+    let cred;
+    if (novaConta) {
+      cred = await fbAuth.createUserWithEmailAndPassword(email, senha);
+      toast('🎉 Conta criada! Bem-vindo à Anguli Pet!');
+    } else {
+      cred = await fbAuth.signInWithEmailAndPassword(email, senha);
+      toast('✅ Login realizado!');
+    }
+    fbUser = cred.user;
+    fbUID  = cred.user.uid;
+    entrarNoApp();
+  } catch(e) {
+    const msgs = {
+      'auth/user-not-found':    '⚠️ E-mail não cadastrado.',
+      'auth/wrong-password':    '⚠️ Senha incorreta.',
+      'auth/email-already-in-use': '⚠️ E-mail já cadastrado.',
+      'auth/weak-password':     '⚠️ Senha muito fraca (mín. 6 caracteres).',
+      'auth/invalid-email':     '⚠️ E-mail inválido.',
+      'auth/network-request-failed': '⚠️ Sem conexão. Tente o modo Demo.',
+      'auth/invalid-credential': '⚠️ E-mail ou senha incorretos.'
+    };
+    toast(msgs[e.code] || '⚠️ Erro: ' + e.message);
+    if (btn) { btn.textContent = '🔑 Entrar'; btn.disabled = false; }
+  }
+}
+
+async function fazerLogoutFirebase() {
+  if (fbAuth) {
+    try { await fbAuth.signOut(); } catch(e) {}
+  }
+  fbUser = null; fbUID = null;
+}
+
+// ═══ CONSTANTES ═══
+const DIAS  = ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'];
+const DIASF = ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'];
+const MESES = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
+const MESESC= ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+const COR_SERV = ['#16A34A','#1A4BAA','#EA580C','#7C3AED'];
+const SERV_NOMES = ['Creche','Hotel','Banho/Tosa','Dog Walker'];
+
+// ═══ ESTADO ═══
+let logado = false;
+let offSem = 0;
+let diaSel = null;
+let tabAtiva = 'creche';
+let editPetIdx = null;
+// Estado edição de registro
+let editCtx = {setor:null, idx:null, diaIdx:null, status:'Pendente', pgto:'PIX'};
+// Calendário estado
+let calMes, calAno;
+
+// ═══ STORAGE ═══
+const S = {
+  get:(k,d)=>{try{const v=localStorage.getItem('ap2_'+k);return v?JSON.parse(v):d;}catch{return d;}},
+  set:(k,v)=>{try{localStorage.setItem('ap2_'+k,JSON.stringify(v));}catch{}},
+};
+
+let dados  = S.get('dados', {});
+let pets   = S.get('pets', []);
+let saidas = S.get('saidas', []);  // ← novo
+let adests = S.get('adests', []);  // adestramento
+let config = S.get('config', {
+  nome:'Anguli Pet', wa:'47 98857-4522', ig:'@angulipet',
+  precos:{
+    creche:{av:40, t3x:380, t5x:500},
+    hotel:{p:50, m:80, g:100, gp:50, gm:65, gg:80, av:35, ro:35},
+    banho:{p:40, m:55, g:70},
+    bt:{p:60, m:75, g:90},
+    dw:{av:75, t3x:60, t5x:50}
+  }
+});
+
+function salvarDados(){ S.set('dados',dados); fbSync(); }
+const save = () => { S.set('dados',dados); S.set('pets',pets); S.set('saidas',saidas); S.set('adests',adests); S.set('config',config); fbSync(); };
+
+
+// ═══ HELPERS ═══
+const hoje = () => { const d=new Date(); d.setHours(0,0,0,0); return d; };
+const chave = d => d.toISOString().split('T')[0];
+
+function getDias() {
+  const h=hoje(), ds=h.getDay();
+  const ini=new Date(h); ini.setDate(h.getDate()-ds+(offSem*7));
+  return Array.from({length:7},(_,i)=>{const d=new Date(ini);d.setDate(ini.getDate()+i);return d;});
+}
+
+function getDia(idx) {
+  const k=chave(getDias()[idx]);
+  if(!dados[k]) dados[k]={creche:[],hotel:[],banho:[],dw:[]};
+  ['creche','hotel','banho','dw'].forEach(s=>{if(!dados[k][s])dados[k][s]=[];});
+  return dados[k];
+}
+
+const P = () => config.precos;
+
+function calcPreco(setor, porte, esp) {
+  const p=P();
+  if(setor==='creche') return p.creche.av;
+  if(setor==='hotel'){
+    if(esp==='Gato') return p.hotel[porte==='P'?'gp':porte==='M'?'gm':'gg'];
+    if(esp==='Ave/Pássaro') return p.hotel.av;
+    if(esp==='Roedor') return p.hotel.ro;
+    return p.hotel[porte.toLowerCase()]||p.hotel.m;
+  }
+  return 0;
+}
+function calcBanho(serv,porte){
+  const p=P();
+  if(serv==='Banho') return p.banho[porte.toLowerCase()]||p.banho.m;
+  if(serv==='Banho e Tosa') return p.bt[porte.toLowerCase()]||p.bt.m;
+  if(serv==='Tosa') return Math.round((p.bt[porte.toLowerCase()]||p.bt.m)*.65);
+  return 0;
+}
+function calcDW(plano){
+  const p=P().dw;
+  return plano==='Avulso'?p.av:plano==='3x Semana'?p.t3x:p.t5x;
+}
+
+function fatDia(idx, campo='pagou') {
+  const d=getDia(idx); let total=0; const rows=[];
+  const add=(arr,label)=>arr.filter(r=>r.pagou==='Sim').forEach(r=>{const v=+(r.valor||0);rows.push({desc:r.nome+' — '+label,val:v,setor:label});total+=v;});
+  add(d.creche||[],'Creche'); add(d.hotel||[],'Hotel');
+  add(d.banho||[],'Banho/Tosa'); add(d.dw||[],'Dog Walker');
+  return {rows,total};
+}
+
+function fatPeriodo(tipo) {
+  const hj=hoje(); let ini;
+  if(tipo==='dia'){ini=new Date(hj);}
+  else if(tipo==='semana'){ini=new Date(hj);ini.setDate(hj.getDate()-hj.getDay());}
+  else if(tipo==='mes'){ini=new Date(hj.getFullYear(),hj.getMonth(),1);}
+  else{ini=new Date(2000,0,1);}
+  const fim=new Date(hj);
+  const por={creche:0,hotel:0,banho:0,dw:0,adest:0};
+  for(let d=new Date(ini);d<=fim;d.setDate(d.getDate()+1)){
+    const k=chave(new Date(d)),dd=dados[k]||{};
+    (dd.creche||[]).filter(r=>r.pagou==='Sim').forEach(r=>por.creche+=+(r.valor||0));
+    (dd.hotel||[]).filter(r=>r.pagou==='Sim').forEach(r=>por.hotel+=+(r.valor||0));
+    (dd.banho||[]).filter(r=>r.pagou==='Sim').forEach(r=>por.banho+=+(r.valor||0));
+    (dd.dw||[]).filter(r=>r.pagou==='Sim').forEach(r=>por.dw+=+(r.valor||0));
+  }
+  if(typeof adests!=='undefined') adests.filter(a=>a.pagou==='Sim'&&a.data).forEach(a=>{
+    const d=new Date(a.data+'T00:00:00');
+    if(d>=ini&&d<=fim) por.adest+=+(a.valor||0);
+  });
+  return por;
+}
+
+function isVIP(tutor) {
+  let tot=0,vis=0;
+  Object.values(dados).forEach(dia=>{
+    ['creche','hotel','banho','dw'].forEach(s=>{
+      (dia[s]||[]).forEach(r=>{if((r.tutor||r.nome||'').toLowerCase()===tutor.toLowerCase()){vis++;tot+=+(r.valor||0);}});
+    });
+  });
+  return vis>=10||tot>=500;
+}
+
+function idadeTexto(dataNasc) {
+  if(!dataNasc) return '';
+  const partes = dataNasc.split('-');
+  if(partes.length < 3) return '';
+  const nasc = new Date(parseInt(partes[0]), parseInt(partes[1])-1, parseInt(partes[2]));
+  const hoje2 = new Date();
+  const meses = (hoje2.getFullYear()-nasc.getFullYear())*12 + (hoje2.getMonth()-nasc.getMonth());
+  const anos = Math.floor(meses/12);
+  if(anos <= 0) return meses > 0 ? meses+'m' : '<1m';
+  return anos + (anos===1?' ano':' anos');
+}
+
+// ═══ NAVEGAÇÃO ═══
+function ir(pg) {
+  document.querySelectorAll('.pg').forEach(p=>{ p.style.display='none'; p.classList.remove('on'); });
+  const el=document.getElementById('pg-'+pg);
+  el.style.display='block'; el.classList.add('on');
+  document.querySelectorAll('.nb').forEach(b=>b.classList.remove('on'));
+  const nb=document.getElementById('nb-'+pg); if(nb) nb.classList.add('on');
+  if(pg==='dash')   renderDash();
+  if(pg==='agenda') renderSemana();
+  if(pg==='pets')   renderPets();
+  if(pg==='fat')    renderFaturamento();
+  if(pg==='adest')  renderAdest();
+  if(pg==='saidas') renderSaidas();
+  if(pg==='config') carregarConfig();
+}
+
+// ═══ LOGIN ═══
+function irAgendaSetor(setor) {
+  offSem=0; // volta para semana atual
+  ir('agenda');
+  setTimeout(()=>{
     renderSemana();
-    toast('🗑️ Removido');
+    const dias=getDias(), hj=hoje();
+    const idx=dias.findIndex(d=>d.getTime()===hj.getTime());
+    if(idx>=0){
+      selecionarDia(idx);
+      setTimeout(()=>setTab(setor),100);
+    }
+  },80);
 }
 
-// ... (Resto do seu script original) ...
+function entrarDemo(){ fbUID=null; fbUser=null; entrarApp(); toast('🔓 Modo Demo — dados salvos apenas neste dispositivo'); }
+
+function recuperarSenha() {
+  const emailInput = document.getElementById('li-email').value.trim();
+  const emailParaReset = emailInput || prompt('Digite seu e-mail para recuperar a senha:');
+  if (!emailParaReset) return;
+  if (!fbAuth) { toast('⚠️ Firebase não carregado. Tente novamente.'); return; }
+  fbAuth.sendPasswordResetEmail(emailParaReset)
+    .then(() => {
+      toast('📧 E-mail de recuperação enviado!');
+      setTimeout(() => alert('✅ E-mail enviado para ' + emailParaReset + '\n\nVerifique sua caixa de entrada (e a pasta de spam).\nClique no link para criar uma nova senha.'), 300);
+    })
+    .catch(e => {
+      const msgs = {
+        'auth/user-not-found':  '⚠️ E-mail não encontrado.',
+        'auth/invalid-email':   '⚠️ E-mail inválido.',
+        'auth/network-request-failed': '⚠️ Sem conexão com a internet.'
+      };
+      toast(msgs[e.code] || '⚠️ Erro: ' + e.message);
+    });
+}
+
+function login() {
+  const email = document.getElementById('li-email').value.trim();
+  const senha = document.getElementById('li-senha').value;
+  if (!email || !senha) { toast('⚠️ Preencha e-mail e senha'); return; }
+  fazerLoginFirebase(email, senha, false);
+}
+
+function criarConta() {
+  const email = document.getElementById('li-email').value.trim();
+  const senha = document.getElementById('li-senha').value;
+  if (!email) { toast('⚠️ Informe um e-mail'); return; }
+  if (senha.length < 6) { toast('⚠️ Senha com mínimo 6 caracteres'); return; }
+  fazerLoginFirebase(email, senha, true);
+}
+
+function entrarApp(){
+  logado=true;
+  document.getElementById('pg-login').style.display='none';
+  document.getElementById('pg-login').classList.remove('on');
+  document.getElementById('nav').style.display='flex';
+  ir('dash');
+  setTimeout(()=>{
+    offSem=0; renderSemana();
+    const dias=getDias(), hj=hoje();
+    const idx=dias.findIndex(d=>d.getTime()===hj.getTime());
+    if(idx>=0) selecionarDia(idx);
+    // Carrega dados do Firestore se autenticado
+    if(fbUID) carregarDoFirestore();
+  },300);
+}
+function sair(){
+  if(!confirm('Sair da conta?'))return;
+  logado=false;
+  fazerLogoutFirebase();
+  document.getElementById('nav').style.display='none';
+  document.querySelectorAll('.pg').forEach(p=>{p.style.display='none';p.classList.remove('on');});
+  document.getElementById('pg-login').style.display='flex';
+  document.getElementById('pg-login').classList.add('on');
+}
+// ═══ DASHBOARD ═══
+let fatFiltro='dia';
+function setFatFiltro(tipo, btn){
+  fatFiltro=tipo;
+  document.querySelectorAll('.fat-btn').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  renderGrafico();
+}
+
+function renderDash(){
+  const hj=hoje(), k=chave(hj);
+  const dd=dados[k]||{creche:[],hotel:[],banho:[],dw:[]};
+  const dc=(dd.creche||[]).length, dh=(dd.hotel||[]).length;
+  const db=(dd.banho||[]).length, ddw=(dd.dw||[]).length;
+  // Adestramento hoje
+  const hoje2=chave(hj);
+  const adestHoje=(typeof adests!=='undefined'?adests.filter(a=>a.data===hoje2).length:0);
+
+  let pend=0;
+  ['creche','banho','dw'].forEach(s=>(dd[s]||[]).filter(r=>r.pagou!=='Sim').forEach(()=>pend++));
+  // Faturamento de hoje — todos os serviços
+  const porHoje=fatPeriodo('dia');
+  const fatHoje=porHoje.creche+porHoje.hotel+porHoje.banho+porHoje.dw+(porHoje.adest||0);
+  document.getElementById('kd-c').textContent=dc;
+  document.getElementById('kd-h').textContent=dh;
+  document.getElementById('kd-b').textContent=db;
+  document.getElementById('kd-dw').textContent=ddw;
+  document.getElementById('kd-p').textContent=pets.length;
+  document.getElementById('kd-a').textContent=pend;
+  document.getElementById('kd-fat').textContent='R$'+fatHoje;
+  document.getElementById('fat-geral-v').textContent='R$'+calcFatTotal().toFixed(2).replace('.',',');
+  const n=DIAS[hj.getDay()];
+  document.getElementById('dash-sub').textContent=`${n}, ${hj.getDate()} de ${MESES[hj.getMonth()]}`;
+  // Saudação dinâmica
+  const hora=hj.getHours?new Date().getHours():new Date().getHours();
+  const sd=hora<12?'Bom dia':hora<18?'Boa tarde':'Boa noite';
+  const usuario=config.usuario||config.nome||'Anguli Pet';
+  document.getElementById('dash-saudacao').textContent=sd+', '+usuario+'! 👋';
+  renderGrafico();
+  renderAlertas();
+}
+
+function renderGrafico(){
+  const por=fatPeriodo(fatFiltro);
+  const vals=[por.creche,por.hotel,por.banho,por.dw];
+  const total=vals.reduce((a,v)=>a+v,0);
+  const cores=['#16A34A','#1A4BAA','#EA580C','#7C3AED'];
+  const nomes=['Creche','Hotel','Banho/Tosa','Dog Walker'];
+  const svg=document.getElementById('donut-svg');
+  document.getElementById('donut-total').textContent='R$'+total;
+
+  // Donut correto usando stroke-dasharray
+  const cx=55, cy=55, r=36;
+  const circ=2*Math.PI*r;
+  if(total===0){
+    svg.innerHTML=`<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#EEF4FF" stroke-width="14"/>`;
+  } else {
+    let offset=0;
+    let paths=`<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#EEF4FF" stroke-width="14"/>`;
+    // Começa do topo (rotate -90)
+    vals.forEach((v,i)=>{
+      if(!v) return;
+      const pct=v/total;
+      const dash=pct*circ;
+      const gap=circ-dash;
+      paths+=`<circle cx="${cx}" cy="${cy}" r="${r}" fill="none"
+        stroke="${cores[i]}" stroke-width="14"
+        stroke-dasharray="${dash.toFixed(2)} ${gap.toFixed(2)}"
+        stroke-dashoffset="${(-offset*circ+circ*0.25).toFixed(2)}"
+        transform="rotate(-90 ${cx} ${cy})"
+        style="transition:stroke-dasharray .4s ease"/>`;
+      offset+=pct;
+    });
+    // Centro branco
+    paths+=`<circle cx="${cx}" cy="${cy}" r="24" fill="white"/>`;
+    svg.innerHTML=paths;
+  }
+
+  // Legenda
+  document.getElementById('fat-legend').innerHTML=vals.map((v,i)=>`
+    <div class="leg-item">
+      <div class="leg-dot" style="background:${cores[i]}"></div>
+      <span class="leg-lbl">${nomes[i]}</span>
+      <span class="leg-val">R$${v}</span>
+      <span class="leg-pct">${total?Math.round(v/total*100):0}%</span>
+    </div>`).join('');
+}
+
+// ═══ SOM DE ALERTA ═══
+let _audioCtx = null;
+function getAudioCtx() {
+  if (!_audioCtx) _audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  return _audioCtx;
+}
+function tocarAlerta(tipo) {
+  try {
+    const ctx = getAudioCtx();
+    // Sequências de notas: [frequência, início, duração]
+    const seqs = {
+      urgente: [[880,0,.12],[660,.15,.12],[880,.3,.18]], // alto — vacina vencida
+      aviso:   [[523,0,.1],[659,.12,.1],[784,.24,.15]],  // médio — vacina próxima/retorno
+      feliz:   [[523,0,.1],[659,.12,.1],[784,.24,.1],[1047,.36,.2]] // festivo — aniversário
+    };
+    const notas = seqs[tipo] || seqs.aviso;
+    notas.forEach(([freq, start, dur]) => {
+      const osc  = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.connect(gain); gain.connect(ctx.destination);
+      osc.frequency.value = freq;
+      osc.type = tipo === 'feliz' ? 'sine' : 'square';
+      gain.gain.setValueAtTime(.18, ctx.currentTime + start);
+      gain.gain.exponentialRampToValueAtTime(.001, ctx.currentTime + start + dur);
+      osc.start(ctx.currentTime + start);
+      osc.stop(ctx.currentTime + start + dur + .05);
+    });
+  } catch(e) {}
+}
+
+// ═══ WHATSAPP ═══
+function numWA(tel) {
+  if (!tel) return null;
+  // Remove tudo que não for número
+  let n = tel.replace(/\D/g,'');
+  // Adiciona DDI Brasil se não tiver
+  if (n.length === 10 || n.length === 11) n = '55' + n;
+  return n;
+}
+
+
+// ═══ WA MSG STORE (safe for onclick attrs) ═══
+const _waMsgs = {};
+let _waMsgIdx = 0;
+function storeWAMsg(msg){ const k='wm'+(++_waMsgIdx); _waMsgs[k]=msg; return k; }
+function sendStoredWA(tel, key){ abrirWA(tel, _waMsgs[key]||''); }
+function abrirWA(tel, msg) {
+  const n = numWA(tel);
+  if (!n) { toast('⚠️ Sem telefone cadastrado. Edite a ficha do pet.'); return; }
+  try {
+    const url = 'https://wa.me/' + n + '?text=' + encodeURIComponent(String(msg));
+    window.open(url, '_blank');
+  } catch(e) { toast('⚠️ Erro ao abrir WhatsApp. Tente novamente.'); }
+}
+
+function msgVacinaVencida(pet, diff) {
+  return `Olá${pet.tutor ? ', ' + pet.tutor.split(' ')[0] : ''}! 👋\n\nSou da *Anguli Pet* e estamos entrando em contato pois a vacina do(a) *${pet.nome}* está vencida há *${Math.abs(diff)} dia(s)*.\n\nPor favor, agende uma visita ao veterinário para manter a saúde e segurança do seu pet! 🐾💉\n\nEstamos à disposição. 😊\n*Anguli Pet — Hotel • Creche • Pet Shop*`;
+}
+
+function msgVacinaProxima(pet, diff) {
+  return `Olá${pet.tutor ? ', ' + pet.tutor.split(' ')[0] : ''}! 👋\n\nLembramos que a vacina do(a) *${pet.nome}* vence em *${diff} dia(s)*.\n\nAproveite para já marcar com o veterinário e manter tudo em dia! 💉🐾\n\n*Anguli Pet — Hotel • Creche • Pet Shop*`;
+}
+
+function msgAniversario(pet) {
+  return `Olá${pet.tutor ? ', ' + pet.tutor.split(' ')[0] : ''}! 🎉\n\nHoje é um dia especial — *${pet.nome}* está fazendo aniversário! 🎂🐾\n\nToda a equipe da *Anguli Pet* deseja muita saúde, carinho e muitoooos petiscos para o seu melhor amigo(a)! 🥳\n\nCom carinho,\n*Anguli Pet — Hotel • Creche • Pet Shop*`;
+}
+
+function msgRetornoBanho(pet) {
+  return `Olá${pet.tutor ? ', ' + pet.tutor.split(' ')[0] : ''}! 🐶\n\nFaz 28 dias desde o último banho do(a) *${pet.nome}* aqui na Anguli Pet! 🛁✂️\n\nQue tal agendar um banho e tosa para deixar ele(a) cheiroso(a) e linda? 😍\n\nChama a gente no WhatsApp ou agende diretamente. Teremos prazer em atender!\n*Anguli Pet — Hotel • Creche • Pet Shop*`;
+}
+
+// ═══ ALERTAS ═══
+let _alertasAnteriores = 0;
+
+function renderAlertas(){
+  const hj=hoje(), box=document.getElementById('alertas-box');
+  let html='';
+  let totalAlertas = 0;
+  let tipoSom = null; // 'urgente' | 'aviso' | 'feliz'
+
+  // ── Vacinas vencidas ──
+  pets.forEach(p=>{
+    if(!p.vacina) return;
+    const vd=new Date(p.vacina), diff=Math.ceil((vd-hj)/86400000);
+    if(diff<0){
+      totalAlertas++;
+      if(!tipoSom || tipoSom!=='urgente') tipoSom='urgente';
+      const tel = p.tel || p.tel2 || '';
+      const msg = msgVacinaVencida(p, diff);
+      html+=`<div class="alert-card vac-venc">
+        <div class="alert-ico">💉</div>
+        <div style="flex:1">
+          <div class="alert-t">Vacina de <strong>${p.nome}</strong> VENCIDA!</div>
+          <div class="alert-s">Tutor: ${p.tutor||'—'} • Venceu há ${Math.abs(diff)} dia(s)</div>
+          <div style="display:flex;gap:6px;margin-top:7px;flex-wrap:wrap">
+            <button class="alert-wa-btn" onclick="abrirWA('${tel}',\`${msg.replace(/`/g,"'")}\`)">
+              <span>📲</span> Avisar no WhatsApp
+            </button>
+            <button class="alert-edit-btn" onclick="editPet(${pets.indexOf(p)})">✏️ Editar ficha</button>
+          </div>
+          <div class="alert-snooze-row">
+            <span style="font-size:10px;font-weight:700;color:#9CA3AF;align-self:center">Após vacinar:</span>
+            <button class="btn-snooze-rm" onclick="removerAlertaVacina(${pets.indexOf(p)})">✅ Remover alerta</button>
+            <button class="btn-snooze-keep" onclick="toast('Alerta mantido!')">🔔 Manter alerta</button>
+          </div>
+        </div>
+      </div>`;
+    } else if(diff<=30){
+      totalAlertas++;
+      if(!tipoSom) tipoSom='aviso';
+      const tel = p.tel || p.tel2 || '';
+      const msg = msgVacinaProxima(p, diff);
+      html+=`<div class="alert-card vac-prox">
+        <div class="alert-ico">⚠️</div>
+        <div style="flex:1">
+          <div class="alert-t">Vacina de <strong>${p.nome}</strong> vence em ${diff} dia(s)</div>
+          <div class="alert-s">Tutor: ${p.tutor||'—'} • Vence em ${new Date(p.vacina).toLocaleDateString('pt-BR')}</div>
+          <div style="display:flex;gap:6px;margin-top:7px">
+            <button class="alert-wa-btn" style="background:#FEFCE8;color:#854D0E;border-color:#FDE047" onclick="abrirWA('${tel}',\`${msg.replace(/`/g,"'")}\`)">
+              <span>📲</span> Lembrar no WhatsApp
+            </button>
+          </div>
+        </div>
+      </div>`;
+    }
+  });
+
+  // ── Aniversários ──
+  pets.forEach(p=>{
+    if(!p.nasc) return;
+    const partes=p.nasc.split('-');
+    if(partes.length<3) return;
+    const mesN=parseInt(partes[1],10)-1, diaN=parseInt(partes[2],10);
+    if(diaN===hj.getDate()&&mesN===hj.getMonth()){
+      totalAlertas++;
+      tipoSom='feliz';
+      const anos=idadeTexto(p.nasc);
+      const tel = p.tel || p.tel2 || '';
+      const msg = msgAniversario(p);
+      const fotoAniv = p.foto ? `<img src="${p.foto}" style="width:46px;height:46px;border-radius:50%;object-fit:cover;border:3px solid #FDE68A;flex-shrink:0">` : `<span style="font-size:32px">🐾</span>`;
+      html+=`<div class="aniv-banner">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+          ${fotoAniv}
+          <div><div class="aniv-title">🎉 Hoje é aniversário de ${p.nome}! 🎂</div>
+          <div class="aniv-sub">Tutor: ${p.tutor||'—'} • ${anos} completando hoje! 🥳</div></div>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <button class="alert-wa-btn" style="background:#FEF3C7;color:#854D0E;border-color:#FDE68A" onclick="(()=>{const k=storeWAMsg(msg);sendStoredWA('${tel}',k)})()">
+            🎉 Parabenizar no WhatsApp
+          </button>
+        </div>
+      </div>`;
+    }
+  });
+
+  // ── Retorno de banho (28 dias) ──
+  const k28=chave(new Date(hj.getFullYear(),hj.getMonth(),hj.getDate()-28));
+  const d28=dados[k28]||{};
+  (d28.banho||[]).forEach(r=>{
+    totalAlertas++;
+    if(!tipoSom) tipoSom='aviso';
+    const pet = pets.find(p=>p.nome===r.nome) || {};
+    const tel = r.tel || pet.tel || pet.tel2 || '';
+    const msg = msgRetornoBanho({nome:r.nome, tutor:r.tutor||pet.tutor||''});
+    html+=`<div class="alert-card retorno">
+      <div class="alert-ico">✂️</div>
+      <div style="flex:1">
+        <div class="alert-t"><strong>${r.nome}</strong> — hora do banho/tosa!</div>
+        <div class="alert-s">Último banho há 28 dias • Tutor: ${r.tutor||pet.tutor||'—'}</div>
+        <div style="display:flex;gap:6px;margin-top:7px">
+          <button class="alert-wa-btn" style="background:var(--azul-bg);color:var(--azul);border-color:var(--azul-xl)" onclick="abrirWA('${tel}',\`${msg.replace(/`/g,"'")}\`)">
+            <span>📲</span> Convidar no WhatsApp
+          </button>
+        </div>
+      </div>
+    </div>`;
+  });
+
+  // ── Pagamentos pendentes ──
+  const dd=dados[chave(hj)]||{};
+  let pend=0;
+  const pendNomes=[];
+  ['creche','banho','dw'].forEach(s=>(dd[s]||[]).filter(r=>r.pagou!=='Sim').forEach(r=>{pend++;pendNomes.push(r.nome);}));
+  if(pend>0){
+    totalAlertas++;
+    if(!tipoSom) tipoSom='aviso';
+    html+=`<div class="alert-card" style="background:#FFFBEB;border:1px solid #FDE68A;border-left:4px solid var(--ouro)">
+      <div class="alert-ico">💰</div>
+      <div style="flex:1">
+        <div class="alert-t">${pend} pagamento(s) pendente(s) hoje</div>
+        <div class="alert-s">${pendNomes.slice(0,3).join(', ')}${pendNomes.length>3?' e mais...':''}</div>
+        <div style="display:flex;gap:6px;margin-top:7px">
+          <button class="alert-edit-btn" onclick="ir('agenda')">📋 Ver agenda</button>
+        </div>
+      </div>
+    </div>`;
+  }
+
+  // ── Toca som apenas se surgiram novos alertas ──
+  if(totalAlertas > 0 && totalAlertas !== _alertasAnteriores && tipoSom) {
+    setTimeout(()=>tocarAlerta(tipoSom), 400);
+  }
+  _alertasAnteriores = totalAlertas;
+
+  if(!html) html=`<div class="card" style="margin:0 16px 12px"><div class="vz"><i class="ti ti-check"></i>Sem alertas no momento! ✅</div></div>`;
+  else html=`<div style="margin-bottom:4px">`+html+`</div>`;
+  box.innerHTML=html;
+}
+// ═══ SEMANA ═══
+function navSem(dir){
+  offSem+=dir; diaSel=null;
+  document.getElementById('det-empty').style.display='block';
+  document.getElementById('det-body').style.display='none';
+  document.getElementById('det-mets').style.display='none';
+  document.getElementById('det-t').textContent='Selecione um dia';
+  document.getElementById('det-d').textContent='';
+  renderSemana();
+}
+
+function renderSemana(){
+  const dias=getDias(), hj=hoje();
+  let t=offSem===0?'Semana atual':offSem===-1?'Semana passada':offSem===1?'Próxima semana':offSem<0?`${Math.abs(offSem)}sem. atrás`:`Daqui ${offSem} semanas`;
+  document.getElementById('sem-t').textContent=t;
+  const ini=dias[0],fim=dias[6];
+  const sub=ini.getMonth()===fim.getMonth()?`${ini.getDate()}–${fim.getDate()} de ${MESES[fim.getMonth()]}`:`${ini.getDate()}/${ini.getMonth()+1} – ${fim.getDate()}/${fim.getMonth()+1}`;
+  document.getElementById('sem-s').textContent=sub+' (toque para ir a uma data)';
+  let tc=0,th=0,tb=0,tf=0;
+  const g=document.getElementById('dgrid'); g.innerHTML='';
+  dias.forEach((d,i)=>{
+    const isHj=d.getTime()===hj.getTime(), isSel=diaSel===i;
+    const dd=getDia(i);
+    const nc=(dd.creche||[]).length,nh=(dd.hotel||[]).length,nb=(dd.banho||[]).length+(dd.dw||[]).length;
+    const {total}=fatDia(i);
+    tc+=nc;th+=nh;tb+=nb;tf+=total;
+    const btn=document.createElement('div');
+    btn.className='dbtn'+(isHj?' hj':'')+(isSel?' sel':'');
+    btn.onclick=()=>selecionarDia(i);
+    btn.innerHTML=`<div class="dnom">${DIAS[d.getDay()]}</div><div class="dnum">${d.getDate()}</div><div class="dpills">${nc?`<div class="dp dpc">${nc}c</div>`:''}${nh?`<div class="dp dph">${nh}h</div>`:''}${nb?`<div class="dp dpb">${nb}b</div>`:''}</div>`;
+    g.appendChild(btn);
+  });
+  document.getElementById('tt-c').textContent=tc;
+  document.getElementById('tt-h').textContent=th;
+  document.getElementById('tt-b').textContent=tb;
+  document.getElementById('tt-f').textContent='R$'+tf;
+}
+
+function selecionarDia(idx){
+  diaSel=idx;
+  const d=getDias()[idx];
+  document.getElementById('det-t').textContent=`${DIASF[d.getDay()]}, ${d.getDate()} de ${MESES[d.getMonth()]}`;
+  document.getElementById('det-d').textContent=d.toLocaleDateString('pt-BR');
+  document.getElementById('det-empty').style.display='none';
+  document.getElementById('det-body').style.display='block';
+  document.getElementById('det-mets').style.display='grid';
+  setTab(tabAtiva); renderMets(idx); renderSemana();
+}
+
+function renderMets(idx){
+  const d=getDia(idx),{total}=fatDia(idx);
+  document.getElementById('mm-c').textContent=(d.creche||[]).length;
+  document.getElementById('mm-h').textContent=(d.hotel||[]).length;
+  document.getElementById('mm-b').textContent=(d.banho||[]).length+(d.dw||[]).length;
+  document.getElementById('mm-f').textContent='R$'+total;
+}
+
+// ═══ TABS ═══
+function setTab(tab){
+  tabAtiva=tab;
+  ['creche','hotel','banho','dw','fat'].forEach((t,i)=>{
+    document.getElementById('tc-'+t).style.display=t===tab?'block':'none';
+    document.querySelectorAll('.stab')[i].classList.toggle('on',t===tab);
+  });
+  if(diaSel===null) return;
+  const idx=diaSel, d=getDia(idx);
+  if(tab==='creche') rCreche(idx,d);
+  if(tab==='hotel')  rHotel(idx,d);
+  if(tab==='banho')  rBanho(idx,d);
+  if(tab==='dw')     rDW(idx,d);
+  if(tab==='fat')    rFat(idx);
+}
+
+// ─── Render helpers ───
+function irRow(r, setor, pi, idx, avClass) {
+  const pago = r.pagou === 'Sim';
+  const dias  = getDias();
+  const dataFmt = dias[idx] ? dias[idx].toLocaleDateString('pt-BR') : '—';
+  // Try to find pet foto
+  const petObj = pets.find(p => p.nome === r.nome);
+  const fotoHtml = petObj?.foto
+    ? `<img class="pet-foto" src="${petObj.foto}" alt="${r.nome}" style="width:32px;height:32px">`
+    : `<div class="av ${avClass}">${(r.nome||'?')[0].toUpperCase()}</div>`;
+  const tel = r.tel || petObj?.tel || petObj?.tel2 || '';
+  const servDesc = r.serv || r.plano || r.esp || setor;
+  const waBtn = tel
+    ? `<div class="ir-wa" onclick="event.stopPropagation();abrirWAItem('${r.nome}','${r.tutor||''}','${tel}','${servDesc}','${dataFmt}','${r.valor||0}')" title="Enviar WhatsApp">📲</div>`
+    : '';
+  return `<div class="ir" onclick="abrirEdit('${setor}',${pi},${idx})">
+    ${fotoHtml}
+    <div style="flex:1">
+      <div class="ir-nome">${r.nome||'—'}</div>
+      <div class="ir-sub">${r.tutor||''} ${r.porte?'• Porte '+r.porte:''} ${r.hora?'• '+r.hora:''} ${servDesc}</div>
+    </div>
+    <span class="badge ${pago?'bg-ok':'bg-warn'}">${pago?'✅ Pago':'⏳ Pend.'}</span>
+    <span style="font-size:11px;font-weight:900;color:var(--verde-d);white-space:nowrap;margin-left:4px">R$${r.valor||0}</span>
+    ${waBtn}
+    <button class="btn-edit" onclick="event.stopPropagation();abrirEdit('${setor}',${pi},${idx})"><i class="ti ti-pencil"></i></button>
+    <button class="btn-del"  onclick="event.stopPropagation();remItem('${setor}',${pi},${idx})"><i class="ti ti-trash"></i></button>
+  </div>`;
+}
+
+function addSecao(setor, idx, fields) {
+  return `<div class="add-sec"><div class="add-t">+ Adicionar</div><div class="afields">${fields}
+    <button class="btn-add" onclick="addItem('${setor}',${idx})"><i class="ti ti-plus"></i> Adicionar</button>
+  </div></div>`;
+}
+
+function rCreche(idx,d){
+  const el=document.getElementById('tc-creche');
+  let h=!(d.creche||[]).length?`<div class="vz"><i class="ti ti-building"></i>Nenhum pet na creche hoje</div>`:'';
+  h+=(d.creche||[]).map((r,i)=>irRow(r,'creche',i,idx,'avc')).join('');
+  h+=addSecao('creche',idx,`
+    <div class="af"><div class="af-l">Nome</div><input class="ainp" id="cc-n" placeholder="Pet"></div>
+    <div class="af"><div class="af-l">Tutor</div><input class="ainp" id="cc-t" placeholder="Tutor"></div>
+    <div class="af"><div class="af-l">Porte</div><select class="asel" id="cc-p"><option value="P">P</option><option value="M">M</option><option value="G">G</option></select></div>
+    <div class="af"><div class="af-l">Plano</div><select class="asel" id="cc-pl"><option value="">Avulso</option><option value="3x Semana">3x/sem</option><option value="5x Semana">5x/sem</option></select></div>
+    <div class="af"><div class="af-l">Pagou?</div><select class="asel" id="cc-pg"><option>Não</option><option>Sim</option></select></div>`);
+  el.innerHTML=h;
+}
+
+function rHotel(idx,d){
+  const el=document.getElementById('tc-hotel');
+  let h=!(d.hotel||[]).length?`<div class="vz"><i class="ti ti-bed"></i>Nenhum pet hospedado</div>`:'';
+  h+=(d.hotel||[]).map((r,i)=>irRow(r,'hotel',i,idx,'avh')).join('');
+  h+=addSecao('hotel',idx,`
+    <div class="af"><div class="af-l">Nome</div><input class="ainp" id="hc-n" placeholder="Pet"></div>
+    <div class="af"><div class="af-l">Espécie</div><select class="asel" id="hc-e"><option>Cachorro</option><option>Gato</option><option>Ave/Pássaro</option><option>Roedor</option></select></div>
+    <div class="af"><div class="af-l">Porte</div><select class="asel" id="hc-p"><option value="P">P</option><option value="M">M</option><option value="G">G</option></select></div>
+    <div class="af"><div class="af-l">Diárias</div><input class="ainp ainp-sm" id="hc-d" type="number" min="1" value="1"></div>
+    <div class="af"><div class="af-l">Alimentação</div><select class="asel" id="hc-alim"><option>Ração local</option><option>Ração própria</option><option>Natural</option></select></div>
+    <div class="af"><div class="af-l">Aut. Vet?</div><select class="asel" id="hc-vet"><option>Sim</option><option>Não</option></select></div>
+    <div class="af"><div class="af-l">Pagou?</div><select class="asel" id="hc-pg"><option>Não</option><option>Sim</option></select></div>`);
+  el.innerHTML=h;
+}
+
+function rBanho(idx,d){
+  const el=document.getElementById('tc-banho');
+  let h=!(d.banho||[]).length?`<div class="vz"><i class="ti ti-scissors"></i>Nenhum agendamento</div>`:'';
+  h+=(d.banho||[]).map((r,i)=>irRow(r,'banho',i,idx,'avb')).join('');
+  h+=addSecao('banho',idx,`
+    <div class="af"><div class="af-l">Nome</div><input class="ainp" id="bc-n" placeholder="Pet"></div>
+    <div class="af"><div class="af-l">Tutor</div><input class="ainp" id="bc-t" placeholder="Tutor"></div>
+    <div class="af"><div class="af-l">Porte</div><select class="asel" id="bc-p"><option value="P">P</option><option value="M">M</option><option value="G">G</option></select></div>
+    <div class="af"><div class="af-l">Serviço</div><select class="asel" id="bc-s"><option>Banho</option><option>Banho e Tosa</option><option>Tosa</option><option>Tosa Higiênica</option></select></div>
+    <div class="af"><div class="af-l">Horário</div><input class="ainp ainp-sm" id="bc-h" type="time" value="09:00"></div>
+    <div class="af"><div class="af-l">Pagou?</div><select class="asel" id="bc-pg"><option>Não</option><option>Sim</option></select></div>`);
+  el.innerHTML=h;
+}
+
+function rDW(idx,d){
+  const el=document.getElementById('tc-dw');
+  let h=!(d.dw||[]).length?`<div class="vz"><i class="ti ti-walk"></i>Nenhum passeio agendado</div>`:'';
+  h+=(d.dw||[]).map((r,i)=>irRow(r,'dw',i,idx,'avd')).join('');
+  h+=addSecao('dw',idx,`
+    <div class="af"><div class="af-l">Nome</div><input class="ainp" id="dw-n" placeholder="Pet"></div>
+    <div class="af"><div class="af-l">Tutor</div><input class="ainp" id="dw-t" placeholder="Tutor"></div>
+    <div class="af"><div class="af-l">Horário</div><input class="ainp ainp-sm" id="dw-h" type="time" value="08:00"></div>
+    <div class="af"><div class="af-l">Plano</div><select class="asel" id="dw-pl"><option value="Avulso">Avulso R$75</option><option value="3x Semana">3x/sem R$60</option><option value="5x Semana">5x/sem R$50</option></select></div>
+    <div class="af"><div class="af-l">Obs noturnas</div><input class="ainp" id="dw-obs" placeholder="Obs."></div>
+    <div class="af"><div class="af-l">Pagou?</div><select class="asel" id="dw-pg"><option>Não</option><option>Sim</option></select></div>`);
+  el.innerHTML=h;
+}
+
+function rFat(idx){
+  const {rows,total}=fatDia(idx);
+  const el=document.getElementById('tc-fat');
+  const k=chave(getDias()[idx]);
+  if(!dados[k]) dados[k]={creche:[],hotel:[],banho:[],dw:[]};
+  const boletimSalvo=dados[k].boletim||'';
+  const listaHtml = rows.length
+    ? rows.map(r=>`<div style="display:flex;justify-content:space-between;padding:7px 8px;border-radius:6px;font-size:12px;margin-bottom:4px;background:var(--bg)"><span style="color:var(--tx2);font-weight:700">${r.desc}</span><span style="font-weight:900;color:var(--verde-d)">R$ ${r.val}</span></div>`).join('')
+      +`<div style="display:flex;justify-content:space-between;padding:10px 8px 2px;border-top:2px solid var(--border2);font-size:15px;font-weight:900;margin-top:6px"><span>Total</span><span style="color:var(--verde)">R$ ${total}</span></div>`
+    : `<div class="vz" style="padding:12px 0"><i class="ti ti-currency-dollar"></i>Nenhum pagamento confirmado</div>`;
+  el.innerHTML = listaHtml + `
+    <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--border)">
+      <div style="font-size:11px;font-weight:900;color:var(--tx3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">📝 Boletim do dia</div>
+      <textarea id="boletim-ta-${idx}" class="fta" style="width:100%;min-height:70px;font-size:12px" placeholder="Como foi o dia dos pets? Escreva o resumo de comportamento aqui...">${boletimSalvo}</textarea>
+      <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
+        <button class="btn-add" style="background:var(--verde)" onclick="salvarBoletim(${idx})">💾 Salvar boletim</button>
+        <button class="btn-add" style="background:#25D366" onclick="enviarBoletimWA(${idx})">📲 Enviar pelo WhatsApp</button>
+      </div>
+    </div>`;
+}
+
+function salvarBoletim(idx){
+  const k=chave(getDias()[idx]);
+  if(!dados[k]) dados[k]={creche:[],hotel:[],banho:[],dw:[]};
+  dados[k].boletim=document.getElementById('boletim-ta-'+idx)?.value||'';
+  salvarDados(); toast('💾 Boletim salvo!');
+}
+
+function enviarBoletimWA(idx){
+  const k=chave(getDias()[idx]);
+  const resumo=document.getElementById('boletim-ta-'+idx)?.value||'';
+  if(!resumo.trim()){toast('⚠️ Escreva o resumo antes de enviar!');return;}
+  const d=getDia(idx);
+  // Pega todos os pets do dia
+  const todosPets=[...(d.creche||[]),...(d.banho||[]),...(d.dw||[])];
+  if(!todosPets.length){toast('⚠️ Nenhum pet lançado neste dia');return;}
+  // Abre WA para cada pet que tem telefone
+  const comTel=todosPets.filter(p=>p.tel||pets.find(pt=>pt.nome===p.nome)?.tel);
+  if(!comTel.length){
+    // Copia mensagem genérica
+    const msg='🐾 *Boletim do dia — Anguli Pet*\n\n'+resumo+'\n\nCom carinho, *Anguli Pet*';
+    navigator.clipboard?.writeText(msg).then(()=>toast('📋 Boletim copiado!'));
+    return;
+  }
+  const primeiro=comTel[0];
+  const petObj=pets.find(pt=>pt.nome===primeiro.nome);
+  const tel=primeiro.tel||petObj?.tel||petObj?.tel2||'';
+  const tutor=primeiro.tutor||petObj?.tutor||'';
+  const msg='Olá'+(tutor?' '+tutor.split(' ')[0]:'')+' 🐾\n\n'
+    +'O dia do(a) *'+primeiro.nome+'* foi incrível aqui na Anguli Pet!\n\n'
+    +'Hoje ele(a) '+resumo+'\n\n'
+    +'e está super feliz! Até amanhã! 🐶\n\n— *Anguli Pet*';
+  abrirWA(tel, msg);
+}
+
+// ═══ CRUD ITEMS ═══
+function addItem(setor,idx){
+  const d=getDia(idx), g=id=>document.getElementById(id);
+  if(setor==='creche'){
+    const n=g('cc-n')?.value?.trim(); if(!n){toast('⚠️ Informe o nome');return;}
+    const porte=g('cc-p').value, plano=g('cc-pl').value, pagou=g('cc-pg').value;
+    const valor=plano===''?P().creche.av:plano==='3x Semana'?Math.round(P().creche.t3x/13):Math.round(P().creche.t5x/22);
+    d.creche.push({nome:n,tutor:g('cc-t')?.value||'',porte,plano,pagou,valor,pgto:'PIX',ts:Date.now()});
+  }
+  else if(setor==='hotel'){
+    const n=g('hc-n')?.value?.trim(); if(!n){toast('⚠️ Informe o nome');return;}
+    const esp=g('hc-e').value,porte=g('hc-p').value,dias=parseInt(g('hc-d').value)||1;
+    const alim=g('hc-alim').value,vet=g('hc-vet').value,pagou=g('hc-pg').value;
+    const base=calcPreco('hotel',porte,esp);
+    const cin=getDias()[idx]; const cout=new Date(cin); cout.setDate(cin.getDate()+dias);
+    d.hotel.push({nome:n,esp,porte,diarias:dias,alim,vet,pagou,valor:base*dias,pgto:'PIX',cin:cin.toLocaleDateString('pt-BR'),cout:cout.toLocaleDateString('pt-BR'),ts:Date.now()});
+  }
+  else if(setor==='banho'){
+    const n=g('bc-n')?.value?.trim(); if(!n){toast('⚠️ Informe o nome');return;}
+    const porte=g('bc-p').value,serv=g('bc-s').value,hora=g('bc-h').value,pagou=g('bc-pg').value;
+    d.banho.push({nome:n,tutor:g('bc-t')?.value||'',porte,serv,hora,pagou,valor:calcBanho(serv,porte),pgto:'PIX',ts:Date.now()});
+  }
+  else if(setor==='dw'){
+    const n=g('dw-n')?.value?.trim(); if(!n){toast('⚠️ Informe o nome');return;}
+    const hora=g('dw-h').value,plano=g('dw-pl').value,obs=g('dw-obs')?.value||'',pagou=g('dw-pg').value;
+    d.dw.push({nome:n,tutor:g('dw-t')?.value||'',hora,plano,obs,pagou,valor:calcDW(plano),pgto:'PIX',ts:Date.now()});
+  }
+  dados[chave(getDias()[idx])]=d; save();
+  setTab(setor); renderMets(idx); renderSemana();
+  toast('✅ Adicionado!');
+}
+
+function remItem(setor,pi,idx){
+  if(!confirm('Remover registro?')) return;
+  const d=getDia(idx); d[setor].splice(pi,1);
+  dados[chave(getDias()[idx])]=d; save();
+  setTab(setor); renderMets(idx); renderSemana();
+  toast('🗑️ Removido');
+}
+
+// ═══ MODAL EDIÇÃO ═══
+function abrirEdit(setor, pi, idx){
+  const d=getDia(idx);
+  const r=d[setor][pi];
+  editCtx={setor,idx,pi,diaIdx:idx,status:r.pagou==='Sim'?'Pago':'Pendente',pgto:r.pgto||'PIX'};
+  document.getElementById('medit-t').textContent='Editar — '+r.nome;
+  // Corpo do modal
+  let html='';
+  if(setor==='creche'||setor==='banho'||setor==='dw'){
+    html=`<div class="frow">
+      <div class="fg"><label class="fl">Nome</label><input class="fi" id="me-n" value="${r.nome||''}"></div>
+      <div class="fg"><label class="fl">Tutor</label><input class="fi" id="me-t" value="${r.tutor||''}"></div>
+    </div>`;
+  }
+  if(setor==='banho'){
+    html+=`<div class="frow">
+      <div class="fg"><label class="fl">Porte</label><select class="fs" id="me-p"><option${r.porte==='P'?' selected':''} value="P">P</option><option${r.porte==='M'?' selected':''} value="M">M</option><option${r.porte==='G'?' selected':''} value="G">G</option></select></div>
+      <div class="fg"><label class="fl">Serviço</label><select class="fs" id="me-s">
+        ${['Banho','Banho e Tosa','Tosa','Tosa Higiênica'].map(s=>`<option${r.serv===s?' selected':''}>${s}</option>`).join('')}
+      </select></div>
+      <div class="fg"><label class="fl">Horário</label><input class="fi" id="me-h" type="time" value="${r.hora||'09:00'}"></div>
+    </div>`;
+  }
+  if(setor==='hotel'){
+    html=`<div class="frow">
+      <div class="fg"><label class="fl">Nome</label><input class="fi" id="me-n" value="${r.nome||''}"></div>
+      <div class="fg"><label class="fl">Diárias</label><input class="fi" id="me-dias" type="number" min="1" value="${r.diarias||1}"></div>
+    </div>
+    <div class="frow">
+      <div class="fg"><label class="fl">Alimentação</label><select class="fs" id="me-alim">
+        ${['Ração local','Ração própria','Natural'].map(a=>`<option${r.alim===a?' selected':''}>${a}</option>`).join('')}
+      </select></div>
+      <div class="fg"><label class="fl">Obs. noturnas</label><input class="fi" id="me-obs" value="${r.obs||''}"></div>
+    </div>`;
+  }
+  if(setor==='dw'){
+    html+=`<div class="frow">
+      <div class="fg"><label class="fl">Plano</label><select class="fs" id="me-pl">
+        ${['Avulso','3x Semana','5x Semana'].map(p=>`<option${r.plano===p?' selected':''}>${p}</option>`).join('')}
+      </select></div>
+    </div>`;
+  }
+  html+=`<div class="frow"><div class="fg"><label class="fl">Valor (R$)</label><input class="fi" id="me-val" type="number" value="${r.valor||0}"></div></div>`;
+  document.getElementById('medit-body').innerHTML=html;
+  // Status e pgto
+  setStatus(editCtx.status); setPgto(editCtx.pgto);
+  const prev=document.getElementById('edit-val-prev');
+  prev.style.display='block'; prev.textContent=`💰 Valor atual: R$${r.valor||0}`;
+  fecharModal('modal-pet'); fecharModal('modal-cal');
+  document.getElementById('modal-edit').classList.remove('hid');
+}
+
+function setStatus(s){
+  editCtx.status=s;
+  document.getElementById('sp-pend').className='status-opt'+(s==='Pendente'?' on-pend':'');
+  document.getElementById('sp-pago').className='status-opt'+(s==='Pago'?' on-pago':'');
+  const conf=document.getElementById('pgto-conf');
+  if(s==='Pago'){conf.style.display='block';conf.textContent='✅ Pagamento confirmado! '+editCtx.pgto;}
+  else conf.style.display='none';
+}
+
+function setPgto(m){
+  editCtx.pgto=m;
+  ['Dinheiro','PIX','Crédito','Débito'].forEach(x=>{
+    const el=document.getElementById('pg-'+x.toLowerCase().replace(' ','').replace('é','e').replace('é','e'));
+    if(el) el.classList.toggle('on',x===m);
+  });
+  if(editCtx.status==='Pago'){
+    const conf=document.getElementById('pgto-conf');
+    conf.style.display='block'; conf.textContent='✅ Pagamento: '+m;
+  }
+}
+
+function confirmarEdit(){
+  const d=getDia(editCtx.diaIdx);
+  const r=d[editCtx.setor][editCtx.pi];
+  if(!r){fecharModal('modal-edit');return;}
+  const gv=id=>{const el=document.getElementById(id);return el?el.value:null;};
+  if(gv('me-n')) r.nome=gv('me-n');
+  if(gv('me-t')) r.tutor=gv('me-t');
+  if(gv('me-p')) r.porte=gv('me-p');
+  if(gv('me-s')) r.serv=gv('me-s');
+  if(gv('me-h')) r.hora=gv('me-h');
+  if(gv('me-dias')) r.diarias=parseInt(gv('me-dias'))||1;
+  if(gv('me-alim')) r.alim=gv('me-alim');
+  if(gv('me-obs')) r.obs=gv('me-obs');
+  if(gv('me-pl')) r.plano=gv('me-pl');
+  if(gv('me-val')) r.valor=parseFloat(gv('me-val'))||0;
+  r.pagou=editCtx.status==='Pago'?'Sim':'Não';
+  r.pgto=editCtx.pgto;
+  dados[chave(getDias()[editCtx.diaIdx])]=d; save();
+  fecharModal('modal-edit'); setTab(editCtx.setor); renderMets(editCtx.diaIdx); renderSemana();
+  toast('✅ Registro atualizado!');
+}
+
+// ═══ PETS ═══
+function renderPets(){
+  const busca=(document.getElementById('busca-pet').value||'').toLowerCase();
+  const filt=pets.filter(p=>p.nome.toLowerCase().includes(busca)||(p.tutor||'').toLowerCase().includes(busca));
+  document.getElementById('pets-sub').textContent=`${pets.length} cadastrado${pets.length!==1?'s':''}`;
+  const el=document.getElementById('lista-pets');
+  if(!filt.length){
+    el.innerHTML=pets.length?`<div class="empty"><span class="empty-e">🔍</span><div class="empty-t">Nenhum resultado</div><div class="empty-s">Tente outro nome</div></div>`
+      :`<div class="empty"><span class="empty-e">🐾</span><div class="empty-t">Nenhum pet cadastrado</div><div class="empty-s">Toque em "Novo" para começar</div></div>`;
+    return;
+  }
+  const hj=hoje();
+  const avCls=['avc','avh','avb','avd','avp'];
+  el.innerHTML=`<div class="card" style="margin:0 16px 10px">`+filt.map((p,fi)=>{
+    const ri=pets.indexOf(p);
+    const vip=isVIP(p.tutor||p.nome);
+    let vacBadge='';
+    if(p.vacina){
+      const diff=Math.ceil((new Date(p.vacina)-hj)/86400000);
+      vacBadge=diff<0?`<span class="badge bg-err">💉 Vacina vencida!</span>`:diff<=30?`<span class="badge bg-warn">💉 Vence em ${diff}d</span>`:' <span class="badge bg-ok">💉 Em dia</span>';
+    }
+    const idade=p.nasc?` • ${idadeTexto(p.nasc)}`:'';
+    return `<div class="pet-row" onclick="editPet(${ri})">
+      ${p.foto ? `<img class="pet-foto" src="${p.foto}" alt="${p.nome}">` : `<div class="pet-av ${avCls[fi%5]}">${p.nome[0].toUpperCase()}</div>`}
+      <div style="flex:1">
+        <div style="display:flex;align-items:center;gap:6px">
+          <span class="pet-nome">${p.nome}</span>
+          ${vip?`<span class="badge bg-vip">⭐ VIP</span>`:''}
+        </div>
+        <div class="pet-inf">👤 ${p.tutor||'—'}${p.tel?' • 📞 '+p.tel:''}${p.raca?' • '+p.raca:''}${idade}</div>
+        <div class="pet-inf">${p.esp||'Pet'} • Porte ${p.porte||'M'}${p.peso?' • '+p.peso+'kg':''}${p.cast==='Sim'?' • Castrado':''}</div>
+        ${p.obs?`<div class="pet-inf" style="color:var(--lj)">⚠️ ${p.obs.substring(0,50)}</div>`:''}
+        <div style="margin-top:3px">${vacBadge}</div>
+      </div>
+      ${p.tel || p.tel2 ? `<div class="ir-wa" onclick="event.stopPropagation();abrirWA('${p.tel||p.tel2||''}','Olá ${p.tutor?p.tutor.split(' ')[0]:''}, tudo bem? 😊\nEntrando em contato da Anguli Pet sobre o(a) *${p.nome}*. ')" title="WhatsApp">📲</div>` : ''}
+      <button class="btn-del" onclick="event.stopPropagation();delPet(${ri})"><i class="ti ti-trash"></i></button>
+    </div>`;
+  }).join('')+`</div>`;
+}
+
+function abrirModalPet(idx){
+  editPetIdx=idx!==undefined?idx:null;
+  const p=editPetIdx!==null?pets[editPetIdx]:null;
+  document.getElementById('mpt').textContent=p?'Editar Pet':'Novo Pet';
+  const sv=(id,v)=>{const el=document.getElementById(id);if(el)el.value=v||'';};
+  // foto
+  const ph = document.getElementById('foto-placeholder');
+  const pi2 = document.getElementById('foto-preview-img');
+  const fd = document.getElementById('mp-foto-data');
+  if(p?.foto){fd.value=p.foto;pi2.src=p.foto;pi2.style.display='block';ph.style.display='none';}
+  else{fd.value='';pi2.style.display='none';ph.style.display='flex';}
+  sv('mp-nome',p?.nome); sv('mp-tutor',p?.tutor); sv('mp-raca',p?.raca);
+  sv('mp-tel',p?.tel); sv('mp-tel2',p?.tel2); sv('mp-vet',p?.vet);
+  sv('mp-vacina',p?.vacina); sv('mp-nasc',p?.nasc); sv('mp-peso',p?.peso);
+  sv('mp-med',p?.med); sv('mp-obs',p?.obs);
+  if(p?.esp) document.getElementById('mp-esp').value=p.esp;
+  if(p?.porte) document.getElementById('mp-porte').value=p.porte;
+  if(p?.cast) document.getElementById('mp-cast').value=p.cast;
+  if(p?.alim) document.getElementById('mp-alim').value=p.alim;
+  if(p?.temp) document.getElementById('mp-temp').value=p.temp;
+  if(p?.soc) document.getElementById('mp-soc').value=p.soc;
+  document.getElementById('modal-pet').classList.remove('hid');
+  setTimeout(()=>document.getElementById('mp-nome').focus(),100);
+}
+
+function salvarPet(){
+  const n=document.getElementById('mp-nome').value.trim();
+  if(!n){toast('⚠️ Informe o nome');return;}
+  const gv=id=>document.getElementById(id)?.value||'';
+  const pet={nome:n,tutor:gv('mp-tutor'),esp:gv('mp-esp'),porte:gv('mp-porte'),raca:gv('mp-raca'),nasc:gv('mp-nasc'),peso:gv('mp-peso'),cast:gv('mp-cast'),tel:gv('mp-tel'),tel2:gv('mp-tel2'),vet:gv('mp-vet'),vacina:gv('mp-vacina'),alim:gv('mp-alim'),temp:gv('mp-temp'),soc:gv('mp-soc'),med:gv('mp-med'),obs:gv('mp-obs'),foto:document.getElementById('mp-foto-data').value,cadastro:new Date().toLocaleDateString('pt-BR')};
+  if(editPetIdx!==null) pets[editPetIdx]=pet; else pets.push(pet);
+  save(); fecharModal('modal-pet'); renderPets();
+  toast(editPetIdx!==null?'✏️ Pet atualizado!':'🐾 Pet cadastrado!');
+}
+function editPet(idx){abrirModalPet(idx);}
+function delPet(idx){
+  if(!confirm(`Remover ${pets[idx].nome}?`))return;
+  pets.splice(idx,1); save(); renderPets(); toast('🗑️ Removido');
+}
+
+// ═══ CALENDÁRIO COMPLETO ═══
+function abrirCalFull(){
+  const hj=hoje(); calMes=hj.getMonth(); calAno=hj.getFullYear();
+  renderCal(); document.getElementById('modal-cal').classList.remove('hid');
+}
+
+function renderCal(){
+  const wrap=document.getElementById('cal-wrap');
+  const primDia=new Date(calAno,calMes,1);
+  const ultimoDia=new Date(calAno,calMes+1,0);
+  const hj=hoje(); const inicioDia=primDia.getDay();
+  let html=`<div class="cal-hdr">
+    <div class="cal-arr" onclick="navCal(-1)"><i class="ti ti-chevron-left"></i></div>
+    <div class="cal-mn">${MESES[calMes].charAt(0).toUpperCase()+MESES[calMes].slice(1)} ${calAno}</div>
+    <div class="cal-arr" onclick="navCal(1)"><i class="ti ti-chevron-right"></i></div>
+  </div>
+  <div class="cal-dias-hdr">
+    ${['D','S','T','Q','Q','S','S'].map(d=>`<span>${d}</span>`).join('')}
+  </div>
+  <div class="cal-dias">`;
+  // Dias do mês anterior
+  for(let i=0;i<inicioDia;i++){
+    const d=new Date(calAno,calMes,-(inicioDia-i-1));
+    html+=`<button class="cal-d outro-mes">${d.getDate()}</button>`;
+  }
+  // Dias do mês
+  for(let d=1;d<=ultimoDia.getDate();d++){
+    const dt=new Date(calAno,calMes,d);
+    const k=chave(dt);
+    const temD=dados[k]&&(['creche','hotel','banho','dw'].some(s=>(dados[k][s]||[]).length>0));
+    const isHj=dt.getTime()===hj.getTime();
+    const cls='cal-d'+(isHj?' hoje':'')+(temD?' tem-dados':'');
+    html+=`<button class="${cls}" onclick="irParaData('${k}')">${d}</button>`;
+  }
+  html+=`</div>`;
+  wrap.innerHTML=html;
+}
+
+function navCal(dir){
+  calMes+=dir;
+  if(calMes<0){calMes=11;calAno--;}
+  if(calMes>11){calMes=0;calAno++;}
+  renderCal();
+}
+
+function irParaData(k){
+  const dt=new Date(k+'T00:00:00');
+  const hj=hoje();
+  const diffDias=Math.round((dt-hj)/86400000);
+  const diffSems=Math.floor(diffDias/7);
+  offSem=diffDias>=0?Math.ceil(diffDias/7):Math.floor(diffDias/7);
+  fecharModal('modal-cal');
+  ir('agenda');
+  setTimeout(()=>{
+    renderSemana();
+    const dias=getDias();
+    const idx=dias.findIndex(d=>chave(d)===k);
+    if(idx>=0) selecionarDia(idx);
+  },100);
+}
+
+// ═══ CONFIG ═══
+function carregarConfig(){
+  const sv=(id,v)=>{const el=document.getElementById(id);if(el&&v!==undefined)el.value=v;};
+  sv('cfg-nome',config.nome); sv('cfg-wa',config.wa); sv('cfg-ig',config.ig);
+  sv('cfg-usuario',config.usuario||'');
+  const p=config.precos;
+  sv('pc-av',p.creche.av);sv('pc-3x',p.creche.t3x);sv('pc-5x',p.creche.t5x);
+  sv('ph-p',p.hotel.p);sv('ph-m',p.hotel.m);sv('ph-g',p.hotel.g);
+  sv('ph-gp',p.hotel.gp);sv('ph-gm',p.hotel.gm);sv('ph-gg',p.hotel.gg);
+  sv('ph-av',p.hotel.av);sv('ph-ro',p.hotel.ro);
+  sv('pb-p',p.banho.p);sv('pb-m',p.banho.m);sv('pb-g',p.banho.g);
+  sv('pbt-p',p.bt.p);sv('pbt-m',p.bt.m);sv('pbt-g',p.bt.g);
+  sv('pdw-av',p.dw.av);sv('pdw-3x',p.dw.t3x);sv('pdw-5x',p.dw.t5x);
+  verificarStatusFirebase();
+}
+
+function salvarCfg(){
+  config.nome=document.getElementById('cfg-nome').value.trim()||'Anguli Pet';
+  config.wa=document.getElementById('cfg-wa').value.trim();
+  config.ig=document.getElementById('cfg-ig').value.trim();
+  config.usuario=document.getElementById('cfg-usuario')?.value.trim()||'';
+  save(); document.getElementById('hnome').textContent=config.nome;
+  // Atualiza saudação imediatamente
+  const hora=new Date().getHours();
+  const sd=hora<12?'Bom dia':hora<18?'Boa tarde':'Boa noite';
+  const el=document.getElementById('dash-saudacao');
+  if(el) el.textContent=sd+', '+(config.usuario||config.nome||'Anguli Pet')+'! 👋';
+  toast('✅ Configurações salvas!');
+}
+
+function salvarPrecos(){
+  const gn=id=>parseFloat(document.getElementById(id)?.value)||0;
+  config.precos={
+    creche:{av:gn('pc-av'),t3x:gn('pc-3x'),t5x:gn('pc-5x')},
+    hotel:{p:gn('ph-p'),m:gn('ph-m'),g:gn('ph-g'),gp:gn('ph-gp'),gm:gn('ph-gm'),gg:gn('ph-gg'),av:gn('ph-av'),ro:gn('ph-ro')},
+    banho:{p:gn('pb-p'),m:gn('pb-m'),g:gn('pb-g')},
+    bt:{p:gn('pbt-p'),m:gn('pbt-m'),g:gn('pbt-g')},
+    dw:{av:gn('pdw-av'),t3x:gn('pdw-3x'),t5x:gn('pdw-5x')}
+  };
+  save(); toast('✅ Preços salvos!');
+}
+
+function salvarFirebaseCfg(){
+  toast('✅ Firebase já configurado! Credenciais do projeto anguli-pet ativas.');
+}
+
+// ═══ FATURAMENTO PAGE ═══
+let fatPgFiltro = 'dia';
+
+function setFatPgFiltro(tipo, btn) {
+  fatPgFiltro = tipo;
+  document.querySelectorAll('#pg-fat .fat-btn').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  renderFaturamento();
+}
+
+function renderFaturamento() {
+  const por = fatPeriodo(fatPgFiltro);
+  const total = por.creche + por.hotel + por.banho + por.dw;
+  const periodoLabels = {dia:'hoje', semana:'esta semana', mes:'este mês'};
+  const lbl = periodoLabels[fatPgFiltro] || 'período';
+
+  document.getElementById('fp-total').textContent = 'R$' + total.toFixed(2).replace('.',',');
+  document.getElementById('fp-periodo').textContent = lbl;
+  document.getElementById('fp-c').textContent  = 'R$' + por.creche;
+  document.getElementById('fp-h').textContent  = 'R$' + por.hotel;
+  document.getElementById('fp-b').textContent  = 'R$' + por.banho;
+  document.getElementById('fp-dw').textContent = 'R$' + por.dw;
+  document.getElementById('fat-sub').textContent = `Entradas — ${lbl}`;
+
+  // Gráfico donut página faturamento
+  const vals  = [por.creche, por.hotel, por.banho, por.dw];
+  const cores  = ['#16A34A','#1A4BAA','#EA580C','#7C3AED'];
+  const nomes  = ['Creche','Hotel','Banho/Tosa','Dog Walker'];
+  const svg    = document.getElementById('donut-svg-pg');
+  document.getElementById('donut-total-pg').textContent = 'R$' + total;
+  const cx=55, cy=55, r=36, circ=2*Math.PI*r;
+  if(total===0){
+    svg.innerHTML=`<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#EEF4FF" stroke-width="14"/>`;
+  } else {
+    let offset=0;
+    let paths=`<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#EEF4FF" stroke-width="14"/>`;
+    vals.forEach((v,i)=>{
+      if(!v) return;
+      const pct=v/total, dash=pct*circ, gap=circ-dash;
+      paths+=`<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${cores[i]}" stroke-width="14"
+        stroke-dasharray="${dash.toFixed(2)} ${gap.toFixed(2)}"
+        stroke-dashoffset="${(-offset*circ+circ*0.25).toFixed(2)}"
+        transform="rotate(-90 ${cx} ${cy})"/>`;
+      offset+=pct;
+    });
+    paths+=`<circle cx="${cx}" cy="${cy}" r="24" fill="white"/>`;
+    svg.innerHTML=paths;
+  }
+  document.getElementById('fat-legend-pg').innerHTML = vals.map((v,i)=>`
+    <div class="leg-item">
+      <div class="leg-dot" style="background:${cores[i]}"></div>
+      <span class="leg-lbl">${nomes[i]}</span>
+      <span class="leg-val">R$${v}</span>
+      <span class="leg-pct">${total?Math.round(v/total*100):0}%</span>
+    </div>`).join('');
+
+  // Histórico de lançamentos pagos no período
+  const hj = hoje();
+  let ini;
+  if(fatPgFiltro==='dia') ini = new Date(hj);
+  else if(fatPgFiltro==='semana'){ini=new Date(hj);ini.setDate(hj.getDate()-hj.getDay());}
+  else {ini=new Date(hj.getFullYear(),hj.getMonth(),1);}
+
+  const lancamentos = [];
+  for(let d=new Date(ini); d<=hj; d.setDate(d.getDate()+1)){
+    const k=chave(new Date(d)), dd=dados[k]||{};
+    const dataFmt = new Date(k+'T00:00:00').toLocaleDateString('pt-BR');
+    ['creche','hotel','banho','dw'].forEach(s=>{
+      (dd[s]||[]).filter(r=>r.pagou==='Sim').forEach(r=>{
+        lancamentos.push({nome:r.nome, tutor:r.tutor||'—', servico:s, desc:r.serv||r.plano||s, valor:+(r.valor||0), pgto:r.pgto||'—', data:dataFmt, dataSort:k});
+      });
+    });
+  }
+  lancamentos.sort((a,b)=>b.dataSort.localeCompare(a.dataSort));
+
+  const el = document.getElementById('fat-historico');
+  if(!lancamentos.length){
+    el.innerHTML=`<div class="empty"><span class="empty-e">💰</span><div class="empty-t">Nenhum pagamento confirmado</div><div class="empty-s">Os lançamentos marcados como "Pago" aparecem aqui</div></div>`;
+    return;
+  }
+
+  const icones = {creche:'🏫', hotel:'🏨', banho:'✂️', dw:'🐕'};
+  const bgCores = {creche:'#DCFCE7', hotel:'#DBEAFE', banho:'#FEF3C7', dw:'#F0FDF4'};
+  const txCores = {creche:'#14532D', hotel:'#1E3A8A', banho:'#92400E', dw:'#065F46'};
+
+  el.innerHTML = `<div class="card" style="margin:0 16px 12px">`+
+    lancamentos.map(l=>`
+      <div style="display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--border)">
+        <div style="width:34px;height:34px;border-radius:50%;background:${bgCores[l.servico]};display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0">${icones[l.servico]||'💰'}</div>
+        <div style="flex:1">
+          <div style="font-weight:800;font-size:13px;color:var(--tx)">${l.nome}</div>
+          <div style="font-size:11px;color:var(--tx3);margin-top:1px">${l.data} • ${l.tutor} • ${l.pgto}</div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-size:14px;font-weight:900;color:var(--verde-d)">+R$${l.valor.toFixed(2).replace('.',',')}</div>
+          <div style="font-size:10px;font-weight:800;padding:1px 6px;border-radius:10px;background:${bgCores[l.servico]};color:${txCores[l.servico]};margin-top:2px">${icones[l.servico]} ${l.servico.charAt(0).toUpperCase()+l.servico.slice(1)}</div>
+        </div>
+      </div>`).join('')+`</div>`;
+}
+
+// ═══ SAÍDAS ═══
+const CAT_LABELS = {
+  alimentacao:'🍖 Alimentação/Ração', higiene:'🧴 Higiene',
+  vet:'💉 Veterinário', funcionario:'👤 Funcionário',
+  aluguel:'🏠 Aluguel', energia:'💡 Energia/Água',
+  equipamento:'🔧 Equipamento', marketing:'📱 Marketing',
+  dizimo:'⛪ Dízimo', outros:'📦 Outros'
+};
+const CAT_CORES = {
+  alimentacao:'#F59E0B', higiene:'#3B82F6', vet:'#EF4444',
+  funcionario:'#8B5CF6', aluguel:'#F97316', energia:'#FACC15',
+  equipamento:'#6B7280', marketing:'#EC4899',
+  dizimo:'#7C3AED', outros:'#A3A3A3'
+};
+
+let saidaFiltro = 'dia';
+let editSaidaIdx = null;
+
+function setSaidaFiltro(tipo, btn) {
+  saidaFiltro = tipo;
+  document.querySelectorAll('#pg-saidas .fat-btn').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  renderSaidas();
+}
+
+function filtrarSaidas() {
+  const hj = hoje();
+  return saidas.filter(s => {
+    if (!s.data) return saidaFiltro === 'todos';
+    const d = new Date(s.data + 'T00:00:00');
+    if (saidaFiltro === 'dia') return chave(d) === chave(hj);
+    if (saidaFiltro === 'semana') {
+      const ini = new Date(hj); ini.setDate(hj.getDate() - hj.getDay());
+      return d >= ini && d <= hj;
+    }
+    if (saidaFiltro === 'mes') return d.getMonth() === hj.getMonth() && d.getFullYear() === hj.getFullYear();
+    return true; // todos
+  });
+}
+
+function renderSaidas() {
+  const filtradas = filtrarSaidas();
+  const totalSaidas = filtradas.reduce((a, s) => a + (+(s.valor||0)), 0);
+  const periodoLabels = {dia:'hoje', semana:'esta semana', mes:'este mês', todos:'total geral'};
+  document.getElementById('s-periodo-lbl').textContent = periodoLabels[saidaFiltro];
+  document.getElementById('saidas-sub').textContent = `${filtradas.length} lançamento(s) — ${periodoLabels[saidaFiltro]}`;
+
+  // Saldo: entradas - saídas no período
+  const porEntradas = fatPeriodo(saidaFiltro === 'todos' ? 'mes' : saidaFiltro);
+  const totalEntradas = porEntradas.creche + porEntradas.hotel + porEntradas.banho + porEntradas.dw;
+  const saldo = totalEntradas - totalSaidas;
+  document.getElementById('s-total').textContent = 'R$' + totalSaidas.toFixed(2).replace('.',',');
+  const saldoEl = document.getElementById('s-saldo');
+  saldoEl.textContent = 'R$' + Math.abs(saldo).toFixed(2).replace('.',',');
+  saldoEl.style.color = saldo >= 0 ? '#14532D' : '#7F1D1D';
+  saldoEl.parentElement.style.background = saldo >= 0 ? '#F0FDF4' : '#FFF1F2';
+  if (saldo < 0) saldoEl.textContent = '-R$' + Math.abs(saldo).toFixed(2).replace('.',',');
+
+  const el = document.getElementById('lista-saidas');
+  if (!filtradas.length) {
+    el.innerHTML = `<div class="empty"><span class="empty-e">💸</span><div class="empty-t">Nenhuma saída registrada</div><div class="empty-s">Toque em "Nova saída" para lançar um gasto</div></div>`;
+    return;
+  }
+
+  // Agrupa por categoria para mini-resumo
+  const porCat = {};
+  filtradas.forEach(s => { const c = s.cat||'outros'; porCat[c] = (porCat[c]||0) + (+(s.valor||0)); });
+  const catOrdenadas = Object.entries(porCat).sort((a,b) => b[1]-a[1]);
+
+  let html = `<div style="margin:0 16px 10px;background:#fff;border-radius:var(--r);border:1px solid var(--border);padding:12px;box-shadow:var(--sh)">
+    <div style="font-size:11px;font-weight:900;color:var(--tx3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Por categoria</div>
+    ${catOrdenadas.map(([c,v]) => `
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:5px">
+        <div style="width:8px;height:8px;border-radius:2px;background:${CAT_CORES[c]||'#aaa'};flex-shrink:0"></div>
+        <span style="font-size:12px;font-weight:700;color:var(--tx2);flex:1">${CAT_LABELS[c]||c}</span>
+        <span style="font-size:12px;font-weight:900;color:#DC2626">R$${v.toFixed(2).replace('.',',')}</span>
+        <span style="font-size:10px;color:var(--tx3)">${Math.round(v/totalSaidas*100)}%</span>
+      </div>`).join('')}
+  </div>`;
+
+  html += `<div class="card" style="margin:0 16px 12px">`;
+  // Ordena por data mais recente
+  const ordenadas = [...filtradas].sort((a,b) => new Date(b.data||'2000-01-01') - new Date(a.data||'2000-01-01'));
+  ordenadas.forEach(s => {
+    const ri = saidas.indexOf(s);
+    const dataFmt = s.data ? new Date(s.data+'T00:00:00').toLocaleDateString('pt-BR') : '—';
+    const cor = CAT_CORES[s.cat] || '#aaa';
+    html += `<div style="display:flex;align-items:center;gap:10px;padding:11px 14px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .1s" onclick="editarSaida(${ri})" onmouseover="this.style.background='var(--bg)'" onmouseout="this.style.background=''">
+      <div style="width:36px;height:36px;border-radius:50%;background:${cor}22;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0">${(CAT_LABELS[s.cat]||'📦').split(' ')[0]}</div>
+      <div style="flex:1">
+        <div style="font-weight:800;font-size:13px;color:var(--tx)">${s.desc||'—'}</div>
+        <div style="font-size:11px;color:var(--tx3);margin-top:1px">${dataFmt} • ${CAT_LABELS[s.cat]||s.cat||'Outros'} • ${s.pgto||'—'}</div>
+        ${s.obs?`<div style="font-size:11px;color:var(--tx3)">${s.obs}</div>`:''}
+      </div>
+      <span style="font-size:14px;font-weight:900;color:#DC2626;white-space:nowrap">-R$${(+(s.valor||0)).toFixed(2).replace('.',',')}</span>
+      <button class="btn-del" onclick="event.stopPropagation();delSaida(${ri})"><i class="ti ti-trash"></i></button>
+    </div>`;
+  });
+  html += `</div>`;
+  el.innerHTML = html;
+}
+
+function abrirModalSaida(idx) {
+  editSaidaIdx = idx !== undefined ? idx : null;
+  const s = editSaidaIdx !== null ? saidas[editSaidaIdx] : null;
+  document.getElementById('mst').textContent = s ? 'Editar Saída' : 'Nova Saída';
+  document.getElementById('ms-desc').value = s?.desc || '';
+  document.getElementById('ms-val').value  = s?.valor || '';
+  document.getElementById('ms-data').value = s?.data  || chave(hoje());
+  document.getElementById('ms-obs').value  = s?.obs   || '';
+  if (s?.cat)  document.getElementById('ms-cat').value  = s.cat;
+  if (s?.pgto) document.getElementById('ms-pgto').value = s.pgto;
+  document.getElementById('modal-saida').classList.remove('hid');
+  setTimeout(() => document.getElementById('ms-desc').focus(), 100);
+}
+
+function salvarSaida() {
+  const desc = document.getElementById('ms-desc').value.trim();
+  const val  = parseFloat(document.getElementById('ms-val').value);
+  if (!desc) { toast('⚠️ Informe a descrição'); return; }
+  if (!val || val <= 0) { toast('⚠️ Informe um valor válido'); return; }
+  const saida = {
+    desc, valor: val,
+    data:  document.getElementById('ms-data').value,
+    cat:   document.getElementById('ms-cat').value,
+    pgto:  document.getElementById('ms-pgto').value,
+    obs:   document.getElementById('ms-obs').value.trim(),
+    ts:    Date.now()
+  };
+  if (editSaidaIdx !== null) saidas[editSaidaIdx] = saida;
+  else saidas.push(saida);
+  save(); fecharModal('modal-saida'); renderSaidas();
+  toast(editSaidaIdx !== null ? '✏️ Saída atualizada!' : '💸 Saída registrada!');
+}
+
+function editarSaida(idx) { abrirModalSaida(idx); }
+
+function delSaida(idx) {
+  if (!confirm(`Remover "${saidas[idx].desc}"?`)) return;
+  saidas.splice(idx, 1); save(); renderSaidas(); toast('🗑️ Removido');
+}
+
+// calcFatTotal merged into fatPeriodo block above
+
+// ═══ FOTO DO PET ═══
+function previewFoto(evt) {
+  const file = evt.target.files[0]; if(!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    const data = e.target.result;
+    document.getElementById('mp-foto-data').value = data;
+    const img = document.getElementById('foto-preview-img');
+    const ph  = document.getElementById('foto-placeholder');
+    img.src = data; img.style.display = 'block'; ph.style.display = 'none';
+  };
+  reader.readAsDataURL(file);
+}
+
+// ═══ ALERTA VACINA — remover ═══
+function removerAlertaVacina(petIdx) {
+  if(!confirm('Marcar vacina como atualizada? O alerta será removido.')) return;
+  const hoje2 = new Date();
+  hoje2.setFullYear(hoje2.getFullYear() + 1);
+  pets[petIdx].vacina = hoje2.toISOString().split('T')[0];
+  save(); renderAlertas();
+  toast('✅ Vacina atualizada! Próximo alerta em 1 ano.');
+}
+
+// ═══ WHATSAPP ITEM ROW ═══
+function abrirWAItem(nome, tutor, tel, servico, data, valor) {
+  const nm = numWA(tel);
+  if(!nm){ toast('⚠️ Sem telefone cadastrado para este pet.'); return; }
+  const primeiroNome = tutor ? tutor.trim().split(' ')[0] : '';
+  const msg = 'Olá' + (primeiroNome?' '+primeiroNome:'') + '! 👋\n\n'
+    + 'Confirmamos o agendamento de *' + servico + '* para o pet *' + nome + '*\n'
+    + '📅 Data: *' + data + '*\n'
+    + (valor ? '💰 Valor: *R$' + valor + '*\n' : '')
+    + '\nEstamos te esperando na *Anguli Pet*! 🐾\n'
+    + '📱 ' + (config.wa||'47 98857-4522');
+  const url = 'https://wa.me/' + nm + '?text=' + encodeURIComponent(msg);
+  window.open(url, '_blank');
+}
+
+// ═══ ADESTRAMENTO ═══
+let adestFiltro = 'dia';
+let editAdestIdx = null;
+
+function setAdestFiltro(tipo, btn) {
+  adestFiltro = tipo;
+  document.querySelectorAll('#pg-adest .fat-btn').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  renderAdest();
+}
+
+function toggleAdestTipo() {
+  const tipo = document.getElementById('mad-tipo').value;
+  document.getElementById('mad-cad-wrap').style.display   = tipo==='cadastrado'?'flex':'none';
+  document.getElementById('mad-avulso-wrap').style.display = tipo==='avulso'?'block':'none';
+}
+
+function popularPetsSelect() {
+  const sel = document.getElementById('mad-pet');
+  if(!sel) return;
+  sel.innerHTML = pets.length
+    ? pets.map((p,i) => `<option value="${i}">${p.nome} — ${p.tutor||'s/tutor'}</option>`).join('')
+    : '<option value="">Nenhum pet cadastrado</option>';
+}
+
+function abrirModalAdest(idx) {
+  editAdestIdx = idx !== undefined ? idx : null;
+  const s = editAdestIdx !== null ? adests[editAdestIdx] : null;
+  document.getElementById('mad-t').textContent = s ? 'Editar Sessão' : 'Agendar Adestramento';
+  document.getElementById('mad-data').value    = s?.data  || chave(hoje());
+  document.getElementById('mad-hora').value    = s?.hora  || '10:00';
+  document.getElementById('mad-val').value     = s?.valor || '';
+  document.getElementById('mad-obs').value     = s?.obs   || '';
+  if(s?.modal)   document.getElementById('mad-modal').value  = s.modal;
+  if(s?.status)  document.getElementById('mad-status').value = s.status;
+  if(s?.pagou)   document.getElementById('mad-pagou').value  = s.pagou;
+  if(s?.tipo)    document.getElementById('mad-tipo').value   = s.tipo;
+  if(s?.nome)    document.getElementById('mad-nome').value   = s.nome||'';
+  if(s?.tutor)   document.getElementById('mad-tutor').value  = s.tutor||'';
+  if(s?.tel)     document.getElementById('mad-tel').value    = s.tel||'';
+  popularPetsSelect();
+  toggleAdestTipo();
+  document.getElementById('modal-adest').classList.remove('hid');
+}
+
+function salvarAdest() {
+  const tipo  = document.getElementById('mad-tipo').value;
+  const data  = document.getElementById('mad-data').value;
+  const hora  = document.getElementById('mad-hora').value;
+  const modal = document.getElementById('mad-modal').value;
+  const valor = parseFloat(document.getElementById('mad-val').value)||0;
+  const obs   = document.getElementById('mad-obs').value.trim();
+  const status= document.getElementById('mad-status').value;
+  const pagou = document.getElementById('mad-pagou').value;
+  let nome='', tutor='', tel='', petFoto='';
+  if(tipo==='cadastrado'){
+    const pidx = parseInt(document.getElementById('mad-pet').value);
+    if(isNaN(pidx)||!pets[pidx]){toast('⚠️ Selecione um pet');return;}
+    const p = pets[pidx];
+    nome=p.nome; tutor=p.tutor||''; tel=p.tel||p.tel2||''; petFoto=p.foto||'';
+  } else {
+    nome  = document.getElementById('mad-nome').value.trim();
+    tutor = document.getElementById('mad-tutor').value.trim();
+    tel   = document.getElementById('mad-tel').value.trim();
+    if(!nome){toast('⚠️ Informe o nome do cão');return;}
+  }
+  if(!data){toast('⚠️ Informe a data');return;}
+  const sess = {tipo,nome,tutor,tel,petFoto,data,hora,modal,valor,obs,status,pagou,ts:Date.now()};
+  if(editAdestIdx!==null) adests[editAdestIdx]=sess; else adests.push(sess);
+  save(); fecharModal('modal-adest'); renderAdest();
+  toast(editAdestIdx!==null?'✏️ Sessão atualizada!':'🎓 Sessão agendada!');
+}
+
+function renderAdest() {
+  const hj = hoje();
+  const filtrados = adests.filter(s => {
+    if(!s.data) return adestFiltro==='todos';
+    const d = new Date(s.data+'T00:00:00');
+    if(adestFiltro==='dia')    return chave(d)===chave(hj);
+    if(adestFiltro==='semana'){const ini=new Date(hj);ini.setDate(hj.getDate()-hj.getDay());return d>=ini&&d<=hj;}
+    if(adestFiltro==='mes')    return d.getMonth()===hj.getMonth()&&d.getFullYear()===hj.getFullYear();
+    return true;
+  });
+  const periodos = {dia:'hoje',semana:'esta semana',mes:'este mês',todos:'histórico completo'};
+  document.getElementById('adest-sub').textContent = `${filtrados.length} sessão(ões) — ${periodos[adestFiltro]}`;
+  const el = document.getElementById('lista-adest');
+  if(!filtrados.length){
+    el.innerHTML=`<div class="empty"><span class="empty-e">🎓</span><div class="empty-t">Nenhuma sessão agendada</div><div class="empty-s">Toque em "Agendar" para criar uma sessão</div></div>`;
+    return;
+  }
+  const sorted = [...filtrados].sort((a,b)=>(b.data+b.hora).localeCompare(a.data+a.hora));
+  const statusCores = {Agendado:'bg-info',Confirmado:'bg-ok',Realizado:'bg-ok',Cancelado:'bg-err'};
+  el.innerHTML = `<div class="card" style="margin:0 16px 12px">` +
+    sorted.map(s => {
+      const ri = adests.indexOf(s);
+      const dataFmt = s.data?new Date(s.data+'T00:00:00').toLocaleDateString('pt-BR'):'—';
+      const fotoHtml = s.petFoto
+        ? `<img class="pet-foto" src="${s.petFoto}" alt="${s.nome}">`
+        : `<div class="av avp">${(s.nome||'?')[0].toUpperCase()}</div>`;
+      const tel = s.tel||'';
+      return `<div style="display:flex;align-items:center;gap:10px;padding:11px 14px;border-bottom:1px solid var(--border)">
+        ${fotoHtml}
+        <div style="flex:1">
+          <div style="display:flex;align-items:center;gap:6px">
+            <span style="font-weight:800;font-size:13px">${s.nome}</span>
+            <span class="adest-badge">${s.modal||'Individual'}</span>
+            <span class="badge ${statusCores[s.status]||'bg-info'}">${s.status||'Agendado'}</span>
+          </div>
+          <div style="font-size:11px;color:var(--tx3);margin-top:2px">👤 ${s.tutor||'—'} • 📅 ${dataFmt} ${s.hora||''}</div>
+          ${s.obs?`<div style="font-size:11px;color:var(--tx2);margin-top:2px">📝 ${s.obs.substring(0,60)}</div>`:''}
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px">
+          <span style="font-size:14px;font-weight:900;color:var(--verde-d)">R$${s.valor||0}</span>
+          <span class="badge ${s.pagou==='Sim'?'bg-ok':'bg-warn'}">${s.pagou==='Sim'?'✅ Pago':'⏳'}</span>
+          <div style="display:flex;gap:4px;margin-top:2px">
+            ${tel?`<div class="ir-wa" onclick="abrirWAItem('${s.nome}','${s.tutor}','${tel}','Adestramento ${s.modal}','${dataFmt}','${s.valor||0}')" title="WhatsApp">📲</div>`:''}
+            <button class="btn-edit" onclick="editarAdest(${ri})"><i class="ti ti-pencil"></i></button>
+            <button class="btn-del"  onclick="delAdest(${ri})"><i class="ti ti-trash"></i></button>
+          </div>
+        </div>
+      </div>`;
+    }).join('') + `</div>`;
+}
+
+function editarAdest(idx) { abrirModalAdest(idx); }
+function delAdest(idx) {
+  if(!confirm(`Remover sessão de "${adests[idx].nome}"?`)) return;
+  adests.splice(idx,1); save(); renderAdest(); toast('🗑️ Removido');
+}
+
+// ═══ EXPORT/IMPORT ═══
+function exportar(){
+  const b={dados,pets,saidas,adests,config,exportedAt:new Date().toISOString(),versao:'PRO-v3'};
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([JSON.stringify(b,null,2)],{type:'application/json'}));
+  a.download='anguli_pet_backup_'+new Date().toISOString().split('T')[0]+'.json';
+  a.click(); toast('📤 Backup exportado!');
+}
+function importar(){document.getElementById('file-import').click();}
+function lerImport(evt){
+  const f=evt.target.files[0]; if(!f)return;
+  const r=new FileReader(); r.onload=e=>{
+    try{
+      const b=JSON.parse(e.target.result);
+      if(!confirm('Substituir dados atuais pelo backup?'))return;
+      if(b.dados){dados=b.dados;S.set('dados',dados);}
+      if(b.pets){pets=b.pets;S.set('pets',pets);}
+      if(b.saidas){saidas=b.saidas;S.set('saidas',saidas);}
+      if(b.adests){adests=b.adests;S.set('adests',adests);}
+      if(b.config){config=b.config;S.set('config',config);}
+      toast('📥 Backup restaurado!'); ir('dash');
+    }catch{toast('❌ Arquivo inválido');}
+  }; r.readAsText(f); evt.target.value='';
+}
+
+// ═══ COMPARTILHAR ═══
+function compartilhar(){
+  const hj=hoje(),k=chave(hj);
+  const dd=dados[k]||{creche:[],hotel:[],banho:[],dw:[]};
+  const {total}=fatPeriodo('dia');
+  const txt=`🐾 ${config.nome} — ${hj.toLocaleDateString('pt-BR')}\n\n🏫 Creche: ${(dd.creche||[]).length} pets\n🏨 Hotel: ${(dd.hotel||[]).length} hospedados\n✂️ Banho/Tosa: ${(dd.banho||[]).length}\n🐕 Dog Walker: ${(dd.dw||[]).length}\n💰 Faturado: R$${Object.values(total||{}).reduce((a,v)=>a+v,0)||0}\n\n📱 ${config.ig} | WhatsApp: ${config.wa}`;
+  if(navigator.share) navigator.share({title:'Anguli Pet',text:txt}).catch(()=>{});
+  else navigator.clipboard?.writeText(txt).then(()=>toast('📋 Copiado!'));
+}
+
+// ═══ SINCRONIZAR (manual) ═══
+function sincronizar(){
+  const btn=document.getElementById('syncbtn');
+  btn.classList.add('spin');
+  if(fbUID){
+    fbSync();
+    carregarDoFirestore().finally(()=>{
+      btn.classList.remove('spin');
+    });
+  } else {
+    save();
+    setTimeout(()=>{
+      btn.classList.remove('spin');
+      toast('💾 Dados salvos localmente. Faça login para sincronizar na nuvem.');
+    },900);
+  }
+}
+
+// ═══ MODAL ═══
+function fecharModal(id){document.getElementById(id).classList.add('hid');}
+document.querySelectorAll('.mov').forEach(el=>el.addEventListener('click',e=>{if(e.target===el)fecharModal(el.id);}));
+
+// ═══ TOAST ═══
+let toastT;
+function toast(msg){
+  const el=document.getElementById('toast');el.textContent=msg;el.style.opacity='1';
+  clearTimeout(toastT);toastT=setTimeout(()=>el.style.opacity='0',2600);
+}
+
+// ═══ PWA ═══
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt',e=>{
+  e.preventDefault();deferredPrompt=e;
+  document.getElementById('inst-banner').style.display='flex';
+});
+function instalar(){
+  if(!deferredPrompt){toast('💡 iOS: Safari → Compartilhar → Adicionar à Tela de Início');return;}
+  deferredPrompt.prompt();deferredPrompt.userChoice.then(()=>{deferredPrompt=null;document.getElementById('inst-banner').style.display='none';});
+}
+
+// Manifest PWA dinâmico
+const manifest={name:'Anguli Pet PRO',short_name:'Anguli Pet',description:'Hotel, Creche e Pet Shop',start_url:'.',display:'standalone',background_color:'#0D2E6E',theme_color:'#0D2E6E',orientation:'portrait',icons:[{src:`data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230D2E6E'/><text y='70' x='50' text-anchor='middle' font-size='60'>🐾</text></svg>`,sizes:'192x192',type:'image/svg+xml'},{src:`data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230D2E6E'/><text y='70' x='50' text-anchor='middle' font-size='60'>🐾</text></svg>`,sizes:'512x512',type:'image/svg+xml'}]};
+const mblob=new Blob([JSON.stringify(manifest)],{type:'application/json'});
+document.getElementById('pwa-manifest').href=URL.createObjectURL(mblob);
+
+// Service Worker
+if('serviceWorker' in navigator){
+  const sw=`const V='ap-pro-v2';self.addEventListener('install',e=>e.waitUntil(caches.open(V).then(c=>c.addAll(['.']))));self.addEventListener('fetch',e=>e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request).catch(()=>new Response('Offline',{status:503})))));self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==V).map(k=>caches.delete(k))))));`;
+  navigator.serviceWorker.register(URL.createObjectURL(new Blob([sw],{type:'application/javascript'}))).catch(()=>{});
+}
+
+// ═══ STATUS FIREBASE ═══
+function verificarStatusFirebase() {
+  const el = document.getElementById('fb-status-txt');
+  if (!el) return;
+  if (fbUser) {
+    el.innerHTML = `✅ Conectado como <strong>${fbUser.email}</strong><br>🔄 Sincronização automática ativa`;
+    el.closest('#fb-status-box').style.background = '#DCFCE7';
+  } else if (fbDb) {
+    el.innerHTML = '⚠️ Firebase carregado mas não autenticado.<br>Faça login para sincronizar.';
+    el.closest('#fb-status-box').style.background = '#FEF9C3';
+  } else {
+    el.innerHTML = '❌ Firebase não conectado.<br>Verifique sua conexão com a internet.';
+    el.closest('#fb-status-box').style.background = '#FEE2E2';
+  }
+}
+
+// ═══ INIT ═══
+(function(){
+  const hj=hoje();
+  document.getElementById('hdata').textContent=DIAS[hj.getDay()]+' '+hj.getDate()+'/'+(hj.getMonth()+1);
+  document.getElementById('hnome').textContent=config.nome||'Anguli Pet';
+  setTimeout(()=>document.getElementById('splash').classList.add('out'), 2000);
+
+  // 🔥 Inicia Firebase (sempre)
+  initFirebase();
+
+  // Se já tem dados locais, entra direto sem esperar Firebase
+  const temDados = pets.length > 0 || Object.keys(dados).length > 0;
+  setTimeout(()=>{
+    // Firebase Auth vai tentar restaurar sessão automaticamente
+    // Se não conseguir em 3s, mostra tela de login
+    let logouFirebase = false;
+    if (typeof firebase !== 'undefined' && firebase.auth) {
+      firebase.auth().onAuthStateChanged(user => {
+        if (!logouFirebase) {
+          logouFirebase = true;
+          if (user) {
+            fbUser = user; fbUID = user.uid;
+            entrarApp();
+          } else if (temDados) {
+            // Tem dados locais — entra em modo offline/demo
+            entrarApp();
+          } else {
+            document.getElementById('pg-login').style.display='flex';
+            document.getElementById('pg-login').classList.add('on');
+          }
+        }
+      });
+      // Timeout de segurança
+      setTimeout(()=>{
+        if (!logouFirebase) {
+          logouFirebase = true;
+          if (temDados) entrarApp();
+          else {
+            document.getElementById('pg-login').style.display='flex';
+            document.getElementById('pg-login').classList.add('on');
+          }
+        }
+      }, 3000);
+    } else {
+      // Firebase não disponível
+      if (temDados) entrarApp();
+      else {
+        document.getElementById('pg-login').style.display='flex';
+        document.getElementById('pg-login').classList.add('on');
+      }
+    }
+  }, 2100);
+})();
 </script>
 </body>
 </html>
