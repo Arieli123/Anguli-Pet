@@ -93,10 +93,25 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
 #nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;height:var(--nav-h);background:var(--card);border-top:1px solid var(--border);display:none;z-index:100;padding-bottom:env(safe-area-inset-bottom);box-shadow:0 -4px 20px rgba(13,46,110,.09)}
 .nb{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;background:none;border:none;cursor:pointer;color:var(--tx3);transition:all .15s;font-family:var(--f);padding:4px 2px;min-width:0}
 .nb.on{color:var(--azul-m)}
-.nb-ic{width:32px;height:24px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:18px;transition:all .15s;line-height:1}
+.nb-ic{width:36px;height:28px;border-radius:10px;display:flex;align-items:center;justify-content:center;transition:all .15s;font-size:20px;line-height:1}
+.nb-ic i{font-size:20px;line-height:1}
 .nb.on .nb-ic{background:var(--azul-xl)}
+.nb.on .nb-ic i{color:var(--azul)}
+.nb.on{color:var(--azul-m)}
 .nb-lbl{font-size:8.5px;font-weight:900;letter-spacing:.05px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:46px;text-align:center}
 .nb-dot{position:absolute;top:4px;right:calc(50% - 26px);width:8px;height:8px;background:var(--verm);border-radius:50%;border:2px solid #fff}
+
+/* ══ MENU MAIS ══ */
+#mais-overlay{position:fixed;inset:0;background:rgba(13,46,110,.35);z-index:150;display:none;backdrop-filter:blur(2px)}
+#mais-overlay.open{display:block}
+#mais-menu{position:fixed;bottom:calc(var(--nav-h) + 8px);left:50%;transform:translateX(-50%);width:calc(100% - 32px);max-width:448px;background:#fff;border-radius:var(--r-lg);box-shadow:var(--sh-lg);z-index:151;padding:8px;display:none}
+#mais-menu.open{display:block;animation:maisIn .18s ease}
+@keyframes maisIn{from{opacity:0;transform:translateX(-50%) translateY(10px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+.mais-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.mais-item{display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 4px;border-radius:var(--r);cursor:pointer;background:var(--bg);border:1.5px solid var(--border);transition:all .15s;font-family:var(--f);border:none}
+.mais-item:hover,.mais-item:active{background:var(--azul-bg)}
+.mais-item .mi-ic{font-size:22px;width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:var(--azul-xl)}
+.mais-item .mi-lbl{font-size:10px;font-weight:800;color:var(--tx2);text-align:center}
 
 /* ══ PAGES ══ */
 .pg{display:none;animation:pgIn .22s ease}
@@ -182,10 +197,10 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
 .dpb{background:var(--areia);color:var(--areia-d)}
 
 /* ══ TOTAIS ══ */
-.totbar{display:flex;gap:6px;padding:8px 16px;background:linear-gradient(135deg,var(--azul-bg),#E8F0FF);border-top:1px solid var(--azul-xl);border-bottom:1px solid var(--azul-xl)}
+.totbar{display:flex;gap:4px;padding:8px 12px;background:linear-gradient(135deg,var(--azul-bg),#E8F0FF);border-top:1px solid var(--azul-xl);border-bottom:1px solid var(--azul-xl)}
 .tot-it{flex:1;text-align:center}
-.tot-v{font-size:19px;font-weight:900;color:var(--azul)}
-.tot-l{font-size:9px;font-weight:800;color:var(--azul-m);opacity:.7;text-transform:uppercase;letter-spacing:.4px;margin-top:1px}
+.tot-v{font-size:16px;font-weight:900;color:var(--azul)}
+.tot-l{font-size:8px;font-weight:800;color:var(--azul-m);opacity:.7;text-transform:uppercase;letter-spacing:.3px;margin-top:1px}
 
 /* ══ DETALHE DIA ══ */
 .det{margin:0 16px 12px;background:var(--card);border-radius:var(--r);border:1px solid var(--border);box-shadow:var(--sh);overflow:hidden}
@@ -194,11 +209,13 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
 .det-d{font-size:11px;color:var(--tx3);font-weight:700}
 .stabs{display:flex;border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none}
 .stabs::-webkit-scrollbar{display:none}
+.stab-cnt{display:inline-flex;align-items:center;justify-content:center;min-width:16px;height:16px;padding:0 4px;background:var(--border2);color:var(--tx3);font-size:9px;font-weight:900;border-radius:20px;margin-left:3px}
+.stab.on .stab-cnt{background:var(--azul);color:#fff}
 .stab{padding:9px 12px;font-size:11px;font-weight:800;cursor:pointer;border:none;border-bottom:3px solid transparent;color:var(--tx3);background:none;white-space:nowrap;font-family:var(--f);display:flex;align-items:center;gap:4px;transition:all .15s}
 .stab:hover{color:var(--tx2)}
 .stab.on{border-bottom-color:var(--azul);color:var(--azul)}
 .stab i{font-size:14px}
-.stc{padding:12px 14px}
+.stc{padding:12px 14px;display:flex;flex-direction:column;gap:0}
 
 /* ══ MÉTRICAS ══ */
 .mets{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;padding:9px 12px;border-top:1px solid var(--border)}
@@ -207,10 +224,25 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
 .met-v{font-size:17px;font-weight:900;color:var(--azul)}
 .met-l{font-size:9px;color:var(--tx3);font-weight:800;text-transform:uppercase;letter-spacing:.3px;margin-top:1px}
 
-/* ══ ITEM ROW ══ */
+/* ══ PET PICKER AUTOCOMPLETE ══ */
+.pp-wrap{position:relative;flex:1}
+.pp-drop{position:absolute;top:100%;left:0;right:0;background:#fff;border:1.5px solid var(--azul-l);border-radius:var(--r-sm);box-shadow:var(--sh-lg);z-index:200;max-height:200px;overflow-y:auto;display:none}
+.pp-drop.open{display:block}
+.pp-item{display:flex;align-items:center;gap:10px;padding:10px 12px;cursor:pointer;transition:background .1s;border-bottom:1px solid var(--border)}
+.pp-item:last-child{border-bottom:none}
+.pp-item:hover,.pp-item:active{background:var(--azul-bg)}
+.pp-av{width:34px;height:34px;border-radius:50%;background:var(--azul-xl);color:var(--azul);font-size:14px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.pp-av img{width:34px;height:34px;border-radius:50%;object-fit:cover}
+.pp-info{flex:1;min-width:0}
+.pp-nome{font-size:13px;font-weight:900;color:var(--tx)}
+.pp-sub{font-size:11px;color:var(--tx3);font-weight:700}
+.pp-badge{font-size:10px;font-weight:900;padding:2px 7px;border-radius:20px;background:var(--azul-xl);color:var(--azul);flex-shrink:0}
 .ir{display:flex;align-items:center;gap:8px;padding:9px 10px;border-radius:var(--r-sm);background:var(--bg);margin-bottom:6px;cursor:pointer;transition:background .1s}
 .ir:hover{background:var(--azul-bg)}
 .ir:last-child{margin-bottom:0}
+.ir-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:12px 14px;margin-bottom:8px;cursor:pointer;transition:all .15s;box-shadow:var(--sh)}
+.ir-card:hover{border-color:var(--azul-l);box-shadow:0 4px 16px rgba(13,46,110,.12)}
+.ir-card:last-child{margin-bottom:0}
 .av{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;flex-shrink:0}
 .avc{background:var(--menta);color:var(--menta-d)}
 .avh{background:var(--pastel-b);color:var(--pastel-bd)}
@@ -274,9 +306,10 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
 @keyframes ms{from{transform:translateY(40px)}to{transform:translateY(0)}}
 .mhandle{width:36px;height:4px;background:var(--border2);border-radius:2px;margin:0 auto 14px}
 .mtitle{font-size:18px;font-weight:900;color:var(--azul);margin-bottom:14px;letter-spacing:-.4px}
-.macts{display:flex;gap:8px;margin-top:14px}
+.macts{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
 .macts .btn-ghost{flex:1;text-align:center}
 .macts .btn-pr{flex:2;text-align:center;justify-content:center}
+.macts .btn-danger{flex-shrink:0}
 
 /* ══ PGTO METODOS ══ */
 .pgto-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:4px}
@@ -416,6 +449,98 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
   body{background:#C7D9F5}
   #hdr,#nav{left:50%;transform:translateX(-50%);width:100%;max-width:480px}
 }
+
+/* ══ v3 ADIÇÕES ══ */
+.pet-search-drop{background:#fff;border:1.5px solid var(--border2);border-radius:var(--r);box-shadow:var(--sh-lg);overflow:hidden;position:absolute;top:100%;left:0;right:0;z-index:20}
+.pet-search-item{display:flex;align-items:center;gap:10px;padding:10px 12px;cursor:pointer;transition:background .12s;border-bottom:1px solid var(--border)}
+.pet-search-item:last-child{border-bottom:none}
+.pet-search-item:active,.pet-search-item:hover{background:var(--azul-bg)}
+.psi-av{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;background:var(--azul-xl);color:var(--azul);overflow:hidden;flex-shrink:0}
+.psi-av img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.psi-nome{font-weight:800;font-size:13px;color:var(--tx)}
+.psi-sub{font-size:11px;color:var(--tx3)}
+.pet-sel-box{background:var(--menta);border:1.5px solid #A7F3D0;border-radius:var(--r-sm);padding:10px 12px;display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.pet-sel-av{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:900;flex-shrink:0;background:#fff;overflow:hidden}
+.pet-sel-av img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.pet-sel-nome{font-weight:800;font-size:13px;color:var(--menta-d)}
+.pet-sel-sub{font-size:11px;color:#065F46}
+.pet-sel-clear{margin-left:auto;background:none;border:none;font-size:18px;color:#065F46;cursor:pointer}
+.pet-infos-auto{background:var(--azul-bg);border:1.5px solid var(--azul-xl);border-radius:var(--r-sm);padding:9px 12px;font-size:12px;color:var(--azul);font-weight:700;display:none;margin-top:4px;line-height:1.6}
+.pet-infos-auto.show{display:block}
+.agend-tipo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:4px}
+.agend-tipo-btn{padding:10px 6px;border:1.5px solid var(--border);border-radius:var(--r-sm);text-align:center;cursor:pointer;background:var(--bg);transition:all .15s;font-family:var(--f)}
+.agend-tipo-btn .ati{font-size:20px;display:block;margin-bottom:3px}
+.agend-tipo-btn .atl{font-size:10px;font-weight:800;color:var(--tx3)}
+.agend-tipo-btn.on{border-color:var(--azul-m);background:var(--azul-xl)}
+.agend-tipo-btn.on .atl{color:var(--azul)}
+.boletim-card-v3{background:#fff;border-radius:var(--r-lg);border:1px solid var(--border);box-shadow:var(--sh-lg);overflow:hidden;margin-bottom:14px}
+.boletim-card-hdr{background:linear-gradient(135deg,var(--azul),var(--azul-m));padding:16px;display:flex;align-items:center;gap:12px}
+.bol-pet-foto{width:50px;height:50px;border-radius:50%;border:2px solid rgba(255,255,255,.3);flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:900;background:var(--azul-l);color:#fff}
+.bol-pet-foto img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.bol-pet-nome{font-size:15px;font-weight:900;color:#fff}
+.bol-pet-data{font-size:11px;color:rgba(255,255,255,.55);margin-top:2px}
+.boletim-body{padding:14px}
+.bol-row{margin-bottom:14px}
+.bol-label{font-size:11px;font-weight:900;color:var(--tx3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:7px}
+.bones-row{display:flex;gap:6px}
+.bone-btn{font-size:22px;cursor:pointer;transition:transform .15s,filter .15s;filter:grayscale(1) opacity(.25);user-select:none;-webkit-user-select:none}
+.bone-btn.on{filter:none;transform:scale(1.1)}
+.humor-row{display:flex;gap:8px}
+.humor-opt{width:42px;height:42px;border-radius:10px;border:2px solid var(--border);background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:22px;cursor:pointer;transition:all .15s}
+.humor-opt.on{border-color:var(--ouro);background:var(--ouro-l);transform:scale(1.08)}
+.bol-obs-ta{width:100%;padding:9px 11px;border-radius:var(--r-sm);border:1.5px solid var(--border2);background:var(--bg);font-family:var(--f);font-size:12px;color:var(--tx);resize:none;min-height:60px;outline:none;transition:border-color .15s}
+.bol-obs-ta:focus{border-color:var(--azul-m);background:#fff}
+.bol-pet-tabs{display:flex;gap:6px;padding:0 16px 8px;overflow-x:auto;scrollbar-width:none}
+.bol-pet-tabs::-webkit-scrollbar{display:none}
+.bol-pet-tab{flex-shrink:0;text-align:center;cursor:pointer;padding:3px}
+.bol-tab-av{width:42px;height:42px;border-radius:50%;border:2.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:900;background:var(--bg);overflow:hidden;margin:0 auto 3px;transition:border-color .12s}
+.bol-tab-av img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.bol-pet-tab.on .bol-tab-av{border-color:var(--azul);background:var(--azul-xl)}
+.bol-tab-lbl{font-size:10px;font-weight:800;color:var(--tx3)}
+.bol-pet-tab.on .bol-tab-lbl{color:var(--azul)}
+.btn-wa-bol{width:100%;padding:11px;background:#25D366;color:#fff;border:none;border-radius:var(--r-sm);font-size:13px;font-weight:900;cursor:pointer;font-family:var(--f);display:flex;align-items:center;justify-content:center;gap:7px;margin-top:8px;box-shadow:0 3px 12px rgba(37,211,102,.3)}
+.btn-gerar-bol{width:100%;padding:11px;background:var(--azul);color:#fff;border:none;border-radius:var(--r-sm);font-size:13px;font-weight:900;cursor:pointer;font-family:var(--f);display:flex;align-items:center;justify-content:center;gap:7px;margin-top:8px}
+.modal-ficha{background:#fff;width:100%;max-width:480px;max-height:100dvh;overflow-y:auto;position:fixed;top:0;bottom:0;left:50%;transform:translateX(-50%);z-index:202;display:none}
+.modal-ficha.open{display:block;animation:fichaIn .22s ease}
+@keyframes fichaIn{from{opacity:0;transform:translateX(-50%) translateY(16px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+.ficha-hero{background:linear-gradient(160deg,var(--azul),var(--azul-m));padding:16px 16px 0;position:relative;overflow:hidden}
+.ficha-hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:20px;background:#fff;border-radius:20px 20px 0 0}
+.ficha-back{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,.75);font-size:13px;font-weight:700;cursor:pointer;margin-bottom:14px;background:none;border:none;font-family:var(--f)}
+.ficha-foto-g{width:80px;height:80px;border-radius:50%;border:3px solid rgba(255,255,255,.25);margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-size:34px;font-weight:900;background:var(--azul-l);overflow:hidden}
+.ficha-foto-g img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.ficha-nome-g{font-size:21px;font-weight:900;color:#fff;text-align:center;letter-spacing:-.4px}
+.ficha-meta-g{display:flex;gap:12px;justify-content:center;margin:7px 0 26px;flex-wrap:wrap}
+.ficha-meta-g .fm-it .fm-v{font-size:13px;font-weight:900;color:rgba(255,255,255,.9);text-align:center}
+.ficha-meta-g .fm-it .fm-l{font-size:10px;color:rgba(255,255,255,.45);font-weight:700;text-align:center}
+.ficha-tabs-g{display:flex;border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none}
+.ficha-tabs-g::-webkit-scrollbar{display:none}
+.ficha-tab-g{padding:10px 14px;font-size:11px;font-weight:800;cursor:pointer;border:none;border-bottom:3px solid transparent;color:var(--tx3);background:none;white-space:nowrap;font-family:var(--f);transition:all .15s}
+.ficha-tab-g.on{border-bottom-color:var(--azul);color:var(--azul)}
+.ficha-body-g{padding:14px 16px 100px}
+.tl-item{display:flex;gap:11px;margin-bottom:14px;position:relative}
+.tl-item::before{content:'';position:absolute;left:16px;top:34px;bottom:-14px;width:2px;background:var(--border)}
+.tl-item:last-child::before{display:none}
+.tl-dot{width:34px;height:34px;border-radius:9px;background:var(--azul-xl);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;z-index:1}
+.tl-body{flex:1}
+.tl-title{font-size:13px;font-weight:800;color:var(--tx)}
+.tl-time{font-size:11px;color:var(--tx3);margin-top:1px}
+.tl-note{font-size:12px;color:var(--tx2);margin-top:4px;background:var(--bg);padding:7px 9px;border-radius:var(--r-sm)}
+.checkin-grid-v3{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 16px 16px}
+.ck-card{background:#fff;border-radius:var(--r);border:1px solid var(--border);padding:12px;text-align:center;box-shadow:var(--sh)}
+.ck-av{width:52px;height:52px;border-radius:50%;margin:0 auto 7px;display:flex;align-items:center;justify-content:center;font-size:21px;font-weight:900;background:var(--azul-xl);border:2px solid var(--border);overflow:hidden}
+.ck-av img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.ck-nome{font-size:12px;font-weight:900;color:var(--tx);margin-bottom:2px}
+.ck-sub{font-size:10px;color:var(--tx3);font-weight:700;margin-bottom:7px}
+.ck-btns{display:flex;gap:4px;justify-content:center;flex-wrap:wrap}
+.ck-btn{padding:4px 8px;border-radius:20px;font-size:10px;font-weight:800;cursor:pointer;border:1.5px solid var(--border);background:var(--bg);color:var(--tx2);font-family:var(--f);transition:all .12s;white-space:nowrap}
+.ck-btn.chegou{background:var(--menta);border-color:#A7F3D0;color:var(--menta-d)}
+.ck-btn.saiu{background:var(--pastel-b);border-color:#93C5FD;color:var(--pastel-bd)}
+.ck-btn.alim{background:#F0FDF4;border-color:#BBF7D0;color:#065F46}
+.ck-btn.pagar{background:var(--areia);border-color:#FDE68A;color:var(--areia-d)}
+.aniv-mes-card{background:#fff;border-radius:var(--r);border:1px solid var(--border);padding:10px 13px;display:flex;align-items:center;gap:10px;margin-bottom:7px;box-shadow:var(--sh)}
+.aniv-mes-av{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:900;background:var(--ouro-l);border:2px solid var(--ouro);overflow:hidden;flex-shrink:0}
+.aniv-mes-av img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+
 </style>
   <!-- Firebase SDK via CDN (módulos compat para HTML puro sem bundler) -->
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
@@ -485,7 +610,10 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
           <div class="sh-t" id="dash-saudacao">Bom dia! 👋</div>
           <div class="sh-s" id="dash-sub">Hoje</div>
         </div>
-        <button class="btn-or" onclick="compartilhar()"><i class="ti ti-share"></i> Compartilhar</button>
+        <div style="display:flex;gap:6px;align-items:center">
+          <button class="btn-ghost" style="padding:8px 12px;font-size:12px;display:flex;align-items:center;gap:5px" onclick="ir('checkin')"><i class="ti ti-checkbox" style="font-size:14px"></i> Check-in</button>
+          <button class="btn-or" onclick="compartilhar()"><i class="ti ti-share"></i></button>
+        </div>
       </div>
 
       <!-- KPIs -->
@@ -494,9 +622,17 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
         <div class="kcard kh" onclick="irAgendaSetor('hotel')" style="cursor:pointer"><i class="ti ti-bed"></i><div class="kval" id="kd-h">0</div><div class="klbl">Hotel</div><div class="ksub">toque p/ ver ▶</div></div>
         <div class="kcard kb" onclick="irAgendaSetor('banho')" style="cursor:pointer"><i class="ti ti-scissors"></i><div class="kval" id="kd-b">0</div><div class="klbl">Banho/Tosa</div><div class="ksub">toque p/ ver ▶</div></div>
         <div class="kcard kdw" onclick="irAgendaSetor('dw')" style="cursor:pointer"><i class="ti ti-walk"></i><div class="kval" id="kd-dw">0</div><div class="klbl">Dog Walker</div><div class="ksub">toque p/ ver ▶</div></div>
-        <div class="kcard kf" style="grid-column:span 2"><i class="ti ti-currency-dollar"></i><div class="kval" id="kd-fat" style="font-size:32px">R$0</div><div class="klbl">Faturamento hoje</div><div class="ksub">todos os serviços pagos</div></div>
+        <div class="kcard" style="background:#FEE2E2;color:#7F1D1D;cursor:pointer" onclick="irAgendaSetor('taxi')"><i class="ti ti-car"></i><div class="kval" id="kd-taxi">0</div><div class="klbl">Táxi Dog</div><div class="ksub">toque p/ ver ▶</div></div>
+        <div class="kcard" style="background:#EDE9FE;color:#5B21B6;cursor:pointer" onclick="fecharMais();ir('adest')"><i class="ti ti-school"></i><div class="kval" id="kd-adest">0</div><div class="klbl">Adestramento</div><div class="ksub">toque p/ ver ▶</div></div>
         <div class="kcard kp"><i class="ti ti-paw"></i><div class="kval" id="kd-p">0</div><div class="klbl">Pets cad.</div><div class="ksub">total</div></div>
         <div class="kcard ka"><i class="ti ti-clock"></i><div class="kval" id="kd-a">0</div><div class="klbl">Pendentes</div><div class="ksub">não pagos hoje</div></div>
+      </div>
+
+      <!-- Faturamento Total Geral — logo após os KPIs -->
+      <div class="fat-geral-card" style="margin-top:10px">
+        <div class="fat-geral-t">💰 Faturamento de Hoje</div>
+        <div class="fat-geral-v" id="fat-geral-v">R$0</div>
+        <div class="fat-geral-s">Total de pagamentos confirmados hoje</div>
       </div>
 
       <!-- Faturamento filtros -->
@@ -506,6 +642,10 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
         <button class="fat-btn" onclick="setFatFiltro('semana',this)">Semana</button>
         <button class="fat-btn" onclick="setFatFiltro('mes',this)">Mês</button>
       </div>
+
+      <!-- Alertas — aparecem antes do gráfico (prioridade alta) -->
+      <div class="sdiv"><i class="ti ti-bell"></i> Alertas</div>
+      <div id="alertas-box"></div>
 
       <!-- Gráfico donut -->
       <div class="chart-wrap" id="chart-fat">
@@ -519,24 +659,14 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
         </div>
       </div>
 
-      <!-- Alertas -->
-      <div class="sdiv"><i class="ti ti-bell"></i> Alertas</div>
-      <div id="alertas-box"></div>
 
-
-      <!-- Faturamento Total Geral -->
-      <div class="fat-geral-card">
-        <div class="fat-geral-t">💰 Faturamento Total Acumulado</div>
-        <div class="fat-geral-v" id="fat-geral-v">R$0</div>
-        <div class="fat-geral-s">Soma de todos os pagamentos confirmados (histórico completo)</div>
-      </div>
-
-      <!-- Install -->
+      <!-- Install banner - aparece no footer do dash se disponível -->
       <div class="inst" id="inst-banner" style="display:none" onclick="instalar()">
         <div style="font-size:26px">📲</div>
         <div style="flex:1"><div class="inst-t">Instalar no celular</div><div class="inst-s">App funciona offline!</div></div>
         <div class="inst-b">Instalar</div>
       </div>
+      <div style="height:16px"></div>
     </div>
 
     <!-- ═══ AGENDA ═══ -->
@@ -552,13 +682,6 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
 
       <div class="dgrid" id="dgrid"></div>
 
-      <div class="totbar" id="totbar">
-        <div class="tot-it"><div class="tot-v" id="tt-c">0</div><div class="tot-l">Creche</div></div>
-        <div class="tot-it"><div class="tot-v" id="tt-h">0</div><div class="tot-l">Hotel</div></div>
-        <div class="tot-it"><div class="tot-v" id="tt-b">0</div><div class="tot-l">Banho</div></div>
-        <div class="tot-it"><div class="tot-v" id="tt-f">R$0</div><div class="tot-l">Faturado</div></div>
-      </div>
-
       <div class="det" id="det">
         <div class="det-hdr">
           <span class="det-t" id="det-t">Selecione um dia</span>
@@ -567,23 +690,25 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
         <div id="det-empty" class="vz"><i class="ti ti-calendar-event"></i>Toque em um dia para lançar.</div>
         <div id="det-body" style="display:none">
           <div class="stabs">
-            <button class="stab on" onclick="setTab('creche')"><i class="ti ti-building"></i> Creche</button>
-            <button class="stab" onclick="setTab('hotel')"><i class="ti ti-bed"></i> Hotel</button>
-            <button class="stab" onclick="setTab('banho')"><i class="ti ti-scissors"></i> Banho</button>
-            <button class="stab" onclick="setTab('dw')"><i class="ti ti-walk"></i> DogWalk</button>
-            <button class="stab" onclick="setTab('fat')"><i class="ti ti-currency-dollar"></i> Faturamento</button>
+            <button class="stab on" onclick="setTab('creche')">Creche</button>
+            <button class="stab" onclick="setTab('hotel')">Hotel</button>
+            <button class="stab" onclick="setTab('banho')">Banho</button>
+            <button class="stab" onclick="setTab('dw')">DogWalk</button>
+            <button class="stab" onclick="setTab('taxi')">Táxi Dog</button>
           </div>
           <div class="stc" id="tc-creche"></div>
           <div class="stc" id="tc-hotel" style="display:none"></div>
           <div class="stc" id="tc-banho" style="display:none"></div>
           <div class="stc" id="tc-dw" style="display:none"></div>
-          <div class="stc" id="tc-fat" style="display:none"></div>
+          <div class="stc" id="tc-taxi" style="display:none"></div>
         </div>
         <div class="mets" id="det-mets" style="display:none">
-          <div class="met"><i class="ti ti-building"></i><div class="met-v" id="mm-c">0</div><div class="met-l">Creche</div></div>
-          <div class="met"><i class="ti ti-bed"></i><div class="met-v" id="mm-h">0</div><div class="met-l">Hotel</div></div>
-          <div class="met"><i class="ti ti-scissors"></i><div class="met-v" id="mm-b">0</div><div class="met-l">Banho</div></div>
-          <div class="met"><i class="ti ti-currency-dollar"></i><div class="met-v" id="mm-f">R$0</div><div class="met-l">Faturado</div></div>
+          <div class="met"><div class="met-v" id="mm-c">0</div><div class="met-l">Creche</div></div>
+          <div class="met"><div class="met-v" id="mm-h">0</div><div class="met-l">Hotel</div></div>
+          <div class="met"><div class="met-v" id="mm-b">0</div><div class="met-l">Banho</div></div>
+          <div class="met"><div class="met-v" id="mm-dw">0</div><div class="met-l">DogWalk</div></div>
+          <div class="met"><div class="met-v" id="mm-tx">0</div><div class="met-l">Táxi</div></div>
+          <div class="met"><div class="met-v" id="mm-f">R$0</div><div class="met-l">Faturado</div></div>
         </div>
       </div>
     </div>
@@ -611,6 +736,7 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
         <button class="fat-btn on" id="ff-dia"    onclick="setFatPgFiltro('dia',this)">Hoje</button>
         <button class="fat-btn"    id="ff-semana" onclick="setFatPgFiltro('semana',this)">Semana</button>
         <button class="fat-btn"    id="ff-mes"    onclick="setFatPgFiltro('mes',this)">Mês</button>
+        <button class="fat-btn"    id="ff-tudo"   onclick="setFatPgFiltro('tudo',this)">Tudo</button>
       </div>
 
       <!-- KPIs faturamento -->
@@ -625,6 +751,8 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
         <div class="kcard kh"><div style="font-size:18px;margin-bottom:4px">🏨</div><div class="kval" id="fp-h" style="font-size:22px">R$0</div><div class="klbl">Hotel</div></div>
         <div class="kcard kb"><div style="font-size:18px;margin-bottom:4px">✂️</div><div class="kval" id="fp-b" style="font-size:22px">R$0</div><div class="klbl">Banho/Tosa</div></div>
         <div class="kcard kdw"><div style="font-size:18px;margin-bottom:4px">🐕</div><div class="kval" id="fp-dw" style="font-size:22px">R$0</div><div class="klbl">Dog Walker</div></div>
+        <div class="kcard" style="background:#FEE2E2;color:#7F1D1D"><div style="font-size:18px;margin-bottom:4px">🚗</div><div class="kval" id="fp-taxi" style="font-size:22px">R$0</div><div class="klbl">Táxi Dog</div></div>
+        <div class="kcard" style="background:var(--roxo-l);color:var(--roxo)"><div style="font-size:18px;margin-bottom:4px">🎓</div><div class="kval" id="fp-adest" style="font-size:22px">R$0</div><div class="klbl">Adestramento</div></div>
       </div>
 
       <!-- Gráfico donut faturamento -->
@@ -706,6 +834,7 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
           </div>
           <div class="frow">
             <div class="fg"><label class="fl">Seu nome (saudação)</label><input class="fi" id="cfg-usuario" placeholder="Ex: Ana, Maria..."></div>
+            <div class="fg"><label class="fl">Gênero</label><select class="fs" id="cfg-genero"><option value="m">Masculino</option><option value="f">Feminino</option></select></div>
           </div>
           <div class="frow">
             <div class="fg"><label class="fl">WhatsApp</label><input class="fi" id="cfg-wa" placeholder="47 98857-4522"></div>
@@ -749,6 +878,19 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
           <div class="plrow"><span>3x/semana</span><input class="fi" id="pdw-3x" type="number" value="60" style="width:70px"></div>
           <div class="plrow"><span>5x/semana</span><input class="fi" id="pdw-5x" type="number" value="50" style="width:70px"></div>
         </div>
+        <div class="plcard" style="background:#FEE2E2">
+          <div class="plcard-t" style="color:#7F1D1D">🚗 Táxi Dog</div>
+          <div class="plrow"><span>Corrida simples</span><input class="fi" id="ptx-simples" type="number" value="30" style="width:70px"></div>
+          <div class="plrow"><span>Ida e volta</span><input class="fi" id="ptx-idavolta" type="number" value="55" style="width:70px"></div>
+          <div class="plrow"><span>Mensal (5x/sem)</span><input class="fi" id="ptx-mensal" type="number" value="200" style="width:70px"></div>
+        </div>
+        <div class="plcard" style="background:#EDE9FE">
+          <div class="plcard-t" style="color:#5B21B6">🎓 Adestramento</div>
+          <div class="plrow"><span>Sessão avulsa</span><input class="fi" id="pad-av" type="number" value="150" style="width:70px"></div>
+          <div class="plrow"><span>Pacote 4 sessões</span><input class="fi" id="pad-p4" type="number" value="520" style="width:70px"></div>
+          <div class="plrow"><span>Pacote 8 sessões</span><input class="fi" id="pad-p8" type="number" value="960" style="width:70px"></div>
+          <div class="plrow"><span>Mensal (semanal)</span><input class="fi" id="pad-men" type="number" value="400" style="width:70px"></div>
+        </div>
         <div class="fabs"><button class="btn-pr" onclick="salvarPrecos()"><i class="ti ti-check"></i> Salvar preços</button></div>
       </div>
 
@@ -784,6 +926,12 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
             <div><div class="cfg-txt">Importar backup</div><div class="cfg-sub">Restaurar dados salvos</div></div>
           </div><i class="ti ti-chevron-right" style="color:var(--tx3)"></i>
         </div>
+        <div class="cfg-it" id="cfg-instalar-item" style="display:none" onclick="instalar()">
+          <div style="display:flex;align-items:center;gap:10px">
+            <div class="cfg-ico" style="background:var(--azul-xl)">📲</div>
+            <div><div class="cfg-txt">Instalar app no celular</div><div class="cfg-sub">Funciona offline</div></div>
+          </div><i class="ti ti-chevron-right" style="color:var(--tx3)"></i>
+        </div>
         <div class="cfg-it" onclick="sair()">
           <div style="display:flex;align-items:center;gap:10px">
             <div class="cfg-ico" style="background:var(--verm-l)">🚪</div>
@@ -796,18 +944,43 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
       </div>
     </div>
 
+
+    <!-- BOLETIM ESCOLAR v3 -->
+    <div id="pg-boletim" class="pg">
+      <div class="sh"><div><div class="sh-t">Boletim Escolar 📋</div><div class="sh-s" id="bol-sub">Avalie o dia do pet</div></div></div>
+      <div class="bol-pet-tabs" id="bol-pet-tabs"></div>
+      <div id="bol-content" style="padding:0 16px 16px"></div>
+    </div>
+
+    <!-- CHECK-IN RÁPIDO -->
+    <div id="pg-checkin" class="pg">
+      <div class="sh">
+        <div><div class="sh-t">Check-in ✅</div><div class="sh-s" id="checkin-sub">Pets de hoje</div></div>
+      </div>
+      <div class="checkin-grid-v3" id="checkin-grid"></div>
+    </div>
   </main>
 
-  <!-- NAV -->
+  <!-- NAV (5 itens principais) -->
   <nav id="nav" style="display:none">
-    <button class="nb on" id="nb-dash"   onclick="ir('dash')"><div class="nb-ic">📊</div><span class="nb-lbl">Início</span></button>
-    <button class="nb"    id="nb-agenda" onclick="ir('agenda')"><div class="nb-ic">📅</div><span class="nb-lbl">Agenda</span></button>
-    <button class="nb"    id="nb-pets"   onclick="ir('pets')"><div class="nb-ic">🐶</div><span class="nb-lbl">Pets</span></button>
-    <button class="nb"    id="nb-adest"  onclick="ir('adest')"><div class="nb-ic">🎓</div><span class="nb-lbl">Adest.</span></button>
-    <button class="nb"    id="nb-fat"    onclick="ir('fat')"><div class="nb-ic">💰</div><span class="nb-lbl">Entradas</span></button>
-    <button class="nb"    id="nb-saidas" onclick="ir('saidas')"><div class="nb-ic">💸</div><span class="nb-lbl">Saídas</span></button>
-    <button class="nb"    id="nb-config" onclick="ir('config')"><div class="nb-ic">⚙️</div><span class="nb-lbl">Config</span></button>
+    <button class="nb on" id="nb-dash"    onclick="ir('dash')"><div class="nb-ic">🏠</div><span class="nb-lbl">Início</span></button>
+    <button class="nb"    id="nb-agenda"  onclick="ir('agenda')"><div class="nb-ic">📅</div><span class="nb-lbl">Agenda</span></button>
+    <button class="nb"    id="nb-checkin" onclick="ir('checkin')"><div class="nb-ic">✅</div><span class="nb-lbl">Check-in</span></button>
+    <button class="nb"    id="nb-pets"    onclick="ir('pets')"><div class="nb-ic">🐾</div><span class="nb-lbl">Pets</span></button>
+    <button class="nb"    id="nb-mais"    onclick="toggleMais()"><div class="nb-ic">☰</div><span class="nb-lbl">Mais</span></button>
   </nav>
+
+  <!-- MENU MAIS (popup acima do nav) -->
+  <div id="mais-overlay" onclick="fecharMais()"></div>
+  <div id="mais-menu">
+    <div class="mais-grid">
+      <button class="mais-item" onclick="fecharMais();ir('fat')"><div class="mi-ic">💰</div><span class="mi-lbl">Entradas</span></button>
+      <button class="mais-item" onclick="fecharMais();ir('saidas')"><div class="mi-ic">💸</div><span class="mi-lbl">Saídas</span></button>
+      <button class="mais-item" onclick="fecharMais();ir('adest')"><div class="mi-ic">🎓</div><span class="mi-lbl">Adest.</span></button>
+      <button class="mais-item" onclick="fecharMais();ir('boletim')"><div class="mi-ic">📋</div><span class="mi-lbl">Boletim</span></button>
+      <button class="mais-item" onclick="fecharMais();ir('config')"><div class="mi-ic">⚙️</div><span class="mi-lbl">Config</span></button>
+    </div>
+  </div>
 </div>
 
 <!-- ═══════════ MODAIS ═══════════ -->
@@ -866,8 +1039,9 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
       <div class="fg" style="min-width:100%"><label class="fl">Observações gerais (alergias, comportamento...)</label><textarea class="fta" id="mp-obs" placeholder="Ex: Alergia a frango, não gosta de banho..."></textarea></div>
     </div>
     <div class="macts">
-      <button class="btn-ghost" onclick="fecharModal('modal-pet')">Cancelar</button>
-      <button class="btn-pr" onclick="salvarPet()"><i class="ti ti-check"></i> Salvar Pet</button>
+      <button class="btn-danger" id="mp-btn-del" style="display:none" onclick="delPetModal()"><i class="ti ti-trash"></i> Excluir</button>
+      <button class="btn-ghost" onclick="fecharModal('modal-pet')" style="flex:1">Cancelar</button>
+      <button class="btn-pr" onclick="salvarPet()" style="flex:2;justify-content:center"><i class="ti ti-check"></i> Salvar Pet</button>
     </div>
   </div>
 </div>
@@ -894,8 +1068,9 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
     <div class="pgto-confirm" id="pgto-conf"></div>
     <div class="val-prev" id="edit-val-prev"></div>
     <div class="macts">
-      <button class="btn-ghost" onclick="fecharModal('modal-edit')">Cancelar</button>
-      <button class="btn-pr" onclick="confirmarEdit()"><i class="ti ti-check"></i> Salvar alterações</button>
+      <button class="btn-danger" onclick="excluirDoModal()"><i class="ti ti-trash"></i> Excluir</button>
+      <button class="btn-ghost" onclick="fecharModal('modal-edit')" style="flex:1">Cancelar</button>
+      <button class="btn-pr" onclick="confirmarEdit()" style="flex:2;justify-content:center"><i class="ti ti-check"></i> Salvar</button>
     </div>
   </div>
 </div>
@@ -1019,6 +1194,74 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
       <button class="btn-ghost" onclick="fecharModal('modal-saida')">Cancelar</button>
       <button class="btn-pr" style="background:#DC2626;box-shadow:0 3px 10px rgba(220,38,38,.25)" onclick="salvarSaida()"><i class="ti ti-check"></i> Registrar saída</button>
     </div>
+  </div>
+</div>
+
+
+<!-- MODAL FICHA PET -->
+<div class="modal-ficha" id="modal-ficha">
+  <div class="ficha-hero">
+    <button class="ficha-back" onclick="fecharFicha()"><i class="ti ti-arrow-left"></i> Voltar</button>
+    <div class="ficha-foto-g" id="ficha-foto-el"></div>
+    <div class="ficha-nome-g" id="ficha-nome-el"></div>
+    <div class="ficha-meta-g" id="ficha-meta-el"></div>
+  </div>
+  <div class="ficha-tabs-g" id="ficha-tabs-el"></div>
+  <div class="ficha-body-g" id="ficha-body-el"></div>
+</div>
+
+<!-- MODAL AGENDAMENTO INTELIGENTE -->
+<div class="mov hid" id="modal-agend-int" onclick="if(event.target===this)fecharModal('modal-agend-int')">
+  <div class="modal">
+    <div class="mhandle"></div>
+    <div class="mtitle">📅 Novo Agendamento</div>
+    <div class="fm" style="padding-bottom:0">
+      <div class="frow-sep">Buscar Pet</div>
+      <div class="frow"><div class="fg" style="position:relative">
+        <label class="fl">Nome do pet ou tutor</label>
+        <input class="fi" id="ai-busca" placeholder="Digite para buscar…" oninput="aiPetBusca(this.value)" autocomplete="off">
+        <div class="pet-search-drop" id="ai-drop" style="display:none"></div>
+      </div></div>
+      <div class="pet-sel-box" id="ai-sel-box" style="display:none">
+        <div class="pet-sel-av" id="ai-sel-av"></div>
+        <div><div class="pet-sel-nome" id="ai-sel-nome"></div><div class="pet-sel-sub" id="ai-sel-sub"></div></div>
+        <button class="pet-sel-clear" onclick="aiLimpar()">✕</button>
+      </div>
+      <div class="pet-infos-auto" id="ai-infos"></div>
+      <div class="frow-sep">Tipo de Serviço</div>
+      <div class="agend-tipo-grid" id="ai-tipo-grid">
+        <div class="agend-tipo-btn" onclick="aiTipo('creche',this)"><span class="ati">🏠</span><span class="atl">Creche</span></div>
+        <div class="agend-tipo-btn" onclick="aiTipo('hotel',this)"><span class="ati">🏨</span><span class="atl">Hotel</span></div>
+        <div class="agend-tipo-btn" onclick="aiTipo('banho',this)"><span class="ati">✂️</span><span class="atl">Banho/Tosa</span></div>
+        <div class="agend-tipo-btn" onclick="aiTipo('dw',this)"><span class="ati">🐕</span><span class="atl">Dog Walker</span></div>
+        <div class="agend-tipo-btn" onclick="aiTipo('adest',this)"><span class="ati">🎓</span><span class="atl">Adestramento</span></div>
+        <div class="agend-tipo-btn" onclick="aiTipo('taxi',this)"><span class="ati">🚗</span><span class="atl">Taxi Dog</span></div>
+      </div>
+      <div class="frow-sep">Data e Valor</div>
+      <div class="frow">
+        <div class="fg"><label class="fl">Data *</label><input class="fi" id="ai-data" type="date"></div>
+        <div class="fg"><label class="fl">Horário</label><input class="fi" id="ai-hora" type="time" value="09:00"></div>
+      </div>
+      <div class="frow">
+        <div class="fg"><label class="fl">Valor (R$)</label><input class="fi" id="ai-valor" type="number" step="0.01" placeholder="0,00"></div>
+        <div class="fg"><label class="fl">Pagou?</label><select class="fs" id="ai-pagou"><option>Não</option><option>Sim</option></select></div>
+      </div>
+      <div class="frow"><div class="fg" style="min-width:100%"><label class="fl">Observações</label><input class="fi" id="ai-obs" placeholder="Alguma observação…"></div></div>
+    </div>
+    <div class="macts">
+      <button class="btn-ghost" onclick="fecharModal('modal-agend-int')">Cancelar</button>
+      <button class="btn-pr" onclick="aiSalvar()"><i class="ti ti-check"></i> Agendar</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL CHECK-IN RÁPIDO -->
+<div class="mov hid" id="modal-ck-rap" onclick="if(event.target===this)fecharModal('modal-ck-rap')">
+  <div class="modal">
+    <div class="mhandle"></div>
+    <div class="mtitle">✅ Check-in Rápido</div>
+    <div class="checkin-grid-v3" id="ck-modal-grid" style="padding:0 0 8px"></div>
+    <div class="macts"><button class="btn-ghost" onclick="fecharModal('modal-ck-rap')">Fechar</button></div>
   </div>
 </div>
 
@@ -1171,7 +1414,7 @@ async function fazerLoginFirebase(email, senha, novaConta) {
     }
     fbUser = cred.user;
     fbUID  = cred.user.uid;
-    entrarNoApp();
+    entrarApp();
   } catch(e) {
     const msgs = {
       'auth/user-not-found':    '⚠️ E-mail não cadastrado.',
@@ -1230,7 +1473,9 @@ let config = S.get('config', {
     hotel:{p:50, m:80, g:100, gp:50, gm:65, gg:80, av:35, ro:35},
     banho:{p:40, m:55, g:70},
     bt:{p:60, m:75, g:90},
-    dw:{av:75, t3x:60, t5x:50}
+    dw:{av:75, t3x:60, t5x:50},
+    taxi:{simples:30, idavolta:55, mensal:200},
+    adest:{av:150, p4:520, p8:960, men:400}
   }
 });
 
@@ -1257,56 +1502,84 @@ function getDia(idx) {
 
 const P = () => config.precos;
 
+function getPreco(setor, tipo) { return (config.precos[setor] && config.precos[setor][tipo]) || 0; }
+
 function calcPreco(setor, porte, esp) {
-  const p=P();
-  if(setor==='creche') return p.creche.av;
+  if(setor==='creche') return getPreco('creche','av');
   if(setor==='hotel'){
-    if(esp==='Gato') return p.hotel[porte==='P'?'gp':porte==='M'?'gm':'gg'];
-    if(esp==='Ave/Pássaro') return p.hotel.av;
-    if(esp==='Roedor') return p.hotel.ro;
-    return p.hotel[porte.toLowerCase()]||p.hotel.m;
+    if(esp==='Gato') return getPreco('hotel', porte==='P'?'gp':porte==='M'?'gm':'gg');
+    if(esp==='Ave/Pássaro') return getPreco('hotel','av');
+    if(esp==='Roedor') return getPreco('hotel','ro');
+    return getPreco('hotel', porte.toLowerCase()) || getPreco('hotel','m');
   }
   return 0;
 }
 function calcBanho(serv,porte){
-  const p=P();
-  if(serv==='Banho') return p.banho[porte.toLowerCase()]||p.banho.m;
-  if(serv==='Banho e Tosa') return p.bt[porte.toLowerCase()]||p.bt.m;
-  if(serv==='Tosa') return Math.round((p.bt[porte.toLowerCase()]||p.bt.m)*.65);
+  if(serv==='Banho') return getPreco('banho', porte.toLowerCase()) || getPreco('banho','m');
+  if(serv==='Banho e Tosa') return getPreco('bt', porte.toLowerCase()) || getPreco('bt','m');
+  if(serv==='Tosa') return Math.round((getPreco('bt', porte.toLowerCase()) || getPreco('bt','m'))*.65);
   return 0;
 }
 function calcDW(plano){
-  const p=P().dw;
-  return plano==='Avulso'?p.av:plano==='3x Semana'?p.t3x:p.t5x;
+  return plano==='Avulso'?getPreco('dw','av'):plano==='3x Semana'?getPreco('dw','t3x'):getPreco('dw','t5x');
 }
 
-function fatDia(idx, campo='pagou') {
+function calcularFaturamentoTotal(ini, fim) {
+  // Centraliza iteração sobre dados+adests no intervalo [ini, fim]
+  // Usa Object.keys em vez de loop diário para não travar com muitos lançamentos
+  const por = {creche:0, hotel:0, banho:0, dw:0, taxi:0, adest:0};
+  const lancamentos = [];
+  const SETORES = ['creche','hotel','banho','dw','taxi'];
+  const iniKey = chave(ini), fimKey = chave(fim);
+
+  Object.keys(dados).forEach(k => {
+    if(k < iniKey || k > fimKey) return;
+    const dd = dados[k];
+    const dataFmt = new Date(k+'T00:00:00').toLocaleDateString('pt-BR');
+    SETORES.forEach(s => {
+      (dd[s]||[]).forEach(r => {
+        if(r.pagou !== 'Sim') return;
+        const v = +(r.valor||0);
+        por[s] += v;
+        lancamentos.push({nome:r.nome, tutor:r.tutor||'—', servico:s, desc:r.serv||r.plano||s, valor:v, pgto:r.pgto||'—', data:dataFmt, dataSort:k});
+      });
+    });
+  });
+
+  if(typeof adests !== 'undefined') {
+    adests.forEach(a => {
+      if(a.pagou !== 'Sim' || !a.data) return;
+      const d = new Date(a.data+'T00:00:00');
+      if(d < ini || d > fim) return;
+      const v = +(a.valor||0);
+      por.adest += v;
+      lancamentos.push({nome:a.nome||a.pet||'—', tutor:a.tutor||'—', servico:'adest', desc:a.modal||'Adestramento', valor:v, pgto:a.pgto||'—', data:d.toLocaleDateString('pt-BR'), dataSort:a.data});
+    });
+  }
+
+  lancamentos.sort((a,b) => b.dataSort.localeCompare(a.dataSort));
+  return {por, lancamentos};
+}
+
+function _resolverIni(tipo) {
+  const hj = hoje();
+  if(tipo==='dia') return new Date(hj);
+  if(tipo==='semana'){const d=new Date(hj);d.setDate(hj.getDate()-hj.getDay());return d;}
+  if(tipo==='mes') return new Date(hj.getFullYear(),hj.getMonth(),1);
+  return new Date(2000,0,1);
+}
+
+function fatDia(idx) {
   const d=getDia(idx); let total=0; const rows=[];
   const add=(arr,label)=>arr.filter(r=>r.pagou==='Sim').forEach(r=>{const v=+(r.valor||0);rows.push({desc:r.nome+' — '+label,val:v,setor:label});total+=v;});
   add(d.creche||[],'Creche'); add(d.hotel||[],'Hotel');
   add(d.banho||[],'Banho/Tosa'); add(d.dw||[],'Dog Walker');
+  add(d.taxi||[],'Táxi Dog');
   return {rows,total};
 }
 
 function fatPeriodo(tipo) {
-  const hj=hoje(); let ini;
-  if(tipo==='dia'){ini=new Date(hj);}
-  else if(tipo==='semana'){ini=new Date(hj);ini.setDate(hj.getDate()-hj.getDay());}
-  else if(tipo==='mes'){ini=new Date(hj.getFullYear(),hj.getMonth(),1);}
-  else{ini=new Date(2000,0,1);}
-  const fim=new Date(hj);
-  const por={creche:0,hotel:0,banho:0,dw:0,adest:0};
-  for(let d=new Date(ini);d<=fim;d.setDate(d.getDate()+1)){
-    const k=chave(new Date(d)),dd=dados[k]||{};
-    (dd.creche||[]).filter(r=>r.pagou==='Sim').forEach(r=>por.creche+=+(r.valor||0));
-    (dd.hotel||[]).filter(r=>r.pagou==='Sim').forEach(r=>por.hotel+=+(r.valor||0));
-    (dd.banho||[]).filter(r=>r.pagou==='Sim').forEach(r=>por.banho+=+(r.valor||0));
-    (dd.dw||[]).filter(r=>r.pagou==='Sim').forEach(r=>por.dw+=+(r.valor||0));
-  }
-  if(typeof adests!=='undefined') adests.filter(a=>a.pagou==='Sim'&&a.data).forEach(a=>{
-    const d=new Date(a.data+'T00:00:00');
-    if(d>=ini&&d<=fim) por.adest+=+(a.valor||0);
-  });
+  const {por} = calcularFaturamentoTotal(_resolverIni(tipo), hoje());
   return por;
 }
 
@@ -1333,7 +1606,7 @@ function idadeTexto(dataNasc) {
 }
 
 // ═══ NAVEGAÇÃO ═══
-function ir(pg) {
+function _irCore(pg) {
   document.querySelectorAll('.pg').forEach(p=>{ p.style.display='none'; p.classList.remove('on'); });
   const el=document.getElementById('pg-'+pg);
   el.style.display='block'; el.classList.add('on');
@@ -1435,43 +1708,42 @@ function setFatFiltro(tipo, btn){
 
 function renderDash(){
   const hj=hoje(), k=chave(hj);
-  const dd=dados[k]||{creche:[],hotel:[],banho:[],dw:[]};
+  const dd=dados[k]||{creche:[],hotel:[],banho:[],dw:[],taxi:[]};
   const dc=(dd.creche||[]).length, dh=(dd.hotel||[]).length;
-  const db=(dd.banho||[]).length, ddw=(dd.dw||[]).length;
-  // Adestramento hoje
+  const db=(dd.banho||[]).length, ddw=(dd.dw||[]).length, dtx=(dd.taxi||[]).length;
   const hoje2=chave(hj);
   const adestHoje=(typeof adests!=='undefined'?adests.filter(a=>a.data===hoje2).length:0);
 
   let pend=0;
-  ['creche','banho','dw'].forEach(s=>(dd[s]||[]).filter(r=>r.pagou!=='Sim').forEach(()=>pend++));
-  // Faturamento de hoje — todos os serviços
-  const porHoje=fatPeriodo('dia');
-  const fatHoje=porHoje.creche+porHoje.hotel+porHoje.banho+porHoje.dw+(porHoje.adest||0);
+  ['creche','banho','dw','taxi'].forEach(s=>(dd[s]||[]).filter(r=>r.pagou!=='Sim').forEach(()=>pend++));
+
   document.getElementById('kd-c').textContent=dc;
   document.getElementById('kd-h').textContent=dh;
   document.getElementById('kd-b').textContent=db;
   document.getElementById('kd-dw').textContent=ddw;
+  document.getElementById('kd-taxi').textContent=dtx;
+  document.getElementById('kd-adest').textContent=adestHoje;
   document.getElementById('kd-p').textContent=pets.length;
   document.getElementById('kd-a').textContent=pend;
-  document.getElementById('kd-fat').textContent='R$'+fatHoje;
-  document.getElementById('fat-geral-v').textContent='R$'+calcFatTotal().toFixed(2).replace('.',',');
+  const porHoje=fatPeriodo('dia');
+  const fatHoje=porHoje.creche+porHoje.hotel+porHoje.banho+porHoje.dw+(porHoje.taxi||0)+(porHoje.adest||0);
+  document.getElementById('fat-geral-v').textContent='R$'+fatHoje.toFixed(2).replace('.',',');
   const n=DIAS[hj.getDay()];
   document.getElementById('dash-sub').textContent=`${n}, ${hj.getDate()} de ${MESES[hj.getMonth()]}`;
-  // Saudação dinâmica
-  const hora=hj.getHours?new Date().getHours():new Date().getHours();
-  const sd=hora<12?'Bom dia':hora<18?'Boa tarde':'Boa noite';
-  const usuario=config.usuario||config.nome||'Anguli Pet';
-  document.getElementById('dash-saudacao').textContent=sd+', '+usuario+'! 👋';
+  const usuario=config.usuario||config.nome||'';
+  const genero=config.genero||'m';
+  const aumig=genero==='f'?'Aumiga':'Aumigo';
+  document.getElementById('dash-saudacao').textContent='Olá, '+aumig+(usuario?' '+usuario:'')+'! 🐾';
   renderGrafico();
   renderAlertas();
 }
 
 function renderGrafico(){
   const por=fatPeriodo(fatFiltro);
-  const vals=[por.creche,por.hotel,por.banho,por.dw];
+  const vals=[por.creche,por.hotel,por.banho,por.dw,por.taxi||0,por.adest||0];
   const total=vals.reduce((a,v)=>a+v,0);
-  const cores=['#16A34A','#1A4BAA','#EA580C','#7C3AED'];
-  const nomes=['Creche','Hotel','Banho/Tosa','Dog Walker'];
+  const cores=['#16A34A','#1A4BAA','#EA580C','#7C3AED','#DC2626','#9333EA'];
+  const nomes=['Creche','Hotel','Banho/Tosa','Dog Walker','Táxi Dog','Adestramento'];
   const svg=document.getElementById('donut-svg');
   document.getElementById('donut-total').textContent='R$'+total;
 
@@ -1483,7 +1755,6 @@ function renderGrafico(){
   } else {
     let offset=0;
     let paths=`<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#EEF4FF" stroke-width="14"/>`;
-    // Começa do topo (rotate -90)
     vals.forEach((v,i)=>{
       if(!v) return;
       const pct=v/total;
@@ -1497,12 +1768,10 @@ function renderGrafico(){
         style="transition:stroke-dasharray .4s ease"/>`;
       offset+=pct;
     });
-    // Centro branco
     paths+=`<circle cx="${cx}" cy="${cy}" r="24" fill="white"/>`;
     svg.innerHTML=paths;
   }
 
-  // Legenda
   document.getElementById('fat-legend').innerHTML=vals.map((v,i)=>`
     <div class="leg-item">
       <div class="leg-dot" style="background:${cores[i]}"></div>
@@ -1755,7 +2024,8 @@ function renderSemana(){
   document.getElementById('tt-c').textContent=tc;
   document.getElementById('tt-h').textContent=th;
   document.getElementById('tt-b').textContent=tb;
-  document.getElementById('tt-f').textContent='R$'+tf;
+  document.getElementById('tt-dw').textContent=dias.reduce((acc,_,i)=>{const dd2=getDia(i);return acc+(dd2.dw||[]).length;},0);
+  document.getElementById('tt-tx').textContent=dias.reduce((acc,_,i)=>{const dd2=getDia(i);return acc+(dd2.taxi||[]).length;},0);
 }
 
 function selecionarDia(idx){
@@ -1773,14 +2043,16 @@ function renderMets(idx){
   const d=getDia(idx),{total}=fatDia(idx);
   document.getElementById('mm-c').textContent=(d.creche||[]).length;
   document.getElementById('mm-h').textContent=(d.hotel||[]).length;
-  document.getElementById('mm-b').textContent=(d.banho||[]).length+(d.dw||[]).length;
+  document.getElementById('mm-b').textContent=(d.banho||[]).length;
+  document.getElementById('mm-dw').textContent=(d.dw||[]).length;
+  document.getElementById('mm-tx').textContent=(d.taxi||[]).length;
   document.getElementById('mm-f').textContent='R$'+total;
 }
 
 // ═══ TABS ═══
 function setTab(tab){
   tabAtiva=tab;
-  ['creche','hotel','banho','dw','fat'].forEach((t,i)=>{
+  ['creche','hotel','banho','dw','taxi'].forEach((t,i)=>{
     document.getElementById('tc-'+t).style.display=t===tab?'block':'none';
     document.querySelectorAll('.stab')[i].classList.toggle('on',t===tab);
   });
@@ -1790,7 +2062,7 @@ function setTab(tab){
   if(tab==='hotel')  rHotel(idx,d);
   if(tab==='banho')  rBanho(idx,d);
   if(tab==='dw')     rDW(idx,d);
-  if(tab==='fat')    rFat(idx);
+  if(tab==='taxi')   rTaxi(idx,d);
 }
 
 // ─── Render helpers ───
@@ -1798,27 +2070,42 @@ function irRow(r, setor, pi, idx, avClass) {
   const pago = r.pagou === 'Sim';
   const dias  = getDias();
   const dataFmt = dias[idx] ? dias[idx].toLocaleDateString('pt-BR') : '—';
-  // Try to find pet foto
   const petObj = pets.find(p => p.nome === r.nome);
   const fotoHtml = petObj?.foto
-    ? `<img class="pet-foto" src="${petObj.foto}" alt="${r.nome}" style="width:32px;height:32px">`
-    : `<div class="av ${avClass}">${(r.nome||'?')[0].toUpperCase()}</div>`;
+    ? `<img class="pet-foto" src="${petObj.foto}" alt="${r.nome}" style="width:44px;height:44px;border-radius:50%;object-fit:cover;flex-shrink:0">`
+    : `<div class="av ${avClass}" style="width:44px;height:44px;font-size:16px;flex-shrink:0">${(r.nome||'?')[0].toUpperCase()}</div>`;
   const tel = r.tel || petObj?.tel || petObj?.tel2 || '';
   const servDesc = r.serv || r.plano || r.esp || setor;
-  const waBtn = tel
-    ? `<div class="ir-wa" onclick="event.stopPropagation();abrirWAItem('${r.nome}','${r.tutor||''}','${tel}','${servDesc}','${dataFmt}','${r.valor||0}')" title="Enviar WhatsApp">📲</div>`
-    : '';
-  return `<div class="ir" onclick="abrirEdit('${setor}',${pi},${idx})">
-    ${fotoHtml}
-    <div style="flex:1">
-      <div class="ir-nome">${r.nome||'—'}</div>
-      <div class="ir-sub">${r.tutor||''} ${r.porte?'• Porte '+r.porte:''} ${r.hora?'• '+r.hora:''} ${servDesc}</div>
+  const hora = r.hora ? `<span style="background:var(--azul-xl);color:var(--azul);font-size:10px;font-weight:900;padding:2px 7px;border-radius:20px">🕐 ${r.hora}</span>` : '';
+  const extra = r.diarias ? `<span style="font-size:11px;color:var(--tx3);font-weight:700">${r.diarias} diária(s)</span>` : (r.obs ? `<span style="font-size:11px;color:var(--tx3);font-weight:700">${r.obs.substring(0,30)}</span>` : '');
+
+  return `<div class="ir-card" onclick="abrirEdit('${setor}',${pi},${idx})">
+    <div style="display:flex;align-items:center;gap:10px">
+      ${fotoHtml}
+      <div style="flex:1;min-width:0">
+        <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
+          <span style="font-size:14px;font-weight:900;color:var(--tx)">${r.nome||'—'}</span>
+          ${hora}
+        </div>
+        <div style="font-size:12px;color:var(--tx2);font-weight:700;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${r.tutor||''} ${r.porte?'• Porte '+r.porte:''}</div>
+        <div style="display:flex;align-items:center;gap:6px;margin-top:4px;flex-wrap:wrap">
+          <span style="font-size:11px;font-weight:800;color:var(--tx3)">${servDesc}</span>
+          ${extra}
+          ${setor==='taxi'&&r.end?`<span style="font-size:11px;color:#1A73E8;font-weight:700;cursor:pointer" onclick="event.stopPropagation();window.open('https://www.google.com/maps/search/?api=1&query='+encodeURIComponent('${r.end.replace(/'/g,"\\'")}'),'_blank')">📍 ${r.end.length>30?r.end.substring(0,30)+'…':r.end}</span>`:''}
+        </div>
+      </div>
     </div>
-    <span class="badge ${pago?'bg-ok':'bg-warn'}">${pago?'✅ Pago':'⏳ Pend.'}</span>
-    <span style="font-size:11px;font-weight:900;color:var(--verde-d);white-space:nowrap;margin-left:4px">R$${r.valor||0}</span>
-    ${waBtn}
-    <button class="btn-edit" onclick="event.stopPropagation();abrirEdit('${setor}',${pi},${idx})"><i class="ti ti-pencil"></i></button>
-    <button class="btn-del"  onclick="event.stopPropagation();remItem('${setor}',${pi},${idx})"><i class="ti ti-trash"></i></button>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-top:10px;padding-top:8px;border-top:1px solid var(--border)">
+      <div style="display:flex;align-items:center;gap:6px">
+        <span class="badge ${pago?'bg-ok':'bg-warn'}">${pago?'✅ Pago':'⏳ Pendente'}</span>
+        <span style="font-size:14px;font-weight:900;color:${pago?'var(--verde-d)':'var(--tx2)'}">R$${r.valor||0}</span>
+      </div>
+      <div style="display:flex;gap:4px">
+        ${tel?`<div class="ir-wa" onclick="event.stopPropagation();abrirWAItem('${r.nome}','${r.tutor||''}','${tel}','${servDesc}','${dataFmt}','${r.valor||0}')" title="WhatsApp">📲</div>`:''}
+        <button class="btn-edit" onclick="event.stopPropagation();abrirEdit('${setor}',${pi},${idx})" title="Editar"><i class="ti ti-pencil"></i></button>
+        <button class="btn-del"  onclick="event.stopPropagation();remItem('${setor}',${pi},${idx})" title="Excluir"><i class="ti ti-trash"></i></button>
+      </div>
+    </div>
   </div>`;
 }
 
@@ -1833,12 +2120,10 @@ function rCreche(idx,d){
   let h=!(d.creche||[]).length?`<div class="vz"><i class="ti ti-building"></i>Nenhum pet na creche hoje</div>`:'';
   h+=(d.creche||[]).map((r,i)=>irRow(r,'creche',i,idx,'avc')).join('');
   h+=addSecao('creche',idx,`
-    <div class="af"><div class="af-l">Nome</div><input class="ainp" id="cc-n" placeholder="Pet"></div>
-    <div class="af"><div class="af-l">Tutor</div><input class="ainp" id="cc-t" placeholder="Tutor"></div>
-    <div class="af"><div class="af-l">Porte</div><select class="asel" id="cc-p"><option value="P">P</option><option value="M">M</option><option value="G">G</option></select></div>
+    ${petPickerHtml('cc-n','cc-t','cc-p',null)}
     <div class="af"><div class="af-l">Plano</div><select class="asel" id="cc-pl"><option value="">Avulso</option><option value="3x Semana">3x/sem</option><option value="5x Semana">5x/sem</option></select></div>
     <div class="af"><div class="af-l">Pagou?</div><select class="asel" id="cc-pg"><option>Não</option><option>Sim</option></select></div>`);
-  el.innerHTML=h;
+  el.innerHTML=h; bindPicker('cc-n','cc-t','cc-p',null);
 }
 
 function rHotel(idx,d){
@@ -1846,14 +2131,13 @@ function rHotel(idx,d){
   let h=!(d.hotel||[]).length?`<div class="vz"><i class="ti ti-bed"></i>Nenhum pet hospedado</div>`:'';
   h+=(d.hotel||[]).map((r,i)=>irRow(r,'hotel',i,idx,'avh')).join('');
   h+=addSecao('hotel',idx,`
-    <div class="af"><div class="af-l">Nome</div><input class="ainp" id="hc-n" placeholder="Pet"></div>
+    ${petPickerHtml('hc-n','hc-t','hc-p','hc-e')}
     <div class="af"><div class="af-l">Espécie</div><select class="asel" id="hc-e"><option>Cachorro</option><option>Gato</option><option>Ave/Pássaro</option><option>Roedor</option></select></div>
-    <div class="af"><div class="af-l">Porte</div><select class="asel" id="hc-p"><option value="P">P</option><option value="M">M</option><option value="G">G</option></select></div>
     <div class="af"><div class="af-l">Diárias</div><input class="ainp ainp-sm" id="hc-d" type="number" min="1" value="1"></div>
     <div class="af"><div class="af-l">Alimentação</div><select class="asel" id="hc-alim"><option>Ração local</option><option>Ração própria</option><option>Natural</option></select></div>
     <div class="af"><div class="af-l">Aut. Vet?</div><select class="asel" id="hc-vet"><option>Sim</option><option>Não</option></select></div>
     <div class="af"><div class="af-l">Pagou?</div><select class="asel" id="hc-pg"><option>Não</option><option>Sim</option></select></div>`);
-  el.innerHTML=h;
+  el.innerHTML=h; bindPicker('hc-n','hc-t','hc-p','hc-e');
 }
 
 function rBanho(idx,d){
@@ -1861,13 +2145,11 @@ function rBanho(idx,d){
   let h=!(d.banho||[]).length?`<div class="vz"><i class="ti ti-scissors"></i>Nenhum agendamento</div>`:'';
   h+=(d.banho||[]).map((r,i)=>irRow(r,'banho',i,idx,'avb')).join('');
   h+=addSecao('banho',idx,`
-    <div class="af"><div class="af-l">Nome</div><input class="ainp" id="bc-n" placeholder="Pet"></div>
-    <div class="af"><div class="af-l">Tutor</div><input class="ainp" id="bc-t" placeholder="Tutor"></div>
-    <div class="af"><div class="af-l">Porte</div><select class="asel" id="bc-p"><option value="P">P</option><option value="M">M</option><option value="G">G</option></select></div>
+    ${petPickerHtml('bc-n','bc-t','bc-p',null)}
     <div class="af"><div class="af-l">Serviço</div><select class="asel" id="bc-s"><option>Banho</option><option>Banho e Tosa</option><option>Tosa</option><option>Tosa Higiênica</option></select></div>
     <div class="af"><div class="af-l">Horário</div><input class="ainp ainp-sm" id="bc-h" type="time" value="09:00"></div>
     <div class="af"><div class="af-l">Pagou?</div><select class="asel" id="bc-pg"><option>Não</option><option>Sim</option></select></div>`);
-  el.innerHTML=h;
+  el.innerHTML=h; bindPicker('bc-n','bc-t','bc-p',null);
 }
 
 function rDW(idx,d){
@@ -1875,13 +2157,38 @@ function rDW(idx,d){
   let h=!(d.dw||[]).length?`<div class="vz"><i class="ti ti-walk"></i>Nenhum passeio agendado</div>`:'';
   h+=(d.dw||[]).map((r,i)=>irRow(r,'dw',i,idx,'avd')).join('');
   h+=addSecao('dw',idx,`
-    <div class="af"><div class="af-l">Nome</div><input class="ainp" id="dw-n" placeholder="Pet"></div>
-    <div class="af"><div class="af-l">Tutor</div><input class="ainp" id="dw-t" placeholder="Tutor"></div>
+    ${petPickerHtml('dw-n','dw-t','dw-p',null)}
     <div class="af"><div class="af-l">Horário</div><input class="ainp ainp-sm" id="dw-h" type="time" value="08:00"></div>
-    <div class="af"><div class="af-l">Plano</div><select class="asel" id="dw-pl"><option value="Avulso">Avulso R$75</option><option value="3x Semana">3x/sem R$60</option><option value="5x Semana">5x/sem R$50</option></select></div>
-    <div class="af"><div class="af-l">Obs noturnas</div><input class="ainp" id="dw-obs" placeholder="Obs."></div>
+    <div class="af"><div class="af-l">Plano</div><select class="asel" id="dw-pl"><option value="Avulso">Avulso</option><option value="3x Semana">3x por semana</option><option value="5x Semana">5x por semana</option></select></div>
+    <div class="af"><div class="af-l">Obs.</div><input class="ainp" id="dw-obs" placeholder="Obs."></div>
     <div class="af"><div class="af-l">Pagou?</div><select class="asel" id="dw-pg"><option>Não</option><option>Sim</option></select></div>`);
-  el.innerHTML=h;
+  el.innerHTML=h; bindPicker('dw-n','dw-t','dw-p',null);
+}
+
+function rTaxi(idx,d){
+  const el=document.getElementById('tc-taxi');
+  let h=!(d.taxi||[]).length?`<div class="vz"><i class="ti ti-car"></i>Nenhuma corrida agendada</div>`:'';
+  h+=(d.taxi||[]).map((r,i)=>irRow(r,'taxi',i,idx,'avp')).join('');
+  h+=addSecao('taxi',idx,`
+    ${petPickerHtml('tx-n','tx-t',null,null)}
+    <div class="af"><div class="af-l">Horário</div><input class="ainp ainp-sm" id="tx-h" type="time" value="08:00"></div>
+    <div class="af"><div class="af-l">Tipo</div><select class="asel" id="tx-pl"><option value="Corrida simples">Corrida simples</option><option value="Ida e volta">Ida e volta</option><option value="Mensal">Mensal</option></select></div>
+    <div class="af"><div class="af-l">Destino</div><input class="ainp" id="tx-obs" placeholder="Clínica, pet shop..."></div>
+    <div class="af" style="align-items:flex-start;flex-direction:column;gap:6px">
+      <div class="af-l">Endereço</div>
+      <div style="display:flex;gap:6px;width:100%">
+        <input class="ainp" id="tx-end" placeholder="Rua, número, bairro..." style="flex:1;min-width:0">
+        <button type="button" onclick="abrirMaps()" style="flex-shrink:0;display:flex;align-items:center;gap:5px;padding:8px 11px;background:#1A73E8;color:#fff;border:none;border-radius:var(--r-sm);font-size:12px;font-weight:800;cursor:pointer;font-family:var(--f)">
+          📍 Maps
+        </button>
+        <button type="button" onclick="pegarLocalizacao()" style="flex-shrink:0;padding:8px 11px;background:var(--azul-xl);color:var(--azul);border:none;border-radius:var(--r-sm);font-size:12px;font-weight:800;cursor:pointer;font-family:var(--f)" title="Usar minha localização">
+          🎯
+        </button>
+      </div>
+      <div id="tx-end-preview" style="display:none;font-size:11px;color:var(--tx3);font-weight:700"></div>
+    </div>
+    <div class="af"><div class="af-l">Pagou?</div><select class="asel" id="tx-pg"><option>Não</option><option>Sim</option></select></div>`);
+  el.innerHTML=h; bindPicker('tx-n','tx-t',null,null);
 }
 
 function rFat(idx){
@@ -1965,6 +2272,14 @@ function addItem(setor,idx){
     const n=g('dw-n')?.value?.trim(); if(!n){toast('⚠️ Informe o nome');return;}
     const hora=g('dw-h').value,plano=g('dw-pl').value,obs=g('dw-obs')?.value||'',pagou=g('dw-pg').value;
     d.dw.push({nome:n,tutor:g('dw-t')?.value||'',hora,plano,obs,pagou,valor:calcDW(plano),pgto:'PIX',ts:Date.now()});
+  }
+  else if(setor==='taxi'){
+    const n=g('tx-n')?.value?.trim(); if(!n){toast('⚠️ Informe o nome');return;}
+    const hora=g('tx-h').value,plano=g('tx-pl').value,obs=g('tx-obs')?.value||'',pagou=g('tx-pg').value;
+    const end=g('tx-end')?.value||'';
+    const valorMap={'Corrida simples':getPreco('taxi','simples')||30,'Ida e volta':getPreco('taxi','idavolta')||55,'Mensal':getPreco('taxi','mensal')||200};
+    if(!d.taxi) d.taxi=[];
+    d.taxi.push({nome:n,tutor:g('tx-t')?.value||'',hora,plano,obs,end,pagou,valor:valorMap[plano]||30,pgto:'PIX',ts:Date.now()});
   }
   dados[chave(getDias()[idx])]=d; save();
   setTab(setor); renderMets(idx); renderSemana();
@@ -2074,8 +2389,14 @@ function confirmarEdit(){
   toast('✅ Registro atualizado!');
 }
 
+function excluirDoModal(){
+  if(!confirm('Excluir este registro?')) return;
+  fecharModal('modal-edit');
+  remItem(editCtx.setor, editCtx.pi, editCtx.diaIdx);
+}
+
 // ═══ PETS ═══
-function renderPets(){
+function _renderPetsCore(){
   const busca=(document.getElementById('busca-pet').value||'').toLowerCase();
   const filt=pets.filter(p=>p.nome.toLowerCase().includes(busca)||(p.tutor||'').toLowerCase().includes(busca));
   document.getElementById('pets-sub').textContent=`${pets.length} cadastrado${pets.length!==1?'s':''}`;
@@ -2136,7 +2457,16 @@ function abrirModalPet(idx){
   if(p?.temp) document.getElementById('mp-temp').value=p.temp;
   if(p?.soc) document.getElementById('mp-soc').value=p.soc;
   document.getElementById('modal-pet').classList.remove('hid');
+  document.getElementById('mp-btn-del').style.display = editPetIdx !== null ? 'flex' : 'none';
   setTimeout(()=>document.getElementById('mp-nome').focus(),100);
+}
+
+function delPetModal(){
+  if(editPetIdx===null) return;
+  if(!confirm(`Remover ${pets[editPetIdx].nome}? Essa ação não pode ser desfeita.`)) return;
+  pets.splice(editPetIdx,1);
+  save(); fecharModal('modal-pet'); renderPets();
+  toast('🗑️ Pet removido');
 }
 
 function salvarPet(){
@@ -2220,6 +2550,7 @@ function carregarConfig(){
   const sv=(id,v)=>{const el=document.getElementById(id);if(el&&v!==undefined)el.value=v;};
   sv('cfg-nome',config.nome); sv('cfg-wa',config.wa); sv('cfg-ig',config.ig);
   sv('cfg-usuario',config.usuario||'');
+  if(config.genero) document.getElementById('cfg-genero').value=config.genero;
   const p=config.precos;
   sv('pc-av',p.creche.av);sv('pc-3x',p.creche.t3x);sv('pc-5x',p.creche.t5x);
   sv('ph-p',p.hotel.p);sv('ph-m',p.hotel.m);sv('ph-g',p.hotel.g);
@@ -2228,6 +2559,8 @@ function carregarConfig(){
   sv('pb-p',p.banho.p);sv('pb-m',p.banho.m);sv('pb-g',p.banho.g);
   sv('pbt-p',p.bt.p);sv('pbt-m',p.bt.m);sv('pbt-g',p.bt.g);
   sv('pdw-av',p.dw.av);sv('pdw-3x',p.dw.t3x);sv('pdw-5x',p.dw.t5x);
+  sv('ptx-simples',p.taxi?.simples||30);sv('ptx-idavolta',p.taxi?.idavolta||55);sv('ptx-mensal',p.taxi?.mensal||200);
+  sv('pad-av',p.adest?.av||150);sv('pad-p4',p.adest?.p4||520);sv('pad-p8',p.adest?.p8||960);sv('pad-men',p.adest?.men||400);
   verificarStatusFirebase();
 }
 
@@ -2236,12 +2569,12 @@ function salvarCfg(){
   config.wa=document.getElementById('cfg-wa').value.trim();
   config.ig=document.getElementById('cfg-ig').value.trim();
   config.usuario=document.getElementById('cfg-usuario')?.value.trim()||'';
+  config.genero=document.getElementById('cfg-genero')?.value||'m';
   save(); document.getElementById('hnome').textContent=config.nome;
-  // Atualiza saudação imediatamente
-  const hora=new Date().getHours();
-  const sd=hora<12?'Bom dia':hora<18?'Boa tarde':'Boa noite';
+  const aumig=config.genero==='f'?'Aumiga':'Aumigo';
+  const usuario=config.usuario||'';
   const el=document.getElementById('dash-saudacao');
-  if(el) el.textContent=sd+', '+(config.usuario||config.nome||'Anguli Pet')+'! 👋';
+  if(el) el.textContent='Olá, '+aumig+(usuario?' '+usuario:'')+'! 🐾';
   toast('✅ Configurações salvas!');
 }
 
@@ -2252,7 +2585,9 @@ function salvarPrecos(){
     hotel:{p:gn('ph-p'),m:gn('ph-m'),g:gn('ph-g'),gp:gn('ph-gp'),gm:gn('ph-gm'),gg:gn('ph-gg'),av:gn('ph-av'),ro:gn('ph-ro')},
     banho:{p:gn('pb-p'),m:gn('pb-m'),g:gn('pb-g')},
     bt:{p:gn('pbt-p'),m:gn('pbt-m'),g:gn('pbt-g')},
-    dw:{av:gn('pdw-av'),t3x:gn('pdw-3x'),t5x:gn('pdw-5x')}
+    dw:{av:gn('pdw-av'),t3x:gn('pdw-3x'),t5x:gn('pdw-5x')},
+    taxi:{simples:gn('ptx-simples'),idavolta:gn('ptx-idavolta'),mensal:gn('ptx-mensal')},
+    adest:{av:gn('pad-av'),p4:gn('pad-p4'),p8:gn('pad-p8'),men:gn('pad-men')}
   };
   save(); toast('✅ Preços salvos!');
 }
@@ -2272,9 +2607,10 @@ function setFatPgFiltro(tipo, btn) {
 }
 
 function renderFaturamento() {
-  const por = fatPeriodo(fatPgFiltro);
-  const total = por.creche + por.hotel + por.banho + por.dw;
-  const periodoLabels = {dia:'hoje', semana:'esta semana', mes:'este mês'};
+  const ini = _resolverIni(fatPgFiltro);
+  const {por, lancamentos} = calcularFaturamentoTotal(ini, hoje());
+  const total = por.creche + por.hotel + por.banho + por.dw + (por.taxi||0) + (por.adest||0);
+  const periodoLabels = {dia:'hoje', semana:'esta semana', mes:'este mês', tudo:'acumulado total'};
   const lbl = periodoLabels[fatPgFiltro] || 'período';
 
   document.getElementById('fp-total').textContent = 'R$' + total.toFixed(2).replace('.',',');
@@ -2283,12 +2619,14 @@ function renderFaturamento() {
   document.getElementById('fp-h').textContent  = 'R$' + por.hotel;
   document.getElementById('fp-b').textContent  = 'R$' + por.banho;
   document.getElementById('fp-dw').textContent = 'R$' + por.dw;
+  document.getElementById('fp-taxi').textContent = 'R$' + (por.taxi||0);
+  document.getElementById('fp-adest').textContent = 'R$' + (por.adest||0);
   document.getElementById('fat-sub').textContent = `Entradas — ${lbl}`;
 
   // Gráfico donut página faturamento
-  const vals  = [por.creche, por.hotel, por.banho, por.dw];
-  const cores  = ['#16A34A','#1A4BAA','#EA580C','#7C3AED'];
-  const nomes  = ['Creche','Hotel','Banho/Tosa','Dog Walker'];
+  const vals  = [por.creche, por.hotel, por.banho, por.dw, por.taxi||0, por.adest||0];
+  const cores  = ['#16A34A','#1A4BAA','#EA580C','#7C3AED','#DC2626','#9333EA'];
+  const nomes  = ['Creche','Hotel','Banho/Tosa','Dog Walker','Táxi Dog','Adestramento'];
   const svg    = document.getElementById('donut-svg-pg');
   document.getElementById('donut-total-pg').textContent = 'R$' + total;
   const cx=55, cy=55, r=36, circ=2*Math.PI*r;
@@ -2317,34 +2655,15 @@ function renderFaturamento() {
       <span class="leg-pct">${total?Math.round(v/total*100):0}%</span>
     </div>`).join('');
 
-  // Histórico de lançamentos pagos no período
-  const hj = hoje();
-  let ini;
-  if(fatPgFiltro==='dia') ini = new Date(hj);
-  else if(fatPgFiltro==='semana'){ini=new Date(hj);ini.setDate(hj.getDate()-hj.getDay());}
-  else {ini=new Date(hj.getFullYear(),hj.getMonth(),1);}
-
-  const lancamentos = [];
-  for(let d=new Date(ini); d<=hj; d.setDate(d.getDate()+1)){
-    const k=chave(new Date(d)), dd=dados[k]||{};
-    const dataFmt = new Date(k+'T00:00:00').toLocaleDateString('pt-BR');
-    ['creche','hotel','banho','dw'].forEach(s=>{
-      (dd[s]||[]).filter(r=>r.pagou==='Sim').forEach(r=>{
-        lancamentos.push({nome:r.nome, tutor:r.tutor||'—', servico:s, desc:r.serv||r.plano||s, valor:+(r.valor||0), pgto:r.pgto||'—', data:dataFmt, dataSort:k});
-      });
-    });
-  }
-  lancamentos.sort((a,b)=>b.dataSort.localeCompare(a.dataSort));
-
   const el = document.getElementById('fat-historico');
   if(!lancamentos.length){
     el.innerHTML=`<div class="empty"><span class="empty-e">💰</span><div class="empty-t">Nenhum pagamento confirmado</div><div class="empty-s">Os lançamentos marcados como "Pago" aparecem aqui</div></div>`;
     return;
   }
 
-  const icones = {creche:'🏫', hotel:'🏨', banho:'✂️', dw:'🐕'};
-  const bgCores = {creche:'#DCFCE7', hotel:'#DBEAFE', banho:'#FEF3C7', dw:'#F0FDF4'};
-  const txCores = {creche:'#14532D', hotel:'#1E3A8A', banho:'#92400E', dw:'#065F46'};
+  const icones  = {creche:'🏫', hotel:'🏨', banho:'✂️', dw:'🐕', taxi:'🚗', adest:'🎓'};
+  const bgCores = {creche:'#DCFCE7', hotel:'#DBEAFE', banho:'#FEF3C7', dw:'#F0FDF4', taxi:'#FEE2E2', adest:'#EDE9FE'};
+  const txCores = {creche:'#14532D', hotel:'#1E3A8A', banho:'#92400E', dw:'#065F46', taxi:'#7F1D1D', adest:'#5B21B6'};
 
   el.innerHTML = `<div class="card" style="margin:0 16px 12px">`+
     lancamentos.map(l=>`
@@ -2503,7 +2822,18 @@ function delSaida(idx) {
   saidas.splice(idx, 1); save(); renderSaidas(); toast('🗑️ Removido');
 }
 
-// calcFatTotal merged into fatPeriodo block above
+function calcFatTotal() {
+  let total = 0;
+  Object.values(dados).forEach(dia => {
+    ['creche','hotel','banho','dw','taxi'].forEach(s => {
+      (dia[s]||[]).filter(r=>r.pagou==='Sim').forEach(r => total += +(r.valor||0));
+    });
+  });
+  if (typeof adests !== 'undefined') {
+    adests.filter(a=>a.pagou==='Sim').forEach(a => total += +(a.valor||0));
+  }
+  return total;
+}
 
 // ═══ FOTO DO PET ═══
 function previewFoto(evt) {
@@ -2743,10 +3073,17 @@ let deferredPrompt;
 window.addEventListener('beforeinstallprompt',e=>{
   e.preventDefault();deferredPrompt=e;
   document.getElementById('inst-banner').style.display='flex';
+  var cfgItem=document.getElementById('cfg-instalar-item');
+  if(cfgItem) cfgItem.style.display='flex';
 });
 function instalar(){
   if(!deferredPrompt){toast('💡 iOS: Safari → Compartilhar → Adicionar à Tela de Início');return;}
-  deferredPrompt.prompt();deferredPrompt.userChoice.then(()=>{deferredPrompt=null;document.getElementById('inst-banner').style.display='none';});
+  deferredPrompt.prompt();deferredPrompt.userChoice.then(()=>{
+    deferredPrompt=null;
+    document.getElementById('inst-banner').style.display='none';
+    var cfgItem=document.getElementById('cfg-instalar-item');
+    if(cfgItem) cfgItem.style.display='none';
+  });
 }
 
 // Manifest PWA dinâmico
@@ -2781,54 +3118,695 @@ function verificarStatusFirebase() {
   const hj=hoje();
   document.getElementById('hdata').textContent=DIAS[hj.getDay()]+' '+hj.getDate()+'/'+(hj.getMonth()+1);
   document.getElementById('hnome').textContent=config.nome||'Anguli Pet';
-  setTimeout(()=>document.getElementById('splash').classList.add('out'), 2000);
 
-  // 🔥 Inicia Firebase (sempre)
-  initFirebase();
-
-  // Se já tem dados locais, entra direto sem esperar Firebase
+  const splash = document.getElementById('splash');
   const temDados = pets.length > 0 || Object.keys(dados).length > 0;
-  setTimeout(()=>{
-    // Firebase Auth vai tentar restaurar sessão automaticamente
-    // Se não conseguir em 3s, mostra tela de login
-    let logouFirebase = false;
+  let entrou = false;
+
+  function abrirApp() {
+    if (entrou) return;
+    entrou = true;
+    splash.classList.add('out');
+    if (temDados) {
+      entrarApp();
+    } else {
+      document.getElementById('pg-login').style.display='flex';
+      document.getElementById('pg-login').classList.add('on');
+    }
+  }
+
+  // Garante abertura em no máximo 2 segundos, independente do Firebase
+  setTimeout(abrirApp, 2000);
+
+  // Tenta Firebase em paralelo — se responder antes, abre mais cedo
+  try {
+    initFirebase();
     if (typeof firebase !== 'undefined' && firebase.auth) {
       firebase.auth().onAuthStateChanged(user => {
-        if (!logouFirebase) {
-          logouFirebase = true;
-          if (user) {
-            fbUser = user; fbUID = user.uid;
-            entrarApp();
-          } else if (temDados) {
-            // Tem dados locais — entra em modo offline/demo
-            entrarApp();
-          } else {
-            document.getElementById('pg-login').style.display='flex';
-            document.getElementById('pg-login').classList.add('on');
-          }
-        }
+        if (user) { fbUser = user; fbUID = user.uid; }
+        abrirApp();
       });
-      // Timeout de segurança
-      setTimeout(()=>{
-        if (!logouFirebase) {
-          logouFirebase = true;
-          if (temDados) entrarApp();
-          else {
-            document.getElementById('pg-login').style.display='flex';
-            document.getElementById('pg-login').classList.add('on');
-          }
-        }
-      }, 3000);
-    } else {
-      // Firebase não disponível
-      if (temDados) entrarApp();
-      else {
-        document.getElementById('pg-login').style.display='flex';
-        document.getElementById('pg-login').classList.add('on');
-      }
     }
-  }, 2100);
+  } catch(e) { /* Firebase indisponível — setTimeout acima garante a abertura */ }
 })();
+
+// ══════════════════════════════════════════════
+//  ANGULI PET v3 — EXTENSÕES (sem duplicar nada)
+// ══════════════════════════════════════════════
+
+// ─ AGENDAMENTO INTELIGENTE ────────────────────
+var _aiPetIdx  = null;
+var _aiTipoSel = null;
+
+function abrirAgendInteligente() {
+  _aiPetIdx = null; _aiTipoSel = null;
+  document.getElementById('ai-busca').value = '';
+  document.getElementById('ai-drop').style.display = 'none';
+  document.getElementById('ai-sel-box').style.display = 'none';
+  document.getElementById('ai-infos').classList.remove('show');
+  document.getElementById('ai-data').value = chave(hoje());
+  document.getElementById('ai-hora').value = '09:00';
+  document.getElementById('ai-valor').value = '';
+  document.getElementById('ai-obs').value = '';
+  document.getElementById('ai-pagou').value = 'Não';
+  document.querySelectorAll('.agend-tipo-btn').forEach(function(b){b.classList.remove('on');});
+  fecharModal('modal-pet'); fecharModal('modal-cal');
+  document.getElementById('modal-agend-int').classList.remove('hid');
+  setTimeout(function(){document.getElementById('ai-busca').focus();}, 150);
+}
+
+function aiPetBusca(q) {
+  var drop = document.getElementById('ai-drop');
+  if (!q || q.length < 2) { drop.style.display='none'; return; }
+  var ql = q.toLowerCase();
+  var res = pets.filter(function(p){
+    return p.nome.toLowerCase().includes(ql) ||
+           (p.tutor||'').toLowerCase().includes(ql) ||
+           (p.tel||'').includes(q);
+  }).slice(0,6);
+  if (!res.length) { drop.style.display='none'; return; }
+  drop.innerHTML = res.map(function(p){
+    var ri = pets.indexOf(p);
+    var avHtml = p.foto
+      ? '<img src="'+p.foto+'" style="width:34px;height:34px;object-fit:cover;border-radius:50%">'
+      : '<div class="psi-av">'+(p.nome||'?')[0].toUpperCase()+'</div>';
+    return '<div class="pet-search-item" onclick="aiSelecionarPet('+ri+')">'
+      +'<div class="psi-av" style="padding:0;overflow:hidden">'+avHtml+'</div>'
+      +'<div><div class="psi-nome">'+p.nome+'</div>'
+      +'<div class="psi-sub">Tutor: '+(p.tutor||'—')+(p.raca?' • '+p.raca:'')+'</div></div>'
+      +'</div>';
+  }).join('');
+  drop.style.display = 'block';
+}
+
+function aiSelecionarPet(ri) {
+  _aiPetIdx = ri;
+  var p = pets[ri];
+  document.getElementById('ai-busca').value = p.nome;
+  document.getElementById('ai-drop').style.display = 'none';
+  var avEl = document.getElementById('ai-sel-av');
+  avEl.innerHTML = p.foto
+    ? '<img src="'+p.foto+'" style="width:36px;height:36px;object-fit:cover;border-radius:50%">'
+    : '<span style="font-size:15px;font-weight:900">'+(p.nome[0]||'?').toUpperCase()+'</span>';
+  document.getElementById('ai-sel-nome').textContent = p.nome;
+  document.getElementById('ai-sel-sub').textContent  = 'Tutor: '+(p.tutor||'—')+(p.tel?' • '+p.tel:'');
+  document.getElementById('ai-sel-box').style.display = 'flex';
+  // Infos automáticas
+  var info = document.getElementById('ai-infos');
+  var partes = [];
+  if(p.esp)   partes.push('🐾 '+p.esp);
+  if(p.porte) partes.push('Porte '+p.porte);
+  if(p.temp)  partes.push('Temperamento: '+p.temp);
+  if(p.obs)   partes.push('⚠️ '+p.obs.substring(0,60));
+  if(p.med)   partes.push('💊 '+p.med.substring(0,50));
+  if(p.alim)  partes.push('🍖 '+p.alim);
+  if(partes.length){ info.innerHTML=partes.map(function(t){return '<div>'+t+'</div>';}).join(''); info.classList.add('show'); }
+  else info.classList.remove('show');
+  // Sugere último valor
+  var ultValores = [];
+  Object.values(dados).forEach(function(dia){
+    ['creche','hotel','banho','dw'].forEach(function(s){
+      (dia[s]||[]).filter(function(r){return r.nome===p.nome&&r.valor;}).forEach(function(r){ultValores.push(+(r.valor||0));});
+    });
+  });
+  if(ultValores.length) document.getElementById('ai-valor').value = ultValores[ultValores.length-1];
+}
+
+function aiLimpar() {
+  _aiPetIdx = null;
+  document.getElementById('ai-busca').value = '';
+  document.getElementById('ai-sel-box').style.display = 'none';
+  document.getElementById('ai-infos').classList.remove('show');
+  document.getElementById('ai-valor').value = '';
+  document.getElementById('ai-busca').focus();
+}
+
+function aiTipo(tipo, el) {
+  _aiTipoSel = tipo;
+  document.querySelectorAll('.agend-tipo-btn').forEach(function(b){b.classList.remove('on');});
+  el.classList.add('on');
+  if(!document.getElementById('ai-valor').value) {
+    var pre = config.precos || {};
+    var map = {creche:((pre.creche||{}).av||40), hotel:((pre.hotel||{}).m||80), banho:((pre.banho||{}).m||55), dw:((pre.dw||{}).av||75), adest:150, taxi:45};
+    document.getElementById('ai-valor').value = map[tipo]||0;
+  }
+}
+
+function aiSalvar() {
+  var data  = document.getElementById('ai-data').value;
+  var hora  = document.getElementById('ai-hora').value;
+  var valor = parseFloat(document.getElementById('ai-valor').value)||0;
+  var obs   = document.getElementById('ai-obs').value.trim();
+  var pagou = document.getElementById('ai-pagou').value;
+  if(!_aiTipoSel)  { toast('⚠️ Selecione o tipo de serviço'); return; }
+  if(!data)         { toast('⚠️ Informe a data'); return; }
+  var p = _aiPetIdx !== null ? pets[_aiPetIdx] : null;
+  var nome = p ? p.nome : (document.getElementById('ai-busca').value.trim()||'Sem nome');
+  if(!nome) { toast('⚠️ Informe o nome do pet'); return; }
+
+  if(['creche','hotel','banho','dw'].includes(_aiTipoSel)) {
+    if(!dados[data]) dados[data]={creche:[],hotel:[],banho:[],dw:[]};
+    ['creche','hotel','banho','dw'].forEach(function(s){if(!dados[data][s])dados[data][s]=[];});
+    var reg = { nome:nome, tutor:p?(p.tutor||''):'', porte:p?(p.porte||'M'):'M',
+      esp:p?(p.esp||'Cachorro'):'Cachorro', hora:hora, valor:valor, obs:obs, pagou:pagou, pgto:'PIX', ts:Date.now() };
+    if(_aiTipoSel==='banho')  reg.serv='Banho';
+    if(_aiTipoSel==='dw')     reg.plano='Avulso';
+    if(_aiTipoSel==='hotel')  { reg.diarias=1; reg.alim='Ração local'; reg.vet='Sim'; }
+    dados[data][_aiTipoSel].push(reg);
+    save(); fecharModal('modal-agend-int');
+    irParaData(data);
+    toast('✅ Agendamento salvo!');
+  } else {
+    // adest / taxi
+    adests.push({ tipo:p?'cadastrado':'avulso', nome:nome, tutor:p?(p.tutor||''):'',
+      tel:p?(p.tel||p.tel2||''):'', petFoto:p?(p.foto||''):'',
+      data:data, hora:hora, modal:'Individual', valor:valor, obs:obs, status:'Agendado', pagou:pagou, ts:Date.now() });
+    save(); fecharModal('modal-agend-int'); ir('adest');
+    toast('✅ Sessão agendada!');
+  }
+}
+
+// ─ FICHA COMPLETA DO PET ──────────────────────
+var _fichaIdx = null;
+var _fichaTab = 'timeline';
+
+function abrirFicha(ri) {
+  _fichaIdx = ri; _fichaTab = 'timeline';
+  var p = pets[ri]; if(!p) return;
+  var fotoEl = document.getElementById('ficha-foto-el');
+  fotoEl.innerHTML = p.foto
+    ? '<img src="'+p.foto+'" style="width:80px;height:80px;object-fit:cover;border-radius:50%">'
+    : '<span style="font-size:34px;font-weight:900">'+p.nome[0].toUpperCase()+'</span>';
+  document.getElementById('ficha-nome-el').textContent = p.nome;
+  var idade = p.nasc ? idadeTexto(p.nasc) : '—';
+  document.getElementById('ficha-meta-el').innerHTML =
+    '<div class="fm-it"><div class="fm-v">'+(p.raca||'—')+'</div><div class="fm-l">Raça</div></div>'+
+    '<div class="fm-it"><div class="fm-v">'+idade+'</div><div class="fm-l">Idade</div></div>'+
+    '<div class="fm-it"><div class="fm-v">'+(p.porte||'—')+'</div><div class="fm-l">Porte</div></div>'+
+    '<div class="fm-it"><div class="fm-v">'+(p.esp||'—')+'</div><div class="fm-l">Espécie</div></div>';
+  fichaRenderTabs(ri, _fichaTab);
+  document.getElementById('modal-ficha').classList.add('open');
+}
+
+function fecharFicha() {
+  document.getElementById('modal-ficha').classList.remove('open');
+}
+
+function fichaRenderTabs(ri, tabAtiva) {
+  var tabs = [{id:'timeline',lbl:'Timeline'},{id:'vacinas',lbl:'Vacinas'},{id:'historico',lbl:'Histórico'},{id:'info',lbl:'Informações'}];
+  document.getElementById('ficha-tabs-el').innerHTML = tabs.map(function(t){
+    return '<button class="ficha-tab-g '+(t.id===tabAtiva?'on':'')+'" onclick="fichaTab(\''+t.id+'\')">'+t.lbl+'</button>';
+  }).join('');
+  fichaRenderConteudo(ri, tabAtiva);
+}
+
+function fichaTab(tab) {
+  _fichaTab = tab;
+  fichaRenderTabs(_fichaIdx, tab);
+}
+
+function fichaRenderConteudo(ri, tab) {
+  var p  = pets[ri];
+  var el = document.getElementById('ficha-body-el');
+  var hj = hoje();
+
+  if(tab === 'timeline') {
+    var evts = [];
+    Object.entries(dados).sort(function(a,b){return b[0].localeCompare(a[0]);}).slice(0,20).forEach(function(kv){
+      var k=kv[0], dia=kv[1];
+      var dataFmt = new Date(k+'T00:00:00').toLocaleDateString('pt-BR');
+      ['creche','hotel','banho','dw'].forEach(function(s){
+        (dia[s]||[]).filter(function(r){return r.nome===p.nome;}).forEach(function(r){
+          var icons={creche:'🏠',hotel:'🏨',banho:'✂️',dw:'🐕'};
+          var nomes={creche:'Creche',hotel:'Hotel',banho:'Banho/Tosa',dw:'Dog Walker'};
+          evts.push({icon:icons[s],title:nomes[s],time:r.hora||'',date:dataFmt,note:r.obs||''});
+        });
+      });
+    });
+    if(!evts.length){ el.innerHTML='<div class="empty"><span class="empty-e">🐾</span><div class="empty-t">Sem histórico ainda</div></div>'; return; }
+    el.innerHTML = evts.map(function(e){
+      return '<div class="tl-item"><div class="tl-dot">'+e.icon+'</div><div class="tl-body">'
+        +'<div class="tl-title">'+e.title+'</div>'
+        +'<div class="tl-time">'+e.date+(e.time?' • '+e.time:'')+'</div>'
+        +(e.note?'<div class="tl-note">'+e.note+'</div>':'')
+        +'</div></div>';
+    }).join('')
+    +'<div style="margin-top:12px"><button class="alert-wa-btn" onclick="abrirWA(\''+(p.tel||p.tel2||'')+'\',\'Olá '+(p.tutor||'')+'! Tudo bem com o(a) *'+p.nome+'*? 🐾 — Anguli Pet\')">'
+    +'📲 Enviar mensagem ao tutor</button></div>';
+
+  } else if(tab === 'vacinas') {
+    if(!p.vacina){ el.innerHTML='<div style="text-align:center;padding:20px"><div style="font-size:36px">💉</div><div style="font-weight:800;margin-top:8px">Nenhuma vacina cadastrada</div>'
+      +'<button class="btn-pr" style="margin-top:12px" onclick="fecharFicha();editPet('+ri+')"><i class="ti ti-pencil"></i> Editar ficha</button></div>'; return; }
+    var vd=new Date(p.vacina), diff=Math.ceil((vd-hj)/86400000);
+    var badge = diff<0?'<span class="badge bg-err">💉 VENCIDA há '+Math.abs(diff)+'d</span>'
+      : diff<=30?'<span class="badge bg-warn">⚠️ Vence em '+diff+'d</span>'
+      : '<span class="badge bg-ok">✅ Em dia</span>';
+    el.innerHTML='<div style="background:#fff;border-radius:var(--r-sm);border:1px solid var(--border);padding:12px 14px;display:flex;align-items:center;gap:12px;box-shadow:var(--sh)">'
+      +'<span style="font-size:24px">💉</span><div style="flex:1">'
+      +'<div style="font-weight:800;font-size:13px">Próxima vacinação</div>'
+      +'<div style="font-size:11px;color:var(--tx3);margin-top:2px">'+new Date(p.vacina).toLocaleDateString('pt-BR')+'</div></div>'+badge+'</div>'
+      +'<div style="margin-top:12px"><button class="alert-wa-btn" style="width:100%;justify-content:center" onclick="abrirWA(\''+(p.tel||p.tel2||'')+'\',\'Olá '+(p.tutor||'')+', as vacinas do(a) '+p.nome+' precisam de atenção. Podemos agendar? 💉 — Anguli Pet\')">'
+      +'📲 Notificar tutor</button></div>';
+
+  } else if(tab === 'historico') {
+    var lances = [];
+    Object.entries(dados).sort(function(a,b){return b[0].localeCompare(a[0]);}).forEach(function(kv){
+      var k=kv[0], dia=kv[1];
+      var dataFmt = new Date(k+'T00:00:00').toLocaleDateString('pt-BR');
+      ['creche','hotel','banho','dw'].forEach(function(s){
+        (dia[s]||[]).filter(function(r){return r.nome===p.nome;}).forEach(function(r){
+          var nomes={creche:'Creche',hotel:'Hotel',banho:'Banho/Tosa',dw:'Dog Walker'};
+          lances.push({setor:nomes[s],data:dataFmt,valor:+(r.valor||0),pago:r.pagou==='Sim'});
+        });
+      });
+    });
+    if(!lances.length){el.innerHTML='<div class="empty"><span class="empty-e">📋</span><div class="empty-t">Sem histórico</div></div>';return;}
+    var total=lances.reduce(function(a,l){return a+l.valor;},0);
+    el.innerHTML='<div style="background:linear-gradient(135deg,var(--azul),var(--azul-m));border-radius:var(--r);padding:14px;color:#fff;margin-bottom:12px">'
+      +'<div style="font-size:11px;opacity:.6;font-weight:700;text-transform:uppercase">Total investido</div>'
+      +'<div style="font-size:26px;font-weight:900;margin-top:4px">R$'+total.toFixed(2).replace('.',',')+'</div>'
+      +'<div style="font-size:11px;opacity:.5;margin-top:2px">'+lances.length+' visitas</div></div>'
+      +'<div class="card">'+lances.map(function(l){
+        return '<div style="display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--border)">'
+          +'<div style="flex:1"><div style="font-weight:800;font-size:13px">'+l.setor+'</div>'
+          +'<div style="font-size:11px;color:var(--tx3)">'+l.data+'</div></div>'
+          +'<span style="font-size:13px;font-weight:900;color:'+(l.pago?'var(--verde-d)':'var(--lj)')+'">R$'+l.valor+'</span>'
+          +'<span class="badge '+(l.pago?'bg-ok':'bg-warn')+'">'+(l.pago?'✅':'⏳')+'</span></div>';
+      }).join('')+'</div>';
+
+  } else if(tab === 'info') {
+    var rows=[['🎂','Aniversário',p.nasc?new Date(p.nasc+'T00:00:00').toLocaleDateString('pt-BR'):'—'],
+      ['🐾','Espécie',p.esp||'—'],['📏','Porte',p.porte||'—'],['⚖️','Peso',p.peso?p.peso+'kg':'—'],
+      ['✂️','Castrado',p.cast||'—'],['🍖','Alimentação',p.alim||'—'],['🎯','Temperamento',p.temp||'—'],
+      ['🤝','Sociável c/ animais',p.soc||'—'],['💊','Medicação',p.med||'—'],['⚠️','Observações',p.obs||'—'],
+      ['👤','Tutor',p.tutor||'—'],['📞','Telefone',p.tel||'—'],['🚨','Tel. Emergência',p.tel2||'—'],['🩺','Veterinário',p.vet||'—']];
+    el.innerHTML='<div class="card">'+rows.map(function(r){
+      return '<div style="display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border-bottom:1px solid var(--border)">'
+        +'<span style="font-size:16px;flex-shrink:0">'+r[0]+'</span><div style="flex:1">'
+        +'<div style="font-size:10px;font-weight:900;color:var(--tx3);text-transform:uppercase;letter-spacing:.4px">'+r[1]+'</div>'
+        +'<div style="font-size:13px;font-weight:700;color:var(--tx);margin-top:1px">'+r[2]+'</div></div></div>';
+    }).join('')+'</div>'
+    +'<div style="display:flex;gap:8px;margin-top:12px">'
+    +'<button class="btn-pr" style="flex:1;justify-content:center" onclick="fecharFicha();editPet('+ri+')"><i class="ti ti-pencil"></i> Editar</button>'
+    +((p.tel||p.tel2)?'<button class="alert-wa-btn" style="flex:1;justify-content:center" onclick="abrirWA(\''+(p.tel||p.tel2)+'\',\'Olá '+(p.tutor||'')+'! 🐾\')">📲 WhatsApp</button>':'')
+    +'</div>';
+  }
+}
+
+// ─ BOLETIM ESCOLAR v3 ────────────────────────
+var _bolState  = {};
+var _bolPet    = null;
+
+function renderBoletimV3() {
+  var hj  = chave(hoje());
+  var dd  = dados[hj] || {};
+  var nomes = [];
+  var vistos = {};
+  ['creche','hotel','banho','dw'].forEach(function(s){(dd[s]||[]).forEach(function(r){if(!vistos[r.nome]){vistos[r.nome]=1;nomes.push(r.nome);}});});
+  var listaPets = nomes.length
+    ? nomes.map(function(n){return pets.find(function(p){return p.nome===n;})||{nome:n,foto:'',tutor:'',tel:'',tel2:''};})
+    : pets.slice(0,8);
+  if(!_bolPet && listaPets.length) _bolPet = listaPets[0].nome;
+  document.getElementById('bol-sub').textContent = listaPets.length+' pet(s) hoje';
+  document.getElementById('bol-pet-tabs').innerHTML = listaPets.map(function(p){
+    var av = p.foto ? '<img src="'+p.foto+'">' : '<span style="font-size:17px;font-weight:900">'+(p.nome||'?')[0].toUpperCase()+'</span>';
+    return '<div class="bol-pet-tab '+(p.nome===_bolPet?'on':'')+'" onclick="bolSelPet(\''+p.nome+'\')">'
+      +'<div class="bol-tab-av">'+av+'</div><div class="bol-tab-lbl">'+p.nome+'</div></div>';
+  }).join('');
+  if(_bolPet) renderBolPet(_bolPet);
+}
+
+function bolSelPet(nome) { _bolPet = nome; renderBoletimV3(); }
+
+function renderBolPet(nome) {
+  var p = pets.find(function(pt){return pt.nome===nome;})||{nome:nome,foto:'',tutor:'',tel:'',tel2:''};
+  if(!_bolState[nome]) _bolState[nome]={social:0,energia:0,alim:0,comport:0,saude:0,humor:'😊',obs:''};
+  var bs = _bolState[nome];
+  var av = p.foto ? '<img src="'+p.foto+'" style="width:50px;height:50px;object-fit:cover;border-radius:50%">'
+                  : '<span style="font-size:20px;font-weight:900">'+nome[0].toUpperCase()+'</span>';
+  var cats=[{id:'social',lbl:'Socialização',ic:'🐾'},{id:'energia',lbl:'Energia',ic:'🎾'},
+            {id:'alim',lbl:'Alimentação',ic:'🍖'},{id:'comport',lbl:'Comportamento',ic:'⭐'},{id:'saude',lbl:'Saúde',ic:'💚'}];
+  var humores=['😴','😐','😊','🤩','😡'];
+  var key = nome.replace(/[^a-zA-Z0-9]/g,'_');
+  document.getElementById('bol-content').innerHTML =
+    '<div class="boletim-card-v3">'
+    +'<div class="boletim-card-hdr"><div class="bol-pet-foto">'+av+'</div>'
+    +'<div><div class="bol-pet-nome">'+nome+'</div>'
+    +'<div class="bol-pet-data">📅 '+new Date().toLocaleDateString('pt-BR',{weekday:'long',day:'numeric',month:'long'})+'</div></div></div>'
+    +'<div class="boletim-body">'
+    +'<div class="bol-row"><div class="bol-label">😊 Humor do dia</div>'
+    +'<div class="humor-row">'+humores.map(function(h){
+      return '<div class="humor-opt '+(bs.humor===h?'on':'')+'" onclick="bolHumor(\''+nome+'\',\''+h+'\',this)">'+h+'</div>';
+    }).join('')+'</div></div>'
+    +cats.map(function(c){
+      return '<div class="bol-row"><div class="bol-label">'+c.ic+' '+c.lbl+'</div>'
+        +'<div class="bones-row">'+[1,2,3,4,5].map(function(n){
+          return '<span class="bone-btn '+(bs[c.id]>=n?'on':'')+'" onclick="bolBone(\''+nome+'\',\''+c.id+'\','+n+')">🦴</span>';
+        }).join('')+'</div></div>';
+    }).join('')
+    +'<div class="bol-row"><div class="bol-label">📝 Observações</div>'
+    +'<textarea class="bol-obs-ta" id="bol-obs-'+key+'" oninput="_bolState[\''+nome+'\'].obs=this.value" placeholder="Como foi o dia? Conte para o tutor...">'+bs.obs+'</textarea></div>'
+    +'<button class="btn-gerar-bol" onclick="bolGerar(\''+nome+'\')">'
+    +'<i class="ti ti-clipboard-text"></i> Gerar Boletim</button>'
+    +'<button class="btn-wa-bol" onclick="bolEnviarWA(\''+nome+'\')">📲 Enviar pelo WhatsApp</button>'
+    +'</div></div>';
+}
+
+function bolHumor(nome, h, el) {
+  if(!_bolState[nome]) _bolState[nome]={social:0,energia:0,alim:0,comport:0,saude:0,humor:'😊',obs:''};
+  _bolState[nome].humor=h;
+  el.closest('.humor-row').querySelectorAll('.humor-opt').forEach(function(b){b.classList.remove('on');});
+  el.classList.add('on');
+}
+
+function bolBone(nome, cat, n) {
+  if(!_bolState[nome]) _bolState[nome]={social:0,energia:0,alim:0,comport:0,saude:0,humor:'😊',obs:''};
+  _bolState[nome][cat]=n;
+  renderBolPet(nome);
+}
+
+function bolGerar(nome) {
+  var bs=_bolState[nome]||{};
+  var bones=function(n){return '🦴'.repeat(n)+'⬜'.repeat(5-n);};
+  var msg='🐾 *Boletim de '+nome+' — '+new Date().toLocaleDateString('pt-BR')+'*\n\n'
+    +'Humor do dia: '+(bs.humor||'😊')+'\n\n'
+    +'🐾 Socialização:   '+bones(bs.social||0)+'\n'
+    +'🎾 Energia:         '+bones(bs.energia||0)+'\n'
+    +'🍖 Alimentação:     '+bones(bs.alim||0)+'\n'
+    +'⭐ Comportamento:   '+bones(bs.comport||0)+'\n'
+    +'💚 Saúde:           '+bones(bs.saude||0)+'\n'
+    +(bs.obs?'\n📝 '+bs.obs+'\n':'')
+    +'\nCom carinho, *Anguli Pet* 🐾';
+  if(navigator.clipboard) navigator.clipboard.writeText(msg).then(function(){toast('📋 Boletim copiado!');});
+  else toast('📋 Copie o boletim da tela');
+}
+
+function bolEnviarWA(nome) {
+  var p=pets.find(function(pt){return pt.nome===nome;})||{tutor:'',tel:'',tel2:''};
+  var tel=p.tel||p.tel2||'';
+  var bs=_bolState[nome]||{};
+  var bones=function(n){return '🦴'.repeat(n)+'⬜'.repeat(5-n);};
+  var pn=p.tutor?p.tutor.split(' ')[0]:'';
+  var msg='Olá'+(pn?' '+pn:'')+'! 🐾\n\n'
+    +'Boletim de hoje do(a) *'+nome+'*!\n\n'
+    +'Humor: '+(bs.humor||'😊')+'\n'
+    +'🐾 Socialização: '+bones(bs.social||0)+'\n'
+    +'🎾 Energia: '+bones(bs.energia||0)+'\n'
+    +'🍖 Alimentação: '+bones(bs.alim||0)+'\n'
+    +'⭐ Comportamento: '+bones(bs.comport||0)+'\n'
+    +(bs.obs?'\n📝 '+bs.obs+'\n':'')
+    +'\n— *Anguli Pet* 🐾';
+  if(!tel){
+    if(navigator.clipboard) navigator.clipboard.writeText(msg).then(function(){toast('📋 Boletim copiado! Cole no WhatsApp.');});
+    else toast('⚠️ Sem telefone. Copie o boletim manualmente.');
+    return;
+  }
+  abrirWA(tel,msg);
+}
+
+// ─ CHECK-IN RÁPIDO ────────────────────────────
+function abrirCheckinRapido() {
+  renderCkModal();
+  document.getElementById('modal-ck-rap').classList.remove('hid');
+}
+
+function renderCkModal() {
+  var hj=chave(hoje()), dd=dados[hj]||{}, nomes={}, petsHj=[];
+  ['creche','hotel','banho','dw','taxi'].forEach(function(s){(dd[s]||[]).forEach(function(r){if(!nomes[r.nome]){nomes[r.nome]=s;petsHj.push({nome:r.nome,setor:s});}});});
+  var g=document.getElementById('ck-modal-grid');
+  if(!petsHj.length){g.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:20px;color:var(--tx3);font-weight:700">Nenhum pet lançado hoje</div>';return;}
+  g.innerHTML=petsHj.map(function(item){
+    var p=pets.find(function(pt){return pt.nome===item.nome;})||{nome:item.nome,foto:'',tutor:''};
+    var av=p.foto?'<img src="'+p.foto+'" style="width:52px;height:52px;object-fit:cover;border-radius:50%">'
+      :'<span style="font-size:21px;font-weight:900">'+(p.nome||'?')[0].toUpperCase()+'</span>';
+    return '<div class="ck-card"><div class="ck-av">'+av+'</div>'
+      +'<div class="ck-nome">'+item.nome+'</div>'
+      +'<div class="ck-sub">'+(p.tutor||'—')+'</div>'
+      +'<div class="ck-btns">'
+      +'<button class="ck-btn chegou" onclick="ckAcao(\''+item.nome+'\',\'chegou\',\''+hj+'\',\''+item.setor+'\')">✅ Chegou</button>'
+      +'<button class="ck-btn saiu"   onclick="ckAcao(\''+item.nome+'\',\'saiu\',\''+hj+'\',\''+item.setor+'\')">🚗 Saiu</button>'
+      +'<button class="ck-btn alim"   onclick="ckAcao(\''+item.nome+'\',\'alim\',\''+hj+'\',\''+item.setor+'\')">🍖 Comeu</button>'
+      +'</div></div>';
+  }).join('');
+}
+
+function renderCkPage() {
+  var hj=chave(hoje()), dd=dados[hj]||{}, nomes={}, petsHj=[];
+  ['creche','hotel','banho','dw','taxi'].forEach(function(s){(dd[s]||[]).forEach(function(r){if(!nomes[r.nome]){nomes[r.nome]=s;petsHj.push({nome:r.nome,setor:s});}});});
+  document.getElementById('checkin-sub').textContent=petsHj.length+' pet(s) hoje';
+  var g=document.getElementById('checkin-grid');
+  if(!petsHj.length){g.innerHTML='<div style="grid-column:1/-1"><div class="empty"><span class="empty-e">📅</span><div class="empty-t">Nenhum pet hoje</div><div class="empty-s">Lance os pets na agenda primeiro</div></div></div>';return;}
+  g.innerHTML=petsHj.map(function(item){
+    var p=pets.find(function(pt){return pt.nome===item.nome;})||{nome:item.nome,foto:'',tutor:''};
+    var dd2=dados[hj]||{}; var arr=dd2[item.setor]||[]; var reg=arr.find(function(r){return r.nome===item.nome;});
+    var pago=reg&&reg.pagou==='Sim';
+    var av=p.foto?'<img src="'+p.foto+'" style="width:52px;height:52px;object-fit:cover;border-radius:50%">'
+      :'<span style="font-size:21px;font-weight:900">'+(p.nome||'?')[0].toUpperCase()+'</span>';
+    return '<div class="ck-card"><div class="ck-av">'+av+'</div>'
+      +'<div class="ck-nome">'+item.nome+'</div>'
+      +'<div class="ck-sub">'+(p.tutor||'—')+'</div>'
+      +'<div class="ck-btns">'
+      +'<button class="ck-btn chegou" onclick="ckAcao(\''+item.nome+'\',\'chegou\',\''+hj+'\',\''+item.setor+'\')">✅ Chegou</button>'
+      +'<button class="ck-btn saiu"   onclick="ckAcao(\''+item.nome+'\',\'saiu\',\''+hj+'\',\''+item.setor+'\')">🚗 Saiu</button>'
+      +'<button class="ck-btn alim"   onclick="ckAcao(\''+item.nome+'\',\'alim\',\''+hj+'\',\''+item.setor+'\')">🍖 Comeu</button>'
+      +(!pago?'<button class="ck-btn pagar" onclick="ckPagar(\''+item.nome+'\',\''+hj+'\',\''+item.setor+'\')">💰 Pagar</button>'
+             :'<span class="badge bg-ok" style="font-size:9px">✅ Pago</span>')
+      +'</div></div>';
+  }).join('');
+}
+
+function ckAcao(nome, acao, k, setor) {
+  var dd2=dados[k]; if(!dd2) return;
+  var arr=dd2[setor]||[]; var reg=arr.find(function(r){return r.nome===nome;});
+  if(!reg) return;
+  var hora=new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
+  reg.obs=(reg.obs||'')+' ['+acao+' '+hora+']';
+  save();
+  var msgs={chegou:'✅ Chegada registrada!',saiu:'🚗 Saída registrada!',alim:'🍖 Alimentação registrada!'};
+  toast(msgs[acao]||'✅ Ok!');
+  renderCkPage();
+}
+
+function ckPagar(nome, k, setor) {
+  var dd2=dados[k]; if(!dd2) return;
+  var arr=dd2[setor]||[]; var reg=arr.find(function(r){return r.nome===nome;});
+  if(reg){reg.pagou='Sim';save();toast('✅ Pagamento registrado!');renderCkPage();renderDash();}
+}
+
+// ─ PATCH renderPets: foto + abre ficha ao clicar ──
+function renderPets() {
+  var busca=(document.getElementById('busca-pet').value||'').toLowerCase();
+  var filt=pets.filter(function(p){return p.nome.toLowerCase().includes(busca)||(p.tutor||'').toLowerCase().includes(busca);});
+  document.getElementById('pets-sub').textContent=pets.length+' cadastrado'+(pets.length!==1?'s':'');
+  var el=document.getElementById('lista-pets');
+  if(!filt.length){
+    el.innerHTML=pets.length?'<div class="empty"><span class="empty-e">🔍</span><div class="empty-t">Nenhum resultado</div></div>'
+      :'<div class="empty"><span class="empty-e">🐾</span><div class="empty-t">Nenhum pet cadastrado</div><div class="empty-s">Toque em "Novo" para começar</div></div>';
+    return;
+  }
+  var hj2=hoje();
+  var avCls=['avc','avh','avb','avd','avp'];
+  el.innerHTML='<div class="card" style="margin:0 16px 10px">'+filt.map(function(p,fi){
+    var ri=pets.indexOf(p);
+    var vip=isVIP(p.tutor||p.nome);
+    var vacBadge='';
+    if(p.vacina){var diff=Math.ceil((new Date(p.vacina)-hj2)/86400000);
+      vacBadge=diff<0?'<span class="badge bg-err">💉 Vacina vencida!</span>':diff<=30?'<span class="badge bg-warn">💉 Vence em '+diff+'d</span>':'<span class="badge bg-ok">💉 Em dia</span>';}
+    var idade=p.nasc?' • '+idadeTexto(p.nasc):'';
+    var fotoHtml=p.foto?'<img class="pet-foto" src="'+p.foto+'" alt="'+p.nome+'" style="width:42px;height:42px">'
+      :'<div class="pet-av '+avCls[fi%5]+'">'+p.nome[0].toUpperCase()+'</div>';
+    return '<div class="pet-row" onclick="abrirFicha('+ri+')">'
+      +fotoHtml+'<div style="flex:1">'
+      +'<div style="display:flex;align-items:center;gap:6px"><span class="pet-nome">'+p.nome+'</span>'+(vip?'<span class="badge bg-vip">⭐ VIP</span>':'')+'</div>'
+      +'<div class="pet-inf">👤 '+(p.tutor||'—')+(p.tel?' • 📞 '+p.tel:'')+(p.raca?' • '+p.raca:'')+idade+'</div>'
+      +'<div class="pet-inf">'+(p.esp||'Pet')+' • Porte '+(p.porte||'M')+(p.peso?' • '+p.peso+'kg':'')+(p.cast==='Sim'?' • Castrado':'')+'</div>'
+      +(p.obs?'<div class="pet-inf" style="color:var(--lj)">⚠️ '+p.obs.substring(0,50)+'</div>':'')
+      +'<div style="margin-top:3px">'+vacBadge+'</div></div>'
+      +'<div style="display:flex;flex-direction:column;gap:4px;align-items:flex-end">'
+      +(p.tel||p.tel2?'<div class="ir-wa" onclick="event.stopPropagation();abrirWA(\''+(p.tel||p.tel2||'')+'\',\'Olá '+(p.tutor||'')+'! 🐾\')" title="WhatsApp">📲</div>':'')
+      +'<button class="btn-edit" onclick="event.stopPropagation();editPet('+ri+')" title="Editar"><i class="ti ti-pencil"></i></button>'
+      +'<button class="btn-del" onclick="event.stopPropagation();delPet('+ri+')"><i class="ti ti-trash"></i></button>'
+      +'</div></div>';
+  }).join('')+'</div>';
+};
+
+// ─ ir() unificado (novas páginas + originais) ─
+function ir(pg) {
+  if(pg==='boletim'){ renderBoletimV3(); }
+  if(pg==='checkin'){ renderCkPage(); }
+  fecharMais();
+  _irCore(pg);
+  // highlight "Mais" button for secondary pages
+  var primarias=['dash','agenda','checkin','pets'];
+  if(primarias.indexOf(pg)===-1){
+    document.querySelectorAll('.nb').forEach(function(b){b.classList.remove('on');});
+    document.getElementById('nb-mais').classList.add('on');
+  }
+}
+
+// ═══ PET PICKER AUTOCOMPLETE ═══
+function petPickerHtml(idNome, idTutor, idPorte, idEsp) {
+  const porteHtml = idPorte
+    ? `<div class="af"><div class="af-l">Porte</div><select class="asel" id="${idPorte}"><option value="P">P</option><option value="M" selected>M</option><option value="G">G</option></select></div>`
+    : '';
+  return `
+    <div class="af" style="position:relative;flex-direction:column;gap:4px">
+      <div class="af-l">Nome do pet</div>
+      <div style="display:flex;gap:10px;align-items:center">
+        <div style="position:relative;flex-shrink:0" onclick="document.getElementById('${idNome}-foto-file').click()" title="Adicionar foto">
+          <div id="${idNome}-foto-av" style="width:48px;height:48px;border-radius:50%;background:var(--azul-xl);color:var(--azul);font-size:22px;display:flex;align-items:center;justify-content:center;cursor:pointer;border:2px dashed var(--azul-l);transition:all .15s">🐾</div>
+          <img id="${idNome}-foto-img" src="" style="display:none;width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid var(--azul-l);cursor:pointer;position:absolute;top:0;left:0" alt="foto">
+          <div style="position:absolute;bottom:-2px;right:-2px;width:18px;height:18px;background:var(--azul);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;pointer-events:none">📷</div>
+          <input type="file" id="${idNome}-foto-file" accept="image/*" style="display:none" onchange="pickerFotoPreview(event,'${idNome}')">
+          <input type="hidden" id="${idNome}-foto-data">
+        </div>
+        <div class="pp-wrap" style="flex:1">
+          <input class="ainp" id="${idNome}" placeholder="Digite para buscar ou adicionar..." autocomplete="off" style="width:100%">
+          <div class="pp-drop" id="${idNome}-drop"></div>
+        </div>
+      </div>
+    </div>
+    <div class="af"><div class="af-l">Tutor</div><input class="ainp" id="${idTutor}" placeholder="Tutor"></div>
+    ${porteHtml}`;
+}
+
+function bindPicker(idNome, idTutor, idPorte, idEsp) {
+  const inp = document.getElementById(idNome);
+  const drop = document.getElementById(idNome + '-drop');
+  if (!inp || !drop) return;
+
+  function showDrop(q) {
+    const term = q.toLowerCase().trim();
+    const matches = term.length === 0
+      ? pets.slice(0, 8)
+      : pets.filter(p => p.nome.toLowerCase().includes(term) || (p.tutor||'').toLowerCase().includes(term)).slice(0, 8);
+
+    if (!matches.length) { drop.classList.remove('open'); return; }
+
+    drop.innerHTML = matches.map((p, i) => {
+      const av = p.foto
+        ? `<div class="pp-av"><img src="${p.foto}" alt="${p.nome}"></div>`
+        : `<div class="pp-av">${p.nome[0].toUpperCase()}</div>`;
+      return `<div class="pp-item" onclick="pickerSelecionar('${idNome}','${idTutor}','${idPorte||''}','${idEsp||''}',${pets.indexOf(p)})">
+        ${av}
+        <div class="pp-info">
+          <div class="pp-nome">${p.nome}</div>
+          <div class="pp-sub">${p.tutor||''} ${p.raca?'· '+p.raca:''}</div>
+        </div>
+        <span class="pp-badge">Porte ${p.porte||'M'}</span>
+      </div>`;
+    }).join('');
+    drop.classList.add('open');
+  }
+
+  inp.addEventListener('focus', () => showDrop(inp.value));
+  inp.addEventListener('input', () => showDrop(inp.value));
+  inp.addEventListener('blur', () => setTimeout(() => drop.classList.remove('open'), 200));
+}
+
+function pickerSelecionar(idNome, idTutor, idPorte, idEsp, petIdx) {
+  const p = pets[petIdx];
+  if (!p) return;
+  const set = (id, val) => { const el = document.getElementById(id); if (el && val) el.value = val; };
+  set(idNome, p.nome);
+  set(idTutor, p.tutor);
+  if (idPorte) set(idPorte, p.porte || 'M');
+  if (idEsp)   set(idEsp, p.esp || 'Cachorro');
+  // Preenche foto se o pet tiver
+  const av  = document.getElementById(idNome+'-foto-av');
+  const img = document.getElementById(idNome+'-foto-img');
+  const fd  = document.getElementById(idNome+'-foto-data');
+  if (p.foto && av && img && fd) {
+    fd.value = p.foto;
+    img.src = p.foto; img.style.display = 'block'; av.style.display = 'none';
+  } else if (av && img) {
+    img.style.display = 'none'; av.style.display = 'flex';
+    av.textContent = p.nome[0].toUpperCase();
+    if (fd) fd.value = '';
+  }
+  const drop = document.getElementById(idNome + '-drop');
+  if (drop) drop.classList.remove('open');
+  toast('🐾 ' + p.nome + ' selecionado!');
+}
+
+function pickerFotoPreview(evt, idNome) {
+  const file = evt.target.files[0]; if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    const data = e.target.result;
+    const av  = document.getElementById(idNome+'-foto-av');
+    const img = document.getElementById(idNome+'-foto-img');
+    const fd  = document.getElementById(idNome+'-foto-data');
+    if (img) { img.src = data; img.style.display = 'block'; }
+    if (av)  { av.style.display = 'none'; }
+    if (fd)  { fd.value = data; }
+    // Se o pet já está cadastrado, salva a foto no cadastro também
+    const nomePet = document.getElementById(idNome)?.value?.trim();
+    if (nomePet) {
+      const petObj = pets.find(p => p.nome.toLowerCase() === nomePet.toLowerCase());
+      if (petObj) { petObj.foto = data; save(); toast('📷 Foto salva no cadastro!'); }
+      else { toast('📷 Foto adicionada!'); }
+    }
+  };
+  reader.readAsDataURL(file);
+}
+
+function toggleMais(){
+  var m=document.getElementById('mais-menu');
+  var o=document.getElementById('mais-overlay');
+  var open=m.classList.contains('open');
+  if(open){fecharMais();}else{m.classList.add('open');o.classList.add('open');}
+}
+
+// ═══ TÁXI DOG — MAPAS ═══
+function abrirMaps(){
+  const end = document.getElementById('tx-end')?.value?.trim();
+  if(!end){ toast('📍 Digite um endereço primeiro'); return; }
+  const url = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(end);
+  window.open(url, '_blank');
+}
+
+function pegarLocalizacao(){
+  if(!navigator.geolocation){ toast('⚠️ GPS não disponível'); return; }
+  toast('🎯 Obtendo localização...');
+  navigator.geolocation.getCurrentPosition(
+    pos => {
+      const lat = pos.coords.latitude.toFixed(6);
+      const lng = pos.coords.longitude.toFixed(6);
+      // Faz geocodificação reversa para pegar o endereço
+      fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&accept-language=pt-BR`)
+        .then(r => r.json())
+        .then(data => {
+          const addr = data.display_name || `${lat}, ${lng}`;
+          const inp = document.getElementById('tx-end');
+          if(inp){ inp.value = addr; }
+          const preview = document.getElementById('tx-end-preview');
+          if(preview){ preview.textContent = '📍 ' + addr; preview.style.display = 'block'; }
+          toast('✅ Localização obtida!');
+        })
+        .catch(() => {
+          const inp = document.getElementById('tx-end');
+          if(inp){ inp.value = lat + ', ' + lng; }
+          toast('📍 Coordenadas salvas');
+        });
+    },
+    err => { toast('⚠️ Não foi possível obter localização'); },
+    { timeout: 8000, enableHighAccuracy: true }
+  );
+}
+function fecharMais(){
+  document.getElementById('mais-menu').classList.remove('open');
+  document.getElementById('mais-overlay').classList.remove('open');
+}
+
+// ─ FAB → abre agendamento inteligente ─────────
+document.addEventListener('DOMContentLoaded', function(){
+  var fab=document.querySelector('.fab');
+  if(fab) fab.onclick=abrirAgendInteligente;
+});
+// Fallback se DOMContentLoaded já passou
+(function(){ var fab=document.querySelector('.fab'); if(fab) fab.onclick=abrirAgendInteligente; })();
+
 </script>
 </body>
 </html>
