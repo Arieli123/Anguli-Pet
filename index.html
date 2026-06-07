@@ -118,6 +118,7 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
 /* ══ PAGES ══ */
 .pg{display:none;animation:pgIn .22s ease}
 .pg.on{display:block}
+.pg.on#pg-checkin{display:flex}
 @keyframes pgIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 
 /* ══ SECTION HEAD ══ */
@@ -584,7 +585,7 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
   <div class="sp-t">Anguli Pet</div>
   <div class="sp-s">Hotel • Creche • Pet Shop • Dog Walker</div>
   <div class="sp-bar"><div class="sp-fill"></div></div>
-  <div class="sp-verse">✝️ Jesus Cristo é o Senhor</div>
+  <div class="sp-verse">🐾 "O justo cuida da vida do seu animal" — Pv 12:10</div>
 </div>
 
 <div id="app">
@@ -608,6 +609,7 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
 
     <!-- ═══ LOGIN ═══ -->
     <div id="pg-login" class="pg">
+
       <div class="lcard">
         <div class="llogo">🐾</div>
         <div class="lt">Anguli Pet PRO</div>
@@ -615,17 +617,25 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
         <div class="frow"><div class="fg"><label class="fl">E-mail</label><input class="fi" id="li-email" type="email" placeholder="email@exemplo.com"></div></div>
         <div class="frow"><div class="fg"><label class="fl">Senha</label><input class="fi" id="li-senha" type="password" placeholder="••••••••" onkeydown="if(event.key==='Enter')login()"></div></div>
         <div style="display:flex;gap:8px;margin-top:4px">
-          <button class="btn-pr" style="flex:2;justify-content:center" onclick="login()"><i class="ti ti-login"></i> Entrar</button>
-          <button class="btn-ghost" style="flex:1" onclick="entrarDemo()">Demo</button>
+          <button class="btn-pr" id="btn-login-email" style="flex:2;justify-content:center" onclick="login()"><i class="ti ti-login"></i> Entrar</button>
         </div>
-        <div style="text-align:center;margin-top:10px;font-size:12px;color:var(--tx3)">Sem conta? <span style="font-weight:900;color:var(--azul);cursor:pointer" onclick="criarConta()">Criar conta grátis</span></div>
+        <div style="display:flex;align-items:center;gap:10px;margin-top:14px">
+          <div style="flex:1;height:1px;background:var(--border)"></div>
+          <span style="font-size:11px;color:var(--tx3);font-weight:800">ou</span>
+          <div style="flex:1;height:1px;background:var(--border)"></div>
+        </div>
+        <button type="button" class="btn-google" id="btn-google" onclick="loginGoogle()" style="margin-top:10px;width:100%;justify-content:center">
+          <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34.5 6.1 29.5 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.7-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.5 16.2 18.9 13 24 13c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34.5 6.1 29.5 4 24 4 16.3 4 9.5 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.1C29.3 36 24 36 24 36c-5.3 0-9.7-3.3-11.3-8l-6.5 5C9.5 39.7 16.3 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-1.1 3.2-4.2 5.5-7.9 5.5-5.3 0-9.7-3.3-11.3-8l-6.5 5C9.5 39.7 16.3 44 24 44c11.1 0 20-8.9 20-20 0-1.3-.1-2.7-.4-3.5z"/></svg>
+          Entrar com Google
+        </button>
+        <div style="text-align:center;margin-top:12px;font-size:12px;color:var(--tx3)">Sem conta? <span style="font-weight:900;color:var(--azul);cursor:pointer" onclick="criarConta()">Criar conta grátis</span></div>
         <div style="text-align:center;margin-top:8px">
           <span style="font-size:12px;color:var(--tx3);cursor:pointer;text-decoration:underline;text-underline-offset:3px" onclick="recuperarSenha()">🔑 Esqueci minha senha</span>
         </div>
       </div>
       <div style="background:var(--azul-bg);border:1px solid var(--azul-xl);border-radius:var(--r);padding:12px 14px;font-size:11px;color:var(--azul);font-weight:700;line-height:1.6;max-width:380px;width:100%">
-        <strong>☁️ Nuvem ativa:</strong> Os dados salvam automaticamente no Firebase e ficam disponíveis em qualquer dispositivo.<br>
-        <span style="opacity:.75">Modo Demo: funciona com localStorage (apenas neste dispositivo).</span>
+        <strong>☁️ Nuvem ativa:</strong> Os dados salvam automaticamente e ficam disponíveis em qualquer dispositivo.<br>
+        <span style="opacity:.75">Funciona mesmo sem internet após o primeiro login.</span>
       </div>
       <div style="text-align:center;margin-top:8px;padding:10px 20px;max-width:380px;width:100%">
         <div style="font-size:13px;font-weight:800;color:var(--azul);letter-spacing:.3px;opacity:.7">✝️ Jesus Cristo é o Senhor</div>
@@ -1051,7 +1061,7 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
     </div>
 
     <!-- CHECK-IN / CHECK-OUT DIVIDIDO -->
-    <div id="pg-checkin" class="pg" style="display:flex;flex-direction:column;height:calc(100dvh - var(--hdr-h) - var(--nav-h));overflow:hidden;padding:0">
+    <div id="pg-checkin" class="pg" style="flex-direction:column;height:calc(100dvh - var(--hdr-h) - var(--nav-h));overflow:hidden;padding:0">
 
       <!-- HEADER -->
       <div style="padding:10px 16px 0;flex-shrink:0;background:var(--card);border-bottom:1px solid var(--border);box-shadow:var(--sh)">
@@ -1450,7 +1460,6 @@ let fbUID  = null;
 
 // Inicializa Firebase
 function initFirebase() {
-  if (IS_LOCAL) { console.log('🖥️ Modo Local — Firebase ignorado'); return; }
   try {
     if (!firebase || !firebase.app) return;
     if (!firebase.apps.length) {
@@ -1553,7 +1562,6 @@ async function carregarDoFirestore() {
 
 // ─── LOGIN / CADASTRO COM FIREBASE AUTH ─────────────────────
 async function fazerLoginFirebase(email, senha, novaConta) {
-  if (IS_LOCAL) { entrarApp(); toast('🖥️ Modo Local — dados salvos neste dispositivo'); return; }
   if (!fbAuth) {
     // Firebase não carregou ainda — tenta local
     toast('⚠️ Firebase ainda carregando, aguarde...');
@@ -1867,7 +1875,7 @@ function irAgendaSetor(setor) {
   setTab(setor);
 }
 
-function entrarDemo(){ fbUID=null; fbUser=null; entrarApp(); toast('🔓 Modo Demo — dados salvos apenas neste dispositivo'); }
+
 
 function recuperarSenha() {
   const emailInput = document.getElementById('li-email').value.trim();
@@ -1890,7 +1898,10 @@ function recuperarSenha() {
 }
 
 function login() {
-  if (IS_LOCAL) { entrarApp(); toast('🖥️ Modo Local ativo — dados salvos neste dispositivo'); return; }
+  if (IS_LOCAL) {
+    alert('⚠️ Login não funciona em arquivo local (file://)\n\nPara usar o app, acesse pelo link online ou abra um servidor local:\n\npython -m http.server 8080\n\nDepois acesse: http://localhost:8080/anguli-pet.html');
+    return;
+  }
   const email = document.getElementById('li-email').value.trim();
   const senha = document.getElementById('li-senha').value;
   if (!email || !senha) { toast('⚠️ Preencha e-mail e senha'); return; }
@@ -1898,6 +1909,10 @@ function login() {
 }
 
 function criarConta() {
+  if (IS_LOCAL) {
+    alert('⚠️ Criar conta não funciona em arquivo local (file://)\n\nAcesse o app pelo link online ou via servidor local:\n\npython -m http.server 8080\nDepois: http://localhost:8080/anguli-pet.html');
+    return;
+  }
   const email = document.getElementById('li-email').value.trim();
   const senha = document.getElementById('li-senha').value;
   if (!email) { toast('⚠️ Informe um e-mail'); return; }
@@ -2075,7 +2090,7 @@ function sendStoredWA(tel, key) {
   if (!msg) return;
   // Abre modal WA com a mensagem preenchida e editável
   var modal = document.getElementById('modal-wa-item');
-  var nm    = numWA(tel);
+  var nm    = tel ? numWA(tel) : null;
   modal._nm       = nm;
   modal._tel      = tel;
   modal._setorKey = 'alerta';
@@ -3431,7 +3446,7 @@ function removerAlertaVacina(petIdx) {
 // ═══ WHATSAPP ITEM ROW ═══
 function abrirWAItem(nome, tutor, tel, servico, data, valor, setor) {
   const nm = numWA(tel);
-  if(!nm){ toast('⚠️ Sem telefone cadastrado para este pet.'); return; }
+  // Sem telefone: abre modal mesmo assim (permite copiar/editar)
   // Verifica se serviço está habilitado para WA
   const setorKey = setor || 'geral';
   const waCfg = config.waMsgs || {};
@@ -3460,7 +3475,16 @@ function abrirWAItem(nome, tutor, tel, servico, data, valor, setor) {
   document.getElementById('wai-tutor').textContent = tutor || '—';
   var servLine = document.getElementById('wai-serv-line');
   if (servLine) servLine.textContent = servico ? ('🐾 ' + servico + (data ? ' • ' + data : '')) : '';
-  document.getElementById('wai-tel-display').textContent = tel || '— (cadastre na ficha)';
+  var telDisplay = document.getElementById('wai-tel-display');
+  if (telDisplay) {
+    if (tel) {
+      telDisplay.textContent = tel;
+      telDisplay.style.color = '';
+    } else {
+      telDisplay.textContent = '⚠️ Sem telefone — mensagem será copiada';
+      telDisplay.style.color = '#DC2626';
+    }
+  }
 
   // Mensagens por tipo
   var msgAvulso = 'Olá ' + (primeiroNome||'') + '! 😊\n\n' + empresa + ' entrando em contato sobre o(a) *' + nome + '*. \n\n';
@@ -3512,14 +3536,25 @@ function waiEnviar() {
   var msg   = ta ? ta.value.trim() : '';
   if (!msg) { toast('⚠️ Mensagem vazia.'); return; }
   if (!modal._nm) {
+    // Sem telefone — copia a mensagem
     if (navigator.clipboard) {
-      navigator.clipboard.writeText(msg).then(function() { toast('📋 Mensagem copiada! Cadastre o telefone na ficha.'); });
-    } else { toast('⚠️ Sem telefone. Edite a ficha do pet.'); }
+      navigator.clipboard.writeText(msg).then(function() {
+        toast('📋 Mensagem copiada! Sem telefone cadastrado — cole no WhatsApp manualmente.');
+      }).catch(function() { toast('⚠️ Sem telefone. Cadastre na ficha do pet.'); });
+    } else {
+      toast('⚠️ Sem telefone cadastrado. Edite a ficha do pet.');
+    }
     return;
   }
-  window.open('https://wa.me/' + modal._nm + '?text=' + encodeURIComponent(msg), '_blank');
+  // Com telefone — abre WhatsApp
+  var url = 'https://wa.me/' + modal._nm + '?text=' + encodeURIComponent(msg);
+  var win = window.open(url, '_blank');
+  if (!win) {
+    // Popup bloqueado — tenta location
+    location.href = url;
+  }
   modal.classList.add('hid');
-  toast('📲 WhatsApp aberto!');
+  toast('📲 Abrindo WhatsApp...');
 }
 function waiSalvarTemplate() { /* removido */ }
 
@@ -3839,30 +3874,49 @@ function verificarStatusFirebase() {
     if (entrou) return;
     entrou = true;
     splash.classList.add('out');
-    if (temDados) {
-      entrarApp();
-    } else {
-      document.getElementById('pg-login').style.display='flex';
-      document.getElementById('pg-login').classList.add('on');
-    }
+    // Sempre mostra login — segurança obrigatória
+    document.getElementById('pg-login').style.display='flex';
+    document.getElementById('pg-login').classList.add('on');
   }
 
   // Garante abertura em no máximo 2 segundos, independente do Firebase
   setTimeout(abrirApp, 2000);
 
   if (IS_LOCAL) {
-    // ── MODO LOCAL (file://) ──────────────────────────────
-    // Firebase ignorado. O app abre via setTimeout acima.
-    console.log('%c🖥️ Anguli Pet — Modo Local (localStorage)', 'color:#F5B800;font-weight:bold;font-size:13px');
-    _adaptarUIModoLocal();
+    console.log('%c🖥️ Anguli Pet — Modo Local', 'color:#F5B800;font-weight:bold;font-size:13px');
+
+    // Inicializa Firebase mesmo em modo local (e-mail/senha funciona em file://)
+    try {
+      initFirebase();
+      if (typeof firebase !== 'undefined' && firebase.auth) {
+        firebase.auth().onAuthStateChanged(function(user) {
+          if (user) {
+            fbUser = user; fbUID = user.uid;
+            if (!entrou) { entrou = true; splash.classList.add('out'); entrarApp(); }
+          } else {
+            abrirApp();
+          }
+        });
+      } else { abrirApp(); }
+    } catch(e) { console.warn('Firebase local:', e.message); abrirApp(); }
   } else {
     // ── MODO NUVEM (http/https) ───────────────────────────
     try {
       initFirebase();
       if (typeof firebase !== 'undefined' && firebase.auth) {
         firebase.auth().onAuthStateChanged(user => {
-          if (user) { fbUser = user; fbUID = user.uid; }
-          abrirApp();
+          if (user) {
+            fbUser = user; fbUID = user.uid;
+            // Sessão ativa — entra direto (funciona offline também)
+            if (!entrou) {
+              entrou = true;
+              splash.classList.add('out');
+              entrarApp();
+            }
+          } else {
+            // Sem sessão — mostra login
+            abrirApp();
+          }
         });
       }
     } catch(e) { /* Firebase indisponível — setTimeout acima garante a abertura */ }
@@ -5441,52 +5495,7 @@ bindFabAgendar();
 // ══════════════════════════════════════════════════════════
 //  MODO LOCAL — Adaptação de UI e Google Login guard
 // ══════════════════════════════════════════════════════════
-function _adaptarUIModoLocal() {
-  // Banner informativo na tela de login
-  var loginPg = document.getElementById('pg-login');
-  if (loginPg && !document.getElementById('__local-banner')) {
-    var banner = document.createElement('div');
-    banner.id = '__local-banner';
-    banner.style.cssText = 'background:linear-gradient(135deg,#1a3a5c,#0D2E6E);border:2px solid #F5B800;border-radius:14px;padding:14px 18px;margin-bottom:14px;width:100%;max-width:380px;text-align:center';
-    banner.innerHTML = '<div style="font-size:22px;margin-bottom:5px">🖥️</div>'
-      + '<div style="font-size:13px;font-weight:900;color:#F5B800;margin-bottom:4px">Modo Local Ativo</div>'
-      + '<div style="font-size:11px;color:rgba(255,255,255,.8);line-height:1.6">'
-      + 'Arquivo aberto direto do HD.<br>'
-      + 'Dados salvos <strong style="color:#fff">neste dispositivo</strong>.<br>'
-      + 'Clique em <strong style="color:#F5B800">Entrar</strong> ou <strong style="color:#F5B800">Demo</strong>.</div>';
-    loginPg.insertBefore(banner, loginPg.firstChild);
-  }
-
-
-  // Atualiza info box Firebase
-  var infoBoxes = document.querySelectorAll('#pg-login > div');
-  infoBoxes.forEach(function(el) {
-    if (el.textContent && (el.textContent.includes('Firebase') || el.textContent.includes('Nuvem ativa'))) {
-      el.style.background = '#FFF8DC';
-      el.style.border = '1px solid #F5B800';
-      el.style.color = '#8A6500';
-      el.innerHTML = '<strong>🖥️ Modo Local:</strong> Dados salvos só neste dispositivo (localStorage).<br>'
-        + '<span style="opacity:.8">Para sincronizar na nuvem, acesse via servidor ou hospedagem.</span>';
-    }
-  });
-  // Badge no header
-  var hright = document.querySelector('.hright');
-  if (hright && !document.getElementById('__local-badge')) {
-    var badge = document.createElement('div');
-    badge.id = '__local-badge';
-    badge.style.cssText = 'font-size:10px;font-weight:900;color:#F5B800;background:rgba(245,184,0,.15);border:1px solid rgba(245,184,0,.4);padding:3px 8px;border-radius:20px;white-space:nowrap;cursor:default';
-    badge.title = 'Modo Local — Firebase desativado';
-    badge.textContent = '🖥️ Local';
-    hright.insertBefore(badge, hright.firstChild);
-  }
-  // Status Firebase na config
-  var fbStatusTxt = document.getElementById('fb-status-txt');
-  if (fbStatusTxt) {
-    fbStatusTxt.innerHTML = '🖥️ <strong>Modo Local</strong> — Firebase desativado.<br>Dados em localStorage neste dispositivo.';
-    var box = fbStatusTxt.closest('#fb-status-box');
-    if (box) box.style.background = '#FFF8DC';
-  }
-}
+function _adaptarUIModoLocal() { /* desativado */ }
 
 // Guard para loginGoogle em modo local
 (function() {
