@@ -1948,12 +1948,17 @@ function sair(){
     toast('👋 Saiu com segurança.');
   },'#4A5878');
 }
+// ═══ HELPER: Definir filtro genérico ═══
+function setFiltroGenerico(filtroObj, prop, tipo, btn, containerSelector) {
+  filtroObj[prop] = tipo;
+  document.querySelectorAll(containerSelector + ' .fat-btn').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+}
+
 // ═══ DASHBOARD ═══
 let fatFiltro='dia';
 function setFatFiltro(tipo, btn){
-  fatFiltro=tipo;
-  document.querySelectorAll('.fat-btn').forEach(b=>b.classList.remove('on'));
-  btn.classList.add('on');
+  setFiltroGenerico(window, 'fatFiltro', tipo, btn, '');
   renderGrafico();
 }
 
@@ -1996,40 +2001,39 @@ function renderGrafico(){
   const total=vals.reduce((a,v)=>a+v,0);
   const cores=['#16A34A','#1A4BAA','#EA580C','#7C3AED','#DC2626','#9333EA'];
   const nomes=['Creche','Hotel','Banho/Tosa','Dog Walker','Táxi Dog','Adestramento'];
-  const svg=document.getElementById('donut-svg');
-  document.getElementById('donut-total').textContent='R$ '+total.toFixed(2).replace('.',',');
+  renderDonutChart('donut-svg', 'donut-total', 'fat-legend', vals, cores, nomes, total);
+}
 
-  // Donut correto usando stroke-dasharray
-  const cx=55, cy=55, r=36;
-  const circ=2*Math.PI*r;
-  if(total===0){
-    svg.innerHTML=`<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#EEF4FF" stroke-width="14"/>`;
+// ═══ HELPER: Renderizar gráfico donut ═══
+function renderDonutChart(svgId, totalId, legendId, vals, cores, nomes, total) {
+  const svg = document.getElementById(svgId);
+  if (!svg) return;
+  document.getElementById(totalId).textContent = 'R$ ' + total.toFixed(2).replace('.',',');
+  const cx = 55, cy = 55, r = 36;
+  const circ = 2 * Math.PI * r;
+  if (total === 0) {
+    svg.innerHTML = `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#EEF4FF" stroke-width="14"/>`;
   } else {
-    let offset=0;
-    let paths=`<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#EEF4FF" stroke-width="14"/>`;
-    vals.forEach((v,i)=>{
-      if(!v) return;
-      const pct=v/total;
-      const dash=pct*circ;
-      const gap=circ-dash;
-      paths+=`<circle cx="${cx}" cy="${cy}" r="${r}" fill="none"
-        stroke="${cores[i]}" stroke-width="14"
+    let offset = 0;
+    let paths = `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#EEF4FF" stroke-width="14"/>`;
+    vals.forEach((v, i) => {
+      if (!v) return;
+      const pct = v / total, dash = pct * circ, gap = circ - dash;
+      paths += `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${cores[i]}" stroke-width="14"
         stroke-dasharray="${dash.toFixed(2)} ${gap.toFixed(2)}"
-        stroke-dashoffset="${(-offset*circ+circ*0.25).toFixed(2)}"
-        transform="rotate(-90 ${cx} ${cy})"
-        style="transition:stroke-dasharray .4s ease"/>`;
-      offset+=pct;
+        stroke-dashoffset="${(-offset * circ + circ * 0.25).toFixed(2)}"
+        transform="rotate(-90 ${cx} ${cy})"/>`;
+      offset += pct;
     });
-    paths+=`<circle cx="${cx}" cy="${cy}" r="24" fill="white"/>`;
-    svg.innerHTML=paths;
+    paths += `<circle cx="${cx}" cy="${cy}" r="24" fill="white"/>`;
+    svg.innerHTML = paths;
   }
-
-  document.getElementById('fat-legend').innerHTML=vals.map((v,i)=>`
+  document.getElementById(legendId).innerHTML = vals.map((v, i) => `
     <div class="leg-item">
       <div class="leg-dot" style="background:${cores[i]}"></div>
       <span class="leg-lbl">${nomes[i]}</span>
       <span class="leg-val">R$ ${v.toFixed(2).replace('.',',')}</span>
-      <span class="leg-pct">${total?Math.round(v/total*100):0}%</span>
+      <span class="leg-pct">${total ? Math.round(v / total * 100) : 0}%</span>
     </div>`).join('');
 }
 
@@ -2546,6 +2550,14 @@ function rCreche(idx,d){
     <div class="af" id="cc-racao-wrap" style="display:none"><div class="af-l">🍖 Qual ração</div><select class="asel" id="cc-racao" onchange="atualizarValorCreche()" style="min-width:130px"></select></div>
     <div class="af"><div class="af-l">Pagou?</div><select class="asel" id="cc-pg"><option>Não</option><option>Sim</option></select></div>`);
   el.innerHTML=h; bindPicker('cc-n','cc-t','cc-p',null);
+  // Preenche select de ração após render
+  setTimeout(function() {
+    atualizarSelectRacaoCreche();
+    var plSel = document.getElementById('cc-pl');
+    if (plSel) plSel.addEventListener('change', atualizarValorCreche);
+    var alimSel = document.getElementById('cc-alim');
+    if (alimSel) alimSel.addEventListener('change', atualizarValorCreche);
+  }, 50);
 }
 
 function rHotel(idx,d){
@@ -2564,6 +2576,13 @@ function rHotel(idx,d){
   // Registra campos extras a preencher pelo picker no Hotel
   var hcExtras = document.getElementById('hc-n-extras');
   if (hcExtras) hcExtras.value = JSON.stringify({"hc-e":"esp","hc-alim":"alim"});
+  setTimeout(function() {
+    atualizarSelectRacaoHotel();
+    var diasEl = document.getElementById('hc-d');
+    if (diasEl) diasEl.addEventListener('input', atualizarValorHotel);
+    var espEl  = document.getElementById('hc-e');
+    if (espEl)  espEl.addEventListener('change', atualizarValorHotel);
+  }, 50);
 }
 
 function rBanho(idx,d){
@@ -3056,10 +3075,6 @@ const WA_SERVICOS = [
 const WA_TPL_CONFIRM_DEFAULT = 'Olá {tutor}! 👋\n\nConfirmamos o agendamento de *{servico}* para o pet *{nome}*\n📅 Data: *{data}*\n{valor}Estamos te esperando na *{empresa}*! 🐾\n📱 {wa}';
 const WA_TPL_CHEGOU_DEFAULT  = 'Olá {tutor}! 👋\n\n*{nome}* chegou na *{empresa}* e está bem! 🐾\nFique tranquilo(a), cuidaremos com muito carinho! 💚\n📱 {wa}';
 
-function carregarCfgWA() { /* removido — edição inline no modal WA */ }
-
-function toggleWAServico(key, wrap) { /* removido */ }
-
 function salvarCfgWA() { save(); toast('✅ Mensagens salvas!'); }
 
 function carregarConfig(){
@@ -3119,9 +3134,7 @@ function salvarFirebaseCfg(){
 let fatPgFiltro = 'dia';
 
 function setFatPgFiltro(tipo, btn) {
-  fatPgFiltro = tipo;
-  document.querySelectorAll('#pg-fat .fat-btn').forEach(b => b.classList.remove('on'));
-  btn.classList.add('on');
+  setFiltroGenerico(window, 'fatPgFiltro', tipo, btn, '#pg-fat');
   renderFaturamento();
 }
 
@@ -3145,33 +3158,7 @@ function renderFaturamento() {
   const vals  = [por.creche, por.hotel, por.banho, por.dw, por.taxi||0, por.adest||0];
   const cores  = ['#16A34A','#1A4BAA','#EA580C','#7C3AED','#DC2626','#9333EA'];
   const nomes  = ['Creche','Hotel','Banho/Tosa','Dog Walker','Táxi Dog','Adestramento'];
-  const svg    = document.getElementById('donut-svg-pg');
-  document.getElementById('donut-total-pg').textContent = 'R$ ' + total.toFixed(2).replace('.',',');
-  const cx=55, cy=55, r=36, circ=2*Math.PI*r;
-  if(total===0){
-    svg.innerHTML=`<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#EEF4FF" stroke-width="14"/>`;
-  } else {
-    let offset=0;
-    let paths=`<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#EEF4FF" stroke-width="14"/>`;
-    vals.forEach((v,i)=>{
-      if(!v) return;
-      const pct=v/total, dash=pct*circ, gap=circ-dash;
-      paths+=`<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${cores[i]}" stroke-width="14"
-        stroke-dasharray="${dash.toFixed(2)} ${gap.toFixed(2)}"
-        stroke-dashoffset="${(-offset*circ+circ*0.25).toFixed(2)}"
-        transform="rotate(-90 ${cx} ${cy})"/>`;
-      offset+=pct;
-    });
-    paths+=`<circle cx="${cx}" cy="${cy}" r="24" fill="white"/>`;
-    svg.innerHTML=paths;
-  }
-  document.getElementById('fat-legend-pg').innerHTML = vals.map((v,i)=>`
-    <div class="leg-item">
-      <div class="leg-dot" style="background:${cores[i]}"></div>
-      <span class="leg-lbl">${nomes[i]}</span>
-      <span class="leg-val">R$ ${v.toFixed(2).replace('.',',')}</span>
-      <span class="leg-pct">${total?Math.round(v/total*100):0}%</span>
-    </div>`).join('');
+  renderDonutChart('donut-svg-pg', 'donut-total-pg', 'fat-legend-pg', vals, cores, nomes, total);
 
   // Histórico de lançamentos pagos no período
   const hj = hoje();
@@ -3248,9 +3235,7 @@ let saidaFiltro = 'dia';
 let editSaidaIdx = null;
 
 function setSaidaFiltro(tipo, btn) {
-  saidaFiltro = tipo;
-  document.querySelectorAll('#pg-saidas .fat-btn').forEach(b => b.classList.remove('on'));
-  btn.classList.add('on');
+  setFiltroGenerico(window, 'saidaFiltro', tipo, btn, '#pg-saidas');
   renderSaidas();
 }
 
@@ -3556,8 +3541,6 @@ function waiEnviar() {
   modal.classList.add('hid');
   toast('📲 Abrindo WhatsApp...');
 }
-function waiSalvarTemplate() { /* removido */ }
-
 function waiSalvarTemplate() {
   const modal = document.getElementById('modal-wa-item');
   const tipo = modal._tipo || 'confirm';
@@ -3574,9 +3557,7 @@ let adestFiltro = 'dia';
 let editAdestIdx = null;
 
 function setAdestFiltro(tipo, btn) {
-  adestFiltro = tipo;
-  document.querySelectorAll('#pg-adest .fat-btn').forEach(b => b.classList.remove('on'));
-  btn.classList.add('on');
+  setFiltroGenerico(window, 'adestFiltro', tipo, btn, '#pg-adest');
   renderAdest();
 }
 
@@ -4526,9 +4507,8 @@ function renderCkPage() {
 
 
 // ── TROCA DE ABA CHECK-IN / CHECK-OUT ──
-var _ckAbaAtiva = 'in'; // AppEstado.ckAba is the canonical source
 function ckMudarAba(aba) {
-  _ckAbaAtiva = aba;
+  AppEstado.ckAba = aba;
   // Sync nav highlight
   var nbCi = document.getElementById('nb-checkin');
   var nbCo = document.getElementById('nb-checkout');
@@ -4959,9 +4939,6 @@ function pickerFotoCirculo(evt, idNome) {
   };
   reader.readAsDataURL(file);
 }
-// aliases
-function pickerFotoNova(evt, idNome) { pickerFotoCirculo(evt, idNome); }
-function pickerFotoPreviewNovo(evt, idNome) { pickerFotoCirculo(evt, idNome); }
 
 function pickerLimpar(idNome, idTutor, idPorte, idEsp) {
   // Limpa valores
@@ -5229,31 +5206,6 @@ function atualizarValorHotel() {
     : '💰 R$' + base + ' × ' + dias + ' dia(s) = R$' + total;
 }
 
-// Inicializa os selects quando creche/hotel renderizam
-var _origRCreche = typeof rCreche === 'function' ? rCreche : null;
-rCreche = function(idx, d) {
-  if (_origRCreche) _origRCreche(idx, d);
-  // Preenche select de ração após render
-  setTimeout(function() {
-    atualizarSelectRacaoCreche();
-    var plSel = document.getElementById('cc-pl');
-    if (plSel) plSel.addEventListener('change', atualizarValorCreche);
-    var alimSel = document.getElementById('cc-alim');
-    if (alimSel) alimSel.addEventListener('change', atualizarValorCreche);
-  }, 50);
-};
-
-var _origRHotel = typeof rHotel === 'function' ? rHotel : null;
-rHotel = function(idx, d) {
-  if (_origRHotel) _origRHotel(idx, d);
-  setTimeout(function() {
-    atualizarSelectRacaoHotel();
-    var diasEl = document.getElementById('hc-d');
-    if (diasEl) diasEl.addEventListener('input', atualizarValorHotel);
-    var espEl  = document.getElementById('hc-e');
-    if (espEl)  espEl.addEventListener('change', atualizarValorHotel);
-  }, 50);
-};
 
 
 // Abre modal WA direto do check-in
@@ -5495,18 +5447,7 @@ bindFabAgendar();
 // ══════════════════════════════════════════════════════════
 //  MODO LOCAL — Adaptação de UI e Google Login guard
 // ══════════════════════════════════════════════════════════
-function _adaptarUIModoLocal() { /* desativado */ }
-
-// Guard para loginGoogle em modo local
-(function() {
-  var _origLoginGoogle = window.loginGoogle;
-  if (typeof _origLoginGoogle === 'function') {
-    window.loginGoogle = function() {
-
-      _origLoginGoogle.apply(this, arguments);
-    };
-  }
-})();
+// Funções de adaptação removidas - não utilizadas
 
 </script>
 
