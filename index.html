@@ -1963,6 +1963,9 @@ function _irCore(pg) {
     saidas:  renderSaidas,
     config:  function(){ carregarConfig(); carregarCfgWA(); },
     checkin: renderCkPage,
+    boletim: renderBoletimV3,
+    vips:    renderVIPs,
+    estoque: renderEstoque,
   };
   if (renderMap[pg]) renderMap[pg]();
 }
@@ -5231,10 +5234,7 @@ function renderPets() {
 
 // ─ ir() unificado (novas páginas + originais) ─
 function ir(pg) {
-  if(pg==='boletim'){ renderBoletimV3(); }
   if(pg==='checkin'){ renderCkPage(); }
-  if(pg==='vips'){ renderVIPs(); }
-  if(pg==='estoque'){ renderEstoque(); }
 
   fecharMais();
   _irCore(pg);
