@@ -58,6 +58,7 @@
   --nav-h:68px; --hdr-h:56px;
   --f:'Nunito',sans-serif;
 }
+html{overscroll-behavior-y:contain}
 body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 
 /* ══ SPLASH ══ */
@@ -177,6 +178,21 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
 .alert-wa-btn:active{transform:scale(.97)}
 .alert-edit-btn{display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border-radius:20px;font-size:12px;font-weight:800;cursor:pointer;border:1.5px solid var(--border2);background:var(--bg);color:var(--tx2);font-family:var(--f);transition:all .15s;white-space:nowrap}
 .alert-edit-btn:hover{border-color:var(--azul-l);background:var(--azul-bg);color:var(--azul)}
+.alert-vacina-aplicada-btn{display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border-radius:20px;font-size:12px;font-weight:800;cursor:pointer;border:1.5px solid #86EFAC;background:#DCFCE7;color:#14532D;font-family:var(--f);transition:all .15s;white-space:nowrap}
+.alert-vacina-aplicada-btn:hover{transform:scale(1.03);box-shadow:0 2px 8px rgba(0,0,0,.1)}
+.alert-vacina-aplicada-btn:active{transform:scale(.97)}
+.alert-vacina-manter-btn{display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border-radius:20px;font-size:12px;font-weight:800;cursor:pointer;border:1.5px solid #FECACA;background:#FEE2E2;color:#DC2626;font-family:var(--f);transition:all .15s;white-space:nowrap}
+.alert-vacina-manter-btn:hover{transform:scale(1.03);box-shadow:0 2px 8px rgba(0,0,0,.1)}
+.alert-vacina-manter-btn:active{transform:scale(.97)}
+
+/* ══ TAGS DE RESTRIÇÃO ══ */
+.restricao-tag{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:12px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.3px;margin-right:4px;margin-bottom:4px}
+.restricao-critica{background:#FEE2E2;color:#DC2626;border:1px solid #FECACA}
+.restricao-alerta{background:#FEF3C7;color:#92400E;border:1px solid #FDE68A}
+.restricao-info{background:#DBEAFE;color:#1E40AF;border:1px solid #BFDBFE}
+.restricao-cardio{background:#FEE2E2;color:#DC2626;border:1px solid #FECACA}
+.restricao-alergia{background:#FEF3C7;color:#92400E;border:1px solid #FDE68A}
+.restricao-bravo{background:#FEE2E2;color:#DC2626;border:1px solid #FECACA}
 
 /* ══ SEMANA ══ */
 .semhdr{display:flex;align-items:center;justify-content:space-between;padding:12px 16px 4px}
@@ -842,6 +858,52 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
       <div id="fat-historico"></div>
     </div>
 
+    <!-- ═══ CLIENTES VIPs ═══ -->
+    <div id="pg-vips" class="pg">
+      <div class="sh">
+        <div><div class="sh-t">Clientes VIPs 👑</div><div class="sh-s" id="vips-sub">Tutores mais frequentes</div></div>
+      </div>
+
+      <!-- KPIs VIPs -->
+      <div class="kgrid" style="margin-bottom:10px">
+        <div class="kcard kf" style="background:linear-gradient(135deg,#FFD700,#FFA500)">
+          <i class="ti ti-crown" style="font-size:20px;margin-bottom:4px"></i>
+          <div class="kval" id="vips-total" style="font-size:30px;color:#fff">0</div>
+          <div class="klbl" style="color:#fff">Clientes VIPs</div>
+          <div class="ksub" style="color:#fff">+10 check-ins</div>
+        </div>
+        <div class="kcard" style="background:#FEE2E2;color:#7F1D1D"><div style="font-size:18px;margin-bottom:4px">🏆</div><div class="kval" id="vips-top" style="font-size:22px">0</div><div class="klbl">Top Cliente</div></div>
+        <div class="kcard" style="background:#DBEAFE;color:#1E40AF"><div style="font-size:18px;margin-bottom:4px">📈</div><div class="kval" id="vips-media" style="font-size:22px">0</div><div class="klbl">Média Check-ins</div></div>
+      </div>
+
+      <!-- Lista de clientes VIPs -->
+      <div class="sdiv"><i class="ti ti-users"></i> Ranking de Clientes</div>
+      <div id="vips-list"></div>
+    </div>
+
+    <!-- ═══ ESTOQUE ═══ -->
+    <div id="pg-estoque" class="pg">
+      <div class="sh">
+        <div><div class="sh-t">Estoque 📦</div><div class="sh-s" id="estoque-sub">Controle de produtos</div></div>
+        <button class="btn-pr" onclick="addEstoque()"><i class="ti ti-plus"></i> Adicionar</button>
+      </div>
+
+      <!-- KPIs Estoque -->
+      <div class="kgrid" style="margin-bottom:10px">
+        <div class="kcard kf" style="background:#DCFCE7;color:#14532D">
+          <i class="ti ti-package" style="font-size:20px;margin-bottom:4px"></i>
+          <div class="kval" id="estoque-total" style="font-size:30px">0</div>
+          <div class="klbl">Produtos</div>
+        </div>
+        <div class="kcard" style="background:#FEE2E2;color:#7F1D1D"><div style="font-size:18px;margin-bottom:4px">⚠️</div><div class="kval" id="estoque-baixo" style="font-size:22px">0</div><div class="klbl">Abaixo do mínimo</div></div>
+        <div class="kcard" style="background:#DBEAFE;color:#1E40AF"><div style="font-size:18px;margin-bottom:4px">💰</div><div class="kval" id="estoque-valor" style="font-size:22px">R$0</div><div class="klbl">Valor total</div></div>
+      </div>
+
+      <!-- Lista de produtos -->
+      <div class="sdiv"><i class="ti ti-list"></i> Produtos</div>
+      <div id="estoque-list"></div>
+    </div>
+
     <!-- ═══ ADESTRAMENTO ═══ -->
     <div id="pg-adest" class="pg">
       <div class="sh">
@@ -999,6 +1061,11 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
           <div class="plrow"><span>Pacote 8 sessões</span><input class="fi" id="pad-p8" type="number" value="960" style="width:70px"></div>
           <div class="plrow"><span>Mensal (semanal)</span><input class="fi" id="pad-men" type="number" value="400" style="width:70px"></div>
         </div>
+        <div class="plcard" style="background:linear-gradient(135deg,#FFD700,#FFA500)">
+          <div class="plcard-t" style="color:#fff">👥 Profissionais & Comissão</div>
+          <div id="profissionais-list" style="margin-bottom:10px"></div>
+          <button onclick="addProfissional()" style="padding:5px 12px;background:#fff;border:1.5px dashed #FFA500;border-radius:8px;font-size:11px;font-weight:800;color:#B45309;cursor:pointer;font-family:var(--f);width:100%">+ Adicionar profissional</button>
+        </div>
         <div class="fabs"><button class="btn-pr" onclick="salvarPrecos()"><i class="ti ti-check"></i> Salvar preços</button></div>
       </div>
 
@@ -1110,6 +1177,8 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
     <div class="mais-grid">
       <button class="mais-item" onclick="fecharMais();ir('fat')"><div class="mi-ic">💰</div><span class="mi-lbl">Entradas</span></button>
       <button class="mais-item" onclick="fecharMais();ir('saidas')"><div class="mi-ic">💸</div><span class="mi-lbl">Saídas</span></button>
+      <button class="mais-item" onclick="fecharMais();ir('vips')"><div class="mi-ic">👑</div><span class="mi-lbl">VIPs</span></button>
+      <button class="mais-item" onclick="fecharMais();ir('estoque')"><div class="mi-ic">📦</div><span class="mi-lbl">Estoque</span></button>
       <button class="mais-item" onclick="fecharMais();ir('adest')"><div class="mi-ic">🎓</div><span class="mi-lbl">Adest.</span></button>
       <button class="mais-item" onclick="fecharMais();ir('boletim')"><div class="mi-ic">📋</div><span class="mi-lbl">Boletim</span></button>
       <button class="mais-item" onclick="fecharMais();ir('config')"><div class="mi-ic">⚙️</div><span class="mi-lbl">Config</span></button>
@@ -1171,6 +1240,15 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
     </div>
     <div class="frow">
       <div class="fg" style="min-width:100%"><label class="fl">Observações gerais (alergias, comportamento...)</label><textarea class="fta" id="mp-obs" placeholder="Ex: Alergia a frango, não gosta de banho..."></textarea></div>
+    </div>
+    <div class="frow-sep">📅 Recorrência & Plano</div>
+    <div class="frow">
+      <div class="fg"><label class="fl">Plano Recorrente</label><select class="fs" id="mp-recorrente"><option>Não</option><option value="mensal">Mensalidade Recorrente</option></select></div>
+      <div class="fg"><label class="fl">Vencimento</label><input class="fi" id="mp-vencimento" type="date"></div>
+    </div>
+    <div class="frow-sep">🏫 Créditos Creche</div>
+    <div class="frow">
+      <div class="fg"><label class="fl">Créditos Mensais</label><input class="fi" id="mp-creditos" type="number" placeholder="Ex: 8 (2x/sem)"></div>
     </div>
     <div class="macts">
       <button class="btn-danger" id="mp-btn-del" style="display:none" onclick="delPetModal()"><i class="ti ti-trash"></i> Excluir</button>
@@ -1374,7 +1452,7 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
       <div class="frow-sep">Data e Valor</div>
       <div class="frow">
         <div class="fg"><label class="fl">Data *</label><input class="fi" id="ai-data" type="date"></div>
-        <div class="fg"><label class="fl">Horário</label><input class="fi" id="ai-hora" type="time" value="09:00"></div>
+        <div class="fg"><label class="fl">Horário</label><select class="fs" id="ai-hora"></select></div>
       </div>
       <div class="frow">
         <div class="fg"><label class="fl">Valor (R$)</label><input class="fi" id="ai-valor" type="number" step="0.01" placeholder="0,00"></div>
@@ -1394,6 +1472,19 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
   <div class="modal">
     <div class="mhandle"></div>
     <div class="mtitle">✅ Check-in Rápido</div>
+    <!-- Campo de upload de foto para comprovação -->
+    <div style="padding:0 16px 12px">
+      <div class="af-l" style="margin-bottom:6px">📸 Foto de entrada (opcional)</div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <label for="ck-foto-upload" style="flex:1;padding:10px;border:2px dashed var(--border2);border-radius:8px;text-align:center;cursor:pointer;transition:border .2s" onmouseover="this.style.borderColor='var(--azul)'" onmouseout="this.style.borderColor='var(--border2)'">
+          <div style="font-size:24px;margin-bottom:4px">📷</div>
+          <div style="font-size:11px;color:var(--tx3);font-weight:700">Clique para tirar foto</div>
+          <div style="font-size:10px;color:var(--tx4);margin-top:2px">Comprovação de machucados/carrapatos</div>
+        </label>
+        <input type="file" id="ck-foto-upload" accept="image/*" style="display:none" onchange="ckFotoPreview(event)">
+        <div id="ck-foto-preview" style="width:60px;height:60px;border-radius:8px;background:var(--bg);display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px solid var(--border)"></div>
+      </div>
+    </div>
     <div class="checkin-grid-v3" id="ck-modal-grid" style="padding:0 0 8px"></div>
     <div class="macts"><button class="btn-ghost" onclick="fecharModal('modal-ck-rap')">Fechar</button></div>
   </div>
@@ -1604,6 +1695,35 @@ async function fazerLogoutFirebase() {
   fbUser = null; fbUID = null;
 }
 
+// ─── LOGIN COM GOOGLE ─────────────────────────────────
+async function loginGoogle() {
+  if (!fbAuth) {
+    toast('⚠️ Firebase ainda carregando, aguarde...');
+    setTimeout(() => loginGoogle(), 1500);
+    return;
+  }
+  const btn = document.getElementById('btn-google');
+  if (btn) { btn.textContent = '🔄 Aguarde...'; btn.disabled = true; }
+  try {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    const cred = await fbAuth.signInWithPopup(provider);
+    fbUser = cred.user;
+    fbUID = cred.user.uid;
+    entrarApp();
+    toast('✅ Login com Google realizado!');
+  } catch(e) {
+    const msgs = {
+      'auth/popup-closed-by-user': '⚠️ Login cancelado pelo usuário.',
+      'auth/popup-blocked': '⚠️ Popup bloqueado. Permita popups para este site.',
+      'auth/account-exists-with-different-credential': '⚠️ E-mail já cadastrado com outro método.',
+      'auth/network-request-failed': '⚠️ Sem conexão. Tente o modo Demo.',
+      'auth/invalid-credential': '⚠️ Credenciais inválidas.'
+    };
+    toast(msgs[e.code] || '⚠️ Erro: ' + e.message);
+    if (btn) { btn.innerHTML = '<i class="ti ti-brand-google"></i> Entrar com Google'; btn.disabled = false; }
+  }
+}
+
 // ── 02. CONSTANTES ─────────────────────────────────
 const DIAS  = ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'];
 const DIASF = ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'];
@@ -1669,6 +1789,10 @@ const AppD = {
   pets:   S.get('pets', []),
   saidas: S.get('saidas', []),
   adests: S.get('adests', []),
+  // Novas estruturas para expansão de funcionalidades
+  clientesVIPs: S.get('clientesVIPs', []), // Lista de clientes VIP com frequência
+  estoque: S.get('estoque', []), // Controle de estoque Pet Shop
+  profissionais: S.get('profissionais', []), // Profissionais com comissão
   config: S.get('config', {
     nome:'Anguli Pet', wa:'47 98857-4522', ig:'@angulipet',
     precos:{
@@ -1694,6 +1818,9 @@ let dados  = AppD.dados;
 let pets   = AppD.pets;
 let saidas = AppD.saidas;
 let adests = AppD.adests;
+let clientesVIPs = AppD.clientesVIPs;
+let estoque = AppD.estoque;
+let profissionais = AppD.profissionais;
 let config = AppD.config;
 
 // save() — função única de persistência: salva tudo + Firebase
@@ -1701,8 +1828,10 @@ const save = () => {
   // Mantém AppD sincronizado com aliases
   AppD.dados = dados; AppD.pets = pets;
   AppD.saidas = saidas; AppD.adests = adests; AppD.config = config;
+  AppD.clientesVIPs = clientesVIPs; AppD.estoque = estoque; AppD.profissionais = profissionais;
   S.set('dados',dados); S.set('pets',pets);
   S.set('saidas',saidas); S.set('adests',adests); S.set('config',config);
+  S.set('clientesVIPs',clientesVIPs); S.set('estoque',estoque); S.set('profissionais',profissionais);
   fbSync();
 };
 
@@ -2177,11 +2306,10 @@ function renderAlertas(){
             <button class="alert-wa-btn" onclick="sendStoredWA('${tel}','${msgKeyVV}')">📱 Avisar no WhatsApp</button>
             <button class="alert-edit-btn" onclick="editPet(${pi})">✏️ Editar ficha</button>
           </div>
-          <div style="display:flex;gap:6px;margin-top:6px;flex-wrap:wrap;align-items:center">
-            <span style="font-size:11px;font-weight:700;color:#9CA3AF">Após vacinar:</span>
-            <button class="btn-snooze-rm" onclick="removerAlertaVacina(${pi})">✅ Remover alerta</button>
+          <div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap;align-items:center">
+            <button class="alert-vacina-aplicada-btn" onclick="removerAlertaVacina(${pi})">✓ Após vacinar: Remover alerta</button>
+            <button class="alert-vacina-manter-btn" onclick="dispensarAlerta('${ck}')">🔔 Manter alerta</button>
           </div>
-          <button class="btn-snooze-keep" style="margin-top:6px" onclick="dispensarAlerta('${ck}')">🔔 Manter alerta</button>
         </div>
       </div>`;
     } else if(diff===0){
@@ -2201,7 +2329,10 @@ function renderAlertas(){
             <button class="alert-wa-btn" onclick="sendStoredWA('${tel}','${msgKeyVH}')">📱 Avisar no WhatsApp</button>
             <button class="alert-edit-btn" onclick="editPet(${pi})">✏️ Editar ficha</button>
           </div>
-          <button class="btn-snooze-keep" style="margin-top:6px" onclick="dispensarAlerta('${ck}')">🔔 Manter alerta</button>
+          <div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap;align-items:center">
+            <button class="alert-vacina-aplicada-btn" onclick="removerAlertaVacina(${pi})">✓ Após vacinar: Remover alerta</button>
+            <button class="alert-vacina-manter-btn" onclick="dispensarAlerta('${ck}')">🔔 Manter alerta</button>
+          </div>
         </div>
       </div>`;
     } else if(diff<=2){
@@ -2987,7 +3118,11 @@ function salvarPet(){
   const n=document.getElementById('mp-nome').value.trim();
   if(!n){toast('⚠️ Informe o nome');return;}
   const gv=id=>document.getElementById(id)?.value||'';
-  const pet={nome:n,tutor:gv('mp-tutor'),esp:gv('mp-esp'),porte:gv('mp-porte'),raca:gv('mp-raca'),nasc:gv('mp-nasc'),peso:gv('mp-peso'),cast:gv('mp-cast'),tel:gv('mp-tel'),tel2:gv('mp-tel2'),vet:gv('mp-vet'),vacina:gv('mp-vacina'),alim:gv('mp-alim'),temp:gv('mp-temp'),soc:gv('mp-soc'),med:gv('mp-med'),obs:gv('mp-obs'),foto:document.getElementById('mp-foto-data').value,cadastro:new Date().toLocaleDateString('pt-BR')};
+  const pet={nome:n,tutor:gv('mp-tutor'),esp:gv('mp-esp'),porte:gv('mp-porte'),raca:gv('mp-raca'),nasc:gv('mp-nasc'),peso:gv('mp-peso'),cast:gv('mp-cast'),tel:gv('mp-tel'),tel2:gv('mp-tel2'),vet:gv('mp-vet'),vacina:gv('mp-vacina'),alim:gv('mp-alim'),temp:gv('mp-temp'),soc:gv('mp-soc'),med:gv('mp-med'),obs:gv('mp-obs'),foto:document.getElementById('mp-foto-data').value,cadastro:new Date().toLocaleDateString('pt-BR'),
+    // Campos de recorrência
+    recorrente:gv('mp-recorrente'), vencimento:gv('mp-vencimento'),
+    // Campo de créditos para creche
+    creditos:parseInt(gv('mp-creditos'))||0};
   if(editPetIdx!==null) pets[editPetIdx]=pet; else pets.push(pet);
   save(); fecharModal('modal-pet'); renderPets();
   toast(editPetIdx!==null?'✏️ Pet atualizado!':'🐾 Pet cadastrado!');
@@ -3093,6 +3228,8 @@ function carregarConfig(){
   sv('pdw-av',p.dw.av);sv('pdw-3x',p.dw.t3x);sv('pdw-5x',p.dw.t5x);
   sv('ptx-simples',p.taxi?.simples||30);sv('ptx-idavolta',p.taxi?.idavolta||55);sv('ptx-mensal',p.taxi?.mensal||200);
   sv('pad-av',p.adest?.av||150);sv('pad-p4',p.adest?.p4||520);sv('pad-p8',p.adest?.p8||960);sv('pad-men',p.adest?.men||400);
+  renderRacoesConfig();
+  renderProfissionaisConfig();
   verificarStatusFirebase();
 }
 
@@ -3124,6 +3261,45 @@ function salvarPrecos(){
   // Salva rações
   salvarRacoesConfig();
   save(); toast('✅ Preços e rações salvos!');
+}
+
+// ── PROFISSIONAIS & COMISSÃO ─────────────────────────
+function renderProfissionaisConfig() {
+  const el = document.getElementById('profissionais-list');
+  if(!el) return;
+  if(!profissionais.length) {
+    el.innerHTML = '<div style="font-size:11px;color:var(--tx3);text-align:center;padding:10px">Nenhum profissional cadastrado</div>';
+    return;
+  }
+  el.innerHTML = profissionais.map((p, idx) => {
+    return '<div style="display:flex;align-items:center;gap:8px;padding:8px;border-bottom:1px solid var(--border);background:#fff;border-radius:6px;margin-bottom:4px">' +
+      '<div style="flex:1">' +
+      '<div style="font-size:12px;font-weight:800;color:var(--tx)">' + p.nome + '</div>' +
+      '<div style="font-size:10px;color:var(--tx3)">' + p.funcao + ' • Comissão: ' + p.comissao + '%</div>' +
+      '</div>' +
+      '<button onclick="delProfissional(' + idx + ')" style="padding:4px 8px;background:#FEE2E2;color:#DC2626;border:none;border-radius:6px;font-size:10px;font-weight:800;cursor:pointer">🗑️</button>' +
+      '</div>';
+  }).join('');
+}
+
+function addProfissional() {
+  const nome = prompt('Nome do profissional:');
+  if(!nome) return;
+  const funcao = prompt('Função (ex: Banhista, Tosador, Adestrador):') || 'Profissional';
+  const comissao = parseFloat(prompt('Comissão (%):') || '0');
+  profissionais.push({nome, funcao, comissao, ts:Date.now()});
+  renderProfissionaisConfig();
+  save();
+  toast('✅ Profissional adicionado!');
+}
+
+function delProfissional(idx) {
+  if(confirm('Remover este profissional?')) {
+    profissionais.splice(idx, 1);
+    renderProfissionaisConfig();
+    save();
+    toast('🗑️ Profissional removido!');
+  }
 }
 
 function salvarFirebaseCfg(){
@@ -3214,6 +3390,65 @@ function renderFaturamento() {
         </div>
         <div style="color:var(--tx3);font-size:18px;flex-shrink:0;padding-left:4px">⋮</div>
       </div>`).join('')+`</div>`;
+}
+
+// ── CLIENTES VIPs ─────────────────────────────────────
+function renderVIPs() {
+  const el = document.getElementById('vips-list');
+  if(!el) return;
+
+  // Calcula frequência de check-ins por tutor
+  const tutorFreq = {};
+  Object.values(dados).forEach(function(dia) {
+    ['creche','hotel','banho','dw','taxi'].forEach(function(setor) {
+      (dia[setor]||[]).forEach(function(reg) {
+        const tutor = reg.tutor || '—';
+        if(!tutorFreq[tutor]) tutorFreq[tutor] = {count:0, pets:new Set(), totalValor:0};
+        tutorFreq[tutor].count++;
+        tutorFreq[tutor].pets.add(reg.nome);
+        tutorFreq[tutor].totalValor += (reg.valor || 0);
+      });
+    });
+  });
+
+  // Converte para array e ordena por frequência
+  const ranking = Object.entries(tutorFreq)
+    .map(([tutor, data]) => ({tutor, count:data.count, pets:Array.from(data.pets), totalValor:data.totalValor}))
+    .sort((a,b) => b.count - a.count);
+
+  // Filtra clientes VIPs (+10 check-ins)
+  const vips = ranking.filter(r => r.count >= 10);
+
+  // Atualiza KPIs
+  document.getElementById('vips-total').textContent = vips.length;
+  document.getElementById('vips-top').textContent = ranking.length > 0 ? ranking[0].count : 0;
+  const media = ranking.length > 0 ? Math.round(ranking.reduce((s,r) => s + r.count, 0) / ranking.length) : 0;
+  document.getElementById('vips-media').textContent = media;
+
+  if(!ranking.length) {
+    el.innerHTML = '<div class="empty"><span class="empty-e">👑</span><div class="empty-t">Nenhum cliente cadastrado</div><div class="empty-s">Os tutores com +10 check-ins aparecem aqui</div></div>';
+    return;
+  }
+
+  // Renderiza ranking
+  el.innerHTML = '<div class="card" style="margin:0 16px 12px">' + ranking.map((r, idx) => {
+    const isVip = r.count >= 10;
+    const medal = idx === 0 ? '🥇' : idx === 1 ? '🥈' : idx === 2 ? '🥉' : '';
+    const bg = isVip ? 'linear-gradient(135deg,#FFD700,#FFA500)' : 'var(--card)';
+    const color = isVip ? '#fff' : 'var(--tx)';
+    return '<div style="display:flex;align-items:center;gap:12px;padding:12px 14px;border-bottom:1px solid var(--border);background:' + bg + ';color:' + color + '">' +
+      '<div style="font-size:24px;flex-shrink:0">' + (medal || (idx + 1)) + '</div>' +
+      '<div style="flex:1">' +
+      '<div style="font-weight:800;font-size:14px">' + r.tutor + '</div>' +
+      '<div style="font-size:11px;opacity:.8;margin-top:2px">' + r.pets.slice(0,3).join(', ') + (r.pets.length > 3 ? ' +' + (r.pets.length - 3) : '') + '</div>' +
+      '</div>' +
+      '<div style="text-align:right">' +
+      '<div style="font-weight:900;font-size:20px">' + r.count + '</div>' +
+      '<div style="font-size:10px;opacity:.8">check-ins</div>' +
+      '</div>' +
+      (isVip ? '<div style="font-size:16px">👑</div>' : '') +
+      '</div>';
+  }).join('') + '</div>';
 }
 
 // ── 13. SAÍDAS ──────────────────────────────────────
@@ -3919,7 +4154,7 @@ function abrirAgendInteligente() {
   document.getElementById('ai-sel-box').style.display = 'none';
   document.getElementById('ai-infos').classList.remove('show');
   document.getElementById('ai-data').value = chave(hoje());
-  document.getElementById('ai-hora').value = '09:00';
+  preencherHorariosAgend('banho'); // Default: Banho usa intervalos de 45 min
   document.getElementById('ai-valor').value = '';
   document.getElementById('ai-obs').value = '';
   document.getElementById('ai-pagou').value = 'Não';
@@ -3927,6 +4162,27 @@ function abrirAgendInteligente() {
   fecharModal('modal-pet'); fecharModal('modal-cal');
   document.getElementById('modal-agend-int').classList.remove('hid');
   setTimeout(function(){document.getElementById('ai-busca').focus();}, 150);
+}
+
+function preencherHorariosAgend(tipo) {
+  const select = document.getElementById('ai-hora');
+  if(!select) return;
+  
+  // Banho/Tosa usa intervalos de 45 min, outros usam 30 min
+  const intervalo = tipo === 'banho' ? 45 : 30;
+  const inicio = 8; // 8:00
+  const fim = 18; // 18:00
+  
+  let opcoes = [];
+  for(let h = inicio; h < fim; h++) {
+    for(let m = 0; m < 60; m += intervalo) {
+      const hora = String(h).padStart(2, '0') + ':' + String(m).padStart(2, '0');
+      opcoes.push('<option value="' + hora + '">' + hora + '</option>');
+    }
+  }
+  
+  select.innerHTML = opcoes.join('');
+  select.value = '09:00';
 }
 
 function aiPetBusca(q) {
@@ -4002,6 +4258,8 @@ function aiTipo(tipo, el) {
   _aiTipoSel = tipo;
   document.querySelectorAll('.agend-tipo-btn').forEach(function(b){b.classList.remove('on');});
   el.classList.add('on');
+  // Atualiza horários fracionados quando o tipo muda
+  preencherHorariosAgend(tipo);
   if(!document.getElementById('ai-valor').value) {
     var pre = config.precos || {};
     var map = {creche:((pre.creche||{}).av||40), hotel:((pre.hotel||{}).m||80), banho:((pre.banho||{}).m||55), dw:((pre.dw||{}).av||75), adest:150, taxi:45};
@@ -4021,11 +4279,33 @@ function aiSalvar() {
   var nome = p ? p.nome : (document.getElementById('ai-busca').value.trim()||'Sem nome');
   if(!nome) { toast('⚠️ Informe o nome do pet'); return; }
 
+  // Bloqueio por vacina vencida
+  if(p && p.vacina) {
+    var vd = new Date(p.vacina);
+    var hj = hoje();
+    var diff = Math.ceil((vd - hj) / 86400000);
+    if(diff < 0) {
+      confirmar('⚠️ Vacina Vencida', 'A vacina de ' + nome + ' está vencida há ' + Math.abs(diff) + ' dia(s). Deseja continuar com o agendamento?', 'Continuar', function() {
+        aiSalvarConfirmado(data, hora, valor, obs, pagou, p, nome);
+      }, '#DC2626', function() {
+        toast('🚫 Agendamento cancelado por vacina vencida');
+      });
+      return;
+    }
+  }
+
+  aiSalvarConfirmado(data, hora, valor, obs, pagou, p, nome);
+}
+
+function aiSalvarConfirmado(data, hora, valor, obs, pagou, p, nome) {
+
   if(['creche','hotel','banho','dw','taxi'].includes(_aiTipoSel)) {
     if(!dados[data]) dados[data]={creche:[],hotel:[],banho:[],dw:[],taxi:[]};
     ['creche','hotel','banho','dw','taxi'].forEach(function(s){if(!dados[data][s])dados[data][s]=[];});
     var reg = { nome:nome, tutor:p?(p.tutor||''):'', tel:p?(p.tel||p.tel2||''):'', porte:p?(p.porte||'M'):'M',
-      esp:p?(p.esp||'Cachorro'):'Cachorro', hora:hora, valor:valor, obs:obs, pagou:pagou, pgto:'PIX', foto:p?(p.foto||''):'', ts:Date.now() };
+      esp:p?(p.esp||'Cachorro'):'Cachorro', hora:hora, valor:valor, obs:obs, pagou:pagou, pgto:'PIX', foto:p?(p.foto||''):'', ts:Date.now(),
+      // Campos para conciliação automática (webhook)
+      gatewayStatus:'Pendente', gatewayId:'', gatewayData:null };
     if(_aiTipoSel==='banho')  reg.serv='Banho';
     if(_aiTipoSel==='dw')     reg.plano='Avulso';
     if(_aiTipoSel==='hotel')  { reg.diarias=1; reg.alim='Ração local'; reg.vet='Sim'; }
@@ -4033,6 +4313,10 @@ function aiSalvar() {
     dados[data][_aiTipoSel].push(reg);
     save(); fecharModal('modal-agend-int');
     irParaData(data);
+    // Se a data for hoje, atualiza Check-in/Check-out em tempo real
+    if(data === hoje()) {
+      setTimeout(function(){ renderCkPage(); }, 200);
+    }
     toast('✅ Agendamento salvo!');
   } else if(_aiTipoSel==='adest') {
     adests.push({ tipo:p?'cadastrado':'avulso', nome:nome, tutor:p?(p.tutor||''):'',
@@ -4265,10 +4549,180 @@ function bolEnviarWA(nome) {
   abrirWA(tel,msg);
 }
 
+// ─ CONTROLE DE ESTOQUE (PET SHOP) ───────────────────────────────
+function renderEstoque() {
+  const el = document.getElementById('estoque-list');
+  if(!el) return;
+  if(!estoque.length) {
+    el.innerHTML = '<div style="font-size:11px;color:var(--tx3);text-align:center;padding:10px">Nenhum produto cadastrado</div>';
+    document.getElementById('estoque-total').textContent = '0';
+    document.getElementById('estoque-baixo').textContent = '0';
+    document.getElementById('estoque-valor').textContent = 'R$0';
+    return;
+  }
+  
+  // Calcula KPIs
+  const totalProdutos = estoque.length;
+  const abaixoMinimo = estoque.filter(p => p.quantidade <= p.minimo).length;
+  const valorTotal = estoque.reduce((s, p) => s + (p.quantidade * (p.preco || 0)), 0);
+  
+  document.getElementById('estoque-total').textContent = totalProdutos;
+  document.getElementById('estoque-baixo').textContent = abaixoMinimo;
+  document.getElementById('estoque-valor').textContent = 'R$' + valorTotal.toFixed(0);
+  
+  el.innerHTML = estoque.map((p, idx) => {
+    const statusClass = p.quantidade <= p.minimo ? 'background:#FEE2E2;color:#DC2626' : 'background:#DCFCE7;color:#14532D';
+    return '<div style="display:flex;align-items:center;gap:8px;padding:8px;border-bottom:1px solid var(--border);background:#fff;border-radius:6px;margin-bottom:4px">' +
+      '<div style="flex:1">' +
+      '<div style="font-size:12px;font-weight:800;color:var(--tx)">' + p.nome + '</div>' +
+      '<div style="font-size:10px;color:var(--tx3)">' + p.categoria + ' • R$ ' + (p.preco||0).toFixed(2) + '</div>' +
+      '</div>' +
+      '<div style="text-align:right">' +
+      '<div style="font-size:14px;font-weight:900;color:var(--tx)">' + p.quantidade + '</div>' +
+      '<div style="font-size:9px;color:var(--tx3)">unid.</div>' +
+      '</div>' +
+      '<button onclick="editarEstoque(' + idx + ')" style="padding:4px 8px;background:#DBEAFE;color:#1E40AF;border:none;border-radius:6px;font-size:10px;font-weight:800;cursor:pointer">✏️</button>' +
+      '<button onclick="delEstoque(' + idx + ')" style="padding:4px 8px;background:#FEE2E2;color:#DC2626;border:none;border-radius:6px;font-size:10px;font-weight:800;cursor:pointer">🗑️</button>' +
+      '</div>';
+  }).join('');
+}
+
+function addEstoque() {
+  const nome = prompt('Nome do produto:');
+  if(!nome) return;
+  const categoria = prompt('Categoria (ex: Ração, Brinquedo, Acessório):') || 'Outro';
+  const quantidade = parseInt(prompt('Quantidade em estoque:') || '0');
+  const minimo = parseInt(prompt('Quantidade mínima para alerta:') || '5');
+  const preco = parseFloat(prompt('Preço unitário (R$):') || '0');
+  estoque.push({nome, categoria, quantidade, minimo, preco, ts:Date.now()});
+  renderEstoque();
+  save();
+  toast('✅ Produto adicionado!');
+}
+
+function editarEstoque(idx) {
+  const p = estoque[idx];
+  const novaQtd = prompt('Nova quantidade:', p.quantidade);
+  if(novaQtd !== null) {
+    estoque[idx].quantidade = parseInt(novaQtd) || 0;
+    renderEstoque();
+    save();
+    toast('✅ Estoque atualizado!');
+  }
+}
+
+function delEstoque(idx) {
+  if(confirm('Remover este produto?')) {
+    estoque.splice(idx, 1);
+    renderEstoque();
+    save();
+    toast('🗑️ Produto removido!');
+  }
+}
+
+// ─ SISTEMA DE CRÉDITOS/FREQUÊNCIA (CRECHE) ─────────────────────────
+function calcularCreditosCreche(petIdx) {
+  const pet = pets[petIdx];
+  if(!pet) return {creditos:0, frequencia:0};
+  
+  // Créditos configurados no pet (ex: 2x por semana = 8 créditos mensais)
+  const creditosConfig = pet.creditos || 0;
+  
+  // Calcula frequência de check-ins no mês atual
+  const hj = hoje();
+  const mesAtual = hj.getMonth();
+  const anoAtual = hj.getFullYear();
+  
+  let frequencia = 0;
+  Object.keys(dados).forEach(function(dataStr) {
+    const d = new Date(dataStr + 'T00:00:00');
+    if(d.getMonth() === mesAtual && d.getFullYear() === anoAtual) {
+      const dia = dados[dataStr];
+      if(dia.creche) {
+        dia.creche.forEach(function(reg) {
+          if(reg.nome === pet.nome && reg.ck === 'chegou') {
+            frequencia++;
+          }
+        });
+      }
+    }
+  });
+  
+  // Créditos restantes
+  const creditosRestantes = Math.max(0, creditosConfig - frequencia);
+  
+  return {creditos:creditosConfig, creditosRestantes, frequencia};
+}
+
+function debitarCreditoCreche(petIdx) {
+  const calc = calcularCreditosCreche(petIdx);
+  // Atualiza frequência do pet para alimentar ranking VIP
+  const pet = pets[petIdx];
+  if(!pet.frequencia) pet.frequencia = 0;
+  pet.frequencia++;
+  save();
+  return calc;
+}
+
+// ─ CÁLCULO DE DIÁRIAS E HORAS EXTRAS (HOTEL) ─────────────────────────
+function calcularDiariasHotel(reg, horaSaida) {
+  if(!reg.cin || !horaSaida) return {diarias:1, horasExtras:0, valorExtra:0};
+  
+  // Horário de check-in e check-out
+  const [cinH, cinM] = reg.cin.split(':').map(Number);
+  const [saiH, saiM] = horaSaida.split(':').map(Number);
+  
+  // Tolerância de 1 hora após o horário de check-out padrão (12:00)
+  const tolerancia = 12;
+  
+  // Calcula diferença em horas
+  const cinMin = cinH * 60 + cinM;
+  const saiMin = saiH * 60 + saiM;
+  const diffMin = saiMin - cinMin;
+  
+  // Se saiu antes do horário de check-in, conta como 1 diária
+  if(diffMin <= 0) return {diarias:1, horasExtras:0, valorExtra:0};
+  
+  // Calcula diárias (cada 24 horas = 1 diária)
+  const diarias = Math.ceil(diffMin / (24 * 60));
+  
+  // Calcula horas extras (após a tolerância)
+  const horasExtras = Math.max(0, saiH - tolerancia);
+  
+  // Valor extra por hora extra (R$ 10 por hora)
+  const valorExtra = horasExtras * 10;
+  
+  return {diarias, horasExtras, valorExtra};
+}
+
+function atualizarDiariasHotel(reg, horaSaida) {
+  const calc = calcularDiariasHotel(reg, horaSaida);
+  reg.diarias = calc.diarias;
+  reg.horasExtras = calc.horasExtras;
+  reg.valorExtra = calc.valorExtra;
+  return calc;
+}
+
 // ─ CHECK-IN RÁPIDO ────────────────────────────
 function abrirCheckinRapido() {
   renderCkModal();
   document.getElementById('modal-ck-rap').classList.remove('hid');
+  // Limpa foto anterior
+  document.getElementById('ck-foto-preview').innerHTML = '';
+  document.getElementById('ck-foto-upload').value = '';
+}
+
+function ckFotoPreview(evt) {
+  const file = evt.target.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const preview = document.getElementById('ck-foto-preview');
+    preview.innerHTML = '<img src="' + e.target.result + '" style="width:100%;height:100%;object-fit:cover">';
+    // Salva a foto em uma variável global para usar no check-in
+    window._ckFotoData = e.target.result;
+  };
+  reader.readAsDataURL(file);
 }
 
 function renderCkPage() {
@@ -4357,6 +4811,27 @@ function renderCkPage() {
       : '<div style="width:52px;height:52px;border-radius:50%;background:var(--azul-xl);color:var(--azul);display:flex;align-items:center;justify-content:center;font-size:21px;font-weight:900;border:2px solid var(--border)">' + (p.nome||'?')[0].toUpperCase() + '</div>';
     var av = '<div class="ck-av">' + avHtml + '</div>';
 
+    // Tags de restrição visual
+    var restricoes = p.restricoes || [];
+    var restricoesHtml = '';
+    if (restricoes.length > 0) {
+      var restricaoMap = {
+        'Reativo/Bravo': {class: 'restricao-bravo', icon: '⚠️'},
+        'Cardiopata': {class: 'restricao-cardio', icon: '❤️'},
+        'Alergia Alimentar': {class: 'restricao-alergia', icon: '🥜'},
+        'Agressivo': {class: 'restricao-critica', icon: '🚫'},
+        'Ansioso': {class: 'restricao-alerta', icon: '😰'},
+        'Idoso': {class: 'restricao-info', icon: '👴'},
+        'Filhote': {class: 'restricao-info', icon: '🐕'}
+      };
+      restricoesHtml = '<div style="display:flex;flex-wrap:wrap;margin-bottom:6px">';
+      restricoes.forEach(function(r) {
+        var cfg = restricaoMap[r] || {class: 'restricao-info', icon: 'ℹ️'};
+        restricoesHtml += '<span class="restricao-tag ' + cfg.class + '">' + cfg.icon + ' ' + r + '</span>';
+      });
+      restricoesHtml += '</div>';
+    }
+
     // Linha hotel
     var hotelInfo = item.setor === 'hotel'
       ? (reg.cin && reg.cout ? '🏨 ' + reg.cin + '→' + reg.cout : (reg.diarias ? reg.diarias + 'd' : '')) : '';
@@ -4421,7 +4896,7 @@ function renderCkPage() {
       if (isCheckout) {
         // Checkout: desfazer + WA saiu + pagar
         btns += '<button class="ck-btn chegou" onclick="ckDesfazerEl(this)" data-nome="' + dn + '" data-key="' + item.key + '" data-setor="' + item.setor + '">↩️ Desfazer</button>';
-        btns += '<button class="ck-btn" style="background:#DCFCE7;border-color:#86EFAC;color:#14532D" onclick="ckWAMsgEl(this)" data-nome="' + dn + '" data-tel="' + telCk + '" data-tutor="' + tutorCk + '" data-setor="' + item.setor + '" data-tipo="saiu">📲 WA</button>';
+        btns += '<button class="ck-btn" style="background:#DCFCE7;border-color:#86EFAC;color:#14532D;padding:8px 12px" onclick="ckWAMsgEl(this)" data-nome="' + dn + '" data-tel="' + telCk + '" data-tutor="' + tutorCk + '" data-setor="' + item.setor + '" data-tipo="saiu">📲</button>';
         if (!pago) {
           btns += '<button class="ck-btn pagar" onclick="ckPagarEl(this)" data-nome="' + dn + '" data-key="' + item.key + '" data-setor="' + item.setor + '">💰 Pagar</button>';
         } else {
@@ -4435,7 +4910,7 @@ function renderCkPage() {
         }
         // Botão WA sempre disponível (chegou ou aguardando)
         var tipoWA = ck === 'chegou' ? 'saiu' : 'confirm';
-        btns += '<button class="ck-btn" style="background:#DCFCE7;border-color:#86EFAC;color:#14532D" onclick="ckWAMsgEl(this)" data-nome="' + dn + '" data-tel="' + telCk + '" data-tutor="' + tutorCk + '" data-setor="' + item.setor + '" data-tipo="' + tipoWA + '">📲 WA</button>';
+        btns += '<button class="ck-btn" style="background:#DCFCE7;border-color:#86EFAC;color:#14532D;padding:8px 12px" onclick="ckWAMsgEl(this)" data-nome="' + dn + '" data-tel="' + telCk + '" data-tutor="' + tutorCk + '" data-setor="' + item.setor + '" data-tipo="' + tipoWA + '">📲</button>';
         if (!pago) {
           btns += '<button class="ck-btn pagar" onclick="ckPagarEl(this)" data-nome="' + dn + '" data-key="' + item.key + '" data-setor="' + item.setor + '">💰 Pagar</button>';
         } else {
@@ -4449,6 +4924,7 @@ function renderCkPage() {
     return '<div class="ck-card setor-' + item.setor + '" style="background:' + cardBg + ';' + topBorder + cardOpacity + '">'
       + av
       + '<div class="ck-info">'
+      + restricoesHtml
       + '<div class="ck-nome" style="' + nomeStyle + '">' + item.nome + '</div>'
       + '<div class="ck-sub">' + (p.tutor||'—') + (hotelInfo ? ' · ' + hotelInfo : '') + horaAgend + '</div>'
       + '<div style="font-size:10px;color:var(--azul-m);font-weight:700;margin-bottom:3px">' + setorLabel + (servicoInfo ? ' · ' + servicoInfo : '') + '</div>'
@@ -4757,6 +5233,8 @@ function renderPets() {
 function ir(pg) {
   if(pg==='boletim'){ renderBoletimV3(); }
   if(pg==='checkin'){ renderCkPage(); }
+  if(pg==='vips'){ renderVIPs(); }
+  if(pg==='estoque'){ renderEstoque(); }
 
   fecharMais();
   _irCore(pg);
