@@ -58,7 +58,6 @@
   --nav-h:68px; --hdr-h:56px;
   --f:'Nunito',sans-serif;
 }
-html{overscroll-behavior-y:contain}
 body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 
 /* ══ SPLASH ══ */
@@ -119,7 +118,6 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
 /* ══ PAGES ══ */
 .pg{display:none;animation:pgIn .22s ease}
 .pg.on{display:block}
-.pg.on#pg-checkin{display:flex}
 @keyframes pgIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 
 /* ══ SECTION HEAD ══ */
@@ -164,12 +162,12 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
 .leg-pct{font-size:10px;color:var(--tx3)}
 
 /* ══ ALERTS DESTAQUE ══ */
-.alert-card{margin:0 16px 10px;border-radius:16px;padding:16px;display:flex;align-items:flex-start;gap:12px;background:var(--card);box-shadow:0 2px 16px rgba(13,46,110,.08);border:1.5px solid var(--border);border-left:5px solid transparent}
+.alert-card{margin:0 16px 8px;border-radius:var(--r);padding:12px 14px;display:flex;align-items:flex-start;gap:10px;border-left:4px solid transparent}
 .alert-card.vac-venc{background:#FFF5F5;border-left-color:var(--verm);border:1px solid #FECACA;border-left:4px solid var(--verm)}
 .alert-card.vac-prox{background:#FFFBEB;border-left-color:var(--ouro);border:1px solid #FDE68A;border-left:4px solid var(--ouro)}
 .alert-card.aniv{background:#F0FDF4;border-left-color:var(--verde);border:1px solid #BBF7D0;border-left:4px solid var(--verde)}
 .alert-card.retorno{background:var(--azul-bg);border-left-color:var(--azul-l);border:1px solid var(--azul-xl);border-left:4px solid var(--azul-l)}
-.alert-ico{font-size:26px;flex-shrink:0;margin-top:0}
+.alert-ico{font-size:22px;flex-shrink:0;margin-top:1px}
 .alert-t{font-weight:800;font-size:13px;color:var(--tx)}
 .alert-s{font-size:11px;color:var(--tx2);margin-top:2px}
 .alert-acao{font-size:11px;font-weight:800;color:var(--azul-m);margin-top:4px;cursor:pointer}
@@ -178,21 +176,6 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
 .alert-wa-btn:active{transform:scale(.97)}
 .alert-edit-btn{display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border-radius:20px;font-size:12px;font-weight:800;cursor:pointer;border:1.5px solid var(--border2);background:var(--bg);color:var(--tx2);font-family:var(--f);transition:all .15s;white-space:nowrap}
 .alert-edit-btn:hover{border-color:var(--azul-l);background:var(--azul-bg);color:var(--azul)}
-.alert-vacina-aplicada-btn{display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border-radius:20px;font-size:12px;font-weight:800;cursor:pointer;border:1.5px solid #86EFAC;background:#DCFCE7;color:#14532D;font-family:var(--f);transition:all .15s;white-space:nowrap}
-.alert-vacina-aplicada-btn:hover{transform:scale(1.03);box-shadow:0 2px 8px rgba(0,0,0,.1)}
-.alert-vacina-aplicada-btn:active{transform:scale(.97)}
-.alert-vacina-manter-btn{display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border-radius:20px;font-size:12px;font-weight:800;cursor:pointer;border:1.5px solid #FECACA;background:#FEE2E2;color:#DC2626;font-family:var(--f);transition:all .15s;white-space:nowrap}
-.alert-vacina-manter-btn:hover{transform:scale(1.03);box-shadow:0 2px 8px rgba(0,0,0,.1)}
-.alert-vacina-manter-btn:active{transform:scale(.97)}
-
-/* ══ TAGS DE RESTRIÇÃO ══ */
-.restricao-tag{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:12px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.3px;margin-right:4px;margin-bottom:4px}
-.restricao-critica{background:#FEE2E2;color:#DC2626;border:1px solid #FECACA}
-.restricao-alerta{background:#FEF3C7;color:#92400E;border:1px solid #FDE68A}
-.restricao-info{background:#DBEAFE;color:#1E40AF;border:1px solid #BFDBFE}
-.restricao-cardio{background:#FEE2E2;color:#DC2626;border:1px solid #FECACA}
-.restricao-alergia{background:#FEF3C7;color:#92400E;border:1px solid #FDE68A}
-.restricao-bravo{background:#FEE2E2;color:#DC2626;border:1px solid #FECACA}
 
 /* ══ SEMANA ══ */
 .semhdr{display:flex;align-items:center;justify-content:space-between;padding:12px 16px 4px}
@@ -216,7 +199,10 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
 .dpb{background:var(--areia);color:var(--areia-d)}
 
 /* ══ TOTAIS ══ */
-
+.totbar{display:flex;gap:4px;padding:8px 12px;background:linear-gradient(135deg,var(--azul-bg),#E8F0FF);border-top:1px solid var(--azul-xl);border-bottom:1px solid var(--azul-xl)}
+.tot-it{flex:1;text-align:center}
+.tot-v{font-size:16px;font-weight:900;color:var(--azul)}
+.tot-l{font-size:8px;font-weight:800;color:var(--azul-m);opacity:.7;text-transform:uppercase;letter-spacing:.3px;margin-top:1px}
 
 /* ══ DETALHE DIA ══ */
 .det{margin:0 16px 12px;background:var(--card);border-radius:var(--r);border:1px solid var(--border);box-shadow:var(--sh);overflow:hidden}
@@ -225,7 +211,8 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
 .det-d{font-size:11px;color:var(--tx3);font-weight:700}
 .stabs{display:flex;border-bottom:1px solid var(--border);overflow-x:hidden}
 .stabs::-webkit-scrollbar{display:none}
-
+.stab-cnt{display:inline-flex;align-items:center;justify-content:center;min-width:16px;height:16px;padding:0 4px;background:var(--border2);color:var(--tx3);font-size:9px;font-weight:900;border-radius:20px;margin-left:3px}
+.stab.on .stab-cnt{background:var(--azul);color:#fff}
 .stab{flex:1;padding:9px 4px;font-size:10px;font-weight:800;cursor:pointer;border:none;border-bottom:3px solid transparent;color:var(--tx3);background:none;white-space:nowrap;font-family:var(--f);display:flex;align-items:center;justify-content:center;text-align:center;gap:0;transition:all .15s;min-width:0}
 .stab.on{color:var(--azul);border-bottom-color:var(--azul)}
 .stab:hover{color:var(--tx2)}
@@ -433,7 +420,7 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
 
 /* ══ ALERTA SNOOZE ══ */
 .alert-snooze-row{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
-.btn-snooze-keep{display:inline-flex;align-items:center;gap:5px;padding:6px 14px;border-radius:20px;font-size:11px;font-weight:800;cursor:pointer;border:1.5px solid #FCA5A5;background:#FEE2E2;color:#7F1D1D;font-family:var(--f);transition:all .15s}
+.btn-snooze-keep{padding:5px 11px;border-radius:20px;font-size:11px;font-weight:800;cursor:pointer;border:1.5px solid #FCA5A5;background:#FEE2E2;color:#7F1D1D;font-family:var(--f);transition:all .15s}
 .btn-snooze-rm{padding:5px 11px;border-radius:20px;font-size:11px;font-weight:800;cursor:pointer;border:1.5px solid #A7F3D0;background:#DCFCE7;color:#14532D;font-family:var(--f);transition:all .15s}
 
 /* ══ ADESTRAMENTO ══ */
@@ -517,6 +504,7 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
 .bol-tab-lbl{font-size:10px;font-weight:800;color:var(--tx3)}
 .bol-pet-tab.on .bol-tab-lbl{color:var(--azul)}
 .btn-wa-bol{width:100%;padding:11px;background:#25D366;color:#fff;border:none;border-radius:var(--r-sm);font-size:13px;font-weight:900;cursor:pointer;font-family:var(--f);display:flex;align-items:center;justify-content:center;gap:7px;margin-top:8px;box-shadow:0 3px 12px rgba(37,211,102,.3)}
+.btn-gerar-bol{width:100%;padding:11px;background:var(--azul);color:#fff;border:none;border-radius:var(--r-sm);font-size:13px;font-weight:900;cursor:pointer;font-family:var(--f);display:flex;align-items:center;justify-content:center;gap:7px;margin-top:8px}
 .modal-ficha{background:#fff;width:100%;max-width:480px;max-height:100dvh;overflow-y:auto;position:fixed;top:0;bottom:0;left:50%;transform:translateX(-50%);z-index:202;display:none}
 .modal-ficha.open{display:block;animation:fichaIn .22s ease}
 @keyframes fichaIn{from{opacity:0;transform:translateX(-50%) translateY(16px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
@@ -601,7 +589,7 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
   <div class="sp-t">Anguli Pet</div>
   <div class="sp-s">Hotel • Creche • Pet Shop • Dog Walker</div>
   <div class="sp-bar"><div class="sp-fill"></div></div>
-  <div class="sp-verse">🐾 "O justo cuida da vida do seu animal" — Pv 12:10</div>
+  <div class="sp-verse">✝️ Jesus Cristo é o Senhor</div>
 </div>
 
 <div id="app">
@@ -625,7 +613,6 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
 
     <!-- ═══ LOGIN ═══ -->
     <div id="pg-login" class="pg">
-
       <div class="lcard">
         <div class="llogo">🐾</div>
         <div class="lt">Anguli Pet PRO</div>
@@ -633,25 +620,17 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
         <div class="frow"><div class="fg"><label class="fl">E-mail</label><input class="fi" id="li-email" type="email" placeholder="email@exemplo.com"></div></div>
         <div class="frow"><div class="fg"><label class="fl">Senha</label><input class="fi" id="li-senha" type="password" placeholder="••••••••" onkeydown="if(event.key==='Enter')login()"></div></div>
         <div style="display:flex;gap:8px;margin-top:4px">
-          <button class="btn-pr" id="btn-login-email" style="flex:2;justify-content:center" onclick="login()"><i class="ti ti-login"></i> Entrar</button>
+          <button class="btn-pr" style="flex:2;justify-content:center" onclick="login()"><i class="ti ti-login"></i> Entrar</button>
+          <button class="btn-ghost" style="flex:1" onclick="entrarDemo()">Demo</button>
         </div>
-        <div style="display:flex;align-items:center;gap:10px;margin-top:14px">
-          <div style="flex:1;height:1px;background:var(--border)"></div>
-          <span style="font-size:11px;color:var(--tx3);font-weight:800">ou</span>
-          <div style="flex:1;height:1px;background:var(--border)"></div>
-        </div>
-        <button type="button" class="btn-google" id="btn-google" onclick="loginGoogle()" style="margin-top:10px;width:100%;justify-content:center">
-          <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34.5 6.1 29.5 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.7-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.5 16.2 18.9 13 24 13c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34.5 6.1 29.5 4 24 4 16.3 4 9.5 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.1C29.3 36 24 36 24 36c-5.3 0-9.7-3.3-11.3-8l-6.5 5C9.5 39.7 16.3 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-1.1 3.2-4.2 5.5-7.9 5.5-5.3 0-9.7-3.3-11.3-8l-6.5 5C9.5 39.7 16.3 44 24 44c11.1 0 20-8.9 20-20 0-1.3-.1-2.7-.4-3.5z"/></svg>
-          Entrar com Google
-        </button>
-        <div style="text-align:center;margin-top:12px;font-size:12px;color:var(--tx3)">Sem conta? <span style="font-weight:900;color:var(--azul);cursor:pointer" onclick="criarConta()">Criar conta grátis</span></div>
+        <div style="text-align:center;margin-top:10px;font-size:12px;color:var(--tx3)">Sem conta? <span style="font-weight:900;color:var(--azul);cursor:pointer" onclick="criarConta()">Criar conta grátis</span></div>
         <div style="text-align:center;margin-top:8px">
           <span style="font-size:12px;color:var(--tx3);cursor:pointer;text-decoration:underline;text-underline-offset:3px" onclick="recuperarSenha()">🔑 Esqueci minha senha</span>
         </div>
       </div>
       <div style="background:var(--azul-bg);border:1px solid var(--azul-xl);border-radius:var(--r);padding:12px 14px;font-size:11px;color:var(--azul);font-weight:700;line-height:1.6;max-width:380px;width:100%">
-        <strong>☁️ Nuvem ativa:</strong> Os dados salvam automaticamente e ficam disponíveis em qualquer dispositivo.<br>
-        <span style="opacity:.75">Funciona mesmo sem internet após o primeiro login.</span>
+        <strong>☁️ Nuvem ativa:</strong> Os dados salvam automaticamente no Firebase e ficam disponíveis em qualquer dispositivo.<br>
+        <span style="opacity:.75">Modo Demo: funciona com localStorage (apenas neste dispositivo).</span>
       </div>
       <div style="text-align:center;margin-top:8px;padding:10px 20px;max-width:380px;width:100%">
         <div style="font-size:13px;font-weight:800;color:var(--azul);letter-spacing:.3px;opacity:.7">✝️ Jesus Cristo é o Senhor</div>
@@ -684,26 +663,32 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
       <div style="padding:0 16px;margin-bottom:6px;font-size:10px;font-weight:900;color:var(--tx3);text-transform:uppercase;letter-spacing:.5px">Serviços de hoje</div>
       <div class="kgrid" id="kgrid" style="grid-template-columns:repeat(3,1fr);gap:8px">
         <div class="kcard kc" onclick="irAgendaSetor('creche')" style="cursor:pointer;padding:12px 10px">
+          <div style="font-size:18px;margin-bottom:4px">🏫</div>
           <div class="kval" id="kd-c" style="font-size:26px">0</div>
           <div class="klbl" style="font-size:10px">Creche</div>
         </div>
         <div class="kcard kh" onclick="irAgendaSetor('hotel')" style="cursor:pointer;padding:12px 10px">
+          <div style="font-size:18px;margin-bottom:4px">🏨</div>
           <div class="kval" id="kd-h" style="font-size:26px">0</div>
           <div class="klbl" style="font-size:10px">Hotel</div>
         </div>
         <div class="kcard kb" onclick="irAgendaSetor('banho')" style="cursor:pointer;padding:12px 10px">
+          <div style="font-size:18px;margin-bottom:4px">✂️</div>
           <div class="kval" id="kd-b" style="font-size:26px">0</div>
           <div class="klbl" style="font-size:10px">Banho/Tosa</div>
         </div>
         <div class="kcard kdw" onclick="irAgendaSetor('dw')" style="cursor:pointer;padding:12px 10px">
+          <div style="font-size:18px;margin-bottom:4px">🐕</div>
           <div class="kval" id="kd-dw" style="font-size:26px">0</div>
           <div class="klbl" style="font-size:10px">Dog Walker</div>
         </div>
         <div class="kcard" style="background:#FFF7ED;color:#9A3412;cursor:pointer;padding:12px 10px" onclick="irAgendaSetor('taxi')">
+          <div style="font-size:18px;margin-bottom:4px">🚗</div>
           <div class="kval" id="kd-taxi" style="font-size:26px">0</div>
           <div class="klbl" style="font-size:10px">Táxi Dog</div>
         </div>
         <div class="kcard" style="background:#EDE9FE;color:#5B21B6;cursor:pointer;padding:12px 10px" onclick="fecharMais();ir('adest')">
+          <div style="font-size:18px;margin-bottom:4px">🎓</div>
           <div class="kval" id="kd-adest" style="font-size:26px">0</div>
           <div class="klbl" style="font-size:10px">Adestramento</div>
         </div>
@@ -731,7 +716,6 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
         <button class="fat-btn on" onclick="setFatFiltro('dia',this)">Hoje</button>
         <button class="fat-btn" onclick="setFatFiltro('semana',this)">Semana</button>
         <button class="fat-btn" onclick="setFatFiltro('mes',this)">Mês</button>
-        <button class="fat-btn" onclick="setFatFiltro('tudo',this)">Tudo</button>
       </div>
       <div class="chart-wrap" id="chart-fat">
         <div class="chart-titulo"><i class="ti ti-chart-pie" style="font-size:15px"></i> Por serviço</div>
@@ -766,7 +750,13 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
 
       <div class="dgrid" id="dgrid"></div>
 
-
+      <div class="totbar" id="totbar-semana">
+        <div class="tot-it"><div class="tot-v" id="tt-c">0</div><div class="tot-l">Creche</div></div>
+        <div class="tot-it"><div class="tot-v" id="tt-h">0</div><div class="tot-l">Hotel</div></div>
+        <div class="tot-it"><div class="tot-v" id="tt-b">0</div><div class="tot-l">Banho+DW</div></div>
+        <div class="tot-it"><div class="tot-v" id="tt-dw">0</div><div class="tot-l">DogWalk</div></div>
+        <div class="tot-it"><div class="tot-v" id="tt-tx">0</div><div class="tot-l">Táxi</div></div>
+      </div>
 
       <div class="det" id="det">
         <div class="det-hdr">
@@ -776,11 +766,11 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
         <div id="det-empty" class="vz"><i class="ti ti-calendar-event"></i>Toque em um dia para lançar.</div>
         <div id="det-body" style="display:none">
           <div class="stabs">
-            <button class="stab on" data-setor="creche" onclick="setTab('creche')">Creche</button>
-            <button class="stab" data-setor="hotel" onclick="setTab('hotel')">Hotel</button>
-            <button class="stab" data-setor="banho" onclick="setTab('banho')">Banho e Tosa</button>
-            <button class="stab" data-setor="dw" onclick="setTab('dw')">DogWalk</button>
-            <button class="stab" data-setor="taxi" onclick="setTab('taxi')">Táxi</button>
+            <button class="stab on" data-setor="creche" onclick="setTab('creche')">Creche <span class="stab-cnt" id="stab-cnt-creche">0</span></button>
+            <button class="stab" data-setor="hotel" onclick="setTab('hotel')">Hotel <span class="stab-cnt" id="stab-cnt-hotel">0</span></button>
+            <button class="stab" data-setor="banho" onclick="setTab('banho')">Banho <span class="stab-cnt" id="stab-cnt-banho">0</span></button>
+            <button class="stab" data-setor="dw" onclick="setTab('dw')">DogWalk <span class="stab-cnt" id="stab-cnt-dw">0</span></button>
+            <button class="stab" data-setor="taxi" onclick="setTab('taxi')">Táxi <span class="stab-cnt" id="stab-cnt-taxi">0</span></button>
           </div>
           <div class="stc" id="tc-creche"></div>
           <div class="stc" id="tc-hotel" style="display:none"></div>
@@ -856,52 +846,6 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
       <!-- Histórico de lançamentos pagos -->
       <div class="sdiv"><i class="ti ti-list"></i> Lançamentos confirmados</div>
       <div id="fat-historico"></div>
-    </div>
-
-    <!-- ═══ CLIENTES VIPs ═══ -->
-    <div id="pg-vips" class="pg">
-      <div class="sh">
-        <div><div class="sh-t">Clientes VIPs 👑</div><div class="sh-s" id="vips-sub">Tutores mais frequentes</div></div>
-      </div>
-
-      <!-- KPIs VIPs -->
-      <div class="kgrid" style="margin-bottom:10px">
-        <div class="kcard kf" style="background:linear-gradient(135deg,#FFD700,#FFA500)">
-          <i class="ti ti-crown" style="font-size:20px;margin-bottom:4px"></i>
-          <div class="kval" id="vips-total" style="font-size:30px;color:#fff">0</div>
-          <div class="klbl" style="color:#fff">Clientes VIPs</div>
-          <div class="ksub" style="color:#fff">+10 check-ins</div>
-        </div>
-        <div class="kcard" style="background:#FEE2E2;color:#7F1D1D"><div style="font-size:18px;margin-bottom:4px">🏆</div><div class="kval" id="vips-top" style="font-size:22px">0</div><div class="klbl">Top Cliente</div></div>
-        <div class="kcard" style="background:#DBEAFE;color:#1E40AF"><div style="font-size:18px;margin-bottom:4px">📈</div><div class="kval" id="vips-media" style="font-size:22px">0</div><div class="klbl">Média Check-ins</div></div>
-      </div>
-
-      <!-- Lista de clientes VIPs -->
-      <div class="sdiv"><i class="ti ti-users"></i> Ranking de Clientes</div>
-      <div id="vips-list"></div>
-    </div>
-
-    <!-- ═══ ESTOQUE ═══ -->
-    <div id="pg-estoque" class="pg">
-      <div class="sh">
-        <div><div class="sh-t">Estoque 📦</div><div class="sh-s" id="estoque-sub">Controle de produtos</div></div>
-        <button class="btn-pr" onclick="addEstoque()"><i class="ti ti-plus"></i> Adicionar</button>
-      </div>
-
-      <!-- KPIs Estoque -->
-      <div class="kgrid" style="margin-bottom:10px">
-        <div class="kcard kf" style="background:#DCFCE7;color:#14532D">
-          <i class="ti ti-package" style="font-size:20px;margin-bottom:4px"></i>
-          <div class="kval" id="estoque-total" style="font-size:30px">0</div>
-          <div class="klbl">Produtos</div>
-        </div>
-        <div class="kcard" style="background:#FEE2E2;color:#7F1D1D"><div style="font-size:18px;margin-bottom:4px">⚠️</div><div class="kval" id="estoque-baixo" style="font-size:22px">0</div><div class="klbl">Abaixo do mínimo</div></div>
-        <div class="kcard" style="background:#DBEAFE;color:#1E40AF"><div style="font-size:18px;margin-bottom:4px">💰</div><div class="kval" id="estoque-valor" style="font-size:22px">R$0</div><div class="klbl">Valor total</div></div>
-      </div>
-
-      <!-- Lista de produtos -->
-      <div class="sdiv"><i class="ti ti-list"></i> Produtos</div>
-      <div id="estoque-list"></div>
     </div>
 
     <!-- ═══ ADESTRAMENTO ═══ -->
@@ -986,61 +930,23 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
         </div>
         <div class="plcard" style="background:var(--pastel-b)">
           <div class="plcard-t" style="color:var(--pastel-bd)">🏨 Hotel — Diária 2026</div>
-          <div class="plrow"><span>Cachorro Mini</span><input class="fi" id="ph-mi" type="number" value="40" style="width:70px"></div>
           <div class="plrow"><span>Cachorro Pequeno</span><input class="fi" id="ph-p" type="number" value="50" style="width:70px"></div>
           <div class="plrow"><span>Cachorro Médio</span><input class="fi" id="ph-m" type="number" value="80" style="width:70px"></div>
           <div class="plrow"><span>Cachorro Grande</span><input class="fi" id="ph-g" type="number" value="100" style="width:70px"></div>
-          <div class="plrow"><span>Cachorro Gigante</span><input class="fi" id="ph-gi" type="number" value="120" style="width:70px"></div>
           <div class="plrow"><span>Gato Pequeno</span><input class="fi" id="ph-gp" type="number" value="50" style="width:70px"></div>
           <div class="plrow"><span>Gato Médio</span><input class="fi" id="ph-gm" type="number" value="65" style="width:70px"></div>
           <div class="plrow"><span>Gato Grande</span><input class="fi" id="ph-gg" type="number" value="80" style="width:70px"></div>
           <div class="plrow"><span>Ave/Pássaro</span><input class="fi" id="ph-av" type="number" value="35" style="width:70px"></div>
           <div class="plrow"><span>Roedor</span><input class="fi" id="ph-ro" type="number" value="35" style="width:70px"></div>
         </div>
-        <!-- RAÇÕES -->
-        <div class="plcard" style="background:#FFF7ED;border:1.5px solid #FED7AA">
-          <div class="plcard-t" style="color:#9A3412;display:flex;align-items:center;justify-content:space-between">
-            <span>🍖 Rações oferecidas (por espécie)</span>
-          </div>
-          <div style="font-size:11px;color:#92400E;margin-bottom:10px;font-weight:700">Valor cobrado por refeição/dia • somado automaticamente ao serviço</div>
-
-          <div style="margin-bottom:10px">
-            <div style="font-size:11px;font-weight:900;color:#9A3412;margin-bottom:6px">🐕 Cachorro</div>
-            <div id="racoes-cachorro-list"></div>
-            <button onclick="addRacao('cachorro')" style="margin-top:6px;padding:5px 12px;background:#FFF7ED;border:1.5px dashed #FED7AA;border-radius:8px;font-size:11px;font-weight:800;color:#9A3412;cursor:pointer;font-family:var(--f);width:100%">+ Adicionar ração</button>
-          </div>
-
-          <div style="margin-bottom:10px">
-            <div style="font-size:11px;font-weight:900;color:#9A3412;margin-bottom:6px">🐱 Gato</div>
-            <div id="racoes-gato-list"></div>
-            <button onclick="addRacao('gato')" style="margin-top:6px;padding:5px 12px;background:#FFF7ED;border:1.5px dashed #FED7AA;border-radius:8px;font-size:11px;font-weight:800;color:#9A3412;cursor:pointer;font-family:var(--f);width:100%">+ Adicionar ração</button>
-          </div>
-
-          <div style="margin-bottom:10px">
-            <div style="font-size:11px;font-weight:900;color:#9A3412;margin-bottom:6px">🐦 Ave / Pássaro</div>
-            <div id="racoes-ave-list"></div>
-            <button onclick="addRacao('ave')" style="margin-top:6px;padding:5px 12px;background:#FFF7ED;border:1.5px dashed #FED7AA;border-radius:8px;font-size:11px;font-weight:800;color:#9A3412;cursor:pointer;font-family:var(--f);width:100%">+ Adicionar ração</button>
-          </div>
-
-          <div style="margin-bottom:4px">
-            <div style="font-size:11px;font-weight:900;color:#9A3412;margin-bottom:6px">🐹 Roedor</div>
-            <div id="racoes-roedor-list"></div>
-            <button onclick="addRacao('roedor')" style="margin-top:6px;padding:5px 12px;background:#FFF7ED;border:1.5px dashed #FED7AA;border-radius:8px;font-size:11px;font-weight:800;color:#9A3412;cursor:pointer;font-family:var(--f);width:100%">+ Adicionar ração</button>
-          </div>
-        </div>
-
         <div class="plcard" style="background:var(--areia)">
           <div class="plcard-t" style="color:var(--areia-d)">✂️ Banho & Tosa</div>
-          <div class="plrow"><span>Banho Mini</span><input class="fi" id="pb-mi" type="number" value="30" style="width:70px"></div>
           <div class="plrow"><span>Banho Pequeno</span><input class="fi" id="pb-p" type="number" value="40" style="width:70px"></div>
           <div class="plrow"><span>Banho Médio</span><input class="fi" id="pb-m" type="number" value="55" style="width:70px"></div>
           <div class="plrow"><span>Banho Grande</span><input class="fi" id="pb-g" type="number" value="70" style="width:70px"></div>
-          <div class="plrow"><span>Banho Gigante</span><input class="fi" id="pb-gi" type="number" value="90" style="width:70px"></div>
-          <div class="plrow"><span>Banho+Tosa Mini</span><input class="fi" id="pbt-mi" type="number" value="45" style="width:70px"></div>
           <div class="plrow"><span>Banho+Tosa Pequeno</span><input class="fi" id="pbt-p" type="number" value="60" style="width:70px"></div>
           <div class="plrow"><span>Banho+Tosa Médio</span><input class="fi" id="pbt-m" type="number" value="75" style="width:70px"></div>
           <div class="plrow"><span>Banho+Tosa Grande</span><input class="fi" id="pbt-g" type="number" value="90" style="width:70px"></div>
-          <div class="plrow"><span>Banho+Tosa Gigante</span><input class="fi" id="pbt-gi" type="number" value="110" style="width:70px"></div>
         </div>
         <div class="plcard" style="background:#F0FDF4">
           <div class="plcard-t" style="color:#065F46">🐕 Dog Walker (45 min)</div>
@@ -1061,12 +967,24 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
           <div class="plrow"><span>Pacote 8 sessões</span><input class="fi" id="pad-p8" type="number" value="960" style="width:70px"></div>
           <div class="plrow"><span>Mensal (semanal)</span><input class="fi" id="pad-men" type="number" value="400" style="width:70px"></div>
         </div>
-        <div class="plcard" style="background:linear-gradient(135deg,#FFD700,#FFA500)">
-          <div class="plcard-t" style="color:#fff">👥 Profissionais & Comissão</div>
-          <div id="profissionais-list" style="margin-bottom:10px"></div>
-          <button onclick="addProfissional()" style="padding:5px 12px;background:#fff;border:1.5px dashed #FFA500;border-radius:8px;font-size:11px;font-weight:800;color:#B45309;cursor:pointer;font-family:var(--f);width:100%">+ Adicionar profissional</button>
-        </div>
         <div class="fabs"><button class="btn-pr" onclick="salvarPrecos()"><i class="ti ti-check"></i> Salvar preços</button></div>
+      </div>
+
+      <div class="sdiv">Mensagens WhatsApp</div>
+      <div style="margin:0 16px 10px" class="card">
+        <div style="font-size:12px;color:var(--tx3);margin-bottom:12px;font-weight:700">Ative ou desative o envio de WA por serviço e edite os templates padrão. Use <code style="background:var(--bg2);padding:1px 5px;border-radius:4px">{nome}</code>, <code style="background:var(--bg2);padding:1px 5px;border-radius:4px">{tutor}</code>, <code style="background:var(--bg2);padding:1px 5px;border-radius:4px">{data}</code>, <code style="background:var(--bg2);padding:1px 5px;border-radius:4px">{servico}</code>, <code style="background:var(--bg2);padding:1px 5px;border-radius:4px">{valor}</code>, <code style="background:var(--bg2);padding:1px 5px;border-radius:4px">{empresa}</code>.</div>
+
+        <div id="wa-servicos-list">
+          <!-- preenchido por carregarCfgWA() -->
+        </div>
+
+        <div style="margin-top:14px">
+          <label class="fl" style="margin-bottom:6px">📝 Template de confirmação padrão</label>
+          <textarea class="fta" id="cfg-tpl-confirm" style="min-height:110px;font-size:12px"></textarea>
+          <label class="fl" style="margin-top:10px;margin-bottom:6px">🏠 Template de "Pet chegou" padrão</label>
+          <textarea class="fta" id="cfg-tpl-chegou" style="min-height:110px;font-size:12px"></textarea>
+        </div>
+        <div class="fabs"><button class="btn-pr" onclick="salvarCfgWA()"><i class="ti ti-check"></i> Salvar mensagens</button></div>
       </div>
 
       <div class="sdiv">Firebase — Nuvem</div>
@@ -1128,7 +1046,7 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
     </div>
 
     <!-- CHECK-IN / CHECK-OUT DIVIDIDO -->
-    <div id="pg-checkin" class="pg" style="flex-direction:column;height:calc(100dvh - var(--hdr-h) - var(--nav-h));overflow:hidden;padding:0">
+    <div id="pg-checkin" class="pg" style="display:flex;flex-direction:column;height:calc(100dvh - var(--hdr-h) - var(--nav-h));overflow:hidden;padding:0">
 
       <!-- HEADER -->
       <div style="padding:10px 16px 0;flex-shrink:0;background:var(--card);border-bottom:1px solid var(--border);box-shadow:var(--sh)">
@@ -1166,7 +1084,7 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
     <button class="nb on" id="nb-dash"     onclick="ir('dash')"><div class="nb-ic">🏠</div><span class="nb-lbl">Início</span></button>
     <button class="nb"    id="nb-agenda"   onclick="ir('agenda')"><div class="nb-ic">📅</div><span class="nb-lbl">Agenda</span></button>
     <button class="nb"    id="nb-checkin"  onclick="ir('checkin');ckMudarAba('in')"><div class="nb-ic">✅</div><span class="nb-lbl">Check-in</span></button>
-    <button class="nb"    id="nb-checkout" onclick="ir('checkin');ckMudarAba('out')" style="position:relative"><div class="nb-ic">🚪</div><span class="nb-lbl">Check-out</span></button>
+    <button class="nb"    id="nb-checkout" onclick="ir('checkin');ckMudarAba('out')" style="position:relative"><div class="nb-ic">🚪</div><span class="nb-lbl">Check-out</span><span id="nav-ck-badge" style="display:none;position:absolute;top:4px;right:6px;background:#F43F5E;color:#fff;font-size:9px;font-weight:900;padding:1px 5px;border-radius:20px;min-width:16px;text-align:center"></span></button>
     <button class="nb"    id="nb-pets"     onclick="ir('pets')"><div class="nb-ic">🐾</div><span class="nb-lbl">Pets</span></button>
     <button class="nb"    id="nb-mais"     onclick="toggleMais()"><div class="nb-ic">☰</div><span class="nb-lbl">Mais</span></button>
   </nav>
@@ -1177,8 +1095,6 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
     <div class="mais-grid">
       <button class="mais-item" onclick="fecharMais();ir('fat')"><div class="mi-ic">💰</div><span class="mi-lbl">Entradas</span></button>
       <button class="mais-item" onclick="fecharMais();ir('saidas')"><div class="mi-ic">💸</div><span class="mi-lbl">Saídas</span></button>
-      <button class="mais-item" onclick="fecharMais();ir('vips')"><div class="mi-ic">👑</div><span class="mi-lbl">VIPs</span></button>
-      <button class="mais-item" onclick="fecharMais();ir('estoque')"><div class="mi-ic">📦</div><span class="mi-lbl">Estoque</span></button>
       <button class="mais-item" onclick="fecharMais();ir('adest')"><div class="mi-ic">🎓</div><span class="mi-lbl">Adest.</span></button>
       <button class="mais-item" onclick="fecharMais();ir('boletim')"><div class="mi-ic">📋</div><span class="mi-lbl">Boletim</span></button>
       <button class="mais-item" onclick="fecharMais();ir('config')"><div class="mi-ic">⚙️</div><span class="mi-lbl">Config</span></button>
@@ -1209,7 +1125,7 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
     </div>
     <div class="frow">
       <div class="fg"><label class="fl">Espécie</label><select class="fs" id="mp-esp"><option>Cachorro</option><option>Gato</option><option>Ave/Pássaro</option><option>Roedor</option><option>Outro</option></select></div>
-      <div class="fg"><label class="fl">Porte</label><select class="fs" id="mp-porte"><option value="Mi">Mini</option><option value="P">Pequeno</option><option value="M" selected>Médio</option><option value="G">Grande</option><option value="Gi">Gigante</option></select></div>
+      <div class="fg"><label class="fl">Porte</label><select class="fs" id="mp-porte"><option value="P">Pequeno</option><option value="M" selected>Médio</option><option value="G">Grande</option></select></div>
     </div>
     <div class="frow">
       <div class="fg"><label class="fl">Raça</label><input class="fi" id="mp-raca" placeholder="Ex: Shih Tzu, SRD..."></div>
@@ -1240,15 +1156,6 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
     </div>
     <div class="frow">
       <div class="fg" style="min-width:100%"><label class="fl">Observações gerais (alergias, comportamento...)</label><textarea class="fta" id="mp-obs" placeholder="Ex: Alergia a frango, não gosta de banho..."></textarea></div>
-    </div>
-    <div class="frow-sep">📅 Recorrência & Plano</div>
-    <div class="frow">
-      <div class="fg"><label class="fl">Plano Recorrente</label><select class="fs" id="mp-recorrente"><option>Não</option><option value="mensal">Mensalidade Recorrente</option></select></div>
-      <div class="fg"><label class="fl">Vencimento</label><input class="fi" id="mp-vencimento" type="date"></div>
-    </div>
-    <div class="frow-sep">🏫 Créditos Creche</div>
-    <div class="frow">
-      <div class="fg"><label class="fl">Créditos Mensais</label><input class="fi" id="mp-creditos" type="number" placeholder="Ex: 8 (2x/sem)"></div>
     </div>
     <div class="macts">
       <button class="btn-danger" id="mp-btn-del" style="display:none" onclick="delPetModal()"><i class="ti ti-trash"></i> Excluir</button>
@@ -1452,7 +1359,7 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
       <div class="frow-sep">Data e Valor</div>
       <div class="frow">
         <div class="fg"><label class="fl">Data *</label><input class="fi" id="ai-data" type="date"></div>
-        <div class="fg"><label class="fl">Horário</label><select class="fs" id="ai-hora"></select></div>
+        <div class="fg"><label class="fl">Horário</label><input class="fi" id="ai-hora" type="time" value="09:00"></div>
       </div>
       <div class="frow">
         <div class="fg"><label class="fl">Valor (R$)</label><input class="fi" id="ai-valor" type="number" step="0.01" placeholder="0,00"></div>
@@ -1472,19 +1379,6 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);min-height:100dvh
   <div class="modal">
     <div class="mhandle"></div>
     <div class="mtitle">✅ Check-in Rápido</div>
-    <!-- Campo de upload de foto para comprovação -->
-    <div style="padding:0 16px 12px">
-      <div class="af-l" style="margin-bottom:6px">📸 Foto de entrada (opcional)</div>
-      <div style="display:flex;align-items:center;gap:10px">
-        <label for="ck-foto-upload" style="flex:1;padding:10px;border:2px dashed var(--border2);border-radius:8px;text-align:center;cursor:pointer;transition:border .2s" onmouseover="this.style.borderColor='var(--azul)'" onmouseout="this.style.borderColor='var(--border2)'">
-          <div style="font-size:24px;margin-bottom:4px">📷</div>
-          <div style="font-size:11px;color:var(--tx3);font-weight:700">Clique para tirar foto</div>
-          <div style="font-size:10px;color:var(--tx4);margin-top:2px">Comprovação de machucados/carrapatos</div>
-        </label>
-        <input type="file" id="ck-foto-upload" accept="image/*" style="display:none" onchange="ckFotoPreview(event)">
-        <div id="ck-foto-preview" style="width:60px;height:60px;border-radius:8px;background:var(--bg);display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px solid var(--border)"></div>
-      </div>
-    </div>
     <div class="checkin-grid-v3" id="ck-modal-grid" style="padding:0 0 8px"></div>
     <div class="macts"><button class="btn-ghost" onclick="fecharModal('modal-ck-rap')">Fechar</button></div>
   </div>
@@ -1508,13 +1402,6 @@ const firebaseConfig = {
   measurementId:     "G-F1193KREFW"
 };
 const FIREBASE_CONFIG = firebaseConfig; // alias para compatibilidade
-
-// ─────────────────────────────────────────────────────────
-//  MODO LOCAL vs NUVEM
-//  file://  → IS_LOCAL=true  → Firebase ignorado, localStorage
-//  http(s)  → IS_LOCAL=false → Firebase ativo normalmente
-// ─────────────────────────────────────────────────────────
-const IS_LOCAL = location.protocol === 'file:';
 
 // Variáveis globais Firebase
 /* ════════════════════════════════════════════════════════
@@ -1695,35 +1582,6 @@ async function fazerLogoutFirebase() {
   fbUser = null; fbUID = null;
 }
 
-// ─── LOGIN COM GOOGLE ─────────────────────────────────
-async function loginGoogle() {
-  if (!fbAuth) {
-    toast('⚠️ Firebase ainda carregando, aguarde...');
-    setTimeout(() => loginGoogle(), 1500);
-    return;
-  }
-  const btn = document.getElementById('btn-google');
-  if (btn) { btn.textContent = '🔄 Aguarde...'; btn.disabled = true; }
-  try {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    const cred = await fbAuth.signInWithPopup(provider);
-    fbUser = cred.user;
-    fbUID = cred.user.uid;
-    entrarApp();
-    toast('✅ Login com Google realizado!');
-  } catch(e) {
-    const msgs = {
-      'auth/popup-closed-by-user': '⚠️ Login cancelado pelo usuário.',
-      'auth/popup-blocked': '⚠️ Popup bloqueado. Permita popups para este site.',
-      'auth/account-exists-with-different-credential': '⚠️ E-mail já cadastrado com outro método.',
-      'auth/network-request-failed': '⚠️ Sem conexão. Tente o modo Demo.',
-      'auth/invalid-credential': '⚠️ Credenciais inválidas.'
-    };
-    toast(msgs[e.code] || '⚠️ Erro: ' + e.message);
-    if (btn) { btn.innerHTML = '<i class="ti ti-brand-google"></i> Entrar com Google'; btn.disabled = false; }
-  }
-}
-
 // ── 02. CONSTANTES ─────────────────────────────────
 const DIAS  = ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'];
 const DIASF = ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'];
@@ -1789,26 +1647,16 @@ const AppD = {
   pets:   S.get('pets', []),
   saidas: S.get('saidas', []),
   adests: S.get('adests', []),
-  // Novas estruturas para expansão de funcionalidades
-  clientesVIPs: S.get('clientesVIPs', []), // Lista de clientes VIP com frequência
-  estoque: S.get('estoque', []), // Controle de estoque Pet Shop
-  profissionais: S.get('profissionais', []), // Profissionais com comissão
   config: S.get('config', {
     nome:'Anguli Pet', wa:'47 98857-4522', ig:'@angulipet',
     precos:{
       creche:{av:40, t3x:380, t5x:500},
-      hotel:{mi:40, p:50, m:80, g:100, gi:120, gp:50, gm:65, gg:80, av:35, ro:35},
-      banho:{mi:30, p:40, m:55, g:70, gi:90},
-      bt:{mi:45, p:60, m:75, g:90, gi:110},
+      hotel:{p:50, m:80, g:100, gp:50, gm:65, gg:80, av:35, ro:35},
+      banho:{p:40, m:55, g:70},
+      bt:{p:60, m:75, g:90},
       dw:{av:75, t3x:60, t5x:50},
       taxi:{simples:30, idavolta:55, mensal:200},
       adest:{av:150, p4:520, p8:960, men:400}
-    },
-    racoes:{
-      cachorro:[{nome:'Royal Canin Adulto',valor:8},{nome:'Golden Adulto',valor:6},{nome:'Pedigree Adulto',valor:5}],
-      gato:[{nome:'Whiskas Adulto',valor:7},{nome:'Royal Canin Gato',valor:9},{nome:'Purina One',valor:6}],
-      ave:[{nome:'Mistura de Sementes',valor:4},{nome:'Ração para Pássaro',valor:5}],
-      roedor:[{nome:'Ração para Hamster',valor:4},{nome:'Mix de Grãos',valor:3}]
     }
   }),
 };
@@ -1818,9 +1666,6 @@ let dados  = AppD.dados;
 let pets   = AppD.pets;
 let saidas = AppD.saidas;
 let adests = AppD.adests;
-let clientesVIPs = AppD.clientesVIPs;
-let estoque = AppD.estoque;
-let profissionais = AppD.profissionais;
 let config = AppD.config;
 
 // save() — função única de persistência: salva tudo + Firebase
@@ -1828,10 +1673,8 @@ const save = () => {
   // Mantém AppD sincronizado com aliases
   AppD.dados = dados; AppD.pets = pets;
   AppD.saidas = saidas; AppD.adests = adests; AppD.config = config;
-  AppD.clientesVIPs = clientesVIPs; AppD.estoque = estoque; AppD.profissionais = profissionais;
   S.set('dados',dados); S.set('pets',pets);
   S.set('saidas',saidas); S.set('adests',adests); S.set('config',config);
-  S.set('clientesVIPs',clientesVIPs); S.set('estoque',estoque); S.set('profissionais',profissionais);
   fbSync();
 };
 
@@ -1864,18 +1707,15 @@ function calcPreco(setor, porte, esp) {
     if(esp==='Gato') return p.hotel[porte==='P'?'gp':porte==='M'?'gm':'gg'];
     if(esp==='Ave/Pássaro') return p.hotel.av;
     if(esp==='Roedor') return p.hotel.ro;
-    var mapaHotel={Mi:'mi',P:'p',M:'m',G:'g',Gi:'gi'};
-    return p.hotel[mapaHotel[porte]||'m']||p.hotel.m;
+    return p.hotel[porte.toLowerCase()]||p.hotel.m;
   }
   return 0;
 }
 function calcBanho(serv,porte){
   const p=P();
-  const mapaBanho={Mi:'mi',P:'p',M:'m',G:'g',Gi:'gi'};
-  const pk=mapaBanho[porte]||porte.toLowerCase();
-  if(serv==='Banho') return p.banho[pk]||p.banho.m;
-  if(serv==='Banho e Tosa') return p.bt[pk]||p.bt.m;
-  if(serv==='Tosa') return Math.round((p.bt[pk]||p.bt.m)*.65);
+  if(serv==='Banho') return p.banho[porte.toLowerCase()]||p.banho.m;
+  if(serv==='Banho e Tosa') return p.bt[porte.toLowerCase()]||p.bt.m;
+  if(serv==='Tosa') return Math.round((p.bt[porte.toLowerCase()]||p.bt.m)*.65);
   return 0;
 }
 function calcDW(plano){
@@ -1963,9 +1803,6 @@ function _irCore(pg) {
     saidas:  renderSaidas,
     config:  function(){ carregarConfig(); carregarCfgWA(); },
     checkin: renderCkPage,
-    boletim: renderBoletimV3,
-    vips:    renderVIPs,
-    estoque: renderEstoque,
   };
   if (renderMap[pg]) renderMap[pg]();
 }
@@ -2007,7 +1844,7 @@ function irAgendaSetor(setor) {
   setTab(setor);
 }
 
-
+function entrarDemo(){ fbUID=null; fbUser=null; entrarApp(); toast('🔓 Modo Demo — dados salvos apenas neste dispositivo'); }
 
 function recuperarSenha() {
   const emailInput = document.getElementById('li-email').value.trim();
@@ -2030,10 +1867,6 @@ function recuperarSenha() {
 }
 
 function login() {
-  if (IS_LOCAL) {
-    alert('⚠️ Login não funciona em arquivo local (file://)\n\nPara usar o app, acesse pelo link online ou abra um servidor local:\n\npython -m http.server 8080\n\nDepois acesse: http://localhost:8080/anguli-pet.html');
-    return;
-  }
   const email = document.getElementById('li-email').value.trim();
   const senha = document.getElementById('li-senha').value;
   if (!email || !senha) { toast('⚠️ Preencha e-mail e senha'); return; }
@@ -2041,10 +1874,6 @@ function login() {
 }
 
 function criarConta() {
-  if (IS_LOCAL) {
-    alert('⚠️ Criar conta não funciona em arquivo local (file://)\n\nAcesse o app pelo link online ou via servidor local:\n\npython -m http.server 8080\nDepois: http://localhost:8080/anguli-pet.html');
-    return;
-  }
   const email = document.getElementById('li-email').value.trim();
   const senha = document.getElementById('li-senha').value;
   if (!email) { toast('⚠️ Informe um e-mail'); return; }
@@ -2080,17 +1909,12 @@ function sair(){
     toast('👋 Saiu com segurança.');
   },'#4A5878');
 }
-// ═══ HELPER: Definir filtro genérico ═══
-function setFiltroGenerico(filtroObj, prop, tipo, btn, containerSelector) {
-  filtroObj[prop] = tipo;
-  document.querySelectorAll(containerSelector + ' .fat-btn').forEach(b => b.classList.remove('on'));
-  btn.classList.add('on');
-}
-
 // ═══ DASHBOARD ═══
 let fatFiltro='dia';
 function setFatFiltro(tipo, btn){
-  setFiltroGenerico(window, 'fatFiltro', tipo, btn, '');
+  fatFiltro=tipo;
+  document.querySelectorAll('.fat-btn').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
   renderGrafico();
 }
 
@@ -2116,7 +1940,7 @@ function renderDash(){
   document.getElementById('kd-a').textContent=pend;
   const porHoje=fatPeriodo('dia');
   const fatHoje=porHoje.creche+porHoje.hotel+porHoje.banho+porHoje.dw+(porHoje.taxi||0)+(porHoje.adest||0);
-  document.getElementById('fat-geral-v').textContent='R$ '+fatHoje.toFixed(2).replace('.',',');
+  document.getElementById('fat-geral-v').textContent='R$'+fatHoje.toFixed(2).replace('.',',');
   const n=DIAS[hj.getDay()];
   document.getElementById('dash-sub').textContent=`${n}, ${hj.getDate()} de ${MESES[hj.getMonth()]}`;
   const usuario=config.usuario||config.nome||'';
@@ -2133,39 +1957,40 @@ function renderGrafico(){
   const total=vals.reduce((a,v)=>a+v,0);
   const cores=['#16A34A','#1A4BAA','#EA580C','#7C3AED','#DC2626','#9333EA'];
   const nomes=['Creche','Hotel','Banho/Tosa','Dog Walker','Táxi Dog','Adestramento'];
-  renderDonutChart('donut-svg', 'donut-total', 'fat-legend', vals, cores, nomes, total);
-}
+  const svg=document.getElementById('donut-svg');
+  document.getElementById('donut-total').textContent='R$'+total;
 
-// ═══ HELPER: Renderizar gráfico donut ═══
-function renderDonutChart(svgId, totalId, legendId, vals, cores, nomes, total) {
-  const svg = document.getElementById(svgId);
-  if (!svg) return;
-  document.getElementById(totalId).textContent = 'R$ ' + total.toFixed(2).replace('.',',');
-  const cx = 55, cy = 55, r = 36;
-  const circ = 2 * Math.PI * r;
-  if (total === 0) {
-    svg.innerHTML = `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#EEF4FF" stroke-width="14"/>`;
+  // Donut correto usando stroke-dasharray
+  const cx=55, cy=55, r=36;
+  const circ=2*Math.PI*r;
+  if(total===0){
+    svg.innerHTML=`<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#EEF4FF" stroke-width="14"/>`;
   } else {
-    let offset = 0;
-    let paths = `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#EEF4FF" stroke-width="14"/>`;
-    vals.forEach((v, i) => {
-      if (!v) return;
-      const pct = v / total, dash = pct * circ, gap = circ - dash;
-      paths += `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${cores[i]}" stroke-width="14"
+    let offset=0;
+    let paths=`<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#EEF4FF" stroke-width="14"/>`;
+    vals.forEach((v,i)=>{
+      if(!v) return;
+      const pct=v/total;
+      const dash=pct*circ;
+      const gap=circ-dash;
+      paths+=`<circle cx="${cx}" cy="${cy}" r="${r}" fill="none"
+        stroke="${cores[i]}" stroke-width="14"
         stroke-dasharray="${dash.toFixed(2)} ${gap.toFixed(2)}"
-        stroke-dashoffset="${(-offset * circ + circ * 0.25).toFixed(2)}"
-        transform="rotate(-90 ${cx} ${cy})"/>`;
-      offset += pct;
+        stroke-dashoffset="${(-offset*circ+circ*0.25).toFixed(2)}"
+        transform="rotate(-90 ${cx} ${cy})"
+        style="transition:stroke-dasharray .4s ease"/>`;
+      offset+=pct;
     });
-    paths += `<circle cx="${cx}" cy="${cy}" r="24" fill="white"/>`;
-    svg.innerHTML = paths;
+    paths+=`<circle cx="${cx}" cy="${cy}" r="24" fill="white"/>`;
+    svg.innerHTML=paths;
   }
-  document.getElementById(legendId).innerHTML = vals.map((v, i) => `
+
+  document.getElementById('fat-legend').innerHTML=vals.map((v,i)=>`
     <div class="leg-item">
       <div class="leg-dot" style="background:${cores[i]}"></div>
       <span class="leg-lbl">${nomes[i]}</span>
-      <span class="leg-val">R$ ${v.toFixed(2).replace('.',',')}</span>
-      <span class="leg-pct">${total ? Math.round(v / total * 100) : 0}%</span>
+      <span class="leg-val">R$${v}</span>
+      <span class="leg-pct">${total?Math.round(v/total*100):0}%</span>
     </div>`).join('');
 }
 
@@ -2221,28 +2046,7 @@ function numWA(tel) {
 const _waMsgs = {};
 let _waMsgIdx = 0;
 function storeWAMsg(msg){ const k='wm'+(++_waMsgIdx); _waMsgs[k]=msg; return k; }
-function sendStoredWA(tel, key) {
-  var msg = _waMsgs[key] || '';
-  if (!msg) return;
-  // Abre modal WA com a mensagem preenchida e editável
-  var modal = document.getElementById('modal-wa-item');
-  var nm    = tel ? numWA(tel) : null;
-  modal._nm       = nm;
-  modal._tel      = tel;
-  modal._setorKey = 'alerta';
-  modal._nome     = '';
-  modal._msgs     = { confirm: msg, chegou: msg, saiu: msg, avulso: msg };
-  // Avatar padrão
-  var avEl = document.getElementById('wai-av');
-  if (avEl) { avEl.innerHTML = ''; avEl.textContent = '🔔'; }
-  var servLine = document.getElementById('wai-serv-line');
-  if (servLine) servLine.textContent = '⚠️ Alerta automático';
-  document.getElementById('wai-tel-display').textContent = tel || '— sem telefone';
-  document.getElementById('wai-nome').textContent = '📲 Mensagem de alerta';
-  document.getElementById('wai-tutor').textContent = '';
-  waiSetTipo('confirm');
-  modal.classList.remove('hid');
-}
+function sendStoredWA(tel, key){ abrirWA(tel, _waMsgs[key]||''); }
 function abrirWA(tel, msg) {
   const n = numWA(tel);
   if (!n) { toast('⚠️ Sem telefone cadastrado. Edite a ficha do pet.'); return; }
@@ -2297,21 +2101,21 @@ function renderAlertas(){
       const ck='vac-venc-'+p.nome;
       if(_alertasDispensados.has(ck)) return;
       if(!tipoSom || tipoSom!=='urgente') tipoSom='urgente';
-      const msgVV = msgVacinaVencida(p, diff);
-      const msgKeyVV = storeWAMsg(msgVV);
+      const msg = msgVacinaVencida(p, diff);
       const labelDias = diff===-1 ? 'Venceu ontem' : `Venceu há ${Math.abs(diff)} dia(s)`;
       html+=`<div class="alert-card vac-venc">
         <div class="alert-ico">💉</div>
         <div style="flex:1">
           <div class="alert-t">Vacina de <strong>${p.nome}</strong> VENCIDA!</div>
           <div class="alert-s">Tutor: ${p.tutor||'—'} • ${labelDias}</div>
-          <div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap;align-items:center">
-            <button class="alert-wa-btn" onclick="sendStoredWA('${tel}','${msgKeyVV}')">📱 Avisar no WhatsApp</button>
+          <div style="display:flex;gap:6px;margin-top:7px;flex-wrap:wrap">
+            <button class="alert-wa-btn" onclick="abrirWA('${tel}',\`${msg.replace(/`/g,"'")}\`)"><span>📲</span> Avisar no WhatsApp</button>
             <button class="alert-edit-btn" onclick="editPet(${pi})">✏️ Editar ficha</button>
           </div>
-          <div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap;align-items:center">
-            <button class="alert-vacina-aplicada-btn" onclick="removerAlertaVacina(${pi})">✓ Após vacinar: Remover alerta</button>
-            <button class="alert-vacina-manter-btn" onclick="dispensarAlerta('${ck}')">🔔 Manter alerta</button>
+          <div class="alert-snooze-row">
+            <span style="font-size:10px;font-weight:700;color:#9CA3AF;align-self:center">Após vacinar:</span>
+            <button class="btn-snooze-rm" onclick="removerAlertaVacina(${pi})">✅ Remover alerta</button>
+            <button class="btn-snooze-keep" onclick="dispensarAlerta('${ck}')">✕ Dispensar</button>
           </div>
         </div>
       </div>`;
@@ -2321,59 +2125,53 @@ function renderAlertas(){
       const ck='vac-hoje-'+p.nome;
       if(_alertasDispensados.has(ck)) return;
       if(!tipoSom || tipoSom!=='urgente') tipoSom='urgente';
-      const msgVH = msgVacinaProxima(p, 0);
-      const msgKeyVH = storeWAMsg(msgVH);
+      const msg = msgVacinaProxima(p, 0);
       html+=`<div class="alert-card vac-venc">
         <div class="alert-ico">💉</div>
         <div style="flex:1">
           <div class="alert-t">Vacina de <strong>${p.nome}</strong> vence HOJE!</div>
           <div class="alert-s">Tutor: ${p.tutor||'—'} • Último dia para vacinar</div>
-          <div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap;align-items:center">
-            <button class="alert-wa-btn" onclick="sendStoredWA('${tel}','${msgKeyVH}')">📱 Avisar no WhatsApp</button>
+          <div style="display:flex;gap:6px;margin-top:7px;flex-wrap:wrap">
+            <button class="alert-wa-btn" onclick="abrirWA('${tel}',\`${msg.replace(/`/g,"'")}\`)"><span>📲</span> Avisar no WhatsApp</button>
             <button class="alert-edit-btn" onclick="editPet(${pi})">✏️ Editar ficha</button>
-          </div>
-          <div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap;align-items:center">
-            <button class="alert-vacina-aplicada-btn" onclick="removerAlertaVacina(${pi})">✓ Após vacinar: Remover alerta</button>
-            <button class="alert-vacina-manter-btn" onclick="dispensarAlerta('${ck}')">🔔 Manter alerta</button>
+            <button class="alert-edit-btn" onclick="dispensarAlerta('${ck}')">✕ Dispensar</button>
           </div>
         </div>
       </div>`;
     } else if(diff<=2){
+      // Vence em 1 ou 2 dias — alerta antecipado
       totalAlertas++;
       const ck='vac-prox2-'+p.nome+'-'+diff;
       if(_alertasDispensados.has(ck)) return;
       if(!tipoSom) tipoSom='aviso';
-      const msgP2 = msgVacinaProxima(p, diff);
-      const mkP2  = storeWAMsg(msgP2);
+      const msg = msgVacinaProxima(p, diff);
       html+=`<div class="alert-card vac-prox">
         <div class="alert-ico">⚠️</div>
         <div style="flex:1">
           <div class="alert-t">Vacina de <strong>${p.nome}</strong> vence em ${diff} dia(s)!</div>
           <div class="alert-s">Tutor: ${p.tutor||'—'} • Vence em ${new Date(p.vacina).toLocaleDateString('pt-BR')}</div>
-          <div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap;align-items:center">
-            <button class="alert-wa-btn" style="background:#FEFCE8;color:#854D0E;border-color:#FDE047" onclick="sendStoredWA('${tel}','${mkP2}')">📱 Lembrar no WhatsApp</button>
-            <button class="alert-edit-btn" onclick="editPet(${pi})">✏️ Editar ficha</button>
+          <div style="display:flex;gap:6px;margin-top:7px;flex-wrap:wrap">
+            <button class="alert-wa-btn" style="background:#FEFCE8;color:#854D0E;border-color:#FDE047" onclick="abrirWA('${tel}',\`${msg.replace(/`/g,"'")}\`)"><span>📲</span> Lembrar no WhatsApp</button>
+            <button class="alert-edit-btn" onclick="dispensarAlerta('${ck}')">✕ Dispensar</button>
           </div>
-          <button class="btn-snooze-keep" style="margin-top:6px" onclick="dispensarAlerta('${ck}')">🔔 Manter alerta</button>
         </div>
       </div>`;
     } else if(diff<=30){
+      // Vence em até 30 dias — aviso geral
       totalAlertas++;
       const ck='vac-prox-'+p.nome;
       if(_alertasDispensados.has(ck)) return;
       if(!tipoSom) tipoSom='aviso';
-      const msgP30 = msgVacinaProxima(p, diff);
-      const mkP30  = storeWAMsg(msgP30);
+      const msg = msgVacinaProxima(p, diff);
       html+=`<div class="alert-card vac-prox">
         <div class="alert-ico">⚠️</div>
         <div style="flex:1">
           <div class="alert-t">Vacina de <strong>${p.nome}</strong> vence em ${diff} dia(s)</div>
           <div class="alert-s">Tutor: ${p.tutor||'—'} • Vence em ${new Date(p.vacina).toLocaleDateString('pt-BR')}</div>
-          <div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap;align-items:center">
-            <button class="alert-wa-btn" style="background:#FEFCE8;color:#854D0E;border-color:#FDE047" onclick="sendStoredWA('${tel}','${mkP30}')">📱 Lembrar no WhatsApp</button>
-            <button class="alert-edit-btn" onclick="editPet(${pi})">✏️ Editar ficha</button>
+          <div style="display:flex;gap:6px;margin-top:7px;flex-wrap:wrap">
+            <button class="alert-wa-btn" style="background:#FEFCE8;color:#854D0E;border-color:#FDE047" onclick="abrirWA('${tel}',\`${msg.replace(/`/g,"'")}\`)"><span>📲</span> Lembrar no WhatsApp</button>
+            <button class="alert-edit-btn" onclick="dispensarAlerta('${ck}')">✕ Dispensar</button>
           </div>
-          <button class="btn-snooze-keep" style="margin-top:6px" onclick="dispensarAlerta('${ck}')">🔔 Manter alerta</button>
         </div>
       </div>`;
     }
@@ -2435,7 +2233,6 @@ function renderAlertas(){
       tipoSom='feliz';
       const anos=idadeTexto(p.nasc);
       const msg = msgAniversario(p);
-      const msgKeyAniv = storeWAMsg(msg);
       const fotoAniv = p.foto ? `<img src="${p.foto}" style="width:46px;height:46px;border-radius:50%;object-fit:cover;border:3px solid #FDE68A;flex-shrink:0">` : `<span style="font-size:32px">🐾</span>`;
       html+=`<div class="aniv-banner">
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
@@ -2444,7 +2241,7 @@ function renderAlertas(){
           <div class="aniv-sub">Tutor: ${p.tutor||'—'} • ${anos} completando hoje! 🥳</div></div>
         </div>
         <div style="display:flex;gap:6px;flex-wrap:wrap">
-          <button class="alert-wa-btn" style="background:#DCFCE7;color:#14532D;border-color:#86EFAC" onclick="sendStoredWA('${tel}','${msgKeyAniv}')">🎉 Parabenizar no WhatsApp</button>
+          <button class="alert-wa-btn" style="background:#DCFCE7;color:#14532D;border-color:#86EFAC" onclick="(()=>{const k=storeWAMsg(msg);sendStoredWA('${tel}',k)})()">🎉 Parabenizar no WhatsApp</button>
           <button class="alert-edit-btn" onclick="dispensarAlerta('${ck}')">✕ Dispensar</button>
         </div>
       </div>`;
@@ -2457,7 +2254,6 @@ function renderAlertas(){
       if(_alertasDispensados.has('aniv-'+p.nome)) return;
       if(!tipoSom) tipoSom='aviso';
       const msg = msgAniversario(p);
-      const msgKeyAnivD = storeWAMsg(msg);
       const fotoAniv = p.foto ? `<img src="${p.foto}" style="width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid #FDE68A;flex-shrink:0">` : `<span style="font-size:26px">🐾</span>`;
       html+=`<div class="aniv-banner" style="background:linear-gradient(135deg,#FFF7ED,#FEF3C7)">
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
@@ -2466,7 +2262,7 @@ function renderAlertas(){
           <div class="aniv-sub">Tutor: ${p.tutor||'—'} • Ainda dá tempo de enviar!</div></div>
         </div>
         <div style="display:flex;gap:6px;flex-wrap:wrap">
-          <button class="alert-wa-btn" style="background:#DCFCE7;color:#14532D;border-color:#86EFAC" onclick="sendStoredWA('${tel}','${msgKeyAnivD}')">🎉 Parabenizar no WhatsApp</button>
+          <button class="alert-wa-btn" style="background:#DCFCE7;color:#14532D;border-color:#86EFAC" onclick="(()=>{const k=storeWAMsg(msg);sendStoredWA('${tel}',k)})()">🎉 Parabenizar no WhatsApp</button>
           <button class="alert-edit-btn" onclick="dispensarAlerta('${ck}')">✕ Dispensar</button>
         </div>
       </div>`;
@@ -2596,7 +2392,14 @@ function renderMets(idx){
 }
 
 // ═══ TABS ═══
-function atualizarContadoresAgenda(idx) { /* removido */ }
+function atualizarContadoresAgenda(idx) {
+  const d = getDia(idx);
+  const map = {creche:'creche',hotel:'hotel',banho:'banho',dw:'dw',taxi:'taxi'};
+  Object.keys(map).forEach(function(s){
+    const el = document.getElementById('stab-cnt-'+s);
+    if (el) el.textContent = (d[s]||[]).length;
+  });
+}
 
 function setTab(tab){
   tabAtiva=tab; AppEstado.tabAgenda=tab;
@@ -2680,18 +2483,8 @@ function rCreche(idx,d){
   h+=addSecao('creche',idx,`
     ${petPickerHtml('cc-n','cc-t','cc-p',null)}
     <div class="af"><div class="af-l">Plano</div><select class="asel" id="cc-pl"><option value="">Avulso</option><option value="3x Semana">3x/sem</option><option value="5x Semana">5x/sem</option></select></div>
-    <div class="af"><div class="af-l">Alimentação</div><select class="asel" id="cc-alim" onchange="atualizarSelectRacaoCreche()"><option>Ração local</option><option>Ração própria</option><option>Natural</option></select></div>
-    <div class="af" id="cc-racao-wrap" style="display:none"><div class="af-l">🍖 Qual ração</div><select class="asel" id="cc-racao" onchange="atualizarValorCreche()" style="min-width:130px"></select></div>
     <div class="af"><div class="af-l">Pagou?</div><select class="asel" id="cc-pg"><option>Não</option><option>Sim</option></select></div>`);
   el.innerHTML=h; bindPicker('cc-n','cc-t','cc-p',null);
-  // Preenche select de ração após render
-  setTimeout(function() {
-    atualizarSelectRacaoCreche();
-    var plSel = document.getElementById('cc-pl');
-    if (plSel) plSel.addEventListener('change', atualizarValorCreche);
-    var alimSel = document.getElementById('cc-alim');
-    if (alimSel) alimSel.addEventListener('change', atualizarValorCreche);
-  }, 50);
 }
 
 function rHotel(idx,d){
@@ -2702,21 +2495,13 @@ function rHotel(idx,d){
     ${petPickerHtml('hc-n','hc-t','hc-p','hc-e')}
     <div class="af"><div class="af-l">Espécie</div><select class="asel" id="hc-e"><option>Cachorro</option><option>Gato</option><option>Ave/Pássaro</option><option>Roedor</option></select></div>
     <div class="af"><div class="af-l">Diárias</div><input class="ainp ainp-sm" id="hc-d" type="number" min="1" value="1"></div>
-    <div class="af"><div class="af-l">Alimentação</div><select class="asel" id="hc-alim" onchange="atualizarSelectRacaoHotel()"><option>Ração local</option><option>Ração própria</option><option>Natural</option></select></div>
-    <div class="af" id="hc-racao-wrap" style="display:none"><div class="af-l">🍖 Qual ração</div><select class="asel" id="hc-racao" onchange="atualizarValorHotel()" style="min-width:130px"></select></div>
+    <div class="af"><div class="af-l">Alimentação</div><select class="asel" id="hc-alim"><option>Ração local</option><option>Ração própria</option><option>Natural</option></select></div>
     <div class="af"><div class="af-l">Aut. Vet?</div><select class="asel" id="hc-vet"><option>Sim</option><option>Não</option></select></div>
     <div class="af"><div class="af-l">Pagou?</div><select class="asel" id="hc-pg"><option>Não</option><option>Sim</option></select></div>`);
   el.innerHTML=h; bindPicker('hc-n','hc-t','hc-p','hc-e');
   // Registra campos extras a preencher pelo picker no Hotel
   var hcExtras = document.getElementById('hc-n-extras');
   if (hcExtras) hcExtras.value = JSON.stringify({"hc-e":"esp","hc-alim":"alim"});
-  setTimeout(function() {
-    atualizarSelectRacaoHotel();
-    var diasEl = document.getElementById('hc-d');
-    if (diasEl) diasEl.addEventListener('input', atualizarValorHotel);
-    var espEl  = document.getElementById('hc-e');
-    if (espEl)  espEl.addEventListener('change', atualizarValorHotel);
-  }, 50);
 }
 
 function rBanho(idx,d){
@@ -2838,25 +2623,17 @@ function addItem(setor,idx){
 
   if(setor==='creche'){
     const n=g('cc-n')?.value?.trim(); if(!n){toast('⚠️ Informe o nome');return;}
-    const porte=g('cc-p')?.value||'M', plano=g('cc-pl').value, pagou=g('cc-pg').value, alimC=g('cc-alim')?.value||'Ração própria';
-    const valorBase=plano===''?P().creche.av:plano==='3x Semana'?Math.round(P().creche.t3x/13):Math.round(P().creche.t5x/22);
-    const racaoSel=g('cc-racao')?.value||'';
-    const racaoValor=racaoSel?parseFloat(racaoSel.split('|')[1]||0):0;
-    const racaoNome=racaoSel?racaoSel.split('|')[0]:'';
-    const valor=valorBase+racaoValor;
-    d.creche.push({nome:n,tutor:g('cc-t')?.value||'',porte,plano,alim:alimC,pagou,valor,racao:racaoNome,racaoValor,foto,pgto:'PIX',ts:Date.now()});
+    const porte=g('cc-p')?.value||'M', plano=g('cc-pl').value, pagou=g('cc-pg').value;
+    const valor=plano===''?P().creche.av:plano==='3x Semana'?Math.round(P().creche.t3x/13):Math.round(P().creche.t5x/22);
+    d.creche.push({nome:n,tutor:g('cc-t')?.value||'',porte,plano,pagou,valor,foto,pgto:'PIX',ts:Date.now()});
   }
   else if(setor==='hotel'){
     const n=g('hc-n')?.value?.trim(); if(!n){toast('⚠️ Informe o nome');return;}
     const esp=g('hc-e').value,porte=g('hc-p')?.value||'M',dias=parseInt(g('hc-d').value)||1;
     const alim=g('hc-alim').value,vet=g('hc-vet').value,pagou=g('hc-pg').value;
     const base=calcPreco('hotel',porte,esp);
-    const racaoHotelSel=g('hc-racao')?.value||'';
-    const racaoHotelValor=racaoHotelSel?parseFloat(racaoHotelSel.split('|')[1]||0):0;
-    const racaoHotelNome=racaoHotelSel?racaoHotelSel.split('|')[0]:'';
-    const valorHotel=(base+racaoHotelValor)*dias;
     const cin=getDias()[idx]; const cout=new Date(cin); cout.setDate(cin.getDate()+dias);
-    d.hotel.push({nome:n,tutor:g('hc-t')?.value||'',esp,porte,diarias:dias,alim,vet,pagou,valor:valorHotel,racao:racaoHotelNome,racaoValor:racaoHotelValor,foto,pgto:'PIX',cin:cin.toLocaleDateString('pt-BR'),cout:cout.toLocaleDateString('pt-BR'),ts:Date.now()});
+    d.hotel.push({nome:n,tutor:g('hc-t')?.value||'',esp,porte,diarias:dias,alim,vet,pagou,valor:base*dias,foto,pgto:'PIX',cin:cin.toLocaleDateString('pt-BR'),cout:cout.toLocaleDateString('pt-BR'),ts:Date.now()});
   }
   else if(setor==='banho'){
     const n=g('bc-n')?.value?.trim(); if(!n){toast('⚠️ Informe o nome');return;}
@@ -2952,7 +2729,7 @@ function abrirEdit(setor, pi, idx){
   }
   if(setor==='banho'){
     html+=`<div class="frow">
-      <div class="fg"><label class="fl">Porte</label><select class="fs" id="me-p"><option${r.porte==='Mi'?' selected':''} value="Mi">Mini</option><option${r.porte==='P'?' selected':''} value="P">Pequeno</option><option${r.porte==='M'?' selected':''} value="M">Médio</option><option${r.porte==='G'?' selected':''} value="G">Grande</option><option${r.porte==='Gi'?' selected':''} value="Gi">Gigante</option></select></div>
+      <div class="fg"><label class="fl">Porte</label><select class="fs" id="me-p"><option${r.porte==='P'?' selected':''} value="P">P</option><option${r.porte==='M'?' selected':''} value="M">M</option><option${r.porte==='G'?' selected':''} value="G">G</option></select></div>
       <div class="fg"><label class="fl">Serviço</label><select class="fs" id="me-s">
         ${['Banho','Banho e Tosa','Tosa','Tosa Higiênica'].map(s=>`<option${r.serv===s?' selected':''}>${s}</option>`).join('')}
       </select></div>
@@ -3121,11 +2898,7 @@ function salvarPet(){
   const n=document.getElementById('mp-nome').value.trim();
   if(!n){toast('⚠️ Informe o nome');return;}
   const gv=id=>document.getElementById(id)?.value||'';
-  const pet={nome:n,tutor:gv('mp-tutor'),esp:gv('mp-esp'),porte:gv('mp-porte'),raca:gv('mp-raca'),nasc:gv('mp-nasc'),peso:gv('mp-peso'),cast:gv('mp-cast'),tel:gv('mp-tel'),tel2:gv('mp-tel2'),vet:gv('mp-vet'),vacina:gv('mp-vacina'),alim:gv('mp-alim'),temp:gv('mp-temp'),soc:gv('mp-soc'),med:gv('mp-med'),obs:gv('mp-obs'),foto:document.getElementById('mp-foto-data').value,cadastro:new Date().toLocaleDateString('pt-BR'),
-    // Campos de recorrência
-    recorrente:gv('mp-recorrente'), vencimento:gv('mp-vencimento'),
-    // Campo de créditos para creche
-    creditos:parseInt(gv('mp-creditos'))||0};
+  const pet={nome:n,tutor:gv('mp-tutor'),esp:gv('mp-esp'),porte:gv('mp-porte'),raca:gv('mp-raca'),nasc:gv('mp-nasc'),peso:gv('mp-peso'),cast:gv('mp-cast'),tel:gv('mp-tel'),tel2:gv('mp-tel2'),vet:gv('mp-vet'),vacina:gv('mp-vacina'),alim:gv('mp-alim'),temp:gv('mp-temp'),soc:gv('mp-soc'),med:gv('mp-med'),obs:gv('mp-obs'),foto:document.getElementById('mp-foto-data').value,cadastro:new Date().toLocaleDateString('pt-BR')};
   if(editPetIdx!==null) pets[editPetIdx]=pet; else pets.push(pet);
   save(); fecharModal('modal-pet'); renderPets();
   toast(editPetIdx!==null?'✏️ Pet atualizado!':'🐾 Pet cadastrado!');
@@ -3213,7 +2986,47 @@ const WA_SERVICOS = [
 const WA_TPL_CONFIRM_DEFAULT = 'Olá {tutor}! 👋\n\nConfirmamos o agendamento de *{servico}* para o pet *{nome}*\n📅 Data: *{data}*\n{valor}Estamos te esperando na *{empresa}*! 🐾\n📱 {wa}';
 const WA_TPL_CHEGOU_DEFAULT  = 'Olá {tutor}! 👋\n\n*{nome}* chegou na *{empresa}* e está bem! 🐾\nFique tranquilo(a), cuidaremos com muito carinho! 💚\n📱 {wa}';
 
-function salvarCfgWA() { save(); toast('✅ Mensagens salvas!'); }
+function carregarCfgWA() {
+  const waCfg = config.waMsgs || {};
+  const lista = document.getElementById('wa-servicos-list');
+  if(!lista) return;
+  lista.innerHTML = WA_SERVICOS.map(s => {
+    const ativo = waCfg['ativo_'+s.key] !== false;
+    return `<div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border)">
+      <span style="font-size:13px;font-weight:800;color:var(--tx)">${s.label}</span>
+      <label style="display:flex;align-items:center;gap:8px;cursor:pointer">
+        <span style="font-size:12px;color:var(--tx3)">${ativo?'Ativo':'Inativo'}</span>
+        <div class="toggle-wrap" onclick="toggleWAServico('${s.key}',this)">
+          <div class="toggle-track ${ativo?'on':''}" id="wa-toggle-${s.key}">
+            <div class="toggle-thumb"></div>
+          </div>
+        </div>
+      </label>
+    </div>`;
+  }).join('');
+
+  document.getElementById('cfg-tpl-confirm').value = waCfg.tpl_confirm_geral || WA_TPL_CONFIRM_DEFAULT;
+  document.getElementById('cfg-tpl-chegou').value  = waCfg.tpl_chegou_geral  || WA_TPL_CHEGOU_DEFAULT;
+}
+
+function toggleWAServico(key, wrap) {
+  const track = document.getElementById('wa-toggle-'+key);
+  const ativo = !track.classList.contains('on');
+  track.classList.toggle('on', ativo);
+  const label = wrap.previousElementSibling;
+  if(label) label.textContent = ativo ? 'Ativo' : 'Inativo';
+  if(!config.waMsgs) config.waMsgs = {};
+  config.waMsgs['ativo_'+key] = ativo;
+  save();
+}
+
+function salvarCfgWA() {
+  if(!config.waMsgs) config.waMsgs = {};
+  config.waMsgs.tpl_confirm_geral = document.getElementById('cfg-tpl-confirm').value.trim() || WA_TPL_CONFIRM_DEFAULT;
+  config.waMsgs.tpl_chegou_geral  = document.getElementById('cfg-tpl-chegou').value.trim()  || WA_TPL_CHEGOU_DEFAULT;
+  save();
+  toast('✅ Mensagens WhatsApp salvas!');
+}
 
 function carregarConfig(){
   const sv=(id,v)=>{const el=document.getElementById(id);if(el&&v!==undefined)el.value=v;};
@@ -3222,17 +3035,14 @@ function carregarConfig(){
   if(config.genero) document.getElementById('cfg-genero').value=config.genero;
   const p=config.precos;
   sv('pc-av',p.creche.av);sv('pc-3x',p.creche.t3x);sv('pc-5x',p.creche.t5x);
-  sv('ph-mi',p.hotel.mi);sv('ph-p',p.hotel.p);sv('ph-m',p.hotel.m);sv('ph-g',p.hotel.g);sv('ph-gi',p.hotel.gi);
+  sv('ph-p',p.hotel.p);sv('ph-m',p.hotel.m);sv('ph-g',p.hotel.g);
   sv('ph-gp',p.hotel.gp);sv('ph-gm',p.hotel.gm);sv('ph-gg',p.hotel.gg);
   sv('ph-av',p.hotel.av);sv('ph-ro',p.hotel.ro);
-  renderRacoesConfig();
-  sv('pb-mi',p.banho.mi);sv('pb-p',p.banho.p);sv('pb-m',p.banho.m);sv('pb-g',p.banho.g);sv('pb-gi',p.banho.gi);
-  sv('pbt-mi',p.bt.mi);sv('pbt-p',p.bt.p);sv('pbt-m',p.bt.m);sv('pbt-g',p.bt.g);sv('pbt-gi',p.bt.gi);
+  sv('pb-p',p.banho.p);sv('pb-m',p.banho.m);sv('pb-g',p.banho.g);
+  sv('pbt-p',p.bt.p);sv('pbt-m',p.bt.m);sv('pbt-g',p.bt.g);
   sv('pdw-av',p.dw.av);sv('pdw-3x',p.dw.t3x);sv('pdw-5x',p.dw.t5x);
   sv('ptx-simples',p.taxi?.simples||30);sv('ptx-idavolta',p.taxi?.idavolta||55);sv('ptx-mensal',p.taxi?.mensal||200);
   sv('pad-av',p.adest?.av||150);sv('pad-p4',p.adest?.p4||520);sv('pad-p8',p.adest?.p8||960);sv('pad-men',p.adest?.men||400);
-  renderRacoesConfig();
-  renderProfissionaisConfig();
   verificarStatusFirebase();
 }
 
@@ -3254,55 +3064,14 @@ function salvarPrecos(){
   const gn=id=>parseFloat(document.getElementById(id)?.value)||0;
   config.precos={
     creche:{av:gn('pc-av'),t3x:gn('pc-3x'),t5x:gn('pc-5x')},
-    hotel:{mi:gn('ph-mi'),p:gn('ph-p'),m:gn('ph-m'),g:gn('ph-g'),gi:gn('ph-gi'),gp:gn('ph-gp'),gm:gn('ph-gm'),gg:gn('ph-gg'),av:gn('ph-av'),ro:gn('ph-ro')},
-    banho:{mi:gn('pb-mi'),p:gn('pb-p'),m:gn('pb-m'),g:gn('pb-g'),gi:gn('pb-gi')},
-    bt:{mi:gn('pbt-mi'),p:gn('pbt-p'),m:gn('pbt-m'),g:gn('pbt-g'),gi:gn('pbt-gi')},
+    hotel:{p:gn('ph-p'),m:gn('ph-m'),g:gn('ph-g'),gp:gn('ph-gp'),gm:gn('ph-gm'),gg:gn('ph-gg'),av:gn('ph-av'),ro:gn('ph-ro')},
+    banho:{p:gn('pb-p'),m:gn('pb-m'),g:gn('pb-g')},
+    bt:{p:gn('pbt-p'),m:gn('pbt-m'),g:gn('pbt-g')},
     dw:{av:gn('pdw-av'),t3x:gn('pdw-3x'),t5x:gn('pdw-5x')},
     taxi:{simples:gn('ptx-simples'),idavolta:gn('ptx-idavolta'),mensal:gn('ptx-mensal')},
     adest:{av:gn('pad-av'),p4:gn('pad-p4'),p8:gn('pad-p8'),men:gn('pad-men')}
   };
-  // Salva rações
-  salvarRacoesConfig();
-  save(); toast('✅ Preços e rações salvos!');
-}
-
-// ── PROFISSIONAIS & COMISSÃO ─────────────────────────
-function renderProfissionaisConfig() {
-  const el = document.getElementById('profissionais-list');
-  if(!el) return;
-  if(!profissionais.length) {
-    el.innerHTML = '<div style="font-size:11px;color:var(--tx3);text-align:center;padding:10px">Nenhum profissional cadastrado</div>';
-    return;
-  }
-  el.innerHTML = profissionais.map((p, idx) => {
-    return '<div style="display:flex;align-items:center;gap:8px;padding:8px;border-bottom:1px solid var(--border);background:#fff;border-radius:6px;margin-bottom:4px">' +
-      '<div style="flex:1">' +
-      '<div style="font-size:12px;font-weight:800;color:var(--tx)">' + p.nome + '</div>' +
-      '<div style="font-size:10px;color:var(--tx3)">' + p.funcao + ' • Comissão: ' + p.comissao + '%</div>' +
-      '</div>' +
-      '<button onclick="delProfissional(' + idx + ')" style="padding:4px 8px;background:#FEE2E2;color:#DC2626;border:none;border-radius:6px;font-size:10px;font-weight:800;cursor:pointer">🗑️</button>' +
-      '</div>';
-  }).join('');
-}
-
-function addProfissional() {
-  const nome = prompt('Nome do profissional:');
-  if(!nome) return;
-  const funcao = prompt('Função (ex: Banhista, Tosador, Adestrador):') || 'Profissional';
-  const comissao = parseFloat(prompt('Comissão (%):') || '0');
-  profissionais.push({nome, funcao, comissao, ts:Date.now()});
-  renderProfissionaisConfig();
-  save();
-  toast('✅ Profissional adicionado!');
-}
-
-function delProfissional(idx) {
-  if(confirm('Remover este profissional?')) {
-    profissionais.splice(idx, 1);
-    renderProfissionaisConfig();
-    save();
-    toast('🗑️ Profissional removido!');
-  }
+  save(); toast('✅ Preços salvos!');
 }
 
 function salvarFirebaseCfg(){
@@ -3313,7 +3082,9 @@ function salvarFirebaseCfg(){
 let fatPgFiltro = 'dia';
 
 function setFatPgFiltro(tipo, btn) {
-  setFiltroGenerico(window, 'fatPgFiltro', tipo, btn, '#pg-fat');
+  fatPgFiltro = tipo;
+  document.querySelectorAll('#pg-fat .fat-btn').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
   renderFaturamento();
 }
 
@@ -3337,7 +3108,33 @@ function renderFaturamento() {
   const vals  = [por.creche, por.hotel, por.banho, por.dw, por.taxi||0, por.adest||0];
   const cores  = ['#16A34A','#1A4BAA','#EA580C','#7C3AED','#DC2626','#9333EA'];
   const nomes  = ['Creche','Hotel','Banho/Tosa','Dog Walker','Táxi Dog','Adestramento'];
-  renderDonutChart('donut-svg-pg', 'donut-total-pg', 'fat-legend-pg', vals, cores, nomes, total);
+  const svg    = document.getElementById('donut-svg-pg');
+  document.getElementById('donut-total-pg').textContent = 'R$' + total;
+  const cx=55, cy=55, r=36, circ=2*Math.PI*r;
+  if(total===0){
+    svg.innerHTML=`<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#EEF4FF" stroke-width="14"/>`;
+  } else {
+    let offset=0;
+    let paths=`<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#EEF4FF" stroke-width="14"/>`;
+    vals.forEach((v,i)=>{
+      if(!v) return;
+      const pct=v/total, dash=pct*circ, gap=circ-dash;
+      paths+=`<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${cores[i]}" stroke-width="14"
+        stroke-dasharray="${dash.toFixed(2)} ${gap.toFixed(2)}"
+        stroke-dashoffset="${(-offset*circ+circ*0.25).toFixed(2)}"
+        transform="rotate(-90 ${cx} ${cy})"/>`;
+      offset+=pct;
+    });
+    paths+=`<circle cx="${cx}" cy="${cy}" r="24" fill="white"/>`;
+    svg.innerHTML=paths;
+  }
+  document.getElementById('fat-legend-pg').innerHTML = vals.map((v,i)=>`
+    <div class="leg-item">
+      <div class="leg-dot" style="background:${cores[i]}"></div>
+      <span class="leg-lbl">${nomes[i]}</span>
+      <span class="leg-val">R$${v}</span>
+      <span class="leg-pct">${total?Math.round(v/total*100):0}%</span>
+    </div>`).join('');
 
   // Histórico de lançamentos pagos no período
   const hj = hoje();
@@ -3352,8 +3149,8 @@ function renderFaturamento() {
     const k=chave(new Date(d)), dd=dados[k]||{};
     const dataFmt = new Date(k+'T00:00:00').toLocaleDateString('pt-BR');
     ['creche','hotel','banho','dw','taxi'].forEach(s=>{
-      (dd[s]||[]).filter(r=>r.pagou==='Sim').forEach((r,ri)=>{
-        lancamentos.push({nome:r.nome, tutor:r.tutor||'—', servico:s, desc:r.serv||r.plano||s, valor:+(r.valor||0), pgto:r.pgto||'—', data:dataFmt, dataSort:k, idx:ri});
+      (dd[s]||[]).filter(r=>r.pagou==='Sim').forEach(r=>{
+        lancamentos.push({nome:r.nome, tutor:r.tutor||'—', servico:s, desc:r.serv||r.plano||s, valor:+(r.valor||0), pgto:r.pgto||'—', data:dataFmt, dataSort:k});
       });
     });
   }
@@ -3381,7 +3178,7 @@ function renderFaturamento() {
 
   el.innerHTML = `<div class="card" style="margin:0 16px 12px">`+
     lancamentos.map(l=>`
-      <div style="display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .12s" onclick="abrirMenuLancamento('${l.dataSort}','${l.servico}','${l.nome}','${l.idx}','${l.valor.toFixed(2)}')" onmouseover="this.style.background='var(--bg)'" onmouseout="this.style.background=''">
+      <div style="display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--border)">
         <div style="width:34px;height:34px;border-radius:50%;background:${bgCores[l.servico]};display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0">${icones[l.servico]||'💰'}</div>
         <div style="flex:1">
           <div style="font-weight:800;font-size:13px;color:var(--tx)">${l.nome}</div>
@@ -3391,67 +3188,7 @@ function renderFaturamento() {
           <div style="font-size:14px;font-weight:900;color:var(--verde-d)">+R$${l.valor.toFixed(2).replace('.',',')}</div>
           <div style="font-size:10px;font-weight:800;padding:1px 6px;border-radius:10px;background:${bgCores[l.servico]};color:${txCores[l.servico]};margin-top:2px">${icones[l.servico]} ${l.servico.charAt(0).toUpperCase()+l.servico.slice(1)}</div>
         </div>
-        <div style="color:var(--tx3);font-size:18px;flex-shrink:0;padding-left:4px">⋮</div>
       </div>`).join('')+`</div>`;
-}
-
-// ── CLIENTES VIPs ─────────────────────────────────────
-function renderVIPs() {
-  const el = document.getElementById('vips-list');
-  if(!el) return;
-
-  // Calcula frequência de check-ins por tutor
-  const tutorFreq = {};
-  Object.values(dados).forEach(function(dia) {
-    ['creche','hotel','banho','dw','taxi'].forEach(function(setor) {
-      (dia[setor]||[]).forEach(function(reg) {
-        const tutor = reg.tutor || '—';
-        if(!tutorFreq[tutor]) tutorFreq[tutor] = {count:0, pets:new Set(), totalValor:0};
-        tutorFreq[tutor].count++;
-        tutorFreq[tutor].pets.add(reg.nome);
-        tutorFreq[tutor].totalValor += (reg.valor || 0);
-      });
-    });
-  });
-
-  // Converte para array e ordena por frequência
-  const ranking = Object.entries(tutorFreq)
-    .map(([tutor, data]) => ({tutor, count:data.count, pets:Array.from(data.pets), totalValor:data.totalValor}))
-    .sort((a,b) => b.count - a.count);
-
-  // Filtra clientes VIPs (+10 check-ins)
-  const vips = ranking.filter(r => r.count >= 10);
-
-  // Atualiza KPIs
-  document.getElementById('vips-total').textContent = vips.length;
-  document.getElementById('vips-top').textContent = ranking.length > 0 ? ranking[0].count : 0;
-  const media = ranking.length > 0 ? Math.round(ranking.reduce((s,r) => s + r.count, 0) / ranking.length) : 0;
-  document.getElementById('vips-media').textContent = media;
-
-  if(!ranking.length) {
-    el.innerHTML = '<div class="empty"><span class="empty-e">👑</span><div class="empty-t">Nenhum cliente cadastrado</div><div class="empty-s">Os tutores com +10 check-ins aparecem aqui</div></div>';
-    return;
-  }
-
-  // Renderiza ranking
-  el.innerHTML = '<div class="card" style="margin:0 16px 12px">' + ranking.map((r, idx) => {
-    const isVip = r.count >= 10;
-    const medal = idx === 0 ? '🥇' : idx === 1 ? '🥈' : idx === 2 ? '🥉' : '';
-    const bg = isVip ? 'linear-gradient(135deg,#FFD700,#FFA500)' : 'var(--card)';
-    const color = isVip ? '#fff' : 'var(--tx)';
-    return '<div style="display:flex;align-items:center;gap:12px;padding:12px 14px;border-bottom:1px solid var(--border);background:' + bg + ';color:' + color + '">' +
-      '<div style="font-size:24px;flex-shrink:0">' + (medal || (idx + 1)) + '</div>' +
-      '<div style="flex:1">' +
-      '<div style="font-weight:800;font-size:14px">' + r.tutor + '</div>' +
-      '<div style="font-size:11px;opacity:.8;margin-top:2px">' + r.pets.slice(0,3).join(', ') + (r.pets.length > 3 ? ' +' + (r.pets.length - 3) : '') + '</div>' +
-      '</div>' +
-      '<div style="text-align:right">' +
-      '<div style="font-weight:900;font-size:20px">' + r.count + '</div>' +
-      '<div style="font-size:10px;opacity:.8">check-ins</div>' +
-      '</div>' +
-      (isVip ? '<div style="font-size:16px">👑</div>' : '') +
-      '</div>';
-  }).join('') + '</div>';
 }
 
 // ── 13. SAÍDAS ──────────────────────────────────────
@@ -3473,7 +3210,9 @@ let saidaFiltro = 'dia';
 let editSaidaIdx = null;
 
 function setSaidaFiltro(tipo, btn) {
-  setFiltroGenerico(window, 'saidaFiltro', tipo, btn, '#pg-saidas');
+  saidaFiltro = tipo;
+  document.querySelectorAll('#pg-saidas .fat-btn').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
   renderSaidas();
 }
 
@@ -3669,7 +3408,7 @@ function removerAlertaVacina(petIdx) {
 // ═══ WHATSAPP ITEM ROW ═══
 function abrirWAItem(nome, tutor, tel, servico, data, valor, setor) {
   const nm = numWA(tel);
-  // Sem telefone: abre modal mesmo assim (permite copiar/editar)
+  if(!nm){ toast('⚠️ Sem telefone cadastrado para este pet.'); return; }
   // Verifica se serviço está habilitado para WA
   const setorKey = setor || 'geral';
   const waCfg = config.waMsgs || {};
@@ -3681,14 +3420,24 @@ function abrirWAItem(nome, tutor, tel, servico, data, valor, setor) {
 
   // Monta mensagens com templates editáveis
   const tplConfirm = (waCfg['tpl_confirm_'+setorKey] || waCfg.tpl_confirm_geral ||
-    'Olá {tutor}! 👋\n\nConfirmamos o agendamento de *{servico}* para o pet *{nome}*\n📅 Data: *{data}*\n{valor}Estamos te esperando na *{empresa}*! 🐾\n📱 {wa}');
+    'Olá {tutor}! 👋
+
+Confirmamos o agendamento de *{servico}* para o pet *{nome}*
+📅 Data: *{data}*
+{valor}Estamos te esperando na *{empresa}*! 🐾
+📱 {wa}');
   const tplChegou = (waCfg['tpl_chegou_'+setorKey] || waCfg.tpl_chegou_geral ||
-    'Olá {tutor}! 👋\n\n*{nome}* chegou na *{empresa}* e está bem! 🐾\nFique tranquilo(a), cuidaremos com muito carinho! 💚\n📱 {wa}');
+    'Olá {tutor}! 👋
+
+*{nome}* chegou na *{empresa}* e está bem! 🐾
+Fique tranquilo(a), cuidaremos com muito carinho! 💚
+📱 {wa}');
 
   const vars = {
     tutor: primeiroNome || '',
     nome, servico, data, empresa, wa,
-    valor: valor ? '💰 Valor: *R$'+valor+'*\n' : ''
+    valor: valor ? '💰 Valor: *R$'+valor+'*
+' : ''
   };
   const aplicar = (tpl) => tpl.replace(/\{(\w+)\}/g, (_,k) => vars[k]||'');
 
@@ -3696,89 +3445,42 @@ function abrirWAItem(nome, tutor, tel, servico, data, valor, setor) {
   const modal = document.getElementById('modal-wa-item');
   document.getElementById('wai-nome').textContent = nome;
   document.getElementById('wai-tutor').textContent = tutor || '—';
-  var servLine = document.getElementById('wai-serv-line');
-  if (servLine) servLine.textContent = servico ? ('🐾 ' + servico + (data ? ' • ' + data : '')) : '';
-  var telDisplay = document.getElementById('wai-tel-display');
-  if (telDisplay) {
-    if (tel) {
-      telDisplay.textContent = tel;
-      telDisplay.style.color = '';
-    } else {
-      telDisplay.textContent = '⚠️ Sem telefone — mensagem será copiada';
-      telDisplay.style.color = '#DC2626';
-    }
-  }
+  document.getElementById('wai-serv').textContent = servico + ' • ' + data;
+  document.getElementById('wai-tel-display').textContent = tel;
 
-  // Mensagens por tipo
-  var msgAvulso = 'Olá ' + (primeiroNome||'') + '! 😊\n\n' + empresa + ' entrando em contato sobre o(a) *' + nome + '*. \n\n';
-  modal._nm       = nm;
-  modal._tel      = tel;
+  // Preenche textarea da confirmação
+  document.getElementById('wai-msg-confirm').value = aplicar(tplConfirm);
+  document.getElementById('wai-msg-chegou').value  = aplicar(tplChegou);
+
+  // Guarda nm para envio
+  modal._nm = nm;
   modal._setorKey = setorKey;
-  modal._nome     = nome;
-  modal._msgs     = {
-    confirm: aplicar(tplConfirm),
-    chegou:  aplicar(tplChegou),
-    saiu:    aplicar(tplSaiu),
-    avulso:  msgAvulso
-  };
+  modal._nome = nome;
 
-  // Avatar
-  var petObj2 = pets.find(function(p){ return p.nome === nome; });
-  var avEl = document.getElementById('wai-av');
-  if (avEl) {
-    avEl.style.overflow = 'hidden';
-    if (petObj2 && petObj2.foto) {
-      avEl.innerHTML = '<img src="'+petObj2.foto+'" style="width:38px;height:38px;object-fit:cover;border-radius:50%">';
-    } else {
-      avEl.textContent = (nome||'?')[0].toUpperCase();
-    }
-  }
-
+  // Mostra aba confirmação por padrão
   waiSetTipo('confirm');
   modal.classList.remove('hid');
 }
 
 function waiSetTipo(tipo) {
-  ['confirm','chegou','saiu','avulso'].forEach(function(t) {
-    var btn = document.getElementById('wai-tab-'+t);
-    if (!btn) return;
-    var on = t === tipo;
-    btn.style.background  = on ? 'var(--azul)' : 'var(--bg)';
-    btn.style.color       = on ? '#fff'        : 'var(--tx2)';
-    btn.style.borderColor = on ? 'var(--azul)' : 'var(--border2)';
-  });
+  document.getElementById('wai-tab-confirm').classList.toggle('on', tipo==='confirm');
+  document.getElementById('wai-tab-chegou').classList.toggle('on', tipo==='chegou');
+  document.getElementById('wai-area-confirm').style.display = tipo==='confirm'?'block':'none';
+  document.getElementById('wai-area-chegou').style.display  = tipo==='chegou'?'block':'none';
   document.getElementById('modal-wa-item')._tipo = tipo;
-  var msgs = document.getElementById('modal-wa-item')._msgs || {};
-  var ta   = document.getElementById('wai-msg-unico');
-  if (ta) ta.value = msgs[tipo] || '';
 }
 
 function waiEnviar() {
-  var modal = document.getElementById('modal-wa-item');
-  var ta    = document.getElementById('wai-msg-unico');
-  var msg   = ta ? ta.value.trim() : '';
-  if (!msg) { toast('⚠️ Mensagem vazia.'); return; }
-  if (!modal._nm) {
-    // Sem telefone — copia a mensagem
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(msg).then(function() {
-        toast('📋 Mensagem copiada! Sem telefone cadastrado — cole no WhatsApp manualmente.');
-      }).catch(function() { toast('⚠️ Sem telefone. Cadastre na ficha do pet.'); });
-    } else {
-      toast('⚠️ Sem telefone cadastrado. Edite a ficha do pet.');
-    }
-    return;
-  }
-  // Com telefone — abre WhatsApp
-  var url = 'https://wa.me/' + modal._nm + '?text=' + encodeURIComponent(msg);
-  var win = window.open(url, '_blank');
-  if (!win) {
-    // Popup bloqueado — tenta location
-    location.href = url;
-  }
+  const modal = document.getElementById('modal-wa-item');
+  const tipo = modal._tipo || 'confirm';
+  const msg = document.getElementById('wai-msg-'+tipo).value.trim();
+  if(!msg){ toast('⚠️ Mensagem vazia.'); return; }
+  const url = 'https://wa.me/' + modal._nm + '?text=' + encodeURIComponent(msg);
+  window.open(url, '_blank');
   modal.classList.add('hid');
-  toast('📲 Abrindo WhatsApp...');
+  toast('📲 WhatsApp aberto!');
 }
+
 function waiSalvarTemplate() {
   const modal = document.getElementById('modal-wa-item');
   const tipo = modal._tipo || 'confirm';
@@ -3795,7 +3497,9 @@ let adestFiltro = 'dia';
 let editAdestIdx = null;
 
 function setAdestFiltro(tipo, btn) {
-  setFiltroGenerico(window, 'adestFiltro', tipo, btn, '#pg-adest');
+  adestFiltro = tipo;
+  document.querySelectorAll('#pg-adest .fat-btn').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
   renderAdest();
 }
 
@@ -3947,66 +3651,16 @@ function lerImport(evt){
 
 // ═══ COMPARTILHAR ═══
 function compartilhar(){
-  const hj=hoje(), k=chave(hj);
-  const dd=dados[k]||{creche:[],hotel:[],banho:[],dw:[],taxi:[]};
-  const por=fatPeriodo('dia');
-  const fatHoje=por.creche+por.hotel+por.banho+por.dw+(por.taxi||0)+(por.adest||0);
-
-  // Nomes dos pets por setor
-  function listarPets(arr){ return arr&&arr.length ? arr.map(function(r){return r.nome+(r.hora?' ('+r.hora+')':'');}).join(', ') : 'nenhum'; }
-
-  // Pendentes
-  let pend=0;
-  ['creche','hotel','banho','dw','taxi'].forEach(function(s){ (dd[s]||[]).filter(function(r){return r.pagou!=='Sim';}).forEach(function(){pend++;}); });
-
-  // Adestramento hoje
-  const hjStr=chave(hj);
-  const adestHoje=(typeof adests!=='undefined'?adests.filter(function(a){return a.data===hjStr;}):[] );
-
-  // Monta texto completo
-  const linhas=[
-    '🐾 *'+config.nome+'* — '+hj.toLocaleDateString('pt-BR',{weekday:'long',day:'numeric',month:'long'}),
-    '',
-    '📊 *Resumo do dia:*',
-    '🏫 Creche: '+((dd.creche||[]).length)+' pet(s) — '+listarPets(dd.creche),
-    '🏨 Hotel: '+((dd.hotel||[]).length)+' hospedado(s) — '+listarPets(dd.hotel),
-    '✂️ Banho/Tosa: '+((dd.banho||[]).length)+' — '+listarPets(dd.banho),
-    '🐕 Dog Walker: '+((dd.dw||[]).length)+' — '+listarPets(dd.dw),
-    '🚗 Táxi Dog: '+((dd.taxi||[]).length)+' — '+listarPets(dd.taxi),
-    '🎓 Adestramento: '+adestHoje.length+' sessão(ões)',
-    '',
-    '💰 *Faturamento do dia:*',
-    '   Creche:        R$'+por.creche.toFixed(2).replace('.',','),
-    '   Hotel:         R$'+por.hotel.toFixed(2).replace('.',','),
-    '   Banho/Tosa:    R$'+por.banho.toFixed(2).replace('.',','),
-    '   Dog Walker:    R$'+por.dw.toFixed(2).replace('.',','),
-    '   Táxi Dog:      R$'+(por.taxi||0).toFixed(2).replace('.',','),
-    '   Adestramento:  R$'+(por.adest||0).toFixed(2).replace('.',','),
-    '   *Total: R$'+fatHoje.toFixed(2).replace('.',',')+' *',
-    '',
-    (pend>0 ? '⏳ *'+pend+' pagamento(s) pendente(s)*' : '✅ Todos os pagamentos confirmados!'),
-    '',
-    '🐾 Total de pets cadastrados: '+pets.length,
-    '',
-    '📱 '+config.ig+' | WhatsApp: '+config.wa
-  ];
-
-  const txt = linhas.join('\n');
-  if(navigator.share) navigator.share({title:config.nome, text:txt}).catch(function(){
-    navigator.clipboard&&navigator.clipboard.writeText(txt).then(function(){toast('📋 Copiado!');});
-  });
-  else navigator.clipboard&&navigator.clipboard.writeText(txt).then(function(){toast('📋 Resumo copiado!');});
+  const hj=hoje(),k=chave(hj);
+  const dd=dados[k]||{creche:[],hotel:[],banho:[],dw:[]};
+  const {total}=fatPeriodo('dia');
+  const txt=`🐾 ${config.nome} — ${hj.toLocaleDateString('pt-BR')}\n\n🏫 Creche: ${(dd.creche||[]).length} pets\n🏨 Hotel: ${(dd.hotel||[]).length} hospedados\n✂️ Banho/Tosa: ${(dd.banho||[]).length}\n🐕 Dog Walker: ${(dd.dw||[]).length}\n💰 Faturado: R$${Object.values(total||{}).reduce((a,v)=>a+v,0)||0}\n\n📱 ${config.ig} | WhatsApp: ${config.wa}`;
+  if(navigator.share) navigator.share({title:'Anguli Pet',text:txt}).catch(()=>{});
+  else navigator.clipboard?.writeText(txt).then(()=>toast('📋 Copiado!'));
 }
 
 // ═══ SINCRONIZAR (manual) ═══
 function sincronizar(){
-  if (IS_LOCAL) {
-    save();
-    const btn2=document.getElementById('syncbtn');
-    if(btn2){btn2.classList.add('spin');setTimeout(()=>btn2.classList.remove('spin'),800);}
-    toast('💾 Dados salvos localmente!');
-    return;
-  }
   const btn=document.getElementById('syncbtn');
   btn.classList.add('spin');
   if(fbUID){
@@ -4093,53 +3747,27 @@ function verificarStatusFirebase() {
     if (entrou) return;
     entrou = true;
     splash.classList.add('out');
-    // Sempre mostra login — segurança obrigatória
-    document.getElementById('pg-login').style.display='flex';
-    document.getElementById('pg-login').classList.add('on');
+    if (temDados) {
+      entrarApp();
+    } else {
+      document.getElementById('pg-login').style.display='flex';
+      document.getElementById('pg-login').classList.add('on');
+    }
   }
 
   // Garante abertura em no máximo 2 segundos, independente do Firebase
   setTimeout(abrirApp, 2000);
 
-  if (IS_LOCAL) {
-    console.log('%c🖥️ Anguli Pet — Modo Local', 'color:#F5B800;font-weight:bold;font-size:13px');
-
-    // Inicializa Firebase mesmo em modo local (e-mail/senha funciona em file://)
-    try {
-      initFirebase();
-      if (typeof firebase !== 'undefined' && firebase.auth) {
-        firebase.auth().onAuthStateChanged(function(user) {
-          if (user) {
-            fbUser = user; fbUID = user.uid;
-            if (!entrou) { entrou = true; splash.classList.add('out'); entrarApp(); }
-          } else {
-            abrirApp();
-          }
-        });
-      } else { abrirApp(); }
-    } catch(e) { console.warn('Firebase local:', e.message); abrirApp(); }
-  } else {
-    // ── MODO NUVEM (http/https) ───────────────────────────
-    try {
-      initFirebase();
-      if (typeof firebase !== 'undefined' && firebase.auth) {
-        firebase.auth().onAuthStateChanged(user => {
-          if (user) {
-            fbUser = user; fbUID = user.uid;
-            // Sessão ativa — entra direto (funciona offline também)
-            if (!entrou) {
-              entrou = true;
-              splash.classList.add('out');
-              entrarApp();
-            }
-          } else {
-            // Sem sessão — mostra login
-            abrirApp();
-          }
-        });
-      }
-    } catch(e) { /* Firebase indisponível — setTimeout acima garante a abertura */ }
-  }
+  // Tenta Firebase em paralelo — se responder antes, abre mais cedo
+  try {
+    initFirebase();
+    if (typeof firebase !== 'undefined' && firebase.auth) {
+      firebase.auth().onAuthStateChanged(user => {
+        if (user) { fbUser = user; fbUID = user.uid; }
+        abrirApp();
+      });
+    }
+  } catch(e) { /* Firebase indisponível — setTimeout acima garante a abertura */ }
 })();
 
 // ══════════════════════════════════════════════
@@ -4157,7 +3785,7 @@ function abrirAgendInteligente() {
   document.getElementById('ai-sel-box').style.display = 'none';
   document.getElementById('ai-infos').classList.remove('show');
   document.getElementById('ai-data').value = chave(hoje());
-  preencherHorariosAgend('banho'); // Default: Banho usa intervalos de 45 min
+  document.getElementById('ai-hora').value = '09:00';
   document.getElementById('ai-valor').value = '';
   document.getElementById('ai-obs').value = '';
   document.getElementById('ai-pagou').value = 'Não';
@@ -4165,27 +3793,6 @@ function abrirAgendInteligente() {
   fecharModal('modal-pet'); fecharModal('modal-cal');
   document.getElementById('modal-agend-int').classList.remove('hid');
   setTimeout(function(){document.getElementById('ai-busca').focus();}, 150);
-}
-
-function preencherHorariosAgend(tipo) {
-  const select = document.getElementById('ai-hora');
-  if(!select) return;
-  
-  // Banho/Tosa usa intervalos de 45 min, outros usam 30 min
-  const intervalo = tipo === 'banho' ? 45 : 30;
-  const inicio = 8; // 8:00
-  const fim = 18; // 18:00
-  
-  let opcoes = [];
-  for(let h = inicio; h < fim; h++) {
-    for(let m = 0; m < 60; m += intervalo) {
-      const hora = String(h).padStart(2, '0') + ':' + String(m).padStart(2, '0');
-      opcoes.push('<option value="' + hora + '">' + hora + '</option>');
-    }
-  }
-  
-  select.innerHTML = opcoes.join('');
-  select.value = '09:00';
 }
 
 function aiPetBusca(q) {
@@ -4261,8 +3868,6 @@ function aiTipo(tipo, el) {
   _aiTipoSel = tipo;
   document.querySelectorAll('.agend-tipo-btn').forEach(function(b){b.classList.remove('on');});
   el.classList.add('on');
-  // Atualiza horários fracionados quando o tipo muda
-  preencherHorariosAgend(tipo);
   if(!document.getElementById('ai-valor').value) {
     var pre = config.precos || {};
     var map = {creche:((pre.creche||{}).av||40), hotel:((pre.hotel||{}).m||80), banho:((pre.banho||{}).m||55), dw:((pre.dw||{}).av||75), adest:150, taxi:45};
@@ -4282,33 +3887,11 @@ function aiSalvar() {
   var nome = p ? p.nome : (document.getElementById('ai-busca').value.trim()||'Sem nome');
   if(!nome) { toast('⚠️ Informe o nome do pet'); return; }
 
-  // Bloqueio por vacina vencida
-  if(p && p.vacina) {
-    var vd = new Date(p.vacina);
-    var hj = hoje();
-    var diff = Math.ceil((vd - hj) / 86400000);
-    if(diff < 0) {
-      confirmar('⚠️ Vacina Vencida', 'A vacina de ' + nome + ' está vencida há ' + Math.abs(diff) + ' dia(s). Deseja continuar com o agendamento?', 'Continuar', function() {
-        aiSalvarConfirmado(data, hora, valor, obs, pagou, p, nome);
-      }, '#DC2626', function() {
-        toast('🚫 Agendamento cancelado por vacina vencida');
-      });
-      return;
-    }
-  }
-
-  aiSalvarConfirmado(data, hora, valor, obs, pagou, p, nome);
-}
-
-function aiSalvarConfirmado(data, hora, valor, obs, pagou, p, nome) {
-
   if(['creche','hotel','banho','dw','taxi'].includes(_aiTipoSel)) {
     if(!dados[data]) dados[data]={creche:[],hotel:[],banho:[],dw:[],taxi:[]};
     ['creche','hotel','banho','dw','taxi'].forEach(function(s){if(!dados[data][s])dados[data][s]=[];});
     var reg = { nome:nome, tutor:p?(p.tutor||''):'', tel:p?(p.tel||p.tel2||''):'', porte:p?(p.porte||'M'):'M',
-      esp:p?(p.esp||'Cachorro'):'Cachorro', hora:hora, valor:valor, obs:obs, pagou:pagou, pgto:'PIX', foto:p?(p.foto||''):'', ts:Date.now(),
-      // Campos para conciliação automática (webhook)
-      gatewayStatus:'Pendente', gatewayId:'', gatewayData:null };
+      esp:p?(p.esp||'Cachorro'):'Cachorro', hora:hora, valor:valor, obs:obs, pagou:pagou, pgto:'PIX', foto:p?(p.foto||''):'', ts:Date.now() };
     if(_aiTipoSel==='banho')  reg.serv='Banho';
     if(_aiTipoSel==='dw')     reg.plano='Avulso';
     if(_aiTipoSel==='hotel')  { reg.diarias=1; reg.alim='Ração local'; reg.vet='Sim'; }
@@ -4316,10 +3899,6 @@ function aiSalvarConfirmado(data, hora, valor, obs, pagou, p, nome) {
     dados[data][_aiTipoSel].push(reg);
     save(); fecharModal('modal-agend-int');
     irParaData(data);
-    // Se a data for hoje, atualiza Check-in/Check-out em tempo real
-    if(data === hoje()) {
-      setTimeout(function(){ renderCkPage(); }, 200);
-    }
     toast('✅ Agendamento salvo!');
   } else if(_aiTipoSel==='adest') {
     adests.push({ tipo:p?'cadastrado':'avulso', nome:nome, tutor:p?(p.tutor||''):'',
@@ -4488,7 +4067,8 @@ function renderBolPet(nome) {
   var bs = _bolState[nome];
   var av = p.foto ? '<img src="'+p.foto+'" style="width:50px;height:50px;object-fit:cover;border-radius:50%">'
                   : '<span style="font-size:20px;font-weight:900">'+nome[0].toUpperCase()+'</span>';
-  var cats=[{id:'social',lbl:'Aubediência',ic:'🐕'},{id:'energia',lbl:'Autividade Física',ic:'🏃'},{id:'alim',lbl:'Aulimentação',ic:'🍖'},{id:'comport',lbl:'Cãoflitos',ic:'⚡'},{id:'saude',lbl:'Fautas & Aumizades',ic:'🐾'}];
+  var cats=[{id:'social',lbl:'Socialização',ic:'🐾'},{id:'energia',lbl:'Energia',ic:'🎾'},
+            {id:'alim',lbl:'Alimentação',ic:'🍖'},{id:'comport',lbl:'Comportamento',ic:'⭐'},{id:'saude',lbl:'Saúde',ic:'💚'}];
   var humores=['😴','😐','😊','🤩','😡'];
   var key = nome.replace(/[^a-zA-Z0-9]/g,'_');
   document.getElementById('bol-content').innerHTML =
@@ -4509,7 +4089,8 @@ function renderBolPet(nome) {
     }).join('')
     +'<div class="bol-row"><div class="bol-label">📝 Observações</div>'
     +'<textarea class="bol-obs-ta" id="bol-obs-'+key+'" oninput="_bolState[\''+nome+'\'].obs=this.value" placeholder="Como foi o dia? Conte para o tutor...">'+bs.obs+'</textarea></div>'
-    
+    +'<button class="btn-gerar-bol" onclick="bolGerar(\''+nome+'\')">'
+    +'<i class="ti ti-clipboard-text"></i> Gerar Boletim</button>'
     +'<button class="btn-wa-bol" onclick="bolEnviarWA(\''+nome+'\')">📲 Enviar pelo WhatsApp</button>'
     +'</div></div>';
 }
@@ -4527,21 +4108,35 @@ function bolBone(nome, cat, n) {
   renderBolPet(nome);
 }
 
+function bolGerar(nome) {
+  var bs=_bolState[nome]||{};
+  var bones=function(n){return '🦴'.repeat(n)+'⬜'.repeat(5-n);};
+  var msg='🐾 *Boletim de '+nome+' — '+new Date().toLocaleDateString('pt-BR')+'*\n\n'
+    +'Humor do dia: '+(bs.humor||'😊')+'\n\n'
+    +'🐾 Socialização:   '+bones(bs.social||0)+'\n'
+    +'🎾 Energia:         '+bones(bs.energia||0)+'\n'
+    +'🍖 Alimentação:     '+bones(bs.alim||0)+'\n'
+    +'⭐ Comportamento:   '+bones(bs.comport||0)+'\n'
+    +'💚 Saúde:           '+bones(bs.saude||0)+'\n'
+    +(bs.obs?'\n📝 '+bs.obs+'\n':'')
+    +'\nCom carinho, *Anguli Pet* 🐾';
+  if(navigator.clipboard) navigator.clipboard.writeText(msg).then(function(){toast('📋 Boletim copiado!');});
+  else toast('📋 Copie o boletim da tela');
+}
 
 function bolEnviarWA(nome) {
   var p=pets.find(function(pt){return pt.nome===nome;})||{tutor:'',tel:'',tel2:''};
   var tel=p.tel||p.tel2||'';
   var bs=_bolState[nome]||{};
-  var bones=function(n){return '🦴'.repeat(n)+'➖'.repeat(5-n);};
+  var bones=function(n){return '🦴'.repeat(n)+'⬜'.repeat(5-n);};
   var pn=p.tutor?p.tutor.split(' ')[0]:'';
   var msg='Olá'+(pn?' '+pn:'')+'! 🐾\n\n'
     +'Boletim de hoje do(a) *'+nome+'*!\n\n'
     +'Humor: '+(bs.humor||'😊')+'\n'
-    +'🐕 Aubediência: '+bones(bs.social||0)+'\n'
-    +'🏃 Autividade Física: '+bones(bs.energia||0)+'\n'
-    +'🍖 Aulimentação: '+bones(bs.alim||0)+'\n'
-    +'⚡ Cãoflitos: '+bones(bs.comport||0)+'\n'
-    +'🐾 Fautas & Aumizades: '+bones(bs.saude||0)+'\n'
+    +'🐾 Socialização: '+bones(bs.social||0)+'\n'
+    +'🎾 Energia: '+bones(bs.energia||0)+'\n'
+    +'🍖 Alimentação: '+bones(bs.alim||0)+'\n'
+    +'⭐ Comportamento: '+bones(bs.comport||0)+'\n'
     +(bs.obs?'\n📝 '+bs.obs+'\n':'')
     +'\n— *Anguli Pet* 🐾';
   if(!tel){
@@ -4552,180 +4147,10 @@ function bolEnviarWA(nome) {
   abrirWA(tel,msg);
 }
 
-// ─ CONTROLE DE ESTOQUE (PET SHOP) ───────────────────────────────
-function renderEstoque() {
-  const el = document.getElementById('estoque-list');
-  if(!el) return;
-  if(!estoque.length) {
-    el.innerHTML = '<div style="font-size:11px;color:var(--tx3);text-align:center;padding:10px">Nenhum produto cadastrado</div>';
-    document.getElementById('estoque-total').textContent = '0';
-    document.getElementById('estoque-baixo').textContent = '0';
-    document.getElementById('estoque-valor').textContent = 'R$0';
-    return;
-  }
-  
-  // Calcula KPIs
-  const totalProdutos = estoque.length;
-  const abaixoMinimo = estoque.filter(p => p.quantidade <= p.minimo).length;
-  const valorTotal = estoque.reduce((s, p) => s + (p.quantidade * (p.preco || 0)), 0);
-  
-  document.getElementById('estoque-total').textContent = totalProdutos;
-  document.getElementById('estoque-baixo').textContent = abaixoMinimo;
-  document.getElementById('estoque-valor').textContent = 'R$' + valorTotal.toFixed(0);
-  
-  el.innerHTML = estoque.map((p, idx) => {
-    const statusClass = p.quantidade <= p.minimo ? 'background:#FEE2E2;color:#DC2626' : 'background:#DCFCE7;color:#14532D';
-    return '<div style="display:flex;align-items:center;gap:8px;padding:8px;border-bottom:1px solid var(--border);background:#fff;border-radius:6px;margin-bottom:4px">' +
-      '<div style="flex:1">' +
-      '<div style="font-size:12px;font-weight:800;color:var(--tx)">' + p.nome + '</div>' +
-      '<div style="font-size:10px;color:var(--tx3)">' + p.categoria + ' • R$ ' + (p.preco||0).toFixed(2) + '</div>' +
-      '</div>' +
-      '<div style="text-align:right">' +
-      '<div style="font-size:14px;font-weight:900;color:var(--tx)">' + p.quantidade + '</div>' +
-      '<div style="font-size:9px;color:var(--tx3)">unid.</div>' +
-      '</div>' +
-      '<button onclick="editarEstoque(' + idx + ')" style="padding:4px 8px;background:#DBEAFE;color:#1E40AF;border:none;border-radius:6px;font-size:10px;font-weight:800;cursor:pointer">✏️</button>' +
-      '<button onclick="delEstoque(' + idx + ')" style="padding:4px 8px;background:#FEE2E2;color:#DC2626;border:none;border-radius:6px;font-size:10px;font-weight:800;cursor:pointer">🗑️</button>' +
-      '</div>';
-  }).join('');
-}
-
-function addEstoque() {
-  const nome = prompt('Nome do produto:');
-  if(!nome) return;
-  const categoria = prompt('Categoria (ex: Ração, Brinquedo, Acessório):') || 'Outro';
-  const quantidade = parseInt(prompt('Quantidade em estoque:') || '0');
-  const minimo = parseInt(prompt('Quantidade mínima para alerta:') || '5');
-  const preco = parseFloat(prompt('Preço unitário (R$):') || '0');
-  estoque.push({nome, categoria, quantidade, minimo, preco, ts:Date.now()});
-  renderEstoque();
-  save();
-  toast('✅ Produto adicionado!');
-}
-
-function editarEstoque(idx) {
-  const p = estoque[idx];
-  const novaQtd = prompt('Nova quantidade:', p.quantidade);
-  if(novaQtd !== null) {
-    estoque[idx].quantidade = parseInt(novaQtd) || 0;
-    renderEstoque();
-    save();
-    toast('✅ Estoque atualizado!');
-  }
-}
-
-function delEstoque(idx) {
-  if(confirm('Remover este produto?')) {
-    estoque.splice(idx, 1);
-    renderEstoque();
-    save();
-    toast('🗑️ Produto removido!');
-  }
-}
-
-// ─ SISTEMA DE CRÉDITOS/FREQUÊNCIA (CRECHE) ─────────────────────────
-function calcularCreditosCreche(petIdx) {
-  const pet = pets[petIdx];
-  if(!pet) return {creditos:0, frequencia:0};
-  
-  // Créditos configurados no pet (ex: 2x por semana = 8 créditos mensais)
-  const creditosConfig = pet.creditos || 0;
-  
-  // Calcula frequência de check-ins no mês atual
-  const hj = hoje();
-  const mesAtual = hj.getMonth();
-  const anoAtual = hj.getFullYear();
-  
-  let frequencia = 0;
-  Object.keys(dados).forEach(function(dataStr) {
-    const d = new Date(dataStr + 'T00:00:00');
-    if(d.getMonth() === mesAtual && d.getFullYear() === anoAtual) {
-      const dia = dados[dataStr];
-      if(dia.creche) {
-        dia.creche.forEach(function(reg) {
-          if(reg.nome === pet.nome && reg.ck === 'chegou') {
-            frequencia++;
-          }
-        });
-      }
-    }
-  });
-  
-  // Créditos restantes
-  const creditosRestantes = Math.max(0, creditosConfig - frequencia);
-  
-  return {creditos:creditosConfig, creditosRestantes, frequencia};
-}
-
-function debitarCreditoCreche(petIdx) {
-  const calc = calcularCreditosCreche(petIdx);
-  // Atualiza frequência do pet para alimentar ranking VIP
-  const pet = pets[petIdx];
-  if(!pet.frequencia) pet.frequencia = 0;
-  pet.frequencia++;
-  save();
-  return calc;
-}
-
-// ─ CÁLCULO DE DIÁRIAS E HORAS EXTRAS (HOTEL) ─────────────────────────
-function calcularDiariasHotel(reg, horaSaida) {
-  if(!reg.cin || !horaSaida) return {diarias:1, horasExtras:0, valorExtra:0};
-  
-  // Horário de check-in e check-out
-  const [cinH, cinM] = reg.cin.split(':').map(Number);
-  const [saiH, saiM] = horaSaida.split(':').map(Number);
-  
-  // Tolerância de 1 hora após o horário de check-out padrão (12:00)
-  const tolerancia = 12;
-  
-  // Calcula diferença em horas
-  const cinMin = cinH * 60 + cinM;
-  const saiMin = saiH * 60 + saiM;
-  const diffMin = saiMin - cinMin;
-  
-  // Se saiu antes do horário de check-in, conta como 1 diária
-  if(diffMin <= 0) return {diarias:1, horasExtras:0, valorExtra:0};
-  
-  // Calcula diárias (cada 24 horas = 1 diária)
-  const diarias = Math.ceil(diffMin / (24 * 60));
-  
-  // Calcula horas extras (após a tolerância)
-  const horasExtras = Math.max(0, saiH - tolerancia);
-  
-  // Valor extra por hora extra (R$ 10 por hora)
-  const valorExtra = horasExtras * 10;
-  
-  return {diarias, horasExtras, valorExtra};
-}
-
-function atualizarDiariasHotel(reg, horaSaida) {
-  const calc = calcularDiariasHotel(reg, horaSaida);
-  reg.diarias = calc.diarias;
-  reg.horasExtras = calc.horasExtras;
-  reg.valorExtra = calc.valorExtra;
-  return calc;
-}
-
 // ─ CHECK-IN RÁPIDO ────────────────────────────
 function abrirCheckinRapido() {
   renderCkModal();
   document.getElementById('modal-ck-rap').classList.remove('hid');
-  // Limpa foto anterior
-  document.getElementById('ck-foto-preview').innerHTML = '';
-  document.getElementById('ck-foto-upload').value = '';
-}
-
-function ckFotoPreview(evt) {
-  const file = evt.target.files[0];
-  if(!file) return;
-  const reader = new FileReader();
-  reader.onload = function(e) {
-    const preview = document.getElementById('ck-foto-preview');
-    preview.innerHTML = '<img src="' + e.target.result + '" style="width:100%;height:100%;object-fit:cover">';
-    // Salva a foto em uma variável global para usar no check-in
-    window._ckFotoData = e.target.result;
-  };
-  reader.readAsDataURL(file);
 }
 
 function renderCkPage() {
@@ -4797,7 +4222,11 @@ function renderCkPage() {
   if (subEl) subEl.textContent = petsHj.length + ' pet(s) hoje';
   if (bIn)  { bIn.textContent  = '✅ ' + ativos;           bIn.style.background  = ativos > 0 ? 'var(--azul)' : '#94A3B8'; }
   if (bOut) { bOut.textContent = '🚪 ' + finalizados.length; bOut.style.background = finalizados.length > 0 ? '#F43F5E' : '#94A3B8'; }
-
+  var navBadge = document.getElementById('nav-ck-badge');
+  if (navBadge) {
+    if (finalizados.length > 0) { navBadge.style.display = 'block'; navBadge.textContent = finalizados.length; }
+    else { navBadge.style.display = 'none'; }
+  }
 
   function cardHtml(item) {
     var p    = pets.find(function(pt){return pt.nome===item.nome;}) || {nome:item.nome, foto:'', tutor:''};
@@ -4814,42 +4243,15 @@ function renderCkPage() {
       : '<div style="width:52px;height:52px;border-radius:50%;background:var(--azul-xl);color:var(--azul);display:flex;align-items:center;justify-content:center;font-size:21px;font-weight:900;border:2px solid var(--border)">' + (p.nome||'?')[0].toUpperCase() + '</div>';
     var av = '<div class="ck-av">' + avHtml + '</div>';
 
-    // Tags de restrição visual
-    var restricoes = p.restricoes || [];
-    var restricoesHtml = '';
-    if (restricoes.length > 0) {
-      var restricaoMap = {
-        'Reativo/Bravo': {class: 'restricao-bravo', icon: '⚠️'},
-        'Cardiopata': {class: 'restricao-cardio', icon: '❤️'},
-        'Alergia Alimentar': {class: 'restricao-alergia', icon: '🥜'},
-        'Agressivo': {class: 'restricao-critica', icon: '🚫'},
-        'Ansioso': {class: 'restricao-alerta', icon: '😰'},
-        'Idoso': {class: 'restricao-info', icon: '👴'},
-        'Filhote': {class: 'restricao-info', icon: '🐕'}
-      };
-      restricoesHtml = '<div style="display:flex;flex-wrap:wrap;margin-bottom:6px">';
-      restricoes.forEach(function(r) {
-        var cfg = restricaoMap[r] || {class: 'restricao-info', icon: 'ℹ️'};
-        restricoesHtml += '<span class="restricao-tag ' + cfg.class + '">' + cfg.icon + ' ' + r + '</span>';
-      });
-      restricoesHtml += '</div>';
-    }
-
     // Linha hotel
     var hotelInfo = item.setor === 'hotel'
       ? (reg.cin && reg.cout ? '🏨 ' + reg.cin + '→' + reg.cout : (reg.diarias ? reg.diarias + 'd' : '')) : '';
-    var horaAgend  = reg.hora ? ' · 🕐 ' + reg.hora : '';
-    var setorLabel  = (SETOR_NOME||{})[item.setor] || item.setor;
-    var servicoInfo = reg.serv || reg.plano || reg.esp || '';
+    var horaAgend = reg.hora ? ' · 🕐 ' + reg.hora : '';
 
     // Status CK — statusCk tem prioridade sobre o estado de presença
     var ckLabel, ckColor;
     if (ck === 'saiu') {
-      var partesSaiu = [];
-      if (reg.horaChegada) partesSaiu.push('✅ Chegou ' + reg.horaChegada);
-      if (reg.horaSaida)   partesSaiu.push('🚪 Saiu ' + reg.horaSaida);
-      else if (reg.horaCk) partesSaiu.push('🚪 Saiu ' + reg.horaCk);
-      ckLabel = partesSaiu.join('  •  ');
+      ckLabel = '🚪 Saiu ' + (reg.horaCk||'');
       ckColor = '#64748B';
     } else if (ck === 'falta') {
       ckLabel = '❌ Não compareceu';
@@ -4888,18 +4290,11 @@ function renderCkPage() {
     // Botões
     var dn = item.nome.replace(/"/g,'&quot;');
     var isCheckout = (ck === 'saiu' || ck === 'falta');
-    // Telefone para WA — pega do registro ou da ficha do pet
-    var telCk = item.reg.tel || (pets.find(function(pt){return pt.nome===item.nome;})||{}).tel || (pets.find(function(pt){return pt.nome===item.nome;})||{}).tel2 || '';
-    var tutorCk = item.reg.tutor || (pets.find(function(pt){return pt.nome===item.nome;})||{}).tutor || '';
-    var horaCkAtual = new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
-    var setorNomeCk = (SETOR_NOME||{})[item.setor] || item.setor;
-
     var btns = '<div class="ck-btns">';
     if (!cancelado) {
       if (isCheckout) {
-        // Checkout: desfazer + WA saiu + pagar
+        // No checkout: botão desfazer sempre disponível
         btns += '<button class="ck-btn chegou" onclick="ckDesfazerEl(this)" data-nome="' + dn + '" data-key="' + item.key + '" data-setor="' + item.setor + '">↩️ Desfazer</button>';
-        btns += '<button class="ck-btn" style="background:#DCFCE7;border-color:#86EFAC;color:#14532D;padding:8px 12px" onclick="ckWAMsgEl(this)" data-nome="' + dn + '" data-tel="' + telCk + '" data-tutor="' + tutorCk + '" data-setor="' + item.setor + '" data-tipo="saiu">📲</button>';
         if (!pago) {
           btns += '<button class="ck-btn pagar" onclick="ckPagarEl(this)" data-nome="' + dn + '" data-key="' + item.key + '" data-setor="' + item.setor + '">💰 Pagar</button>';
         } else {
@@ -4911,9 +4306,6 @@ function renderCkPage() {
         } else if (ck === 'chegou') {
           btns += '<button class="ck-btn saiu" onclick="ckAcaoEl(this)" data-nome="' + dn + '" data-acao="saiu" data-key="' + item.key + '" data-setor="' + item.setor + '">🚗 Saiu</button>';
         }
-        // Botão WA sempre disponível (chegou ou aguardando)
-        var tipoWA = ck === 'chegou' ? 'saiu' : 'confirm';
-        btns += '<button class="ck-btn" style="background:#DCFCE7;border-color:#86EFAC;color:#14532D;padding:8px 12px" onclick="ckWAMsgEl(this)" data-nome="' + dn + '" data-tel="' + telCk + '" data-tutor="' + tutorCk + '" data-setor="' + item.setor + '" data-tipo="' + tipoWA + '">📲</button>';
         if (!pago) {
           btns += '<button class="ck-btn pagar" onclick="ckPagarEl(this)" data-nome="' + dn + '" data-key="' + item.key + '" data-setor="' + item.setor + '">💰 Pagar</button>';
         } else {
@@ -4927,10 +4319,8 @@ function renderCkPage() {
     return '<div class="ck-card setor-' + item.setor + '" style="background:' + cardBg + ';' + topBorder + cardOpacity + '">'
       + av
       + '<div class="ck-info">'
-      + restricoesHtml
       + '<div class="ck-nome" style="' + nomeStyle + '">' + item.nome + '</div>'
       + '<div class="ck-sub">' + (p.tutor||'—') + (hotelInfo ? ' · ' + hotelInfo : '') + horaAgend + '</div>'
-      + '<div style="font-size:10px;color:var(--azul-m);font-weight:700;margin-bottom:3px">' + setorLabel + (servicoInfo ? ' · ' + servicoInfo : '') + '</div>'
       + '<div style="display:flex;gap:4px;justify-content:center;flex-wrap:wrap;margin-bottom:4px">'
       + '<span class="ck-servico" style="background:' + setorBg[item.setor] + ';color:' + setorCor[item.setor] + '">' + setorNome[item.setor] + '</span>'
       + stkBadge
@@ -4986,8 +4376,9 @@ function renderCkPage() {
 
 
 // ── TROCA DE ABA CHECK-IN / CHECK-OUT ──
+var _ckAbaAtiva = 'in'; // AppEstado.ckAba is the canonical source
 function ckMudarAba(aba) {
-  AppEstado.ckAba = aba;
+  _ckAbaAtiva = aba;
   // Sync nav highlight
   var nbCi = document.getElementById('nb-checkin');
   var nbCo = document.getElementById('nb-checkout');
@@ -5073,8 +4464,6 @@ function ckAcao(nome, acao, k, setor) {
   if(!reg) return;
   var hora=new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
   reg.ck=acao; reg.horaCk=hora;
-  if(acao==='chegou') reg.horaChegada=hora;
-  if(acao==='saiu')   reg.horaSaida=hora;
   save();
   var msgs={chegou:'✅ Chegada registrada às '+hora+'!',saiu:'🚗 Saída registrada às '+hora+'!'};
   toast(msgs[acao]||'✅ Ok!');
@@ -5144,9 +4533,12 @@ function ckSetStatus(nome, k, setor, status) {
   }
 
   if (status === 'Não comparecimento') {
-    // Abre painel de multa antes de salvar
+    reg.ck = 'falta';
+    reg.horaCk = horaAtual;
+    save();
     fecharStatusModal();
-    abrirPainelMulta(nome, k, setor, reg, horaAtual);
+    toast('❌ Falta registrada para ' + nome);
+    renderCkPage();
     return;
   }
 
@@ -5234,6 +4626,7 @@ function renderPets() {
 
 // ─ ir() unificado (novas páginas + originais) ─
 function ir(pg) {
+  if(pg==='boletim'){ renderBoletimV3(); }
   if(pg==='checkin'){ renderCkPage(); }
 
   fecharMais();
@@ -5249,7 +4642,7 @@ function ir(pg) {
 // ═══ PET PICKER AUTOCOMPLETE ═══
 function petPickerHtml(idNome, idTutor, idPorte, idEsp) {
   const porteHtml = idPorte
-    ? `<div class="af"><div class="af-l">Porte</div><select class="asel" id="${idPorte}"><option value="Mi">Mini</option><option value="P">P</option><option value="M" selected>M</option><option value="G">G</option><option value="Gi">Gi</option></select></div>`
+    ? `<div class="af"><div class="af-l">Porte</div><select class="asel" id="${idPorte}"><option value="P">P</option><option value="M" selected>M</option><option value="G">G</option></select></div>`
     : '';
   return `
     <div class="af" style="flex-direction:column;gap:4px;grid-column:1/-1">
@@ -5417,6 +4810,9 @@ function pickerFotoCirculo(evt, idNome) {
   };
   reader.readAsDataURL(file);
 }
+// aliases
+function pickerFotoNova(evt, idNome) { pickerFotoCirculo(evt, idNome); }
+function pickerFotoPreviewNovo(evt, idNome) { pickerFotoCirculo(evt, idNome); }
 
 function pickerLimpar(idNome, idTutor, idPorte, idEsp) {
   // Limpa valores
@@ -5522,410 +4918,8 @@ function bindFabAgendar() {
   var fab = document.getElementById('fab-agendar') || document.querySelector('.fab');
   if (fab) fab.onclick = abrirAgendInteligente;
 }
-
-// ══════════════════════════════════════════════════════════
-//  RAÇÕES — Gerenciamento de rações por espécie
-// ══════════════════════════════════════════════════════════
-
-function getRacoes() {
-  return config.racoes || {cachorro:[],gato:[],ave:[],roedor:[]};
-}
-
-function renderRacoesConfig() {
-  ['cachorro','gato','ave','roedor'].forEach(function(esp) {
-    var el = document.getElementById('racoes-'+esp+'-list');
-    if (!el) return;
-    var lista = getRacoes()[esp] || [];
-    if (!lista.length) { el.innerHTML = '<div style="font-size:11px;color:#B45309;padding:4px 0">Nenhuma ração cadastrada</div>'; return; }
-    el.innerHTML = lista.map(function(r, i) {
-      return '<div style="display:flex;align-items:center;gap:6px;margin-bottom:6px">'
-        + '<input class="fi" value="' + r.nome + '" id="racao-nome-' + esp + '-' + i + '" placeholder="Nome da ração" style="flex:2;font-size:12px;padding:6px 8px">'
-        + '<div style="display:flex;align-items:center;gap:3px;flex-shrink:0">'
-        + '<span style="font-size:11px;color:#9A3412;font-weight:700">R$</span>'
-        + '<input class="fi" type="number" value="' + r.valor + '" id="racao-val-' + esp + '-' + i + '" style="width:60px;font-size:12px;padding:6px 8px">'
-        + '</div>'
-        + '<button onclick="delRacao(\'' + esp + '\',' + i + ')" style="width:28px;height:28px;border-radius:50%;background:#FEE2E2;border:none;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#DC2626">&times;</button>'
-        + '</div>';
-    }).join('');
-  });
-}
-
-function addRacao(esp) {
-  if (!config.racoes) config.racoes = {cachorro:[],gato:[],ave:[],roedor:[]};
-  if (!config.racoes[esp]) config.racoes[esp] = [];
-  config.racoes[esp].push({nome:'Nova ração', valor:5});
-  renderRacoesConfig();
-}
-
-function delRacao(esp, idx) {
-  if (!config.racoes || !config.racoes[esp]) return;
-  config.racoes[esp].splice(idx, 1);
-  renderRacoesConfig();
-}
-
-function salvarRacoesConfig() {
-  if (!config.racoes) config.racoes = {cachorro:[],gato:[],ave:[],roedor:[]};
-  ['cachorro','gato','ave','roedor'].forEach(function(esp) {
-    var lista = config.racoes[esp] || [];
-    config.racoes[esp] = lista.map(function(r, i) {
-      var nomeEl = document.getElementById('racao-nome-' + esp + '-' + i);
-      var valEl  = document.getElementById('racao-val-'  + esp + '-' + i);
-      return {
-        nome:  nomeEl ? nomeEl.value.trim() || r.nome : r.nome,
-        valor: valEl  ? parseFloat(valEl.value) || 0  : r.valor
-      };
-    });
-  });
-}
-
-function getRacoesPorEsp(esp) {
-  // Mapeia espécie do pet para chave de rações
-  var espLower = (esp || '').toLowerCase();
-  if (espLower.includes('gato'))    return getRacoes().gato    || [];
-  if (espLower.includes('ave') || espLower.includes('pássaro') || espLower.includes('passaro')) return getRacoes().ave || [];
-  if (espLower.includes('roedor'))  return getRacoes().roedor  || [];
-  return getRacoes().cachorro || []; // padrão: cachorro
-}
-
-function preencherSelectRacao(selectId, esp, valorAtual) {
-  var sel = document.getElementById(selectId);
-  if (!sel) return;
-  var racoes = getRacoesPorEsp(esp);
-  sel.innerHTML = '<option value="" disabled selected>Selecione a ração...</option>'
-    + racoes.map(function(r) {
-        var val = r.nome + '|' + r.valor;
-        var sel2 = valorAtual && valorAtual === r.nome ? ' selected' : '';
-        return '<option value="' + val + '"' + sel2 + '>' + r.nome + ' (+R$' + r.valor + '/dia)</option>';
-      }).join('');
-}
-
-// Mostra/esconde select de ração da Creche conforme alimentação
-function atualizarSelectRacaoCreche() {
-  var alim = document.getElementById('cc-alim') ? document.getElementById('cc-alim').value : '';
-  var wrap = document.getElementById('cc-racao-wrap');
-  if (!wrap) return;
-  if (alim === 'Ração local') {
-    wrap.style.display = 'flex';
-    var esp = 'Cachorro'; // padrão; picker atualiza se pet selecionado
-    preencherSelectRacao('cc-racao', esp);
-  } else {
-    wrap.style.display = 'none';
-    var sel = document.getElementById('cc-racao');
-    if (sel) sel.value = '';
-  }
-}
-
-// Mostra/esconde select de ração do Hotel conforme alimentação
-function atualizarSelectRacaoHotel() {
-  var alim = document.getElementById('hc-alim') ? document.getElementById('hc-alim').value : '';
-  var wrap = document.getElementById('hc-racao-wrap');
-  if (!wrap) return;
-  if (alim === 'Ração local') {
-    wrap.style.display = 'flex';
-    // Pega espécie selecionada
-    var esp = document.getElementById('hc-e') ? document.getElementById('hc-e').value : 'Cachorro';
-    preencherSelectRacao('hc-racao', esp);
-    // Atualiza quando mudar espécie
-    var hce = document.getElementById('hc-e');
-    if (hce && !hce._racaoListener) {
-      hce._racaoListener = true;
-      hce.addEventListener('change', function() {
-        preencherSelectRacao('hc-racao', this.value);
-        atualizarValorHotel();
-      });
-    }
-  } else {
-    wrap.style.display = 'none';
-    var sel = document.getElementById('hc-racao');
-    if (sel) sel.value = '';
-  }
-}
-
-// Preview valor Creche com ração
-function atualizarValorCreche() {
-  var plano = document.getElementById('cc-pl') ? document.getElementById('cc-pl').value : '';
-  var valorBase = plano===''?(P().creche.av||40):plano==='3x Semana'?Math.round((P().creche.t3x||380)/13):Math.round((P().creche.t5x||500)/22);
-  var racaoSel = document.getElementById('cc-racao') ? document.getElementById('cc-racao').value : '';
-  var racaoValor = racaoSel ? parseFloat(racaoSel.split('|')[1]||0) : 0;
-  var total = valorBase + racaoValor;
-  // Mostra preview
-  var prev = document.getElementById('cc-valor-prev');
-  if (!prev) {
-    prev = document.createElement('div');
-    prev.id = 'cc-valor-prev';
-    prev.style.cssText = 'background:var(--azul-bg);border:1px solid var(--azul-xl);border-radius:6px;padding:5px 10px;font-size:12px;font-weight:800;color:var(--azul);margin-top:4px;grid-column:1/-1';
-    var addBtn = document.querySelector('#tc-creche .btn-add');
-    if (addBtn && addBtn.parentNode) addBtn.parentNode.insertBefore(prev, addBtn);
-  }
-  prev.textContent = racaoValor > 0
-    ? '💰 Valor: R$' + valorBase + ' (diária) + R$' + racaoValor + ' (ração) = R$' + total
-    : '💰 Valor: R$' + total;
-}
-
-// Preview valor Hotel com ração
-function atualizarValorHotel() {
-  var esp    = document.getElementById('hc-e')   ? document.getElementById('hc-e').value   : 'Cachorro';
-  var porte  = document.getElementById('hc-p')   ? document.getElementById('hc-p').value   : 'M';
-  var dias   = parseInt(document.getElementById('hc-d') ? document.getElementById('hc-d').value : 1) || 1;
-  var base   = calcPreco('hotel', porte, esp);
-  var racaoSel   = document.getElementById('hc-racao') ? document.getElementById('hc-racao').value : '';
-  var racaoValor = racaoSel ? parseFloat(racaoSel.split('|')[1]||0) : 0;
-  var total  = (base + racaoValor) * dias;
-  var prev = document.getElementById('hc-valor-prev');
-  if (!prev) {
-    prev = document.createElement('div');
-    prev.id = 'hc-valor-prev';
-    prev.style.cssText = 'background:var(--azul-bg);border:1px solid var(--azul-xl);border-radius:6px;padding:5px 10px;font-size:12px;font-weight:800;color:var(--azul);margin-top:4px;grid-column:1/-1';
-    var addBtn = document.querySelector('#tc-hotel .btn-add');
-    if (addBtn && addBtn.parentNode) addBtn.parentNode.insertBefore(prev, addBtn);
-  }
-  prev.textContent = racaoValor > 0
-    ? '💰 R$' + base + ' (diária) + R$' + racaoValor + ' (ração) × ' + dias + 'd = R$' + total
-    : '💰 R$' + base + ' × ' + dias + ' dia(s) = R$' + total;
-}
-
-
-
-// Abre modal WA direto do check-in
-function ckWAMsgEl(btn) {
-  var nome   = btn.getAttribute('data-nome');
-  var tel    = btn.getAttribute('data-tel');
-  var tutor  = btn.getAttribute('data-tutor');
-  var setor  = btn.getAttribute('data-setor');
-  var tipo   = btn.getAttribute('data-tipo') || 'confirm';
-  var hora   = new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
-  var data   = new Date().toLocaleDateString('pt-BR');
-  var setorNomeStr = (SETOR_NOME||{})[setor] || setor;
-  abrirWAItem(nome, tutor, tel, setorNomeStr, data, 0, setor);
-  // Muda para o tipo correto após abrir
-  setTimeout(function(){ waiSetTipo(tipo); }, 80);
-}
-
-
-// WA na agenda — abre modal com o pet do registro
-function abrirWAItemAgenda(setor, pi, idx) {
-  var d   = getDia(idx);
-  var r   = (d[setor] || [])[pi];
-  if (!r) { toast('⚠️ Registro não encontrado'); return; }
-  var petObj  = pets.find(function(p){ return p.nome === r.nome; });
-  var tel     = r.tel || (petObj && petObj.tel) || (petObj && petObj.tel2) || '';
-  var dias    = getDias();
-  var dataFmt = dias[idx] ? dias[idx].toLocaleDateString('pt-BR') : '';
-  var servDesc = r.serv || r.plano || r.esp || (SETOR_NOME||{})[setor] || setor;
-  abrirWAItem(r.nome, r.tutor || (petObj&&petObj.tutor)||'', tel, servDesc, dataFmt, r.valor||0, setor);
-}
-
-
-// Exclui um lançamento do faturamento (marca como não pago)
-function excluirLancamento(dataSort, servico, nome, idx) {
-  confirmar('Excluir lançamento de ' + nome + '?', 'O registro volta para pendente.', '🗑️ Excluir', function() {
-    const dd = dados[dataSort];
-    if (!dd || !dd[servico]) return;
-    const arr = dd[servico];
-    // Acha pelo nome (pode ter mais de um, pega o primeiro que bate)
-    const ri = arr.findIndex(function(r){ return r.nome === nome && r.pagou === 'Sim'; });
-    if (ri >= 0) {
-      arr[ri].pagou = 'Não';
-      arr[ri].pgto  = '';
-    }
-    save();
-    renderFaturamento();
-    renderDash();
-    toast('🗑️ Lançamento removido!');
-  });
-}
-
-
-// ══════════════════════════════════════════════
-//  PAINEL DE MULTA — Não comparecimento
-// ══════════════════════════════════════════════
-function abrirPainelMulta(nome, k, setor, reg, horaAtual) {
-  var valorServico = +(reg.valor || 0);
-
-  // Remove overlay anterior se existir
-  var old = document.getElementById('multa-overlay'); if (old) old.remove();
-
-  var html = '<div id="multa-overlay" style="position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:350;display:flex;align-items:flex-end;justify-content:center">'
-    + '<div onclick="event.stopPropagation()" style="background:#fff;border-radius:20px 20px 0 0;width:100%;max-width:480px;padding:20px 16px 32px;box-shadow:0 -8px 40px rgba(0,0,0,.2)">'
-
-    // Handle
-    + '<div style="width:36px;height:4px;background:#E2E8F0;border-radius:2px;margin:0 auto 16px"></div>'
-
-    // Título
-    + '<div style="font-size:15px;font-weight:900;color:var(--tx);margin-bottom:4px">❌ Não comparecimento</div>'
-    + '<div style="font-size:12px;color:var(--tx3);margin-bottom:16px">' + nome + ' • Valor do serviço: <strong>R$' + valorServico.toFixed(2).replace('.',',') + '</strong></div>'
-
-    // Opções cobrar/não cobrar
-    + '<div style="display:flex;gap:10px;margin-bottom:16px">'
-    + '<label style="flex:1;display:flex;align-items:center;gap:8px;padding:12px;border:2px solid var(--border);border-radius:12px;cursor:pointer;font-size:14px;font-weight:800;color:var(--tx2)" id="multa-label-nao">'
-    + '<input type="radio" name="multa-opcao" value="nao" checked onchange="multaToggle()" style="width:18px;height:18px;accent-color:var(--roxo)"> Não Cobrar'
-    + '</label>'
-    + '<label style="flex:1;display:flex;align-items:center;gap:8px;padding:12px;border:2px solid var(--border);border-radius:12px;cursor:pointer;font-size:14px;font-weight:800;color:var(--tx2)" id="multa-label-sim">'
-    + '<input type="radio" name="multa-opcao" value="sim" onchange="multaToggle()" style="width:18px;height:18px;accent-color:var(--roxo)"> Cobrar'
-    + '</label>'
-    + '</div>'
-
-    // Campo multa (oculto por padrão)
-    + '<div id="multa-campo" style="display:none;margin-bottom:16px">'
-    + '<div style="display:flex;gap:12px;align-items:flex-end">'
-    + '<div style="flex:1">'
-    + '<div style="font-size:11px;font-weight:900;color:var(--tx3);text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px">Multa (%)</div>'
-    + '<input type="number" id="multa-pct" value="10" min="0" max="100" step="1" oninput="multaCalc(' + valorServico + ')" style="width:100%;padding:12px;font-size:20px;font-weight:900;border:2px solid var(--azul-l);border-radius:10px;font-family:var(--f);text-align:center;outline:none">'
-    + '</div>'
-    + '<div style="flex:1;text-align:center;padding-bottom:4px">'
-    + '<div style="font-size:11px;font-weight:900;color:var(--tx3);text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px">Valor</div>'
-    + '<div id="multa-valor-calc" style="font-size:20px;font-weight:900;color:var(--azul)">R$ 0,00</div>'
-    + '</div>'
-    + '</div>'
-    + '</div>'
-
-    // Botões
-    + '<div style="display:flex;gap:10px;margin-top:4px">'
-    + '<button onclick="fecharMultaModal()" style="flex:1;padding:14px;background:var(--roxo-l);color:var(--roxo);border:none;border-radius:12px;font-size:15px;font-weight:900;cursor:pointer;font-family:var(--f)">Fechar</button>'
-    + '<button id="multa-salvar-btn" data-nome="' + nome + '" data-k="' + k + '" data-setor="' + setor + '" data-hora="' + horaAtual + '" data-valor="' + valorServico + '" onclick="salvarMulta(this)" style="flex:1;padding:14px;background:var(--roxo);color:#fff;border:none;border-radius:12px;font-size:15px;font-weight:900;cursor:pointer;font-family:var(--f)">Salvar</button>'
-    + '</div>'
-
-    + '</div></div>';
-
-  document.body.insertAdjacentHTML('beforeend', html);
-  // Inicializa cálculo
-  multaCalc(valorServico);
-}
-
-function multaToggle() {
-  var opcao = document.querySelector('input[name="multa-opcao"]:checked');
-  var campo = document.getElementById('multa-campo');
-  var labelNao = document.getElementById('multa-label-nao');
-  var labelSim = document.getElementById('multa-label-sim');
-  var cobrar = opcao && opcao.value === 'sim';
-
-  if (campo) campo.style.display = cobrar ? 'block' : 'none';
-  if (labelNao) labelNao.style.borderColor = !cobrar ? 'var(--roxo)' : 'var(--border)';
-  if (labelSim) labelSim.style.borderColor =  cobrar ? 'var(--roxo)' : 'var(--border)';
-}
-
-function multaCalc(valorServico) {
-  var pctEl = document.getElementById('multa-pct');
-  var valEl = document.getElementById('multa-valor-calc');
-  if (!pctEl || !valEl) return;
-  var pct   = parseFloat(pctEl.value) || 0;
-  var valor = (valorServico * pct / 100);
-  valEl.textContent = 'R$ ' + valor.toFixed(2).replace('.',',');
-}
-
-function fecharMultaModal() {
-  var el = document.getElementById('multa-overlay'); if (el) el.remove();
-}
-
-function salvarMulta(btn) {
-  var nome         = btn.getAttribute('data-nome');
-  var k            = btn.getAttribute('data-k');
-  var setor        = btn.getAttribute('data-setor');
-  var horaAtual    = btn.getAttribute('data-hora');
-  var valorServico = parseFloat(btn.getAttribute('data-valor')) || 0;
-  var opcao  = document.querySelector('input[name="multa-opcao"]:checked');
-  var cobrar = opcao && opcao.value === 'sim';
-  var pct    = cobrar ? (parseFloat(document.getElementById('multa-pct').value) || 0) : 0;
-  var multa  = cobrar ? +(valorServico * pct / 100).toFixed(2) : 0;
-
-  var dd2 = dados[k]; if (!dd2) return;
-  var arr = dd2[setor] || [];
-  var reg = arr.find(function(r){ return r.nome === nome; });
-  if (!reg) return;
-
-  reg.ck         = 'falta';
-  reg.horaCk     = horaAtual;
-  reg.statusCk   = 'Não comparecimento';
-  reg.multaCobrar = cobrar;
-  reg.multaPct   = pct;
-  reg.multaValor = multa;
-  if (cobrar && multa > 0) {
-    reg.pagou  = 'Sim';
-    reg.valor  = multa;
-    reg.pgto   = 'Multa';
-  }
-
-  save();
-  fecharMultaModal();
-  toast('❌ Falta registrada' + (cobrar && multa > 0 ? ' • Multa: R$ ' + multa.toFixed(2).replace('.',',') : ' • Sem cobrança'));
-  renderCkPage();
-  renderDash();
-}
-
-
-// Menu de ação ao clicar no lançamento confirmado
-function abrirMenuLancamento(dataSort, servico, nome, idx, valor) {
-  var old = document.getElementById('lancamento-menu-overlay');
-  if (old) old.remove();
-
-  var icones2 = {creche:'🏫', hotel:'🏨', banho:'✂️', dw:'🐕', taxi:'🚗', adest:'🎓'};
-  var ico = icones2[servico] || '💰';
-  var nomeServ = servico.charAt(0).toUpperCase() + servico.slice(1);
-  var valFmt   = 'R$ ' + parseFloat(valor).toFixed(2).replace('.',',');
-
-  var el = document.createElement('div');
-  el.id  = 'lancamento-menu-overlay';
-  el.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:400;display:flex;align-items:flex-end;justify-content:center';
-
-  var inner = document.createElement('div');
-  inner.style.cssText = 'background:#fff;border-radius:20px 20px 0 0;width:100%;max-width:480px;padding-bottom:env(safe-area-inset-bottom)';
-  inner.onclick = function(e){ e.stopPropagation(); };
-
-  inner.innerHTML =
-    '<div style="width:36px;height:4px;background:#E2E8F0;border-radius:2px;margin:14px auto 0"></div>'
-  + '<div style="display:flex;align-items:center;gap:12px;padding:16px 16px 12px;border-bottom:1px solid var(--border)">'
-  +   '<div style="width:42px;height:42px;border-radius:50%;background:var(--menta);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">' + ico + '</div>'
-  +   '<div><div style="font-size:15px;font-weight:900;color:var(--tx)">' + nome + '</div>'
-  +   '<div style="font-size:12px;color:var(--tx3);margin-top:2px">' + nomeServ + ' • +' + valFmt + '</div></div>'
-  + '</div>'
-  + '<div style="padding:8px 0">'
-  +   '<button id="_lanc_del_btn" style="width:100%;display:flex;align-items:center;gap:14px;padding:14px 20px;background:none;border:none;cursor:pointer;font-family:var(--f);text-align:left">'
-  +     '<span style="width:36px;height:36px;border-radius:50%;background:#FEE2E2;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">🗑️</span>'
-  +     '<div><div style="font-size:14px;font-weight:800;color:#DC2626">Excluir lançamento</div>'
-  +     '<div style="font-size:11px;color:var(--tx3);margin-top:1px">Remove da lista de confirmados</div></div>'
-  +   '</button>'
-  +   '<button id="_lanc_close_btn" style="width:100%;display:flex;align-items:center;gap:14px;padding:14px 20px;background:none;border:none;cursor:pointer;font-family:var(--f);text-align:left;border-top:1px solid var(--border)">'
-  +     '<span style="width:36px;height:36px;border-radius:50%;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">✕</span>'
-  +     '<div style="font-size:14px;font-weight:800;color:var(--tx2)">Fechar</div>'
-  +   '</button>'
-  + '</div>';
-
-  el.appendChild(inner);
-  document.body.appendChild(el);
-
-  // Fecha ao clicar fora
-  el.addEventListener('click', function(){ el.remove(); });
-
-  // Botão excluir
-  document.getElementById('_lanc_del_btn').addEventListener('click', function(){
-    el.remove();
-    excluirLancamento(dataSort, servico, nome, idx);
-  });
-
-  // Botão fechar
-  document.getElementById('_lanc_close_btn').addEventListener('click', function(){
-    el.remove();
-  });
-}
-
-function menuLancExcluir(btn) {
-  var ds = btn.getAttribute('data-ds');
-  var sv = btn.getAttribute('data-sv');
-  var nm = btn.getAttribute('data-nm');
-  var ix = btn.getAttribute('data-ix');
-  var ov = document.getElementById('lancamento-menu-overlay');
-  if (ov) ov.remove();
-  excluirLancamento(ds, sv, nm, ix);
-}
-
 document.addEventListener('DOMContentLoaded', bindFabAgendar);
 bindFabAgendar();
-
-
-// ══════════════════════════════════════════════════════════
-//  MODO LOCAL — Adaptação de UI e Google Login guard
-// ══════════════════════════════════════════════════════════
-// Funções de adaptação removidas - não utilizadas
 
 </script>
 
@@ -5946,41 +4940,31 @@ bindFabAgendar();
 <div class="mov hid" id="modal-wa-item">
   <div class="modal">
     <div class="mhandle"></div>
-    <div class="mtitle">📲 WhatsApp</div>
-
-    <!-- Info do pet -->
-    <div style="display:flex;align-items:center;gap:10px;background:var(--bg);border-radius:var(--r-sm);padding:10px 12px;margin-bottom:14px">
-      <div style="width:38px;height:38px;border-radius:50%;background:var(--azul-xl);color:var(--azul);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:900;flex-shrink:0" id="wai-av">🐾</div>
-      <div style="flex:1;min-width:0">
-        <div style="font-size:14px;font-weight:900;color:var(--tx)" id="wai-nome">—</div>
-        <div style="font-size:11px;color:var(--tx3);margin-top:1px">
-          👤 <span id="wai-tutor">—</span> &nbsp;•&nbsp; 📱 <span id="wai-tel-display">—</span>
-        </div>
-        <div style="font-size:11px;color:var(--tx3)" id="wai-serv-line"></div>
-      </div>
+    <div class="mtitle">📲 Enviar Mensagem WhatsApp</div>
+    <div style="background:var(--bg2);border-radius:var(--r-sm);padding:10px 12px;margin-bottom:12px">
+      <div style="font-size:13px;font-weight:900;color:var(--tx)" id="wai-nome">—</div>
+      <div style="font-size:11px;color:var(--tx3);margin-top:2px">Tutor: <span id="wai-tutor">—</span></div>
+      <div style="font-size:11px;color:var(--tx3)">Serviço: <span id="wai-serv">—</span></div>
+      <div style="font-size:11px;color:var(--verde-d);font-weight:700">📱 <span id="wai-tel-display">—</span></div>
     </div>
-
-    <!-- Seletor de tipo de mensagem -->
-    <div style="margin-bottom:10px">
-      <div class="fl" style="margin-bottom:6px">Tipo de mensagem</div>
-      <div style="display:flex;gap:6px;flex-wrap:wrap" id="wai-tipo-btns">
-        <button onclick="waiSetTipo('confirm')" id="wai-tab-confirm" style="padding:7px 12px;border-radius:20px;font-size:12px;font-weight:800;border:1.5px solid var(--azul);background:var(--azul);color:#fff;cursor:pointer;font-family:var(--f)">✅ Confirmação</button>
-        <button onclick="waiSetTipo('chegou')"  id="wai-tab-chegou"  style="padding:7px 12px;border-radius:20px;font-size:12px;font-weight:800;border:1.5px solid var(--border2);background:var(--bg);color:var(--tx2);cursor:pointer;font-family:var(--f)">🏠 Chegou</button>
-        <button onclick="waiSetTipo('saiu')"    id="wai-tab-saiu"    style="padding:7px 12px;border-radius:20px;font-size:12px;font-weight:800;border:1.5px solid var(--border2);background:var(--bg);color:var(--tx2);cursor:pointer;font-family:var(--f)">🚪 Saiu</button>
-        <button onclick="waiSetTipo('avulso')"  id="wai-tab-avulso"  style="padding:7px 12px;border-radius:20px;font-size:12px;font-weight:800;border:1.5px solid var(--border2);background:var(--bg);color:var(--tx2);cursor:pointer;font-family:var(--f)">✏️ Avulso</button>
-      </div>
+    <div style="display:flex;gap:6px;margin-bottom:12px">
+      <button id="wai-tab-confirm" class="stab on" data-setor="wai-confirm" style="flex:1;border-radius:var(--r-sm)" onclick="waiSetTipo('confirm')">✅ Confirmação</button>
+      <button id="wai-tab-chegou"  class="stab"    data-setor="wai-chegou"  style="flex:1;border-radius:var(--r-sm)" onclick="waiSetTipo('chegou')">🏠 Pet chegou</button>
     </div>
-
-    <!-- Textarea editável — única -->
-    <div class="fl" style="margin-bottom:5px">Mensagem <span style="font-size:10px;color:var(--tx3);font-weight:600">(edite à vontade antes de enviar)</span></div>
-    <textarea class="fta" id="wai-msg-unico" style="min-height:160px;font-size:13px;line-height:1.6"></textarea>
-
+    <div id="wai-area-confirm">
+      <label class="fl">Mensagem de confirmação <span style="font-size:10px;color:var(--tx3)">(editável)</span></label>
+      <textarea class="fta" id="wai-msg-confirm" style="min-height:140px;font-size:13px"></textarea>
+    </div>
+    <div id="wai-area-chegou" style="display:none">
+      <label class="fl">Mensagem de chegada <span style="font-size:10px;color:var(--tx3)">(editável)</span></label>
+      <textarea class="fta" id="wai-msg-chegou" style="min-height:140px;font-size:13px"></textarea>
+    </div>
+    <div style="margin-top:8px;display:flex;align-items:center;gap:6px">
+      <button class="btn-ghost" style="font-size:11px;padding:6px 10px" onclick="waiSalvarTemplate()" title="Salva como padrão para este serviço">💾 Salvar como padrão</button>
+    </div>
     <div class="macts">
       <button class="btn-ghost" onclick="document.getElementById('modal-wa-item').classList.add('hid')">Cancelar</button>
-      <button class="btn-pr" style="background:#25D366;box-shadow:0 3px 10px rgba(37,211,102,.3)" onclick="waiEnviar()">
-        <i class="ti ti-device-mobile" style="font-size:18px"></i>
-        Enviar
-      </button>
+      <button class="btn-pr" onclick="waiEnviar()"><i class="ti ti-brand-whatsapp"></i> Enviar no WhatsApp</button>
     </div>
   </div>
 </div>
